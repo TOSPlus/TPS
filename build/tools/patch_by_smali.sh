@@ -282,6 +282,7 @@ replace_method_in_smali()
     local LINE_NUM=
     local OLD_IFS=$IFS
     local REPLACE_LINE=false
+    local LINE_CNT=1
     # to keep white space of each line
     IFS=''
     while read LINE
@@ -303,13 +304,20 @@ replace_method_in_smali()
                 LINE_NUM=`echo "$METHOD_LINE" | cut -d':' -f1`
                 while true
                 do
-                    local LINE=`sed -n "$LINE_NUM p" "$SMALI_FILE"`
+                    local LINE2=`sed -n "$LINE_NUM p" "$SMALI_FILE"`
                     # delete line
                     sed -i "$LINE_NUM d" "$SMALI_FILE"
-                    if [ "${LINE:0:11}" = ".end method" ]; then
+                    if [ "${LINE2:0:11}" = ".end method" ]; then
                         break
                     fi
                 done
+                
+                # check if the next line is also method definition line or not
+                let local NEXT_LINE=$LINE_CNT+1
+                local LINE3=`sed -n "$NEXT_LINE p" "$METHOD_FILE"`
+                if [ "${LINE3:0:7}" != ".method" ]; then
+                    REPLACE_LINE=true
+                fi
             else
                 # if there are 2 lines of method define
                 # the 1st line is the original definition of this method
@@ -338,6 +346,8 @@ replace_method_in_smali()
             fi
             ((LINE_NUM++))
         fi
+        
+        ((LINE_CNT++))
     done < "$METHOD_FILE"
     IFS=$OLD_IFS
 }
