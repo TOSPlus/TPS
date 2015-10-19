@@ -37,16 +37,16 @@ http://tcsvn.tencent.com/mqq/mqq_wsrdplat_rep/NANJI_ROM_proj/trunk/tools/TPS
 ```
  - **创建TOS机型目录** 
  
- ```
+```
 make create device=tos
- ```
+```
 提示：
 ```
 device 'tos' directory tree created
 now you should copy or link the ota packages as 'ota.zip' to /home/wanwang/testrom/TPS/devicetos' directory
 you should also link the source code directory as 'source' to the '/home/wanwang/testrom/TPS/devices/tos' directory
 ```
- >因为缺少ota.zip包 所以报错，解决方法是去下载个最新N5的包改名为
+> 因为缺少ota.zip包 所以报错，解决方法是去下载个最新N5的包改名为
 ota.zip放在tos机型目录即可
 
  - **配置TOS环境** 
@@ -54,19 +54,21 @@ ota.zip放在tos机型目录即可
 ```
 make config device=tos
 ```
- >进入到目录下，查看目录结构
+> 进入到目录下，查看目录结构
+
 ```
 12:25 ~/TESTROM/TPS/devices/tos $ ls
 boot/   config/  Makefile*   ota/   ota.zip*    override/  package/    patch/  progress/   tools/
 ```
->这个就是tos的目录，svn的tps目录里面hendy已经建好tos目录。所以我们只需要把
+
+> 这个就是tos的目录，svn的tps目录里面hendy已经建好tos目录。所以我们只需要把
 ota.zip替换成最新N5的包就ok了
 
  - **执行make prepare 命令** 
- >执行完毕make prepare 命令后，TOS这边的准备工作完成了
+> 执行完毕make prepare 命令后，TOS这边的准备工作完成了
 
  - **配置N900的环境** 
- >在TPS根目录再次执行make create device=N900（xxx为要适配的机型名称）
+> 在TPS根目录再次执行make create device=N900（xxx为要适配的机型名称）
 将要适配机型的N900.zip包放到device/N900目录下，重命名或链接为ota.zip，要求有system目录和boot.img文件。
 注意 ：N900的ota包的获取，需要获取机型原底包的odex经过优化的包，而TOS在创建机型目录的时候，会在机型的根目录下生成一个N900.zip，这个是经过odex优化的。这个包里面只有一个system文件夹，这个包需要再放入一个N900原厂的boot.img文件到N900.zip包的根目录。这个就可以用来作为ota包使用。
 
@@ -108,6 +110,7 @@ build.prop*     file_record/    misc_info.txt*      remove_files.list*  file_con
 进入devices/N900/config目录，生成配置文件misc_info.txt，recovery.fstab，配置build.prop、remove_files.list
 
 > misc_info.txt的模板如下：(最主要是配置几个分区的大小)
+
 ```
 recovery_api_version=3
 fstab_version=2
@@ -123,9 +126,11 @@ userdata_size=12738101248
 cache_size=6081744080
 selinux_fc=META/file_contexts
 ```   
-   >recovery.fstab 这个可以从一个可以用的目标机型的recovery中提取出来，路径是/etc/recovery.fstab
 
-   >build.prop 将模板中的空白字段填上，比如：
+> recovery.fstab 这个可以从一个可以用的目标机型的recovery中提取出来，路径是/etc/recovery.fstab
+
+> build.prop 将模板中的空白字段填上，比如：
+
 ```
 ro.qrom.beaconkey=0M000V5PH01B6QQD
 ro.qrom.product.device=ja3g
@@ -137,7 +142,7 @@ qrom_disposeIcon_enable=1
 qrom_permission_enable=1
 ```
 
-   >remove_files.list 这个是精简列表，里面的列表均为相对路径，比如
+> remove_files.list 这个是精简列表，里面的列表均为相对路径，比如
 ```
 app/PackageInstaller.apk
 priv-app/SecMms.apk
@@ -146,7 +151,7 @@ lib/xxx.so
 fonts/xxxx.ttf
 ...
 ```
-  >tos_system_files.ignore 这个是忽略要拷贝的tos文件，目前来说，由于media注
+>tos_system_files.ignore 这个是忽略要拷贝的tos文件，目前来说，由于media注
 入有问题，需要配置以下两项：
 
      >bin/mediaserver_injector
