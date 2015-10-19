@@ -1,0 +1,13 @@
+recovery_api_version=3
+fstab_version=2
+use_set_metadata=1
+multistage_support=1
+update_rename_support=1
+fs_type=ext4
+blocksize=
+boot_size=
+recovery_size=
+system_size=
+userdata_size=
+cache_size=
+selinux_fc=BOOT/RAMDISK/file_contexts

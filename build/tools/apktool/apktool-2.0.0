@@ -1,0 +1,5 @@
+#!/bin/bash
+
+CURRENT_PATH=`dirname $0`
+
+java -jar $CURRENT_PATH/apktool-2.0.0.jar $@

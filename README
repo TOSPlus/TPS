@@ -1,0 +1,28 @@
+TOS Porting System
+the first time you use this system, you should do the following:
+. build/envsetup.sh
+make create device=aosp
+make create device=tos
+make config device=aosp
+make config device=tos
+cd devices/aosp
+(link aosp ota package to devices/aosp/ota.zip)
+(link aosp source directory to devices/aosp/source)
+make prepare
+cd devices/tos
+(link tos ota package to devices/tos/ota.zip)
+(link tos source directory to devices/tos/source)
+make prepare
+
+when you want port to a device such as i9500, do the following:
+. build/envsetup.sh
+make create device=i9500
+make config device=i9500
+cd devices/i9500
+(link i9500 ota package to devices/i9500/ota.zip)
+make prepare
+make patch
+(solve smali patch conflicts)
+(if you want to do patch based on java sources, execute 'make javapath')
+make repack
+make package

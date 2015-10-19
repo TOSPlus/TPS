@@ -1,0 +1,9 @@
+ro.qrom.beaconkey=0M000V5PH01B6QQD
+ro.qrom.product.device=
+ro.qrom.product.device.brand=
+ro.qrom.build.brand=tos
+ro.qrom.build.os=
+ro.qrom.otapath=
+
+qrom_disposeIcon_enable=1
+qrom_permission_enable=1
