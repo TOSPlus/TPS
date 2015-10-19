@@ -3,7 +3,7 @@
 
 **概述**
 
->TOS 反编译适配系统（后面简称 TPS）是一个可以将基于源码（Google Nexus 5，后面简称N5）的 TOS 适配到其它机型的工具。基本思路将 N5 的 TOS反编 译代码与 AOSP（GoogleAndroid 源码）的反编译代码对比然后将改动点应用到目标机型的反编译代码上，从而完成一个反编译适配过程。
+> TOS 反编译适配系统（后面简称 TPS）是一个可以将基于源码（Google Nexus 5，后面简称N5）的 TOS 适配到其它机型的工具。基本思路将 N5 的 TOS反编 译代码与 AOSP（GoogleAndroid 源码）的反编译代码对比然后将改动点应用到目标机型的反编译代码上，从而完成一个反编译适配过程。
  
  **命令行介绍**
 - **make create** ：创建目标机型适配工作目录；
@@ -29,13 +29,13 @@ http://tcsvn.tencent.com/mqq/mqq_wsrdplat_rep/NANJI_ROM_proj/trunk/tools/TPS
 
 -------------------
 
- **实战**
- - **导入环境变量** 
+**实战**
+- **导入环境变量** 
 
 ```
 . build/envsetup.sh
 ```
- - **创建TOS机型目录** 
+- **创建TOS机型目录** 
  
 ```
 make create device=tos
@@ -49,7 +49,7 @@ you should also link the source code directory as 'source' to the '/home/wanwang
 > 因为缺少ota.zip包 所以报错，解决方法是去下载个最新N5的包改名为
 ota.zip放在tos机型目录即可
 
- - **配置TOS环境** 
+- **配置TOS环境** 
  
 ```
 make config device=tos
@@ -64,10 +64,10 @@ boot/   config/  Makefile*   ota/   ota.zip*    override/  package/    patch/  p
 > 这个就是tos的目录，svn的tps目录里面hendy已经建好tos目录。所以我们只需要把
 ota.zip替换成最新N5的包就ok了
 
- - **执行make prepare 命令** 
+- **执行make prepare 命令** 
 > 执行完毕make prepare 命令后，TOS这边的准备工作完成了
 
- - **配置N900的环境** 
+- **配置N900的环境** 
 > 在TPS根目录再次执行make create device=N900（xxx为要适配的机型名称）
 将要适配机型的N900.zip包放到device/N900目录下，重命名或链接为ota.zip，要求有system目录和boot.img文件。
 注意 ：N900的ota包的获取，需要获取机型原底包的odex经过优化的包，而TOS在创建机型目录的时候，会在机型的根目录下生成一个N900.zip，这个是经过odex优化的。这个包里面只有一个system文件夹，这个包需要再放入一个N900原厂的boot.img文件到N900.zip包的根目录。这个就可以用来作为ota包使用。
@@ -87,19 +87,19 @@ PACK_BOOTIMG_TOOL := defalut
 ```
 
 
- - **创建N900机型目录** 
->对N900机型目录机型配置，执行make config
+- **创建N900机型目录** 
+> 对N900机型目录机型配置，执行make config
 
- - **执行make prepare 命令** 
->进入devices/N900目录，
+- **执行make prepare 命令** 
+> 进入devices/N900目录，
 执行make prepare
 至此,TOS跟N900两个机型目录的准备工作已经完毕
 
- - **执行make patch 命令** 
->这个是命令是整个TPS适配的核心，整个插桩的工作都在这个过程中完成
+- **执行make patch 命令** 
+> 这个是命令是整个TPS适配的核心，整个插桩的工作都在这个过程中完成
 
- - **执行make repack 命令** 
->这个步骤是将合并好的method重新合并成一个完整的smali文件，并打包
+- **执行make repack 命令** 
+> 这个步骤是将合并好的method重新合并成一个完整的smali文件，并打包
 注意：make repack 执行完之后 就需要进入N900目录下的config文件夹
 为打包package做准备
 
@@ -143,6 +143,7 @@ qrom_permission_enable=1
 ```
 
 > remove_files.list 这个是精简列表，里面的列表均为相对路径，比如
+
 ```
 app/PackageInstaller.apk
 priv-app/SecMms.apk
@@ -151,13 +152,14 @@ lib/xxx.so
 fonts/xxxx.ttf
 ...
 ```
->tos_system_files.ignore 这个是忽略要拷贝的tos文件，目前来说，由于media注
+
+> tos_system_files.ignore 这个是忽略要拷贝的tos文件，目前来说，由于media注
 入有问题，需要配置以下两项：
 
      >bin/mediaserver_injector
       lib/libmedia_jni.so
 
- - **执行make package 命令** 
+- **执行make package 命令** 
 >配置完成之后 进入N900 机型目录执行make package
 执行make package 命令生成OTA包
 在devices/N900/package/
