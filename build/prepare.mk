@@ -31,26 +31,32 @@ define check_ota_exist
 			echo "[ERROR] no ota.zip exist in '$(DEVICE_ROOT)/ota.zip'"; \
 			exit 1; \
 		fi; \
-        unzip -l $(DEVICE_ROOT)/ota.zip system/* > /dev/null 2>&1; \
-        if [ $$? -ne 0 ]; then \
-            echo "[ERROR] ota.zip is not valid. cannot find 'system' directory in ota.zip. please make sure you downloaded the correct ota.zip"; \
-            exit 1; \
-        fi;
+		unzip -l $(DEVICE_ROOT)/ota.zip system/* > /dev/null 2>&1; \
+		if [ $$? -ne 0 ]; then \
+			echo "[ERROR] ota.zip is not valid. cannot find 'system' directory in ota.zip. please make sure you supply the correct ota.zip"; \
+			exit 1; \
+		fi; \
+		unzip -l $(DEVICE_ROOT)/ota.zip system/build.prop > /dev/null 2>&1; \
+		if [ $$? -ne 0 ]; then \
+			echo "[ERROR] ota.zip is not valid. cannot find 'system/build.prop' in ota.zip. please make sure you supply the correct ota.zip"; \
+			exit 1; \
+		fi;
 endef
 
 # 解压ota.zip
 define unzip_ota
 	$(hide) if [ ! -f $(DEVICE_ROOT)/progress/$(PROG_UNZIP_OTA) ]; then \
-            rm -rf ota; \
+			rm -rf ota; \
 			unzip -o $(DEVICE_ROOT)/ota.zip -d ota; \
 			if [ $$? -ne 0 ]; then \
 				echo "[ERROR] unzip ota.zip failed"; \
 				exit 1; \
 			fi; \
-            md5sum $(DEVICE_ROOT)/ota.zip | awk '{print $$1}' > $(DEVICE_ROOT)/ota/ota.zip.checksum; \
+			md5sum $(DEVICE_ROOT)/ota.zip | awk '{print $$1}' > $(DEVICE_ROOT)/ota/ota.zip.checksum; \
+			sed -i "s/KOT49H.I9500ZSUDNK1/`grep ro.build.display.id $(DEVICE_ROOT)/ota/system/build.prop | cut -d'=' -f2`/" $(DEVICE_ROOT)/Makefile; \
 			touch $(DEVICE_ROOT)/progress/$(PROG_UNZIP_OTA); \
 	        fi
-    $(hide) $(call ignore_record_file,"$(DEVICE_ROOT)/ota")
+	$(hide) $(call ignore_record_file,"$(DEVICE_ROOT)/ota")
 endef
 
 # 执行deodex

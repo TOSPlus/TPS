@@ -1,5 +1,12 @@
 # makefile template
 
+# ro.product.brand
+DEVICE_BRAND := samsung
+# ro.product.model
+DEVICE_NAME := GT-I9500
+# ro.build.display.id
+SW_VERSION := KOT49H.I9500ZSUDNK1
+
 # packages need to be decompiled
 DECOMPILE_PACKAGES := framework.jar services.jar android.policy.jar framework2.jar telephony-common.jar ext.jar
 

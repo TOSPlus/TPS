@@ -28,6 +28,7 @@ PATCH_FILE_RECORD_PATH=$DEVICE_ROOT/config/file_record/patch/files.txt
 PACK_FILE_RECORD_PATH=$DEVICE_ROOT/config/file_record/patch/smali/pack/files.txt
 FILE_RECORD_IGNORE=$DEVICE_ROOT/config/file_record/ignore.txt
 PATCH_FAIL_FILE=$TARGET_PATH/patch_failed.txt
+CUSTOM_PATCH_DIR=$PORT_ROOT/custom_patch
 
 # 进度控制文件
 
@@ -188,6 +189,159 @@ pattern_escape()
     echo "$RESULT"
 }
 
+find_exact_match()
+{
+    local SEARCH_BASE_PATH=$1
+    local RELATIVE_PATH=$2
+    local SEARCH_RESULT=
+    
+    # find level by level
+    # 1. full search. brand/model/os/baseband
+    local SEARCH_PATH=$SEARCH_BASE_PATH/$DEVICE_BRAND/$DEVICE_NAME/$SW_VERSION
+    while true
+    do
+        if [ "`basename "$SEARCH_PATH"`" != "$SW_VERSION" ]; then
+            SEARCH_PATH=$SEARCH_PATH/general
+        fi
+        
+        if [ -d "$SEARCH_PATH" ]; then
+            # TODO should find both smali file and method file
+            SEARCH_RESULT=`find "$SEARCH_PATH" -type f -path "*/$RELATIVE_PATH"`
+            if [ -n "$SEARCH_RESULT" ]; then
+                echo "$SEARCH_RESULT"
+                return 0
+            fi
+            SEARCH_RESULT=`find "$SEARCH_PATH" -type f -path "*/$RELATIVE_PATH*.method"`
+            if [ -n "$SEARCH_RESULT" ]; then
+                echo "$SEARCH_RESULT"
+                return 0
+            fi
+        fi
+        
+        if [ "`dirname "$SEARCH_PATH"`" = "$SEARCH_BASE_PATH" ]; then
+            break
+        fi
+
+        SEARCH_PATH=`dirname "$SEARCH_PATH"`
+    done
+}
+
+handle_override_smali()
+{
+    if [ -d "$CUSTOM_PATCH_DIR/override" ]; then
+        local SEARCH_PATH=$CUSTOM_PATCH_DIR/override
+        local SEARCH_LEVELS="$DEVICE_BRAND $DEVICE_NAME $SW_VERSION"
+        for LEVEL in `echo "$SEARCH_LEVELS"`
+        do
+            SEARCH_PATH=$SEARCH_PATH/$LEVEL
+            if [ "`basename "$SEARCH_PATH"`" != "$SW_VERSION" ]; then
+                SEARCH_PATH=$SEARCH_PATH/general
+            fi
+            
+            if [ -d "$SEARCH_PATH" ]; then
+                for FILE in `find "$SEARCH_PATH" -type f`
+                do
+                    local RELATIVE_PATH=${FILE:${#SEARCH_PATH}+1}
+                    local EXT_NAME=${RELATIVE_PATH##*/*\.}
+                    if [ "$EXT_NAME" = "smali" ]; then
+                        # if no the last level(os band), the override files should be in general folder
+                        local TARGET_FILE=`find "$TARGET_PATH" -path "*/$RELATIVE_PATH" 2>/dev/null`
+                        if [ -z "$TARGET_FILE" ]; then
+                            TARGET_FILE=$TARGET_PATH/$RELATIVE_PATH
+                            mkdir -p `dirname "$TARGET_FILE"`
+                        fi
+                        cp -f "$FILE" "$TARGET_FILE"
+                    elif [ "$EXT_NAME" = "method" ]; then
+                        RELATIVE_PATH=${RELATIVE_PATH}
+                        local FILE_NAME=`basename "$RELATIVE_PATH"`
+                        FILE_NAME=${FILE_NAME%%\.*}
+                        RELATIVE_PATH=`dirname "$RELATIVE_PATH"`/$FILE_NAME.smali
+                        local TARGET_FILE=`find "$TARGET_PATH" -path "*/$RELATIVE_PATH" 2>/dev/null`
+                        if [ -n "$TARGET_FILE" ]; then
+                            replace_method_in_smali "$TARGET_FILE" "$FILE"
+                        else
+                            echo "[WARNING] cannot find corresponding target file for override method '$RELATIVE_PATH'"
+                        fi
+                    fi
+                done
+            fi
+
+            SEARCH_PATH=`dirname "$SEARCH_PATH"`
+        done
+    fi
+}
+
+replace_method_in_smali()
+{
+    local SMALI_FILE=$1
+    local METHOD_FILE=$2
+    local EMPTY_LINE='\\'
+    
+    local METHOD_START=false
+    local METHOD_DEFINE=
+    local LINE_NUM=
+    local OLD_IFS=$IFS
+    local REPLACE_LINE=false
+    # to keep white space of each line
+    IFS=''
+    while read LINE
+    do  
+        REPLACE_LINE=false
+        if [ "${LINE:0:7}" = ".method" ]; then
+            # method define
+            if [ $METHOD_START = false ]; then
+                METHOD_START=true
+                METHOD_DEFINE=$LINE
+                METHOD_DEFINE=`pattern_escape "$METHOD_DEFINE"`
+                # delete the original method
+                local METHOD_LINE=`grep -n "$METHOD_DEFINE" "$SMALI_FILE"`
+                if [ -z "$METHOD_LINE" ]; then
+                    echo "[WARNING] cannot find `head -n1 $METHOD_FILE` in $SMALI_FILE"
+                    return 1
+                fi
+                
+                LINE_NUM=`echo "$METHOD_LINE" | cut -d':' -f1`
+                while true
+                do
+                    local LINE=`sed -n "$LINE_NUM p" "$SMALI_FILE"`
+                    # delete line
+                    sed -i "$LINE_NUM d" "$SMALI_FILE"
+                    if [ "${LINE:0:11}" = ".end method" ]; then
+                        break
+                    fi
+                done
+            else
+                # if there are 2 lines of method define
+                # the 1st line is the original definition of this method
+                # the 2nd line is the new definition that should be replaced
+                REPLACE_LINE=true
+            fi
+        elif [ "${LINE:0:11}" = ".end method" ]; then
+            # method end
+            METHOD_START=false
+            REPLACE_LINE=true
+        else
+            # normal line
+            if [ $METHOD_START = true ]; then
+                REPLACE_LINE=true
+            fi
+        fi
+        
+        if [ $REPLACE_LINE = true ]; then
+            LINE=`pattern_escape "$LINE"`
+            if [ -n "$LINE" ]; then
+                # \\ means keeep white spaces
+                sed -i "$LINE_NUM i\\$LINE" "$SMALI_FILE"
+            else
+                # add empty line
+                sed -i "$LINE_NUM i$EMPTY_LINE" "$SMALI_FILE"
+            fi
+            ((LINE_NUM++))
+        fi
+    done < "$METHOD_FILE"
+    IFS=$OLD_IFS
+}
+
 merge_single_file()
 {
     echo -n "patching $FILE ... "
@@ -214,6 +368,63 @@ merge_single_file()
         echo "[ERROR] cannot find corresponding target smali file of $RELATIVE_PATH"
         echo $RELATIVE_PATH >> $PATCH_FAIL_FILE
         return 1
+    fi
+
+    if [ -n "$CUSTOM_PATCH_DIR" ]; then
+        # check custom patch rule
+        if [ -d "$CUSTOM_PATCH_DIR/source" ]; then
+            # check if has customized tos source smali file
+            local TEMP_TOS_FILE=
+            local SOURCE_SMALI=`find_exact_match "$CUSTOM_PATCH_DIR/source/tos" "$RELATIVE_PATH"`
+            if [ -n "$SOURCE_SMALI" ]; then
+                local OLD_IFS=$IFS
+                IFS=$'\n'
+                for LINE in `echo "$SOURCE_SMALI"`
+                do
+                    if [ "${LINE:${#LINE}-6}" = ".smali" ]; then
+                        # smali file
+                        TOS_FILE=$LINE
+                        # ignore other possible method files
+                        break
+                    elif [ "${LINE:${#LINE}-7}" = ".method" ]; then
+                        # method file
+                        if [ -z "$TEMP_TOS_FILE" ]; then
+                            TEMP_TOS_FILE=$TEMP_PATH/$RELATIVE_PATH
+                            mkdir -p `dirname "$TEMP_PATH/$RELATIVE_PATH"`
+                            cp -f "$TOS_FILE" "$TEMP_TOS_FILE"
+                            TOS_FILE=$TEMP_TOS_FILE
+                        fi
+                        replace_method_in_smali "$TEMP_TOS_FILE" "$LINE"
+                    fi
+                done
+                IFS=$OLD_IFS
+            fi
+            
+            # check if has customized vendor source smali file
+            SOURCE_SMALI=`find_exact_match "$CUSTOM_PATCH_DIR/source/vendor" "$RELATIVE_PATH"`
+            if [ -n "$SOURCE_SMALI" ]; then
+                local OLD_IFS=$IFS
+                IFS=$'\n'
+                for LINE in `echo "$SOURCE_SMALI"`
+                do
+                    if [ "${LINE:${#LINE}-6}" = ".smali" ]; then
+                        # smali file
+                        cp -f "$LINE" "$TARGET_FILE"
+                        # ignore other possible method files
+                        break
+                    elif [ "${LINE:${#LINE}-7}" = ".method" ]; then
+                        # method file
+                        replace_method_in_smali "$TARGET_FILE" "$LINE"
+                    fi
+                done
+                IFS=$OLD_IFS
+            fi
+        fi
+        
+        if [ -d "$CUSTOM_PATCH_DIR/patch" ]; then
+            # TODO do custom patch
+            echo "" > /dev/null
+        fi
     fi
     
     # handle normal methods
@@ -487,6 +698,7 @@ main()
 {
     do_patch
     handle_newly_added_files
+    handle_override_smali
 }
 
 main
