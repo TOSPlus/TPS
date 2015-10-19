@@ -1,0 +1,38 @@
+#!/system/bin/sh
+
+
+LED_TYPE=$1
+ONMS=$2
+OFFMS=$3
+
+LED_PATH=/sys/class/leds
+LED_ON_OFF=on_off_ms
+LED_START=rgb_start
+LED_BRIGHTNESS=brightness
+
+LED=red
+
+echo "haha, ${LED_TYPE}"
+echo "haha, ${ONMS}"
+echo "haha, ${OFFMS}"
+
+if [ "$LED_TYPE" == "0" ];then
+	LED=red
+elif [ "$LED_TYPE" == "1" ];then
+	LED=green
+else
+	LED=blue
+fi
+
+echo "0" > $LED_PATH/$LED/$LED_START
+
+echo "ooooo"
+if [ "$ONMS" != "0" ] && [ "$OFFMS" != "0" ];then
+	echo "255" > $LED_PATH/$LED/$LED_BRIGHTNESS
+	echo "$ONMS $OFFMS" > $LED_PATH/$LED/$LED_ON_OFF
+	echo "1" > $LED_PATH/$LED/$LED_START
+else
+	echo "0" > $LED_PATH/$LED/$LED_BRIGHTNESS
+fi
+
+echo "kkkkkkkk"
