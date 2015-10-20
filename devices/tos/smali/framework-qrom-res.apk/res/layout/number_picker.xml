@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageButton android:id="@id/increment" android:layout_width="fill_parent" android:layout_height="wrap_content" android:contentDescription="@string/number_picker_increment_button" style="?com.tencent.qrom:attr/numberPickerUpButtonStyle" />
+    <EditText android:gravity="center" android:id="@id/numberpicker_input" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@com.tencent.qrom:style/Widget.qrom.EditText.NumberPickerInputText.Second" />
+    <ImageButton android:id="@id/decrement" android:layout_width="fill_parent" android:layout_height="wrap_content" android:contentDescription="@string/number_picker_decrement_button" style="?com.tencent.qrom:attr/numberPickerDownButtonStyle" />
+</merge>

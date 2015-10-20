@@ -7,6 +7,8 @@ PROG_DECOMPILE_SMALI := decompile_smali
 PROG_GEN_CODE_MOD_XML := gen_code_mod_xml
 FILE_RECORD_IGNORE := $(DEVICE_ROOT)/config/file_record/ignore.txt
 
+INTERNAL := $(internal)
+
 define ignore_record_file
     FILE=$1; \
     mkdir -p `dirname "$(FILE_RECORD_IGNORE)"`; \
@@ -24,28 +26,48 @@ define prepare_init
     $(hide) $(call ignore_record_file,"$(DEVICE_ROOT)/progress")
 endef
 
+# 检查设备。make patch不能用于aosp及tos设备
+define check_prepare_device
+	$(hide) if [ $(DEVICE_NAME) = "tos" -a "$(INTERNAL)" != true ]; then \
+			echo "[ERROR] target 'prepare' cannot used upon device '$(DEVICE_NAME)'"; \
+			exit 1; \
+		fi
+endef
+
 # 检查ota.zip是否存在
 # 检查ota.zip的格式是否正确
 define check_ota_exist
-	$(hide) if [ ! -f $(DEVICE_ROOT)/ota.zip ];then \
-			echo "[ERROR] no ota.zip exist in '$(DEVICE_ROOT)/ota.zip'"; \
-			exit 1; \
-		fi; \
-		unzip -l $(DEVICE_ROOT)/ota.zip system/* > /dev/null 2>&1; \
-		if [ $$? -ne 0 ]; then \
-			echo "[ERROR] ota.zip is not valid. cannot find 'system' directory in ota.zip. please make sure you supply the correct ota.zip"; \
-			exit 1; \
-		fi; \
-		unzip -l $(DEVICE_ROOT)/ota.zip system/build.prop > /dev/null 2>&1; \
-		if [ $$? -ne 0 ]; then \
-			echo "[ERROR] ota.zip is not valid. cannot find 'system/build.prop' in ota.zip. please make sure you supply the correct ota.zip"; \
-			exit 1; \
-		fi;
+	$(hide) if [ $(DEVICE_NAME) != "tos" ]; then \
+                if [ ! -f $(DEVICE_ROOT)/ota.zip ];then \
+                    echo "[ERROR] no ota.zip exist in '$(DEVICE_ROOT)/ota.zip'"; \
+                    exit 1; \
+                fi; \
+                unzip -l $(DEVICE_ROOT)/ota.zip system/* > /dev/null 2>&1; \
+                if [ $$? -ne 0 ]; then \
+                    echo "[ERROR] ota.zip is not valid. cannot find 'system' directory in ota.zip. please make sure you supply the correct ota.zip"; \
+                    exit 1; \
+                fi; \
+                unzip -l $(DEVICE_ROOT)/ota.zip system/build.prop > /dev/null 2>&1; \
+                if [ $$? -ne 0 ]; then \
+                    echo "[ERROR] ota.zip is not valid. cannot find 'system/build.prop' in ota.zip. please make sure you supply the correct ota.zip"; \
+                    exit 1; \
+                fi; \
+            fi;
 endef
 
 # 解压ota.zip
 define unzip_ota
-	$(hide) if [ ! -f $(DEVICE_ROOT)/progress/$(PROG_UNZIP_OTA) ]; then \
+	$(hide) NEED_UNZIP=false; \
+        if [ ! -f $(DEVICE_ROOT)/progress/$(PROG_UNZIP_OTA) ]; then \
+            if [ $(DEVICE_NAME) = "tos" ]; then \
+                if [ -f $(DEVICE_ROOT)/ota.zip ]; then \
+                    NEED_UNZIP=true; \
+                fi; \
+            else \
+                NEED_UNZIP=true; \
+            fi; \
+        fi; \
+        if [ $$NEED_UNZIP = true ]; then \
 			rm -rf ota; \
 			unzip -o $(DEVICE_ROOT)/ota.zip -d ota; \
 			if [ $$? -ne 0 ]; then \
@@ -55,7 +77,7 @@ define unzip_ota
 			md5sum $(DEVICE_ROOT)/ota.zip | awk '{print $$1}' > $(DEVICE_ROOT)/ota/ota.zip.checksum; \
 			sed -i "s/KOT49H.I9500ZSUDNK1/`grep ro.build.display.id $(DEVICE_ROOT)/ota/system/build.prop | cut -d'=' -f2`/" $(DEVICE_ROOT)/Makefile; \
 			touch $(DEVICE_ROOT)/progress/$(PROG_UNZIP_OTA); \
-	        fi
+	    fi
 	$(hide) $(call ignore_record_file,"$(DEVICE_ROOT)/ota")
 endef
 
@@ -137,7 +159,7 @@ endef
 
 # 解boot.img
 define unpack_bootimg
-	$(hide) if [ $(DEVICE_NAME) != "tos" -a $(DEVICE_NAME) != "aosp" ]; then \
+	$(hide) if [ $(DEVICE_NAME) != "tos" ]; then \
                 if [ ! -f $(DEVICE_ROOT)/progress/$(PROG_UNPACK_BOOTIMG) ]; then \
                     UNPACK_BOOT_IMG=; \
                     if [ -f $(DEVICE_ROOT)/ota/boot.img ]; then \
@@ -192,6 +214,7 @@ prepare:
 	$(hide) if [ "$(FORCE)" = true ]; then \
 			$(call reset_progresses); \
 	fi
+	$(call check_prepare_device)
 	$(call check_ota_changed)
 	$(call check_ota_exist)
 	$(call prepare_init)

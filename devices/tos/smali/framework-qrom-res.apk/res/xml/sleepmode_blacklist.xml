@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sleepmode>
+    <item name="com.snda.tt" />
+    <item name="com.baozoumanhua.android" />
+    <item name="com.sina.weibo" />
+    <item name="com.sina.news" />
+    <item name="com.yoka.magazine" />
+    <item name="org.peter.corp.fruit.llk" />
+    <item name="com.wandoujia.phoenix2" />
+    <item name="com.tenpay.android" />
+    <item name="com.tencent.pengyou" />
+    <item name="com.tencent.news" />
+    <item name="com.silence.dcs" />
+    <item name="com.renren.mobile.chat" />
+    <item name="com.qzone" />
+    <item name="com.qq.qcloud" />
+    <item name="com.qihoo360.contacts" />
+    <item name="com.qihoo.appstore" />
+    <item name="com.qihoo360.mobilesafe" />
+    <item name="com.polarbit.rthunder2play" />
+    <item name="com.netease.pris" />
+    <item name="com.netease.newsreader.activity" />
+    <item name="com.nd.sms" />
+    <item name="com.jiubang.app.sports" />
+    <item name="com.google.android.apps.plus" />
+    <item name="com.feinno.felio" />
+    <item name="com.estrongs.android.pop" />
+    <item name="com.eg.android.AlipayGphone" />
+    <item name="com.disney.WMWLite" />
+    <item name="com.ailiaoicall" />
+    <item name="com.sohu.sohuvideo" />
+</sleepmode>

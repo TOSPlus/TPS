@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sleepmode>
+    <item name="android" />
+    <item name="com.android.deskclock" />
+    <item name="com.tencent.qromStatisticBusinessService" />
+    <item name="web3.Program.Clock" />
+    <item name="com.android.settings" />
+    <item name="com.tencent.qrompowersavesettings" />
+    <item name="mcgo.alarmclock" />
+    <item name="com.dianxinos.clock" />
+    <item name="org.woodroid.alarmbird" />
+    <item name="org.woodroid.alarmlady" />
+    <item name="com.zdworks.android.zdclock" />
+    <item name="com.gmail.fenyeer.superalarm" />
+    <item name="com.android.superdeskclock006" />
+    <item name="com.vp.alarmClockPlusV2" />
+    <item name="Leen.work.funnyclock" />
+    <item name="org.woodroid.alarm" />
+    <item name="org.kaloersoftware.kaloerclock" />
+    <item name="com.ooha.alarmclock" />
+    <item name="com.splunchy.android.alarmclock" />
+    <item name="com.koushikdutta.klaxon" />
+    <item name="com.mine.musicclock" />
+    <item name="cn.rtfsc.snooseclock.alarmclock" />
+    <item name="com.hww.abuseself" />
+    <item name="com.alarm" />
+    <item name="com.teamnet.ring.main" />
+    <item name="com.exuan.alarm" />
+    <item name="com.daping.phonecalender" />
+    <item name="com.caynax.alarmclock" />
+    <item name="com.exuan.ecalendar" />
+    <item name="com.lgl.calendar" />
+    <item name="com.zdworks.android.pad.zdclock" />
+    <item name="com.zx.widget.time" />
+    <item name="com.tseringsoft.calendar" />
+    <item name="net.android.wzdworks.magicday" />
+</sleepmode>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" package="com.tencent.qrom">
+    <uses-permission android:name="android.permission.CONFIRM_FULL_BACKUP"/>
+    <application android:allowClearUserData="false" android:backupAgent="com.android.server.SystemBackupAgent" android:hasCode="false" android:killAfterRestore="false" android:persistent="false" android:process="system">
+        <activity android:excludeFromRecents="true" android:exported="true" android:multiprocess="true" android:name="com.tencent.qrom.app.QromRingtonePickerActivity" android:process=":ui" android:screenOrientation="portrait" android:theme="@style/Theme.qrom.Second.RadioBlue" android:uiOptions="splitActionBarWhenNarrow">
+            <intent-filter>
+                <action android:name="android.intent.action.RINGTONE_PICKER_QROM"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:multiprocess="true" android:name="com.tencent.qrom.app.QromChooserActivity" android:theme="@style/Theme.qrom.Second.Dialog.Bottom">
+            <intent-filter>
+                <action android:name="android.intent.action.CHOOSER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

@@ -1,5 +1,12 @@
 # makefile template
 
+# ro.product.brand
+DEVICE_BRAND := tencent
+# ro.product.model
+DEVICE_NAME := tos
+# ro.build.display.id
+SW_VERSION := KTU84P dev-keys
+
 # packages need to be decompiled
 DECOMPILE_PACKAGES := framework.jar services.jar android.policy.jar framework2.jar telephony-common.jar ext.jar framework-qrom.jar
 

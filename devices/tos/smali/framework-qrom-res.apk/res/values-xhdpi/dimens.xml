@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="qrom_actionbar_height">54.0dip</dimen>
+    <dimen name="qrom_actionmod_button_height">38.0dip</dimen>
+    <dimen name="launcher_theme_icon_outer_size">64.0dip</dimen>
+    <dimen name="launcher_theme_icon_inner_size">52.0dip</dimen>
+</resources>

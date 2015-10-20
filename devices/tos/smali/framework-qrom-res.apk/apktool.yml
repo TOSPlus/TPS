@@ -1,0 +1,17 @@
+version: 2.0.0
+apkFileName: framework-qrom-res.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+  tag: TPS_tos
+sdkInfo:
+  minSdkVersion: '14'
+  targetSdkVersion: '19'
+packageInfo:
+  forced-package-id: '122'
+versionInfo:
+  versionCode: '19'
+  versionName: qwidget_0.1_140818_50
+compressionType: false
+sharedLibrary: false

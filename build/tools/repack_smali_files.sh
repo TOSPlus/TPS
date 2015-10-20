@@ -162,6 +162,7 @@ repack_jars()
                     mkdir -p `dirname "$PACK_PATH/$RELATIVE_PATH"`
                     cp -f "$SMALI_FILE" "$PACK_PATH/$RELATIVE_PATH"
                 else
+                    # TODO 是不是可以直接放到android.policy下面？
                     echo "[ERROR] cannot find destination folder for $SMALI_FILE"
                     exit 1
                 fi

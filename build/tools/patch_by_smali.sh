@@ -222,19 +222,24 @@ find_exact_match()
             break
         fi
 
-        SEARCH_PATH=`dirname "$SEARCH_PATH"`
+        if [ "`basename "$SEARCH_PATH"`" = "general" ]; then
+            SEARCH_PATH=`dirname "$SEARCH_PATH"`
+            SEARCH_PATH=`dirname "$SEARCH_PATH"`
+        else
+            SEARCH_PATH=`dirname "$SEARCH_PATH"`
+        fi
     done
 }
 
 handle_override_smali()
 {
     if [ -d "$CUSTOM_PATCH_DIR/override" ]; then
-        local SEARCH_PATH=$CUSTOM_PATCH_DIR/override
-        local SEARCH_LEVELS="$DEVICE_BRAND $DEVICE_NAME $SW_VERSION"
+        local SEARCH_PATH=$CUSTOM_PATCH_DIR
+        local SEARCH_LEVELS="override $DEVICE_BRAND $DEVICE_NAME $SW_VERSION"
         for LEVEL in `echo "$SEARCH_LEVELS"`
         do
             SEARCH_PATH=$SEARCH_PATH/$LEVEL
-            if [ "`basename "$SEARCH_PATH"`" != "$SW_VERSION" ]; then
+            if [ "$LEVEL" != "$SW_VERSION" ]; then
                 SEARCH_PATH=$SEARCH_PATH/general
             fi
             
@@ -247,6 +252,7 @@ handle_override_smali()
                         # if no the last level(os band), the override files should be in general folder
                         local TARGET_FILE=`find "$TARGET_PATH" -path "*/$RELATIVE_PATH" 2>/dev/null`
                         if [ -z "$TARGET_FILE" ]; then
+                            # target file not exist, create it
                             TARGET_FILE=$TARGET_PATH/$RELATIVE_PATH
                             mkdir -p `dirname "$TARGET_FILE"`
                         fi

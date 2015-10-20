@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/pickers" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <com.tencent.qrom.widget.NumberPicker android:id="@id/lunar" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <com.tencent.qrom.widget.NumberPicker android:id="@id/month" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <com.tencent.qrom.widget.NumberPicker android:id="@id/day" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <com.tencent.qrom.widget.NumberPicker android:id="@id/year" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </LinearLayout>
+    <CalendarView android:id="@id/calendar_view" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:layout_width="245.0dip" android:layout_height="280.0dip" android:layout_marginLeft="44.0dip" android:layout_weight="1.0" />
+</LinearLayout>
