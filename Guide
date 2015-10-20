@@ -1,0 +1,10 @@
+. build/envsetup.sh
+make create brand=tencent device=tos
+make config brand=tencent device=tos
+make prepare
+
+
+make create brand=OnePlus device=A0001
+make config brand=OnePlus device=A0001
+make prepare
+make patch
