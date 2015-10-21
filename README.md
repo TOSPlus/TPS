@@ -122,14 +122,17 @@ fonts/xxxx.ttf
 
 > tos_system_files.ignore 这个是忽略要拷贝的tos文件，目前来说，由于media注
 入有问题，需要配置以下两项：
+
 ```
 bin/mediaserver_injector
 lib/libmedia_jni.so
 ```
+
 - **执行make package 命令** 
 >配置完成之后 进入N900 机型目录执行make package
 执行make package 命令生成OTA包
 在devices/N900/package/
+
 ```
 13:52 ~/TESTROM/TPS/devices/N900/config $ ls
 N900.zip*    smali/    target_files/    target_files.zip    
