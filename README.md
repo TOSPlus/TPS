@@ -60,7 +60,7 @@ PACK_BOOTIMG_TOOL := defalut
 - **执行make prepare 命令** 
 > 进入devices/N900目录，
 执行make prepare
-至此,TOS跟N900两个机型目录的准备工作已经完毕
+至此,N900目录的准备工作已经完毕
 
 - **执行make patch 命令** 
 > 这个是命令是整个TPS适配的核心，整个插桩的工作都在这个过程中完成
