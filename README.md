@@ -34,40 +34,12 @@ git clone https://github.com/TOSPlus/TPS
 ```
 . build/envsetup.sh
 ```
-- **创建TOS机型目录** 
- 
-```
-make create device=tos
-```
-提示：
-```
-device 'tos' directory tree created
-now you should copy or link the ota packages as 'ota.zip' to /home/wanwang/testrom/TPS/devicetos' directory
-you should also link the source code directory as 'source' to the '/home/wanwang/testrom/TPS/devices/tos' directory
-```
-> 因为缺少ota.zip包 所以报错，解决方法是去下载个最新N5的包改名为
-ota.zip放在tos机型目录即可
-
-- **配置TOS环境** 
- 
-```
-make config device=tos
-```
-> 进入到目录下，查看目录结构
-
-```
-12:25 ~/TESTROM/TPS/devices/tos $ ls
-boot/   config/  Makefile*   ota/   ota.zip*    override/  package/    patch/  progress/   tools/
-```
-
-> 这个就是tos的目录，svn的tps目录里面hendy已经建好tos目录。所以我们只需要把
-ota.zip替换成最新N5的包就ok了
-
-- **执行make prepare 命令** 
-> 执行完毕make prepare 命令后，TOS这边的准备工作完成了
 
 - **配置N900的环境** 
-> 在TPS根目录再次执行make create device=N900（xxx为要适配的机型名称）
+> 在TPS根目录再次执行
+
+		make create brand=Samsung device=N900（xxx为要适配的机型名称）
+
 将要适配机型的N900.zip包放到device/N900目录下，重命名或链接为ota.zip，要求有system目录和boot.img文件。
 注意 ：N900的ota包的获取，需要获取机型原底包的odex经过优化的包，而TOS在创建机型目录的时候，会在机型的根目录下生成一个N900.zip，这个是经过odex优化的。这个包里面只有一个system文件夹，这个包需要再放入一个N900原厂的boot.img文件到N900.zip包的根目录。这个就可以用来作为ota包使用。
 
@@ -84,10 +56,6 @@ Makefile中修改下面两个变量即可：
 UNPACK_BOOTIMG_TOOL := defalut
 PACK_BOOTIMG_TOOL := defalut
 ```
-
-
-- **创建N900机型目录** 
-> 对N900机型目录机型配置，执行make config
 
 - **执行make prepare 命令** 
 > 进入devices/N900目录，
