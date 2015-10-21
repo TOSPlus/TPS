@@ -24,9 +24,8 @@ patch
 
 > Linux ： (演示环境 ubuntu 14.04)
 获取到最新的TPS工具 :
-checkout
-http://tcsvn.tencent.com/mqq/mqq_wsrdplat_rep/NANJI_ROM_proj/trunk/tools/TPS
 
+git clone https://github.com/TOSPlus/TPS
 -------------------
 
 **实战**
