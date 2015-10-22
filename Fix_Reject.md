@@ -12,8 +12,10 @@
 在机型适配中见过最常见的一个冲突,就是函数参数多一个或者多个,今天就以miui color都存在的一个reject为实例来解决冲突.这个冲突的函数名字是setMobileDataEnabled(Z)V 在aosp中存在这个函数但是厂商中是setMobileDataEnabled(Ljava/lang/String;Z)V 造成无法插入.**进入解决冲突前我默认打开熟悉P命名法和V命名发**,如果不会请自行google.其实解决冲突就是分两步.------**简单的说就是传对参数,和调对方法**.下面直接进行解决冲突的实例,就不多说了,大家自行研究.
 
 ---
+
 1. 更改setMobileDataEnabled方法名为tos_org_setMobileDataEnabled
 2. 增加下面一个函数
+
 ``` smali
 .method public setMobileDataEnabled(Ljava/lang/String;Z)V
     .locals 4
@@ -81,7 +83,8 @@
 
  1. 传参数 invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean; 这里传入的是P2 也就是形参第二个参数 Z.
  2. 调回原来方法 就是invoke-virtual* {p0, p1,p2}*, Lcom/android/server/ConnectivityService;->**tos_org_setMobileDataEnabled(Ljava/lang/String;Z)V** 而非tos_org_setMobileDataEnabled(Z)V
-> PS: 要注意寄存器的个数.这里是三个. 
+
+	> PS: 要注意寄存器的个数.这里是三个. 
 
 3. 下面给出我没修改之前的的方法,大家自行对比,大家好好斟酌下. (传对参数,和调对方法)
 		
