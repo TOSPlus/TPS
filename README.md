@@ -136,3 +136,8 @@ lib/libmedia_jni.so
 ```
 13:52 ~/TESTROM/TPS/devices/N900/config $ ls
 N900.zip*    smali/    target_files/    target_files.zip    
+
+冲突解决：
+------
+
+[解决方法](https://github.com/TOSPlus/TPS/blob/master/Fix_Reject.md)
