@@ -136,6 +136,7 @@ lib/libmedia_jni.so
 ```
 13:52 ~/TESTROM/TPS/devices/N900/config $ ls
 N900.zip*    smali/    target_files/    target_files.zip    
+```
 
 冲突解决：
 ------
