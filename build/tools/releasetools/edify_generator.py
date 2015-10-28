@@ -243,6 +243,7 @@ class EdifyGenerator(object):
       self.script.append('set_perm(%d, %d, 0%o, "%s");' % (uid, gid, mode, fn))
     else:
       if capabilities is None: capabilities = "0x0"
+      if uid is None: print "%s is not configured in filesystem_config.txt" % fn
       cmd = 'set_metadata("%s", "uid", %d, "gid", %d, "mode", 0%o, ' \
           '"capabilities", %s' % (fn, uid, gid, mode, capabilities)
       if selabel is not None:

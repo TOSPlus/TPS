@@ -687,6 +687,11 @@ generate_filesystem_config_from_file_contexts()
             echo "system/${FILE:${#SYSTEM_PATH}}" | "$FS_CONFIG_TOOL" -CS "$FILE_CONTEXTS" >> "$OUTPUT_FILE"
         fi
     done
+	#TODO:should deal it in ota_from_target python script
+	 if [ ! -d $SYSTEM_PATH/etc/security ]; then
+		echo system/etc/security | "$FS_CONFIG_TOOL" -CS "$FILE_CONTEXTS" >> "$OUTPUT_FILE"
+		echo system/etc/security/otacerts.zip | "$FS_CONFIG_TOOL" -CS "$FILE_CONTEXTS" >> "$OUTPUT_FILE"
+	 fi
 }
 
 generate_filesystem_config_from_updater_script()
