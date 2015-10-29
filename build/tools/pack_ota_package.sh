@@ -273,7 +273,8 @@ prepare_system_files()
     
     # 拷贝目标设备文件到目标目录
     rm -rf $DEST_DIR/*
-    
+    mkdir -p $DEST_DIR
+
     # 如果keep_files.list存在，仅拷贝这个文件列表中的文件
     local KEEP_LIST_EXIST=false
     if [ -f "$KEEP_LIST" ]; then
