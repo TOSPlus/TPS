@@ -25,9 +25,22 @@ patch
 > Linux ： (演示环境 ubuntu 14.04)
 获取到最新的TPS工具 :
 
+```
 git clone https://github.com/TOSPlus/TPS
--------------------
+```
 
+-------------------
+**更改脚本权限**
+
+由于脚本文件在上传和下载过程中，文件的权限信息被修改，因此我们需要修改一下可执行权限，否则后续可能会出现“Permission denied......”等相关错误。
+
+> 在TPS根目录执行 :
+
+```
+chmod -R 755 build/tools/*
+```
+
+-------------------
 **实战**
 - **导入环境变量** 
 
@@ -44,7 +57,7 @@ git clone https://github.com/TOSPlus/TPS
 注意 ：N900的ota包的获取，需要获取机型原底包的odex经过优化的包，而TOS在创建机型目录的时候，会在机型的根目录下生成一个N900.zip，这个是经过odex优化的。这个包里面只有一个system文件夹，这个包需要再放入一个N900原厂的boot.img文件到N900.zip包的根目录。这个就可以用来作为ota包使用。
 
 ```
-12:46 ~/TESTROM/TPS/devices/N900 $ ls
+~/TESTROM/TPS/devices/N900 $ ls
 boot/   config/  Makefile*   ota/   N900.zip*    override/  package/    patch/  progress/   tools/
 ```
 
@@ -71,7 +84,7 @@ PACK_BOOTIMG_TOOL := defalut
 为打包package做准备
 
 ```
-12:52 ~/TESTROM/TPS/devices/N900/config $ ls
+~/TESTROM/TPS/devices/N900/config $ ls
 build.prop*     file_record/    misc_info.txt*      remove_files.list*  file_contexts*   keep_files.list* recovery.fstab*    tos_system_files.ignore*
 ```
 进入devices/N900/config目录，生成配置文件misc_info.txt，recovery.fstab，配置build.prop、remove_files.list
@@ -134,7 +147,7 @@ lib/libmedia_jni.so
 在devices/N900/package/
 
 ```
-13:52 ~/TESTROM/TPS/devices/N900/config $ ls
+~/TESTROM/TPS/devices/N900/config $ ls
 N900.zip*    smali/    target_files/    target_files.zip    
 ```
 
