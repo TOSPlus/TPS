@@ -9,7 +9,7 @@
             <TextView android:id="@id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="4" style="@com.tencent.qrom:style/TextAppearance.qrom.Second.qromtextSmallLightSummary" />
         </LinearLayout>
     </RelativeLayout>
-    <LinearLayout android:layout_gravity="right|center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <LinearLayout android:layout_gravity="center|right" android:layout_width="wrap_content" android:layout_height="wrap_content">
         <TextView android:layout_gravity="center_vertical" android:id="@id/caption" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@com.tencent.qrom:style/TextAppearance.qrom.Second.qromtextSmallLightSummary" />
         <ImageView android:layout_gravity="center_vertical" android:id="@id/rightIcon" android:visibility="gone" android:layout_width="@dimen/preference_icon_size" android:layout_height="@dimen/preference_icon_size" android:scaleType="center" />
     </LinearLayout>

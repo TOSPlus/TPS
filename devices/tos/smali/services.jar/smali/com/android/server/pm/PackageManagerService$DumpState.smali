@@ -57,7 +57,7 @@
     .locals 0
 
     .prologue
-    .line 10591
+    .line 10619
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -69,7 +69,7 @@
     .locals 1
 
     .prologue
-    .line 10661
+    .line 10689
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mSharedUser:Lcom/android/server/pm/SharedUserSetting;
 
     return-object v0
@@ -79,7 +79,7 @@
     .locals 1
 
     .prologue
-    .line 10653
+    .line 10681
     iget-boolean v0, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mTitlePrinted:Z
 
     return v0
@@ -92,7 +92,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 10627
+    .line 10655
     iget v1, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mTypes:I
 
     if-nez v1, :cond_1
@@ -101,7 +101,7 @@
 
     if-eq p1, v1, :cond_1
 
-    .line 10631
+    .line 10659
     :cond_0
     :goto_0
     return v0
@@ -123,7 +123,7 @@
     .param p1, "option"    # I
 
     .prologue
-    .line 10639
+    .line 10667
     iget v0, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mOptions:I
 
     and-int/2addr v0, p1
@@ -145,16 +145,16 @@
     .locals 2
 
     .prologue
-    .line 10647
+    .line 10675
     iget-boolean v0, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mTitlePrinted:Z
 
-    .line 10648
+    .line 10676
     .local v0, "printed":Z
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mTitlePrinted:Z
 
-    .line 10649
+    .line 10677
     return v0
 .end method
 
@@ -163,14 +163,14 @@
     .param p1, "type"    # I
 
     .prologue
-    .line 10635
+    .line 10663
     iget v0, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mTypes:I
 
     or-int/2addr v0, p1
 
     iput v0, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mTypes:I
 
-    .line 10636
+    .line 10664
     return-void
 .end method
 
@@ -179,14 +179,14 @@
     .param p1, "option"    # I
 
     .prologue
-    .line 10643
+    .line 10671
     iget v0, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mOptions:I
 
     or-int/2addr v0, p1
 
     iput v0, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mOptions:I
 
-    .line 10644
+    .line 10672
     return-void
 .end method
 
@@ -195,10 +195,10 @@
     .param p1, "user"    # Lcom/android/server/pm/SharedUserSetting;
 
     .prologue
-    .line 10665
+    .line 10693
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mSharedUser:Lcom/android/server/pm/SharedUserSetting;
 
-    .line 10666
+    .line 10694
     return-void
 .end method
 
@@ -207,9 +207,9 @@
     .param p1, "enabled"    # Z
 
     .prologue
-    .line 10657
+    .line 10685
     iput-boolean p1, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mTitlePrinted:Z
 
-    .line 10658
+    .line 10686
     return-void
 .end method

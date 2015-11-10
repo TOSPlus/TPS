@@ -1049,12 +1049,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 900
+    .line 905
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v1, v3}, Lcom/tencent/qrom/internal/view/menu/ActionMenuView;->setVisibility(I)V
 
-    .line 901
+    .line 906
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -1067,7 +1067,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 902
+    .line 907
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v1, v0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuView;->getChildAt(I)Landroid/view/View;
@@ -1076,41 +1076,41 @@
 
     invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 901
+    .line 906
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 904
+    .line 909
     :cond_0
     iget-boolean v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mSplitActionBar:Z
 
     if-eqz v1, :cond_1
 
-    .line 905
+    .line 910
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mSplitView:Lcom/tencent/qrom/internal/widget/ActionBarContainer;
 
     if-eqz v1, :cond_1
 
-    .line 906
+    .line 911
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mSplitView:Lcom/tencent/qrom/internal/widget/ActionBarContainer;
 
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v1, v2}, Lcom/tencent/qrom/internal/widget/ActionBarContainer;->removeView(Landroid/view/View;)V
 
-    .line 907
+    .line 912
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mSplitView:Lcom/tencent/qrom/internal/widget/ActionBarContainer;
 
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v1, v2}, Lcom/tencent/qrom/internal/widget/ActionBarContainer;->addView(Landroid/view/View;)V
 
-    .line 910
+    .line 915
     :cond_1
     iput-boolean v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->isMiniMode:Z
 
-    .line 911
+    .line 916
     return v3
 .end method
 
@@ -1135,7 +1135,7 @@
     .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 1324
+    .line 1329
     new-instance v0, Lcom/tencent/qrom/app/ActionBar$LayoutParams;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getContext()Landroid/content/Context;
@@ -1152,15 +1152,15 @@
     .param p1, "lp"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
-    .line 1329
+    .line 1334
     if-nez p1, :cond_0
 
-    .line 1330
+    .line 1335
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object p1
 
-    .line 1332
+    .line 1337
     :cond_0
     return-object p1
 .end method
@@ -1169,7 +1169,7 @@
     .locals 1
 
     .prologue
-    .line 882
+    .line 887
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mHomeLayout:Landroid/widget/ImageButton;
 
     return-object v0
@@ -1189,12 +1189,12 @@
 
     const/4 v5, 0x0
 
-    .line 810
+    .line 815
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     if-nez v2, :cond_6
 
-    .line 811
+    .line 816
     new-instance v2, Landroid/widget/Button;
 
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
@@ -1203,14 +1203,14 @@
 
     iput-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
-    .line 812
+    .line 817
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     const v3, 0x7a090059
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setId(I)V
 
-    .line 813
+    .line 818
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
@@ -1219,12 +1219,12 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/widget/Button;->setTextAppearance(Landroid/content/Context;I)V
 
-    .line 814
+    .line 819
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {v2, v6}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 816
+    .line 821
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -1237,16 +1237,16 @@
 
     move-result v0
 
-    .line 817
+    .line 822
     .local v0, "bRipple":Z
     if-eqz v0, :cond_4
 
-    .line 818
+    .line 823
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-le v2, v7, :cond_3
 
-    .line 819
+    .line 824
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getContext()Landroid/content/Context;
@@ -1259,7 +1259,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 833
+    .line 838
     :goto_0
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -1281,40 +1281,40 @@
 
     invoke-direct {v1, v2, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 835
+    .line 840
     .local v1, "params":Landroid/widget/LinearLayout$LayoutParams;
     iput v8, v1, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 836
+    .line 841
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {v2, v1}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 837
+    .line 842
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     sget-object v3, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 838
+    .line 843
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {v2, v8}, Landroid/widget/Button;->setGravity(I)V
 
-    .line 839
+    .line 844
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {v2, v5}, Landroid/widget/Button;->setFocusable(Z)V
 
-    .line 840
+    .line 845
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     const/4 v3, 0x1
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setSingleLine(Z)V
 
-    .line 841
+    .line 846
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getResources()Landroid/content/res/Resources;
@@ -1335,12 +1335,12 @@
 
     invoke-virtual {v2, v3, v5, v4, v5}, Landroid/widget/Button;->setPadding(IIII)V
 
-    .line 844
+    .line 849
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {p0, v2}, Lcom/tencent/qrom/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 849
+    .line 854
     .end local v0    # "bRipple":Z
     .end local v1    # "params":Landroid/widget/LinearLayout$LayoutParams;
     :cond_0
@@ -1349,12 +1349,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 850
+    .line 855
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mHomeLayout:Landroid/widget/ImageButton;
 
     invoke-virtual {v2, v6}, Landroid/widget/ImageButton;->setVisibility(I)V
 
-    .line 852
+    .line 857
     :cond_1
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
@@ -1368,18 +1368,18 @@
 
     if-eqz v2, :cond_2
 
-    .line 853
+    .line 858
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {v2, v5}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 855
+    .line 860
     :cond_2
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     return-object v2
 
-    .line 822
+    .line 827
     .restart local v0    # "bRipple":Z
     :cond_3
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
@@ -1396,13 +1396,13 @@
 
     goto :goto_0
 
-    .line 825
+    .line 830
     :cond_4
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-le v2, v7, :cond_5
 
-    .line 826
+    .line 831
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     const/4 v3, 0x0
@@ -1411,7 +1411,7 @@
 
     goto/16 :goto_0
 
-    .line 829
+    .line 834
     :cond_5
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
@@ -1421,7 +1421,7 @@
 
     goto/16 :goto_0
 
-    .line 845
+    .line 850
     .end local v0    # "bRipple":Z
     :cond_6
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
@@ -1432,7 +1432,7 @@
 
     if-nez v2, :cond_0
 
-    .line 846
+    .line 851
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {p0, v2}, Lcom/tencent/qrom/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
@@ -1466,25 +1466,25 @@
     .prologue
     const/16 v1, 0x8
 
-    .line 859
+    .line 864
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->initEdit()V
 
-    .line 860
+    .line 865
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     if-eqz v0, :cond_0
 
-    .line 861
+    .line 866
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 862
+    .line 867
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 864
+    .line 869
     :cond_0
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mEdit:Landroid/widget/EditText;
 
@@ -1498,14 +1498,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 865
+    .line 870
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mEdit:Landroid/widget/EditText;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setVisibility(I)V
 
-    .line 867
+    .line 872
     :cond_1
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mEdit:Landroid/widget/EditText;
 
@@ -1556,7 +1556,16 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/tencent/qrom/widget/ToggleButton;->setTextAppearance(Landroid/content/Context;I)V
 
-    .line 769
+    .line 768
+    iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
+
+    new-instance v3, Lcom/tencent/qrom/internal/widget/ActionBarView$2;
+
+    invoke-direct {v3, p0}, Lcom/tencent/qrom/internal/widget/ActionBarView$2;-><init>(Lcom/tencent/qrom/internal/widget/ActionBarView;)V
+
+    invoke-virtual {v2, v3}, Lcom/tencent/qrom/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 774
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -1569,16 +1578,16 @@
 
     move-result v0
 
-    .line 770
+    .line 775
     .local v0, "bRipple":Z
     if-eqz v0, :cond_3
 
-    .line 771
+    .line 776
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-le v2, v7, :cond_2
 
-    .line 772
+    .line 777
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getContext()Landroid/content/Context;
@@ -1591,7 +1600,7 @@
 
     invoke-virtual {v2, v3}, Lcom/tencent/qrom/widget/ToggleButton;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 786
+    .line 791
     :goto_0
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -1613,38 +1622,38 @@
 
     invoke-direct {v1, v2, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 788
+    .line 793
     .local v1, "params":Landroid/widget/LinearLayout$LayoutParams;
     iput v8, v1, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 789
+    .line 794
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {v2, v1}, Lcom/tencent/qrom/widget/ToggleButton;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 790
+    .line 795
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     sget-object v3, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v2, v3}, Lcom/tencent/qrom/widget/ToggleButton;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 791
+    .line 796
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {v2, v8}, Lcom/tencent/qrom/widget/ToggleButton;->setGravity(I)V
 
-    .line 792
+    .line 797
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {v2, v5}, Lcom/tencent/qrom/widget/ToggleButton;->setFocusable(Z)V
 
-    .line 793
+    .line 798
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {v2, v6}, Lcom/tencent/qrom/widget/ToggleButton;->setSingleLine(Z)V
 
-    .line 794
+    .line 799
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getResources()Landroid/content/res/Resources;
@@ -1665,19 +1674,19 @@
 
     invoke-virtual {v2, v3, v5, v4, v5}, Lcom/tencent/qrom/widget/ToggleButton;->setPadding(IIII)V
 
-    .line 798
+    .line 803
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {p0, v2}, Lcom/tencent/qrom/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 802
+    .line 807
     .end local v0    # "bRipple":Z
     .end local v1    # "params":Landroid/widget/LinearLayout$LayoutParams;
     :cond_0
     :goto_1
     iput-boolean v6, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mSplitActionBar:Z
 
-    .line 803
+    .line 808
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     if-eqz v2, :cond_1
@@ -1690,18 +1699,18 @@
 
     if-eqz v2, :cond_1
 
-    .line 804
+    .line 809
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {v2, v5}, Lcom/tencent/qrom/widget/ToggleButton;->setVisibility(I)V
 
-    .line 806
+    .line 811
     :cond_1
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     return-object v2
 
-    .line 775
+    .line 780
     .restart local v0    # "bRipple":Z
     :cond_2
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
@@ -1718,13 +1727,13 @@
 
     goto :goto_0
 
-    .line 778
+    .line 783
     :cond_3
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-le v2, v7, :cond_4
 
-    .line 779
+    .line 784
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     const/4 v3, 0x0
@@ -1733,7 +1742,7 @@
 
     goto :goto_0
 
-    .line 782
+    .line 787
     :cond_4
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
@@ -1743,7 +1752,7 @@
 
     goto :goto_0
 
-    .line 799
+    .line 804
     .end local v0    # "bRipple":Z
     :cond_5
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
@@ -1754,7 +1763,7 @@
 
     if-nez v2, :cond_0
 
-    .line 800
+    .line 805
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {p0, v2}, Lcom/tencent/qrom/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
@@ -1776,19 +1785,19 @@
     .locals 1
 
     .prologue
-    .line 1550
+    .line 1555
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 1551
+    .line 1556
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->getOverflowButton()Landroid/view/View;
 
     move-result-object v0
 
-    .line 1553
+    .line 1558
     :goto_0
     return-object v0
 
@@ -1812,10 +1821,10 @@
     .locals 1
 
     .prologue
-    .line 876
+    .line 881
     invoke-direct {p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->initSubTitle()V
 
-    .line 877
+    .line 882
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
 
     return-object v0
@@ -1835,7 +1844,7 @@
     .locals 1
 
     .prologue
-    .line 872
+    .line 877
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
 
     return-object v0
@@ -1881,7 +1890,7 @@
     .locals 1
 
     .prologue
-    .line 925
+    .line 930
     iget-boolean v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mIsCollapsed:Z
 
     return v0
@@ -2095,18 +2104,18 @@
     .param p5, "b"    # I
 
     .prologue
-    .line 1186
+    .line 1191
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getPaddingLeft()I
 
     move-result v21
 
-    .line 1187
+    .line 1192
     .local v21, "x":I
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getPaddingTop()I
 
     move-result v23
 
-    .line 1188
+    .line 1193
     .local v23, "y":I
     sub-int v25, p5, p3
 
@@ -2122,16 +2131,16 @@
 
     sub-int v7, v25, v26
 
-    .line 1190
+    .line 1195
     .local v7, "contentHeight":I
     if-gtz v7, :cond_1
 
-    .line 1320
+    .line 1325
     :cond_0
     :goto_0
     return-void
 
-    .line 1195
+    .line 1200
     :cond_1
     move-object/from16 v0, p0
 
@@ -2151,7 +2160,7 @@
 
     if-eq v0, v1, :cond_2
 
-    .line 1196
+    .line 1201
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mHomeLayout:Landroid/widget/ImageButton;
@@ -2172,14 +2181,14 @@
 
     add-int v21, v21, v25
 
-    .line 1198
+    .line 1203
     const/16 v17, 0x0
 
-    .line 1199
+    .line 1204
     .local v17, "paddingRight":I
     sub-int v21, v21, v17
 
-    .line 1203
+    .line 1208
     .end local v17    # "paddingRight":I
     :cond_2
     move-object/from16 v0, p0
@@ -2220,12 +2229,12 @@
 
     const/16 v18, 0x1
 
-    .line 1205
+    .line 1210
     .local v18, "showTitle":Z
     :goto_1
     if-eqz v18, :cond_3
 
-    .line 1206
+    .line 1211
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
@@ -2278,7 +2287,7 @@
 
     invoke-virtual {v0, v1, v2, v3, v7}, Lcom/tencent/qrom/internal/widget/ActionBarView;->positionChild(Landroid/view/View;III)I
 
-    .line 1210
+    .line 1215
     :cond_3
     move-object/from16 v0, p0
 
@@ -2288,7 +2297,7 @@
 
     packed-switch v25, :pswitch_data_0
 
-    .line 1219
+    .line 1224
     :cond_4
     :goto_2
     sub-int v25, p4, p2
@@ -2299,7 +2308,7 @@
 
     sub-int v13, v25, v26
 
-    .line 1220
+    .line 1225
     .local v13, "menuLeft":I
     move-object/from16 v0, p0
 
@@ -2325,7 +2334,7 @@
 
     if-ne v0, v1, :cond_5
 
-    .line 1221
+    .line 1226
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
@@ -2340,7 +2349,7 @@
 
     invoke-virtual {v0, v1, v13, v2, v7}, Lcom/tencent/qrom/internal/widget/ActionBarView;->positionChildInverse(Landroid/view/View;III)I
 
-    .line 1222
+    .line 1227
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
@@ -2353,11 +2362,11 @@
 
     sub-int v13, v13, v25
 
-    .line 1225
+    .line 1230
     :cond_5
     const/4 v8, 0x0
 
-    .line 1226
+    .line 1231
     .local v8, "customView":Landroid/view/View;
     move-object/from16 v0, p0
 
@@ -2377,21 +2386,21 @@
 
     if-eqz v25, :cond_6
 
-    .line 1228
+    .line 1233
     move-object/from16 v0, p0
 
     iget-object v8, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
-    .line 1230
+    .line 1235
     :cond_6
     if-eqz v8, :cond_a
 
-    .line 1231
+    .line 1236
     invoke-virtual {v8}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v12
 
-    .line 1232
+    .line 1237
     .local v12, "lp":Landroid/view/ViewGroup$LayoutParams;
     instance-of v0, v12, Lcom/tencent/qrom/app/ActionBar$LayoutParams;
 
@@ -2404,59 +2413,59 @@
     .end local v12    # "lp":Landroid/view/ViewGroup$LayoutParams;
     move-object v4, v12
 
-    .line 1235
+    .line 1240
     .local v4, "ablp":Lcom/tencent/qrom/app/ActionBar$LayoutParams;
     :goto_3
     if-eqz v4, :cond_10
 
     iget v10, v4, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->gravity:I
 
-    .line 1236
+    .line 1241
     .local v10, "gravity":I
     :goto_4
     invoke-virtual {v8}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v14
 
-    .line 1238
+    .line 1243
     .local v14, "navWidth":I
     const/16 v19, 0x0
 
-    .line 1239
+    .line 1244
     .local v19, "topMargin":I
     const/4 v5, 0x0
 
-    .line 1240
+    .line 1245
     .local v5, "bottomMargin":I
     if-eqz v4, :cond_7
 
-    .line 1241
+    .line 1246
     iget v0, v4, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->leftMargin:I
 
     move/from16 v25, v0
 
     add-int v21, v21, v25
 
-    .line 1242
+    .line 1247
     iget v0, v4, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->rightMargin:I
 
     move/from16 v25, v0
 
     sub-int v13, v13, v25
 
-    .line 1243
+    .line 1248
     iget v0, v4, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->topMargin:I
 
     move/from16 v19, v0
 
-    .line 1244
+    .line 1249
     iget v5, v4, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->bottomMargin:I
 
-    .line 1247
+    .line 1252
     :cond_7
     and-int/lit8 v11, v10, 0x7
 
-    .line 1249
+    .line 1254
     .local v11, "hgravity":I
     const/16 v25, 0x1
 
@@ -2464,7 +2473,7 @@
 
     if-ne v11, v0, :cond_12
 
-    .line 1250
+    .line 1255
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mRight:I
@@ -2483,31 +2492,31 @@
 
     div-int/lit8 v6, v25, 0x2
 
-    .line 1251
+    .line 1256
     .local v6, "centeredLeft":I
     move/from16 v0, v21
 
     if-ge v6, v0, :cond_11
 
-    .line 1252
+    .line 1257
     const/4 v11, 0x3
 
-    .line 1260
+    .line 1265
     .end local v6    # "centeredLeft":I
     :cond_8
     :goto_5
     const/16 v22, 0x0
 
-    .line 1261
+    .line 1266
     .local v22, "xpos":I
     packed-switch v11, :pswitch_data_1
 
-    .line 1273
+    .line 1278
     :goto_6
     :pswitch_0
     and-int/lit8 v20, v10, 0x70
 
-    .line 1275
+    .line 1280
     .local v20, "vgravity":I
     const/16 v25, -0x1
 
@@ -2515,24 +2524,24 @@
 
     if-ne v10, v0, :cond_9
 
-    .line 1276
+    .line 1281
     const/16 v20, 0x10
 
-    .line 1279
+    .line 1284
     :cond_9
     const/16 v24, 0x0
 
-    .line 1280
+    .line 1285
     .local v24, "ypos":I
     sparse-switch v20, :sswitch_data_0
 
-    .line 1294
+    .line 1299
     :goto_7
     invoke-virtual {v8}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v9
 
-    .line 1295
+    .line 1300
     .local v9, "customWidth":I
     sget v25, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -2556,7 +2565,7 @@
 
     if-eqz v25, :cond_13
 
-    .line 1296
+    .line 1301
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v25
@@ -2611,11 +2620,11 @@
 
     invoke-virtual {v8, v0, v1, v2, v3}, Landroid/view/View;->layout(IIII)V
 
-    .line 1302
+    .line 1307
     :goto_8
     add-int v21, v21, v9
 
-    .line 1306
+    .line 1311
     .end local v4    # "ablp":Lcom/tencent/qrom/app/ActionBar$LayoutParams;
     .end local v5    # "bottomMargin":I
     .end local v9    # "customWidth":I
@@ -2653,7 +2662,7 @@
 
     if-eq v0, v1, :cond_b
 
-    .line 1307
+    .line 1312
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
@@ -2674,7 +2683,7 @@
 
     invoke-virtual {v0, v1, v2, v3, v7}, Lcom/tencent/qrom/internal/widget/ActionBarView;->positionChild(Landroid/view/View;III)I
 
-    .line 1310
+    .line 1315
     :cond_b
     move-object/from16 v0, p0
 
@@ -2702,7 +2711,7 @@
 
     if-eq v0, v1, :cond_c
 
-    .line 1311
+    .line 1316
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
@@ -2757,7 +2766,7 @@
 
     invoke-virtual {v0, v1, v2, v3, v7}, Lcom/tencent/qrom/internal/widget/ActionBarView;->positionChild(Landroid/view/View;III)I
 
-    .line 1316
+    .line 1321
     :cond_c
     move-object/from16 v0, p0
 
@@ -2785,7 +2794,7 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 1317
+    .line 1322
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mEdit:Landroid/widget/EditText;
@@ -2840,7 +2849,7 @@
 
     goto/16 :goto_0
 
-    .line 1203
+    .line 1208
     .end local v8    # "customView":Landroid/view/View;
     .end local v13    # "menuLeft":I
     .end local v18    # "showTitle":Z
@@ -2849,7 +2858,7 @@
 
     goto/16 :goto_1
 
-    .line 1212
+    .line 1217
     .restart local v18    # "showTitle":Z
     :pswitch_1
     move-object/from16 v0, p0
@@ -2860,7 +2869,7 @@
 
     if-eqz v25, :cond_4
 
-    .line 1213
+    .line 1218
     if-eqz v18, :cond_e
 
     move-object/from16 v0, p0
@@ -2871,7 +2880,7 @@
 
     add-int v21, v21, v25
 
-    .line 1214
+    .line 1219
     :cond_e
     move-object/from16 v0, p0
 
@@ -2903,7 +2912,7 @@
 
     goto/16 :goto_2
 
-    .line 1232
+    .line 1237
     .restart local v8    # "customView":Landroid/view/View;
     .restart local v12    # "lp":Landroid/view/ViewGroup$LayoutParams;
     .restart local v13    # "menuLeft":I
@@ -2912,7 +2921,7 @@
 
     goto/16 :goto_3
 
-    .line 1235
+    .line 1240
     .end local v12    # "lp":Landroid/view/ViewGroup$LayoutParams;
     .restart local v4    # "ablp":Lcom/tencent/qrom/app/ActionBar$LayoutParams;
     :cond_10
@@ -2920,7 +2929,7 @@
 
     goto/16 :goto_4
 
-    .line 1253
+    .line 1258
     .restart local v5    # "bottomMargin":I
     .restart local v6    # "centeredLeft":I
     .restart local v10    # "gravity":I
@@ -2934,12 +2943,12 @@
 
     if-le v0, v13, :cond_8
 
-    .line 1254
+    .line 1259
     const/4 v11, 0x5
 
     goto/16 :goto_5
 
-    .line 1256
+    .line 1261
     .end local v6    # "centeredLeft":I
     :cond_12
     const/16 v25, -0x1
@@ -2948,12 +2957,12 @@
 
     if-ne v10, v0, :cond_8
 
-    .line 1257
+    .line 1262
     const/4 v11, 0x3
 
     goto/16 :goto_5
 
-    .line 1263
+    .line 1268
     .restart local v22    # "xpos":I
     :pswitch_2
     move-object/from16 v0, p0
@@ -2974,23 +2983,23 @@
 
     div-int/lit8 v22, v25, 0x2
 
-    .line 1264
+    .line 1269
     goto/16 :goto_6
 
-    .line 1266
+    .line 1271
     :pswitch_3
     move/from16 v22, v21
 
-    .line 1267
+    .line 1272
     goto/16 :goto_6
 
-    .line 1269
+    .line 1274
     :pswitch_4
     sub-int v22, v13, v14
 
     goto/16 :goto_6
 
-    .line 1282
+    .line 1287
     .restart local v20    # "vgravity":I
     .restart local v24    # "ypos":I
     :sswitch_0
@@ -2998,7 +3007,7 @@
 
     move-result v16
 
-    .line 1283
+    .line 1288
     .local v16, "paddedTop":I
     move-object/from16 v0, p0
 
@@ -3020,7 +3029,7 @@
 
     sub-int v15, v25, v26
 
-    .line 1284
+    .line 1289
     .local v15, "paddedBottom":I
     sub-int v25, v15, v16
 
@@ -3032,10 +3041,10 @@
 
     div-int/lit8 v24, v25, 0x2
 
-    .line 1285
+    .line 1290
     goto/16 :goto_7
 
-    .line 1287
+    .line 1292
     .end local v15    # "paddedBottom":I
     .end local v16    # "paddedTop":I
     :sswitch_1
@@ -3045,10 +3054,10 @@
 
     add-int v24, v25, v19
 
-    .line 1288
+    .line 1293
     goto/16 :goto_7
 
-    .line 1290
+    .line 1295
     :sswitch_2
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getHeight()I
 
@@ -3070,7 +3079,7 @@
 
     goto/16 :goto_7
 
-    .line 1300
+    .line 1305
     .restart local v9    # "customWidth":I
     :cond_13
     add-int v25, v22, v9
@@ -3093,7 +3102,7 @@
 
     goto/16 :goto_8
 
-    .line 1210
+    .line 1215
     nop
 
     :pswitch_data_0
@@ -3101,7 +3110,7 @@
         :pswitch_1
     .end packed-switch
 
-    .line 1261
+    .line 1266
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_2
@@ -3111,7 +3120,7 @@
         :pswitch_4
     .end packed-switch
 
-    .line 1280
+    .line 1285
     :sswitch_data_0
     .sparse-switch
         0x10 -> :sswitch_0
@@ -3126,7 +3135,7 @@
     .param p2, "heightMeasureSpec"    # I
 
     .prologue
-    .line 931
+    .line 936
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getPaddingLeft()I
 
     move-result v46
@@ -3161,12 +3170,12 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/tencent/qrom/internal/widget/ActionBarView;->setPadding(IIII)V
 
-    .line 934
+    .line 939
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getChildCount()I
 
     move-result v9
 
-    .line 935
+    .line 940
     .local v9, "childCount":I
     move-object/from16 v0, p0
 
@@ -3176,10 +3185,10 @@
 
     if-eqz v46, :cond_4
 
-    .line 936
+    .line 941
     const/16 v44, 0x0
 
-    .line 937
+    .line 942
     .local v44, "visibleChildren":I
     const/16 v24, 0x0
 
@@ -3189,7 +3198,7 @@
 
     if-ge v0, v9, :cond_2
 
-    .line 938
+    .line 943
     move-object/from16 v0, p0
 
     move/from16 v1, v24
@@ -3198,7 +3207,7 @@
 
     move-result-object v8
 
-    .line 939
+    .line 944
     .local v8, "child":Landroid/view/View;
     invoke-virtual {v8}, Landroid/view/View;->getVisibility()I
 
@@ -3234,22 +3243,22 @@
 
     if-eqz v46, :cond_1
 
-    .line 941
+    .line 946
     :cond_0
     add-int/lit8 v44, v44, 0x1
 
-    .line 937
+    .line 942
     :cond_1
     add-int/lit8 v24, v24, 0x1
 
     goto :goto_0
 
-    .line 945
+    .line 950
     .end local v8    # "child":Landroid/view/View;
     :cond_2
     if-nez v44, :cond_4
 
-    .line 946
+    .line 951
     const/16 v46, 0x0
 
     const/16 v47, 0x0
@@ -3262,7 +3271,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/tencent/qrom/internal/widget/ActionBarView;->setMeasuredDimension(II)V
 
-    .line 947
+    .line 952
     const/16 v46, 0x1
 
     move/from16 v0, v46
@@ -3271,14 +3280,14 @@
 
     iput-boolean v0, v1, Lcom/tencent/qrom/internal/widget/ActionBarView;->mIsCollapsed:Z
 
-    .line 1182
+    .line 1187
     .end local v24    # "i":I
     .end local v44    # "visibleChildren":I
     :cond_3
     :goto_1
     return-void
 
-    .line 951
+    .line 956
     :cond_4
     const/16 v46, 0x0
 
@@ -3288,18 +3297,18 @@
 
     iput-boolean v0, v1, Lcom/tencent/qrom/internal/widget/ActionBarView;->mIsCollapsed:Z
 
-    .line 953
+    .line 958
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v45
 
-    .line 955
+    .line 960
     .local v45, "widthMode":I
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v19
 
-    .line 956
+    .line 961
     .local v19, "heightMode":I
     const/high16 v46, -0x80000000
 
@@ -3309,7 +3318,7 @@
 
     if-eq v0, v1, :cond_5
 
-    .line 957
+    .line 962
     new-instance v46, Ljava/lang/IllegalStateException;
 
     new-instance v47, Ljava/lang/StringBuilder;
@@ -3348,13 +3357,13 @@
 
     throw v46
 
-    .line 961
+    .line 966
     :cond_5
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v12
 
-    .line 963
+    .line 968
     .local v12, "contentWidth":I
     move-object/from16 v0, p0
 
@@ -3370,7 +3379,7 @@
 
     move/from16 v28, v0
 
-    .line 966
+    .line 971
     .local v28, "maxHeight":I
     :goto_2
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getPaddingTop()I
@@ -3383,23 +3392,23 @@
 
     add-int v43, v46, v47
 
-    .line 967
+    .line 972
     .local v43, "verticalPadding":I
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getPaddingLeft()I
 
     move-result v34
 
-    .line 968
+    .line 973
     .local v34, "paddingLeft":I
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->getPaddingRight()I
 
     move-result v35
 
-    .line 969
+    .line 974
     .local v35, "paddingRight":I
     sub-int v18, v28, v43
 
-    .line 970
+    .line 975
     .local v18, "height":I
     const/high16 v46, -0x80000000
 
@@ -3411,21 +3420,21 @@
 
     move-result v10
 
-    .line 972
+    .line 977
     .local v10, "childSpecHeight":I
     sub-int v46, v12, v34
 
     sub-int v6, v46, v35
 
-    .line 973
+    .line 978
     .local v6, "availableWidth":I
     div-int/lit8 v26, v6, 0x2
 
-    .line 974
+    .line 979
     .local v26, "leftOfCenter":I
     move/from16 v36, v26
 
-    .line 976
+    .line 981
     .local v36, "rightOfCenter":I
     move-object/from16 v0, p0
 
@@ -3445,7 +3454,7 @@
 
     if-eq v0, v1, :cond_6
 
-    .line 977
+    .line 982
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mHomeLayout:Landroid/widget/ImageButton;
@@ -3456,7 +3465,7 @@
 
     move-result-object v27
 
-    .line 979
+    .line 984
     .local v27, "lp":Landroid/view/ViewGroup$LayoutParams;
     move-object/from16 v0, v27
 
@@ -3466,7 +3475,7 @@
 
     if-gez v46, :cond_1b
 
-    .line 980
+    .line 985
     const/high16 v46, -0x80000000
 
     move/from16 v0, v46
@@ -3475,7 +3484,7 @@
 
     move-result v22
 
-    .line 984
+    .line 989
     .local v22, "homeWidthSpec":I
     :goto_3
     move-object/from16 v0, p0
@@ -3502,7 +3511,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/ImageButton;->measure(II)V
 
-    .line 986
+    .line 991
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mHomeLayout:Landroid/widget/ImageButton;
@@ -3513,7 +3522,7 @@
 
     move-result v21
 
-    .line 987
+    .line 992
     .local v21, "homeWidth":I
     const/16 v46, 0x0
 
@@ -3523,7 +3532,7 @@
 
     move-result v6
 
-    .line 988
+    .line 993
     const/16 v46, 0x0
 
     sub-int v47, v6, v21
@@ -3532,7 +3541,7 @@
 
     move-result v26
 
-    .line 991
+    .line 996
     .end local v21    # "homeWidth":I
     .end local v22    # "homeWidthSpec":I
     .end local v27    # "lp":Landroid/view/ViewGroup$LayoutParams;
@@ -3561,7 +3570,7 @@
 
     if-ne v0, v1, :cond_7
 
-    .line 992
+    .line 997
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
@@ -3580,7 +3589,7 @@
 
     move-result v6
 
-    .line 993
+    .line 998
     const/16 v46, 0x0
 
     move-object/from16 v0, p0
@@ -3599,7 +3608,7 @@
 
     move-result v36
 
-    .line 996
+    .line 1001
     :cond_7
     move-object/from16 v0, p0
 
@@ -3621,7 +3630,7 @@
 
     if-nez v46, :cond_8
 
-    .line 997
+    .line 1002
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
@@ -3650,7 +3659,7 @@
 
     invoke-virtual/range {v46 .. v48}, Landroid/widget/Button;->measure(II)V
 
-    .line 1002
+    .line 1007
     :cond_8
     move-object/from16 v0, p0
 
@@ -3672,7 +3681,7 @@
 
     if-nez v46, :cond_9
 
-    .line 1003
+    .line 1008
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
@@ -3701,7 +3710,7 @@
 
     invoke-virtual/range {v46 .. v48}, Lcom/tencent/qrom/widget/ToggleButton;->measure(II)V
 
-    .line 1008
+    .line 1013
     :cond_9
     move-object/from16 v0, p0
 
@@ -3723,7 +3732,7 @@
 
     if-nez v46, :cond_b
 
-    .line 1009
+    .line 1014
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mHomeLayout:Landroid/widget/ImageButton;
@@ -3748,7 +3757,7 @@
 
     if-nez v46, :cond_1c
 
-    .line 1010
+    .line 1015
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mHomeLayout:Landroid/widget/ImageButton;
@@ -3759,7 +3768,7 @@
 
     move-result v21
 
-    .line 1011
+    .line 1016
     .restart local v21    # "homeWidth":I
     move-object/from16 v0, p0
 
@@ -3771,7 +3780,7 @@
 
     move-result v31
 
-    .line 1012
+    .line 1017
     .local v31, "menuWidth":I
     move-object/from16 v0, p0
 
@@ -3801,7 +3810,7 @@
 
     invoke-virtual/range {v46 .. v47}, Landroid/widget/EditText;->setMaxWidth(I)V
 
-    .line 1023
+    .line 1028
     .end local v21    # "homeWidth":I
     .end local v31    # "menuWidth":I
     :cond_a
@@ -3830,7 +3839,7 @@
 
     invoke-virtual/range {v46 .. v48}, Landroid/widget/EditText;->measure(II)V
 
-    .line 1028
+    .line 1033
     :cond_b
     move-object/from16 v0, p0
 
@@ -3870,7 +3879,7 @@
 
     const/16 v37, 0x1
 
-    .line 1031
+    .line 1036
     .local v37, "showTitle":Z
     :goto_5
     move-object/from16 v0, p0
@@ -3881,12 +3890,12 @@
 
     packed-switch v46, :pswitch_data_0
 
-    .line 1047
+    .line 1052
     :cond_c
     :goto_6
     const/16 v17, 0x0
 
-    .line 1048
+    .line 1053
     .local v17, "customView":Landroid/view/View;
     move-object/from16 v0, p0
 
@@ -3906,18 +3915,18 @@
 
     if-eqz v46, :cond_d
 
-    .line 1050
+    .line 1055
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
     move-object/from16 v17, v0
 
-    .line 1053
+    .line 1058
     :cond_d
     if-eqz v17, :cond_11
 
-    .line 1054
+    .line 1059
     invoke-virtual/range {v17 .. v17}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v46
@@ -3930,7 +3939,7 @@
 
     move-result-object v27
 
-    .line 1055
+    .line 1060
     .restart local v27    # "lp":Landroid/view/ViewGroup$LayoutParams;
     move-object/from16 v0, v27
 
@@ -3946,20 +3955,20 @@
 
     move-object/from16 v5, v46
 
-    .line 1058
+    .line 1063
     .local v5, "ablp":Lcom/tencent/qrom/app/ActionBar$LayoutParams;
     :goto_7
     const/16 v23, 0x0
 
-    .line 1059
+    .line 1064
     .local v23, "horizontalMargin":I
     const/16 v42, 0x0
 
-    .line 1060
+    .line 1065
     .local v42, "verticalMargin":I
     if-eqz v5, :cond_e
 
-    .line 1061
+    .line 1066
     iget v0, v5, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->leftMargin:I
 
     move/from16 v46, v0
@@ -3970,7 +3979,7 @@
 
     add-int v23, v46, v47
 
-    .line 1062
+    .line 1067
     iget v0, v5, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->topMargin:I
 
     move/from16 v46, v0
@@ -3981,7 +3990,7 @@
 
     add-int v42, v46, v47
 
-    .line 1068
+    .line 1073
     :cond_e
     move-object/from16 v0, p0
 
@@ -3991,10 +4000,10 @@
 
     if-gtz v46, :cond_23
 
-    .line 1069
+    .line 1074
     const/high16 v14, -0x80000000
 
-    .line 1074
+    .line 1079
     .local v14, "customNavHeightMode":I
     :goto_8
     const/16 v46, 0x0
@@ -4029,7 +4038,7 @@
 
     move-result v13
 
-    .line 1077
+    .line 1082
     .local v13, "customNavHeight":I
     move-object/from16 v0, v27
 
@@ -4047,7 +4056,7 @@
 
     const/high16 v16, 0x40000000    # 2.0f
 
-    .line 1079
+    .line 1084
     .local v16, "customNavWidthMode":I
     :goto_9
     const/16 v47, 0x0
@@ -4083,7 +4092,7 @@
 
     move-result v15
 
-    .line 1082
+    .line 1087
     .local v15, "customNavWidth":I
     if-eqz v5, :cond_27
 
@@ -4094,7 +4103,7 @@
     :goto_b
     and-int/lit8 v20, v46, 0x7
 
-    .line 1087
+    .line 1092
     .local v20, "hgrav":I
     const/16 v46, 0x1
 
@@ -4118,7 +4127,7 @@
 
     if-ne v0, v1, :cond_10
 
-    .line 1088
+    .line 1093
     move/from16 v0, v26
 
     move/from16 v1, v36
@@ -4129,7 +4138,7 @@
 
     mul-int/lit8 v15, v46, 0x2
 
-    .line 1092
+    .line 1097
     :cond_10
     move-object/from16 v0, p0
 
@@ -4139,7 +4148,7 @@
 
     if-nez v46, :cond_28
 
-    .line 1093
+    .line 1098
     invoke-static/range {v15 .. v16}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v46
@@ -4156,7 +4165,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/View;->measure(II)V
 
-    .line 1103
+    .line 1108
     :goto_c
     invoke-virtual/range {v17 .. v17}, Landroid/view/View;->getMeasuredWidth()I
 
@@ -4166,7 +4175,7 @@
 
     sub-int v6, v6, v46
 
-    .line 1106
+    .line 1111
     .end local v5    # "ablp":Lcom/tencent/qrom/app/ActionBar$LayoutParams;
     .end local v13    # "customNavHeight":I
     .end local v14    # "customNavHeightMode":I
@@ -4179,7 +4188,7 @@
     :cond_11
     if-eqz v37, :cond_18
 
-    .line 1108
+    .line 1113
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->firstMeasureTitle:Z
@@ -4188,7 +4197,7 @@
 
     if-eqz v46, :cond_14
 
-    .line 1109
+    .line 1114
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
@@ -4197,7 +4206,7 @@
 
     if-eqz v46, :cond_12
 
-    .line 1110
+    .line 1115
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
@@ -4206,7 +4215,7 @@
 
     invoke-virtual/range {v46 .. v46}, Landroid/widget/TextView;->requestLayout()V
 
-    .line 1111
+    .line 1116
     :cond_12
     move-object/from16 v0, p0
 
@@ -4216,7 +4225,7 @@
 
     if-eqz v46, :cond_13
 
-    .line 1112
+    .line 1117
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
@@ -4225,7 +4234,7 @@
 
     invoke-virtual/range {v46 .. v46}, Landroid/widget/TextView;->requestLayout()V
 
-    .line 1113
+    .line 1118
     :cond_13
     move-object/from16 v0, p0
 
@@ -4255,7 +4264,7 @@
 
     invoke-virtual/range {v46 .. v48}, Landroid/widget/LinearLayout;->measure(II)V
 
-    .line 1116
+    .line 1121
     const/16 v46, 0x0
 
     move/from16 v0, v46
@@ -4264,7 +4273,7 @@
 
     iput-boolean v0, v1, Lcom/tencent/qrom/internal/widget/ActionBarView;->firstMeasureTitle:Z
 
-    .line 1118
+    .line 1123
     :cond_14
     move-object/from16 v0, p0
 
@@ -4276,11 +4285,11 @@
 
     move-result v39
 
-    .line 1120
+    .line 1125
     .local v39, "tagWidth":I
     move/from16 v29, v39
 
-    .line 1122
+    .line 1127
     .local v29, "maxWidth":I
     move-object/from16 v0, p0
 
@@ -4290,7 +4299,7 @@
 
     if-eqz v46, :cond_2b
 
-    .line 1123
+    .line 1128
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mSplitActionBar:Z
@@ -4299,7 +4308,7 @@
 
     if-nez v46, :cond_29
 
-    .line 1124
+    .line 1129
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
@@ -4324,7 +4333,7 @@
 
     move-result v40
 
-    .line 1125
+    .line 1130
     .local v40, "temp":I
     div-int/lit8 v46, v12, 0x2
 
@@ -4336,7 +4345,7 @@
 
     mul-int/lit8 v29, v46, 0x2
 
-    .line 1130
+    .line 1135
     .end local v40    # "temp":I
     :goto_d
     move/from16 v0, v39
@@ -4347,7 +4356,7 @@
 
     move-result v39
 
-    .line 1136
+    .line 1141
     :goto_e
     move-object/from16 v0, p0
 
@@ -4357,7 +4366,7 @@
 
     if-eqz v46, :cond_15
 
-    .line 1137
+    .line 1142
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
@@ -4380,7 +4389,7 @@
 
     move-result v11
 
-    .line 1138
+    .line 1143
     .local v11, "closeWidth":I
     :goto_f
     div-int/lit8 v46, v12, 0x2
@@ -4431,7 +4440,7 @@
 
     if-le v0, v1, :cond_15
 
-    .line 1139
+    .line 1144
     div-int/lit8 v46, v12, 0x2
 
     move-object/from16 v0, p0
@@ -4474,7 +4483,7 @@
 
     mul-int/lit8 v39, v46, 0x2
 
-    .line 1142
+    .line 1147
     .end local v11    # "closeWidth":I
     :cond_15
     move-object/from16 v0, p0
@@ -4485,7 +4494,7 @@
 
     if-eqz v46, :cond_16
 
-    .line 1143
+    .line 1148
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
@@ -4508,7 +4517,7 @@
 
     move-result v32
 
-    .line 1144
+    .line 1149
     .local v32, "multiWidth":I
     :goto_10
     div-int/lit8 v46, v12, 0x2
@@ -4561,7 +4570,7 @@
 
     if-le v0, v1, :cond_16
 
-    .line 1145
+    .line 1150
     div-int/lit8 v46, v12, 0x2
 
     move-object/from16 v0, p0
@@ -4606,7 +4615,7 @@
 
     mul-int/lit8 v39, v46, 0x2
 
-    .line 1148
+    .line 1153
     .end local v32    # "multiWidth":I
     :cond_16
     move-object/from16 v0, p0
@@ -4625,7 +4634,7 @@
 
     if-eqz v46, :cond_17
 
-    .line 1149
+    .line 1154
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
@@ -4648,7 +4657,7 @@
 
     move-result v11
 
-    .line 1150
+    .line 1155
     .restart local v11    # "closeWidth":I
     :goto_11
     move-object/from16 v0, p0
@@ -4673,7 +4682,7 @@
 
     move-result v32
 
-    .line 1151
+    .line 1156
     .restart local v32    # "multiWidth":I
     :goto_12
     move/from16 v0, v32
@@ -4682,7 +4691,7 @@
 
     move-result v7
 
-    .line 1152
+    .line 1157
     .local v7, "buttonWidth":I
     div-int/lit8 v46, v12, 0x2
 
@@ -4732,7 +4741,7 @@
 
     if-le v0, v1, :cond_17
 
-    .line 1153
+    .line 1158
     div-int/lit8 v46, v12, 0x2
 
     move-object/from16 v0, p0
@@ -4775,7 +4784,7 @@
 
     mul-int/lit8 v39, v46, 0x2
 
-    .line 1158
+    .line 1163
     .end local v7    # "buttonWidth":I
     .end local v11    # "closeWidth":I
     .end local v32    # "multiWidth":I
@@ -4810,7 +4819,7 @@
 
     invoke-virtual/range {v46 .. v48}, Landroid/widget/LinearLayout;->measure(II)V
 
-    .line 1164
+    .line 1169
     .end local v29    # "maxWidth":I
     .end local v39    # "tagWidth":I
     :cond_18
@@ -4822,10 +4831,10 @@
 
     if-gtz v46, :cond_32
 
-    .line 1165
+    .line 1170
     const/16 v30, 0x0
 
-    .line 1166
+    .line 1171
     .local v30, "measuredHeight":I
     const/16 v24, 0x0
 
@@ -4835,7 +4844,7 @@
 
     if-ge v0, v9, :cond_31
 
-    .line 1167
+    .line 1172
     move-object/from16 v0, p0
 
     move/from16 v1, v24
@@ -4844,7 +4853,7 @@
 
     move-result-object v41
 
-    .line 1168
+    .line 1173
     .local v41, "v":Landroid/view/View;
     invoke-virtual/range {v41 .. v41}, Landroid/view/View;->getMeasuredHeight()I
 
@@ -4852,7 +4861,7 @@
 
     add-int v33, v46, v43
 
-    .line 1169
+    .line 1174
     .local v33, "paddedViewHeight":I
     move/from16 v0, v33
 
@@ -4860,16 +4869,16 @@
 
     if-le v0, v1, :cond_19
 
-    .line 1170
+    .line 1175
     move/from16 v30, v33
 
-    .line 1166
+    .line 1171
     :cond_19
     add-int/lit8 v24, v24, 0x1
 
     goto :goto_13
 
-    .line 963
+    .line 968
     .end local v6    # "availableWidth":I
     .end local v10    # "childSpecHeight":I
     .end local v17    # "customView":Landroid/view/View;
@@ -4891,7 +4900,7 @@
 
     goto/16 :goto_2
 
-    .line 982
+    .line 987
     .restart local v6    # "availableWidth":I
     .restart local v10    # "childSpecHeight":I
     .restart local v18    # "height":I
@@ -4928,7 +4937,7 @@
     .restart local v22    # "homeWidthSpec":I
     goto/16 :goto_3
 
-    .line 1014
+    .line 1019
     .end local v22    # "homeWidthSpec":I
     .end local v27    # "lp":Landroid/view/ViewGroup$LayoutParams;
     :cond_1c
@@ -4948,7 +4957,7 @@
 
     if-eqz v46, :cond_1f
 
-    .line 1015
+    .line 1020
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
@@ -4967,7 +4976,7 @@
 
     move-result v11
 
-    .line 1016
+    .line 1021
     .restart local v11    # "closeWidth":I
     :goto_14
     move-object/from16 v0, p0
@@ -4988,7 +4997,7 @@
 
     move-result v32
 
-    .line 1017
+    .line 1022
     .restart local v32    # "multiWidth":I
     :goto_15
     move-object/from16 v0, p0
@@ -5043,7 +5052,7 @@
 
     goto/16 :goto_4
 
-    .line 1015
+    .line 1020
     .end local v11    # "closeWidth":I
     .end local v32    # "multiWidth":I
     :cond_1d
@@ -5051,14 +5060,14 @@
 
     goto :goto_14
 
-    .line 1016
+    .line 1021
     .restart local v11    # "closeWidth":I
     :cond_1e
     const/16 v32, 0x0
 
     goto :goto_15
 
-    .line 1019
+    .line 1024
     .end local v11    # "closeWidth":I
     :cond_1f
     move-object/from16 v0, p0
@@ -5101,7 +5110,7 @@
 
     if-nez v46, :cond_a
 
-    .line 1020
+    .line 1025
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mHomeLayout:Landroid/widget/ImageButton;
@@ -5112,7 +5121,7 @@
 
     move-result v21
 
-    .line 1021
+    .line 1026
     .restart local v21    # "homeWidth":I
     move-object/from16 v0, p0
 
@@ -5136,14 +5145,14 @@
 
     goto/16 :goto_4
 
-    .line 1028
+    .line 1033
     .end local v21    # "homeWidth":I
     :cond_20
     const/16 v37, 0x0
 
     goto/16 :goto_5
 
-    .line 1033
+    .line 1038
     .restart local v37    # "showTitle":Z
     :pswitch_0
     move-object/from16 v0, p0
@@ -5154,7 +5163,7 @@
 
     if-eqz v46, :cond_c
 
-    .line 1034
+    .line 1039
     if-eqz v37, :cond_21
 
     move-object/from16 v0, p0
@@ -5165,7 +5174,7 @@
 
     mul-int/lit8 v25, v46, 0x2
 
-    .line 1035
+    .line 1040
     .local v25, "itemPaddingSize":I
     :goto_16
     const/16 v46, 0x0
@@ -5176,7 +5185,7 @@
 
     move-result v6
 
-    .line 1036
+    .line 1041
     const/16 v46, 0x0
 
     sub-int v47, v26, v25
@@ -5185,7 +5194,7 @@
 
     move-result v26
 
-    .line 1037
+    .line 1042
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mTabScrollView:Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;
@@ -5212,7 +5221,7 @@
 
     invoke-virtual/range {v46 .. v48}, Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;->measure(II)V
 
-    .line 1040
+    .line 1045
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mTabScrollView:Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;
@@ -5223,7 +5232,7 @@
 
     move-result v38
 
-    .line 1041
+    .line 1046
     .local v38, "tabWidth":I
     const/16 v46, 0x0
 
@@ -5233,7 +5242,7 @@
 
     move-result v6
 
-    .line 1042
+    .line 1047
     const/16 v46, 0x0
 
     sub-int v47, v26, v38
@@ -5244,7 +5253,7 @@
 
     goto/16 :goto_6
 
-    .line 1034
+    .line 1039
     .end local v25    # "itemPaddingSize":I
     .end local v38    # "tabWidth":I
     :cond_21
@@ -5256,7 +5265,7 @@
 
     goto :goto_16
 
-    .line 1055
+    .line 1060
     .restart local v17    # "customView":Landroid/view/View;
     .restart local v27    # "lp":Landroid/view/ViewGroup$LayoutParams;
     :cond_22
@@ -5264,7 +5273,7 @@
 
     goto/16 :goto_7
 
-    .line 1071
+    .line 1076
     .restart local v5    # "ablp":Lcom/tencent/qrom/app/ActionBar$LayoutParams;
     .restart local v23    # "horizontalMargin":I
     .restart local v42    # "verticalMargin":I
@@ -5295,7 +5304,7 @@
 
     goto :goto_17
 
-    .line 1077
+    .line 1082
     .end local v18    # "height":I
     .restart local v13    # "customNavHeight":I
     .restart local v14    # "customNavHeightMode":I
@@ -5308,17 +5317,17 @@
     :cond_26
     move/from16 v46, v6
 
-    .line 1079
+    .line 1084
     goto/16 :goto_a
 
-    .line 1082
+    .line 1087
     .restart local v15    # "customNavWidth":I
     :cond_27
     const/16 v46, 0x13
 
     goto/16 :goto_b
 
-    .line 1098
+    .line 1103
     .restart local v20    # "hgrav":I
     :cond_28
     move/from16 v0, v16
@@ -5341,7 +5350,7 @@
 
     goto/16 :goto_c
 
-    .line 1128
+    .line 1133
     .end local v5    # "ablp":Lcom/tencent/qrom/app/ActionBar$LayoutParams;
     .end local v13    # "customNavHeight":I
     .end local v14    # "customNavHeightMode":I
@@ -5408,7 +5417,7 @@
 
     goto :goto_18
 
-    .line 1133
+    .line 1138
     :cond_2b
     div-int/lit8 v47, v12, 0x2
 
@@ -5464,32 +5473,32 @@
 
     goto :goto_19
 
-    .line 1137
+    .line 1142
     :cond_2d
     const/4 v11, 0x0
 
     goto/16 :goto_f
 
-    .line 1143
+    .line 1148
     :cond_2e
     const/16 v32, 0x0
 
     goto/16 :goto_10
 
-    .line 1149
+    .line 1154
     :cond_2f
     const/4 v11, 0x0
 
     goto/16 :goto_11
 
-    .line 1150
+    .line 1155
     .restart local v11    # "closeWidth":I
     :cond_30
     const/16 v32, 0x0
 
     goto/16 :goto_12
 
-    .line 1173
+    .line 1178
     .end local v11    # "closeWidth":I
     .end local v29    # "maxWidth":I
     .end local v39    # "tagWidth":I
@@ -5502,7 +5511,7 @@
 
     invoke-virtual {v0, v12, v1}, Lcom/tencent/qrom/internal/widget/ActionBarView;->setMeasuredDimension(II)V
 
-    .line 1178
+    .line 1183
     .end local v24    # "i":I
     .end local v30    # "measuredHeight":I
     :goto_1a
@@ -5514,7 +5523,7 @@
 
     if-eqz v46, :cond_3
 
-    .line 1179
+    .line 1184
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mContextView:Lcom/tencent/qrom/internal/widget/ActionBarContextView;
@@ -5529,7 +5538,7 @@
 
     invoke-virtual/range {v46 .. v47}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->setContentHeight(I)V
 
-    .line 1180
+    .line 1185
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mContextView:Lcom/tencent/qrom/internal/widget/ActionBarContextView;
@@ -5550,7 +5559,7 @@
 
     goto/16 :goto_1
 
-    .line 1175
+    .line 1180
     :cond_32
     move-object/from16 v0, p0
 
@@ -5560,7 +5569,7 @@
 
     goto :goto_1a
 
-    .line 1031
+    .line 1036
     nop
 
     :pswitch_data_0
@@ -5574,12 +5583,12 @@
     .param p1, "p"    # Landroid/os/Parcelable;
 
     .prologue
-    .line 1351
+    .line 1356
     move-object v1, p1
 
     check-cast v1, Lcom/tencent/qrom/internal/widget/ActionBarView$SavedState;
 
-    .line 1353
+    .line 1358
     .local v1, "state":Lcom/tencent/qrom/internal/widget/ActionBarView$SavedState;
     invoke-virtual {v1}, Lcom/tencent/qrom/internal/widget/ActionBarView$SavedState;->getSuperState()Landroid/os/Parcelable;
 
@@ -5587,7 +5596,7 @@
 
     invoke-super {p0, v2}, Lcom/tencent/qrom/internal/widget/AbsActionBarView;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    .line 1355
+    .line 1360
     iget v2, v1, Lcom/tencent/qrom/internal/widget/ActionBarView$SavedState;->expandedMenuItemId:I
 
     if-eqz v2, :cond_0
@@ -5600,7 +5609,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1357
+    .line 1362
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mOptionsMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     iget v3, v1, Lcom/tencent/qrom/internal/widget/ActionBarView$SavedState;->expandedMenuItemId:I
@@ -5609,24 +5618,24 @@
 
     move-result-object v0
 
-    .line 1358
+    .line 1363
     .local v0, "item":Landroid/view/MenuItem;
     if-eqz v0, :cond_0
 
-    .line 1359
+    .line 1364
     invoke-interface {v0}, Landroid/view/MenuItem;->expandActionView()Z
 
-    .line 1363
+    .line 1368
     .end local v0    # "item":Landroid/view/MenuItem;
     :cond_0
     iget-boolean v2, v1, Lcom/tencent/qrom/internal/widget/ActionBarView$SavedState;->isOverflowOpen:Z
 
     if-eqz v2, :cond_1
 
-    .line 1364
+    .line 1369
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->postShowOverflowMenu()V
 
-    .line 1366
+    .line 1371
     :cond_1
     return-void
 .end method
@@ -5635,18 +5644,18 @@
     .locals 3
 
     .prologue
-    .line 1337
+    .line 1342
     invoke-super {p0}, Lcom/tencent/qrom/internal/widget/AbsActionBarView;->onSaveInstanceState()Landroid/os/Parcelable;
 
     move-result-object v1
 
-    .line 1338
+    .line 1343
     .local v1, "superState":Landroid/os/Parcelable;
     new-instance v0, Lcom/tencent/qrom/internal/widget/ActionBarView$SavedState;
 
     invoke-direct {v0, v1}, Lcom/tencent/qrom/internal/widget/ActionBarView$SavedState;-><init>(Landroid/os/Parcelable;)V
 
-    .line 1340
+    .line 1345
     .local v0, "state":Lcom/tencent/qrom/internal/widget/ActionBarView$SavedState;
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
@@ -5658,7 +5667,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1341
+    .line 1346
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
     iget-object v2, v2, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/tencent/qrom/internal/view/menu/MenuItemImpl;
@@ -5669,7 +5678,7 @@
 
     iput v2, v0, Lcom/tencent/qrom/internal/widget/ActionBarView$SavedState;->expandedMenuItemId:I
 
-    .line 1344
+    .line 1349
     :cond_0
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->isOverflowMenuShowing()Z
 
@@ -5677,7 +5686,7 @@
 
     iput-boolean v2, v0, Lcom/tencent/qrom/internal/widget/ActionBarView$SavedState;->isOverflowOpen:Z
 
-    .line 1346
+    .line 1351
     return-object v0
 .end method
 
@@ -5685,7 +5694,7 @@
     .locals 1
 
     .prologue
-    .line 1524
+    .line 1529
     iget-boolean v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mIsBackClick:Z
 
     return v0
@@ -5696,10 +5705,10 @@
     .param p1, "enable"    # Z
 
     .prologue
-    .line 1521
+    .line 1526
     iput-boolean p1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mIsBackClick:Z
 
-    .line 1522
+    .line 1527
     return-void
 .end method
 
@@ -5838,10 +5847,10 @@
     .param p1, "collapsable"    # Z
 
     .prologue
-    .line 921
+    .line 926
     iput-boolean p1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mIsCollapsable:Z
 
-    .line 922
+    .line 927
     return-void
 .end method
 
@@ -5850,10 +5859,10 @@
     .param p1, "view"    # Lcom/tencent/qrom/internal/widget/ActionBarContextView;
 
     .prologue
-    .line 917
+    .line 922
     iput-object p1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mContextView:Lcom/tencent/qrom/internal/widget/ActionBarContextView;
 
-    .line 918
+    .line 923
     return-void
 .end method
 
@@ -6392,17 +6401,17 @@
     .param p1, "isTransPopup"    # Z
 
     .prologue
-    .line 1559
+    .line 1564
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 1560
+    .line 1565
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setIsTransPopup(Z)V
 
-    .line 1562
+    .line 1567
     :cond_0
     return-void
 .end method
@@ -6741,10 +6750,10 @@
     .param p1, "isConfig"    # Z
 
     .prologue
-    .line 1599
+    .line 1604
     iput-boolean p1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mIsMenuConfigFlag:Z
 
-    .line 1600
+    .line 1605
     return-void
 .end method
 
@@ -6832,12 +6841,12 @@
     .param p1, "enable"    # Z
 
     .prologue
-    .line 1529
+    .line 1534
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-nez v0, :cond_0
 
-    .line 1530
+    .line 1535
     new-instance v0, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
@@ -6846,13 +6855,13 @@
 
     iput-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
-    .line 1531
+    .line 1536
     :cond_0
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setOverflowButtonState(Z)V
 
-    .line 1532
+    .line 1537
     return-void
 .end method
 
@@ -6861,17 +6870,17 @@
     .param p1, "listener"    # Lcom/tencent/qrom/app/ActionBar$OverflowClickListener;
 
     .prologue
-    .line 1542
+    .line 1547
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 1543
+    .line 1548
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setOverflowClickListener(Lcom/tencent/qrom/app/ActionBar$OverflowClickListener;)V
 
-    .line 1545
+    .line 1550
     :cond_0
     return-void
 .end method
@@ -6881,17 +6890,17 @@
     .param p1, "isDelay"    # Z
 
     .prologue
-    .line 1585
+    .line 1590
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 1586
+    .line 1591
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setOverflowDelay(Z)V
 
-    .line 1588
+    .line 1593
     :cond_0
     return-void
 .end method
@@ -6901,22 +6910,22 @@
     .param p1, "isMarks"    # [Z
 
     .prologue
-    .line 1567
+    .line 1572
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 1568
+    .line 1573
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mIsMarksPointFlag:Z
 
-    .line 1569
+    .line 1574
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setPopupMenuMarks([Z)V
 
-    .line 1571
+    .line 1576
     :cond_0
     return-void
 .end method
@@ -6926,22 +6935,22 @@
     .param p1, "textColors"    # [I
 
     .prologue
-    .line 1576
+    .line 1581
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 1577
+    .line 1582
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mIsMarksPointFlag:Z
 
-    .line 1578
+    .line 1583
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setPopupTextColors([I)V
 
-    .line 1580
+    .line 1585
     :cond_0
     return-void
 .end method
@@ -7162,12 +7171,12 @@
     .param p1, "enable"    # Z
 
     .prologue
-    .line 1535
+    .line 1540
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-nez v0, :cond_0
 
-    .line 1536
+    .line 1541
     new-instance v0, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
@@ -7176,13 +7185,13 @@
 
     iput-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
-    .line 1537
+    .line 1542
     :cond_0
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setTopOverflowButtonState(Z)V
 
-    .line 1538
+    .line 1543
     return-void
 .end method
 
@@ -7191,17 +7200,17 @@
     .param p1, "isDelay"    # Z
 
     .prologue
-    .line 1591
+    .line 1596
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 1592
+    .line 1597
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setTopOverflowDelay(Z)V
 
-    .line 1594
+    .line 1599
     :cond_0
     return-void
 .end method
@@ -7254,12 +7263,12 @@
 
     const/4 v3, 0x1
 
-    .line 886
+    .line 891
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v1, v2}, Lcom/tencent/qrom/internal/view/menu/ActionMenuView;->setVisibility(I)V
 
-    .line 887
+    .line 892
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -7272,7 +7281,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 888
+    .line 893
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v1, v0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuView;->getChildAt(I)Landroid/view/View;
@@ -7281,33 +7290,33 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 887
+    .line 892
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 890
+    .line 895
     :cond_0
     iget-boolean v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mSplitActionBar:Z
 
     if-eqz v1, :cond_1
 
-    .line 891
+    .line 896
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mSplitView:Lcom/tencent/qrom/internal/widget/ActionBarContainer;
 
     if-eqz v1, :cond_1
 
-    .line 892
+    .line 897
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mSplitView:Lcom/tencent/qrom/internal/widget/ActionBarContainer;
 
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v1, v2}, Lcom/tencent/qrom/internal/widget/ActionBarContainer;->removeView(Landroid/view/View;)V
 
-    .line 895
+    .line 900
     :cond_1
     iput-boolean v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarView;->isMiniMode:Z
 
-    .line 896
+    .line 901
     return v3
 .end method

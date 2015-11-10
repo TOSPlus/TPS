@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 3960
+    .line 3961
     iput-object p1, p0, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .param p2, "x1"    # Lcom/tencent/qrom/widget/ListView$1;
 
     .prologue
-    .line 3960
+    .line 3961
     invoke-direct {p0, p1}, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;-><init>(Lcom/tencent/qrom/widget/ListView;)V
 
     return-void
@@ -61,7 +61,7 @@
     .param p9, "oldBottom"    # I
 
     .prologue
-    .line 3964
+    .line 3965
     if-ne p2, p6, :cond_1
 
     if-ne p3, p7, :cond_1
@@ -74,12 +74,12 @@
 
     if-ne p5, v0, :cond_1
 
-    .line 4004
+    .line 4005
     :cond_0
     :goto_0
     return-void
 
-    .line 3969
+    .line 3970
     :cond_1
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -89,13 +89,13 @@
 
     if-ne v5, v6, :cond_4
 
-    .line 3971
+    .line 3972
     sub-int v4, p5, p3
 
     .local v4, "totalHeight":I
     move-object v5, p1
 
-    .line 3973
+    .line 3974
     check-cast v5, Landroid/view/ViewGroup;
 
     const/4 v6, 0x0
@@ -104,7 +104,7 @@
 
     move-result-object v1
 
-    .line 3974
+    .line 3975
     .local v1, "emptyListHost":Landroid/view/View;
     invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -112,7 +112,7 @@
 
     check-cast v2, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 3975
+    .line 3976
     .local v2, "lp":Landroid/view/ViewGroup$MarginLayoutParams;
     iget-object v5, p0, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;->this$0:Lcom/tencent/qrom/widget/ListView;
 
@@ -123,7 +123,7 @@
 
     if-nez v5, :cond_2
 
-    .line 3976
+    .line 3977
     iget-object v5, p0, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
@@ -141,7 +141,7 @@
     # setter for: Lcom/tencent/qrom/widget/ListView;->mEmptyListMaxHeight:I
     invoke-static {v5, v6}, Lcom/tencent/qrom/widget/ListView;->access$302(Lcom/tencent/qrom/widget/ListView;I)I
 
-    .line 3979
+    .line 3980
     :cond_2
     iget-object v5, p0, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;->this$0:Lcom/tencent/qrom/widget/ListView;
 
@@ -170,7 +170,7 @@
 
     if-gt v5, v4, :cond_3
 
-    .line 3980
+    .line 3981
     iget-object v5, p0, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     # getter for: Lcom/tencent/qrom/widget/ListView;->mEmptyListMarginTop:I
@@ -180,7 +180,7 @@
 
     iput v5, v2, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    .line 3981
+    .line 3982
     iget v5, v2, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
     sub-int v5, v4, v5
@@ -196,10 +196,10 @@
 
     iput v5, v2, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
-    .line 3982
+    .line 3983
     invoke-virtual {v1, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 3985
+    .line 3986
     iget-object v5, p0, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     iget-object v5, v5, Lcom/tencent/qrom/widget/ListView;->mHandler:Landroid/os/Handler;
@@ -214,7 +214,7 @@
 
     goto :goto_0
 
-    .line 3986
+    .line 3987
     :cond_3
     iget-object v5, p0, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;->this$0:Lcom/tencent/qrom/widget/ListView;
 
@@ -243,7 +243,7 @@
 
     if-le v5, v4, :cond_0
 
-    .line 3989
+    .line 3990
     iget-object v5, p0, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     # getter for: Lcom/tencent/qrom/widget/ListView;->mEmptyListMinMargin:I
@@ -253,7 +253,7 @@
 
     iput v5, v2, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
-    .line 3990
+    .line 3991
     iget-object v5, p0, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     # getter for: Lcom/tencent/qrom/widget/ListView;->mEmptyListMinHeight:I
@@ -274,10 +274,10 @@
 
     iput v5, v2, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    .line 3991
+    .line 3992
     invoke-virtual {v1, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 3993
+    .line 3994
     iget-object v5, p0, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     iget-object v5, v5, Lcom/tencent/qrom/widget/ListView;->mHandler:Landroid/os/Handler;
@@ -292,7 +292,7 @@
 
     goto/16 :goto_0
 
-    .line 3998
+    .line 3999
     .end local v1    # "emptyListHost":Landroid/view/View;
     .end local v2    # "lp":Landroid/view/ViewGroup$MarginLayoutParams;
     .end local v4    # "totalHeight":I
@@ -306,14 +306,14 @@
 
     if-nez v5, :cond_0
 
-    .line 3999
+    .line 4000
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v3
 
     check-cast v3, Landroid/view/View;
 
-    .line 4001
+    .line 4002
     .local v3, "parent":Landroid/view/View;
     iget-object v5, p0, Lcom/tencent/qrom/widget/ListView$EmptyViewOnLayoutChangeListener;->this$0:Lcom/tencent/qrom/widget/ListView;
 

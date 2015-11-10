@@ -32,19 +32,19 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 391
+    .line 398
     invoke-direct {p0, p1}, Landroid/app/DownloadManager$Request;-><init>(Landroid/net/Uri;)V
 
-    .line 386
+    .line 393
     iput-boolean v0, p0, Landroid/app/QromDownloadManager$Request;->mNeedBroadcast:Z
 
-    .line 387
+    .line 394
     iput-boolean v0, p0, Landroid/app/QromDownloadManager$Request;->mUnVisibleWhenComplete:Z
 
-    .line 388
+    .line 395
     iput-boolean v0, p0, Landroid/app/QromDownloadManager$Request;->mBypassRecommenderSizeLimit:Z
 
-    .line 392
+    .line 399
     return-void
 .end method
 
@@ -55,19 +55,19 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 395
+    .line 402
     invoke-direct {p0, p1}, Landroid/app/DownloadManager$Request;-><init>(Ljava/lang/String;)V
 
-    .line 386
+    .line 393
     iput-boolean v0, p0, Landroid/app/QromDownloadManager$Request;->mNeedBroadcast:Z
 
-    .line 387
+    .line 394
     iput-boolean v0, p0, Landroid/app/QromDownloadManager$Request;->mUnVisibleWhenComplete:Z
 
-    .line 388
+    .line 395
     iput-boolean v0, p0, Landroid/app/QromDownloadManager$Request;->mBypassRecommenderSizeLimit:Z
 
-    .line 396
+    .line 403
     return-void
 .end method
 
@@ -78,10 +78,10 @@
     .param p1, "byPass"    # Z
 
     .prologue
-    .line 414
+    .line 421
     iput-boolean p1, p0, Landroid/app/QromDownloadManager$Request;->mBypassRecommenderSizeLimit:Z
 
-    .line 415
+    .line 422
     return-object p0
 .end method
 
@@ -90,10 +90,10 @@
     .param p1, "iconUrl"    # Ljava/lang/String;
 
     .prologue
-    .line 399
+    .line 406
     iput-object p1, p0, Landroid/app/QromDownloadManager$Request;->mIconUrl:Ljava/lang/String;
 
-    .line 400
+    .line 407
     return-object p0
 .end method
 
@@ -102,10 +102,10 @@
     .param p1, "need"    # Z
 
     .prologue
-    .line 404
+    .line 411
     iput-boolean p1, p0, Landroid/app/QromDownloadManager$Request;->mNeedBroadcast:Z
 
-    .line 405
+    .line 412
     return-object p0
 .end method
 
@@ -114,10 +114,10 @@
     .param p1, "isUnvisible"    # Z
 
     .prologue
-    .line 409
+    .line 416
     iput-boolean p1, p0, Landroid/app/QromDownloadManager$Request;->mUnVisibleWhenComplete:Z
 
-    .line 410
+    .line 417
     return-object p0
 .end method
 
@@ -126,12 +126,12 @@
     .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 420
+    .line 427
     invoke-super {p0, p1}, Landroid/app/DownloadManager$Request;->toContentValues(Ljava/lang/String;)Landroid/content/ContentValues;
 
     move-result-object v0
 
-    .line 421
+    .line 428
     .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "task_create_time"
 
@@ -145,7 +145,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    .line 422
+    .line 429
     const-string v1, "need_broadcast"
 
     iget-boolean v2, p0, Landroid/app/QromDownloadManager$Request;->mNeedBroadcast:Z
@@ -156,7 +156,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    .line 423
+    .line 430
     const-string v1, "unvisible_when_complete"
 
     iget-boolean v2, p0, Landroid/app/QromDownloadManager$Request;->mUnVisibleWhenComplete:Z
@@ -167,7 +167,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    .line 424
+    .line 431
     const-string v1, "bypass_recommended_size_limit"
 
     iget-boolean v2, p0, Landroid/app/QromDownloadManager$Request;->mBypassRecommenderSizeLimit:Z
@@ -178,19 +178,19 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    .line 426
+    .line 433
     iget-object v1, p0, Landroid/app/QromDownloadManager$Request;->mIconUrl:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
-    .line 427
+    .line 434
     const-string v1, "task_icon_url"
 
     iget-object v2, p0, Landroid/app/QromDownloadManager$Request;->mIconUrl:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 429
+    .line 436
     :cond_0
     return-object v0
 .end method

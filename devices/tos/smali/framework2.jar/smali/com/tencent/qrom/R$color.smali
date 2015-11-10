@@ -43,6 +43,8 @@
 
 .field public static final qrom_bottom_dialog_list_item_light:I = 0x7a0b005c
 
+.field public static final qrom_chooser_layout_textcolor:I = 0x7a0b0061
+
 .field public static final qrom_dark_body:I = 0x7a0b0014
 
 .field public static final qrom_dark_body_sub:I = 0x7a0b0015
@@ -135,6 +137,10 @@
 
 .field public static final qrom_picker_dialog_btn_bg:I = 0x7a0b0047
 
+.field public static final qrom_picker_normal_textcolor:I = 0x7a0b0060
+
+.field public static final qrom_picker_selected_textcolor:I = 0x7a0b005f
+
 .field public static final qrom_red:I = 0x7a0b0019
 
 .field public static final qrom_red_disabled:I = 0x7a0b0023
@@ -152,6 +158,14 @@
 .field public static final qrom_tab_pressed:I = 0x7a0b003c
 
 .field public static final qrom_tab_selected:I = 0x7a0b003d
+
+.field public static final qrom_tab_sub_disabled:I = 0x7a0b0062
+
+.field public static final qrom_tab_sub_normal:I = 0x7a0b0065
+
+.field public static final qrom_tab_sub_pressed:I = 0x7a0b0063
+
+.field public static final qrom_tab_sub_selected:I = 0x7a0b0064
 
 .field public static final qrom_text_blue:I = 0x7a0b002d
 
@@ -177,6 +191,10 @@
 
 .field public static final qrom_text_red:I = 0x7a0b0038
 
+.field public static final qrom_toast_text_shadowcolor:I = 0x7a0b0068
+
+.field public static final qrom_toast_textcolor:I = 0x7a0b0069
+
 .field public static final qrom_transparent:I = 0x7a0b0009
 
 .field public static final qrom_white:I = 0x7a0b0010
@@ -191,11 +209,19 @@
 
 .field public static final search_view_editor_light_background:I = 0x7a0b0024
 
+.field public static final search_view_text_color_dark:I = 0x7a0b0067
+
 .field public static final search_view_text_color_hint_dark:I = 0x7a0b0027
 
 .field public static final search_view_text_color_hint_light:I = 0x7a0b0026
 
+.field public static final search_view_text_color_light:I = 0x7a0b0066
+
+.field public static final sidebar_normal_textcolor:I = 0x7a0b005d
+
 .field public static final sidebar_position_textcolor:I = 0x7a0b0045
+
+.field public static final sidebar_selected_textcolor:I = 0x7a0b005e
 
 .field public static final tab_text_light:I = 0x7a0b003a
 

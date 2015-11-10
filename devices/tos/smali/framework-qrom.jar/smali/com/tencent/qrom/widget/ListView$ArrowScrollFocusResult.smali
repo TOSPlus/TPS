@@ -25,7 +25,7 @@
     .locals 0
 
     .prologue
-    .line 2841
+    .line 2842
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,7 +36,7 @@
     .param p1, "x0"    # Lcom/tencent/qrom/widget/ListView$1;
 
     .prologue
-    .line 2841
+    .line 2842
     invoke-direct {p0}, Lcom/tencent/qrom/widget/ListView$ArrowScrollFocusResult;-><init>()V
 
     return-void
@@ -48,7 +48,7 @@
     .locals 1
 
     .prologue
-    .line 2858
+    .line 2859
     iget v0, p0, Lcom/tencent/qrom/widget/ListView$ArrowScrollFocusResult;->mAmountToScroll:I
 
     return v0
@@ -58,7 +58,7 @@
     .locals 1
 
     .prologue
-    .line 2854
+    .line 2855
     iget v0, p0, Lcom/tencent/qrom/widget/ListView$ArrowScrollFocusResult;->mSelectedPosition:I
 
     return v0
@@ -70,12 +70,12 @@
     .param p2, "amountToScroll"    # I
 
     .prologue
-    .line 2849
+    .line 2850
     iput p1, p0, Lcom/tencent/qrom/widget/ListView$ArrowScrollFocusResult;->mSelectedPosition:I
 
-    .line 2850
+    .line 2851
     iput p2, p0, Lcom/tencent/qrom/widget/ListView$ArrowScrollFocusResult;->mAmountToScroll:I
 
-    .line 2851
+    .line 2852
     return-void
 .end method

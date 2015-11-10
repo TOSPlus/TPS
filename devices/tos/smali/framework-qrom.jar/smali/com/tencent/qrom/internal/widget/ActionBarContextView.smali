@@ -66,12 +66,12 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 95
+    .line 96
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 96
+    .line 97
     return-void
 .end method
 
@@ -81,12 +81,12 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 99
+    .line 100
     const v0, 0x7a0100c5
 
     invoke-direct {p0, p1, p2, v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 100
+    .line 101
     return-void
 .end method
 
@@ -105,29 +105,29 @@
 
     const/4 v4, 0x0
 
-    .line 103
+    .line 104
     invoke-direct {p0, p1, p2, p3}, Lcom/tencent/qrom/internal/widget/AbsActionBarView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 71
+    .line 72
     iput-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMode:Landroid/view/ActionMode;
 
-    .line 72
+    .line 73
     iput v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContextSplitHeight:I
 
-    .line 89
+    .line 90
     iput-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionModeBackOnClickListener:Landroid/view/View$OnClickListener;
 
-    .line 92
+    .line 93
     iput-boolean v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->firstMeasureTitle:Z
 
-    .line 105
+    .line 106
     sget-object v2, Lcom/tencent/qrom/R$styleable;->ActionMode:[I
 
     invoke-virtual {p1, p2, v2, p3, v4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 106
+    .line 107
     .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v2, 0x4
 
@@ -137,21 +137,21 @@
 
     invoke-virtual {p0, v2}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 108
+    .line 109
     invoke-virtual {v0, v4, v4}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v2
 
     iput v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleStyleRes:I
 
-    .line 110
+    .line 111
     invoke-virtual {v0, v5, v4}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v2
 
     iput v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleStyleRes:I
 
-    .line 113
+    .line 114
     sget-object v2, Lcom/tencent/qrom/R$styleable;->ActionBar:[I
 
     const v3, 0x7a0100be
@@ -160,7 +160,7 @@
 
     move-result-object v1
 
-    .line 115
+    .line 116
     .local v1, "aTyped":Landroid/content/res/TypedArray;
     const/16 v2, 0x15
 
@@ -170,7 +170,7 @@
 
     iput v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMultiStyleRes:I
 
-    .line 116
+    .line 117
     const/16 v2, 0x14
 
     invoke-virtual {v1, v2, v4}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -179,19 +179,19 @@
 
     iput v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCloseStyleRes:I
 
-    .line 117
+    .line 118
     invoke-virtual {v1, v6}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCloseDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 118
+    .line 119
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCloseDrawable:Landroid/graphics/drawable/Drawable;
 
     if-nez v2, :cond_0
 
-    .line 119
+    .line 120
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -204,7 +204,7 @@
 
     iput-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCloseDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 122
+    .line 123
     :cond_0
     const/4 v2, 0x3
 
@@ -214,7 +214,7 @@
 
     iput v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContentHeight:I
 
-    .line 125
+    .line 126
     const/4 v2, 0x2
 
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -223,7 +223,7 @@
 
     iput-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSplitBackground:Landroid/graphics/drawable/Drawable;
 
-    .line 128
+    .line 129
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -236,21 +236,21 @@
 
     iput v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContextSplitHeight:I
 
-    .line 129
+    .line 130
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 131
+    .line 132
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-le v2, v6, :cond_1
 
-    .line 132
+    .line 133
     invoke-virtual {p0, v4}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->setClipChildren(Z)V
 
-    .line 133
+    .line 134
     invoke-virtual {p0, v5}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->setClipToPadding(Z)V
 
-    .line 136
+    .line 137
     :cond_1
     return-void
 .end method
@@ -260,7 +260,7 @@
     .param p0, "x0"    # Lcom/tencent/qrom/internal/widget/ActionBarContextView;
 
     .prologue
-    .line 59
+    .line 60
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMode:Landroid/view/ActionMode;
 
     return-object v0
@@ -270,22 +270,22 @@
     .locals 2
 
     .prologue
-    .line 498
+    .line 504
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCurrentAnimation:Landroid/animation/Animator;
 
-    .line 499
+    .line 505
     .local v0, "a":Landroid/animation/Animator;
     if-eqz v0, :cond_0
 
-    .line 500
+    .line 506
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCurrentAnimation:Landroid/animation/Animator;
 
-    .line 501
+    .line 507
     invoke-virtual {v0}, Landroid/animation/Animator;->end()V
 
-    .line 503
+    .line 509
     :cond_0
     return-void
 .end method
@@ -300,7 +300,7 @@
 
     const/4 v1, 0x0
 
-    .line 351
+    .line 357
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
     if-nez v3, :cond_0
@@ -309,7 +309,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 352
+    .line 358
     new-instance v3, Landroid/widget/TextView;
 
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -318,14 +318,14 @@
 
     iput-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
-    .line 353
+    .line 359
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
     const v4, 0x7a09005c
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setId(I)V
 
-    .line 354
+    .line 360
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
     new-instance v4, Landroid/view/ViewGroup$LayoutParams;
@@ -338,44 +338,44 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 355
+    .line 361
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
     sget-object v4, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 356
+    .line 362
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setSingleLine(Z)V
 
-    .line 357
+    .line 363
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
     const/16 v4, 0x11
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 358
+    .line 364
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 359
+    .line 365
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
     invoke-virtual {v3, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 362
+    .line 368
     :cond_0
     iget v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleStyleRes:I
 
     if-eqz v3, :cond_1
 
-    .line 363
+    .line 369
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -384,7 +384,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
-    .line 366
+    .line 372
     :cond_1
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
@@ -392,7 +392,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 368
+    .line 374
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitle:Ljava/lang/CharSequence;
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -401,7 +401,7 @@
 
     if-nez v3, :cond_2
 
-    .line 369
+    .line 375
     .local v0, "hasSubtitle":Z
     :goto_0
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
@@ -411,21 +411,21 @@
     :goto_1
     invoke-virtual {v3, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 370
+    .line 376
     return-void
 
     .end local v0    # "hasSubtitle":Z
     :cond_2
     move v0, v1
 
-    .line 368
+    .line 374
     goto :goto_0
 
     .restart local v0    # "hasSubtitle":Z
     :cond_3
     move v1, v2
 
-    .line 369
+    .line 375
     goto :goto_1
 .end method
 
@@ -439,12 +439,12 @@
 
     const/4 v8, -0x2
 
-    .line 322
+    .line 328
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     if-nez v4, :cond_0
 
-    .line 323
+    .line 329
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getContext()Landroid/content/Context;
 
     move-result-object v4
@@ -453,13 +453,13 @@
 
     move-result-object v1
 
-    .line 325
+    .line 331
     .local v1, "inflater":Landroid/view/LayoutInflater;
     new-instance v3, Landroid/util/TypedValue;
 
     invoke-direct {v3}, Landroid/util/TypedValue;-><init>()V
 
-    .line 326
+    .line 332
     .local v3, "res":Landroid/util/TypedValue;
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
 
@@ -471,12 +471,12 @@
 
     invoke-virtual {v4, v6, v3, v0}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    .line 327
+    .line 333
     const v4, 0x7a030001
 
     invoke-virtual {v1, v4, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    .line 328
+    .line 334
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getChildCount()I
 
     move-result v4
@@ -491,7 +491,7 @@
 
     iput-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
-    .line 329
+    .line 335
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     const v6, 0x7a09005b
@@ -504,12 +504,12 @@
 
     iput-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleView:Landroid/widget/TextView;
 
-    .line 330
+    .line 336
     iget v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleStyleRes:I
 
     if-eqz v4, :cond_0
 
-    .line 331
+    .line 337
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleView:Landroid/widget/TextView;
 
     iget-object v6, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -518,7 +518,7 @@
 
     invoke-virtual {v4, v6, v7}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
-    .line 335
+    .line 341
     .end local v1    # "inflater":Landroid/view/LayoutInflater;
     .end local v3    # "res":Landroid/util/TypedValue;
     :cond_0
@@ -528,7 +528,7 @@
 
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 337
+    .line 343
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitle:Ljava/lang/CharSequence;
 
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -537,7 +537,7 @@
 
     if-nez v4, :cond_2
 
-    .line 339
+    .line 345
     .local v0, "hasTitle":Z
     :goto_0
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
@@ -547,7 +547,7 @@
     :goto_1
     invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 340
+    .line 346
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v4}, Landroid/widget/LinearLayout;->getParent()Landroid/view/ViewParent;
@@ -556,23 +556,23 @@
 
     if-nez v4, :cond_1
 
-    .line 342
+    .line 348
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v2, v8, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 345
+    .line 351
     .local v2, "layoutParams":Landroid/widget/LinearLayout$LayoutParams;
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v4, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 346
+    .line 352
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {p0, v4}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->addView(Landroid/view/View;)V
 
-    .line 348
+    .line 354
     .end local v2    # "layoutParams":Landroid/widget/LinearLayout$LayoutParams;
     :cond_1
     return-void
@@ -581,10 +581,10 @@
     :cond_2
     move v0, v5
 
-    .line 337
+    .line 343
     goto :goto_0
 
-    .line 339
+    .line 345
     .restart local v0    # "hasTitle":Z
     :cond_3
     const/16 v5, 0x8
@@ -596,7 +596,7 @@
     .locals 1
 
     .prologue
-    .line 698
+    .line 704
     const/4 v0, 0x0
 
     return-object v0
@@ -606,7 +606,7 @@
     .locals 1
 
     .prologue
-    .line 724
+    .line 730
     const/4 v0, 0x0
 
     return-object v0
@@ -616,16 +616,16 @@
     .locals 6
 
     .prologue
-    .line 728
+    .line 734
     const/4 v0, 0x0
 
-    .line 729
+    .line 735
     .local v0, "animator":Landroid/animation/ObjectAnimator;
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     if-eqz v1, :cond_0
 
-    .line 730
+    .line 736
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     const-string v2, "translationY"
@@ -652,15 +652,15 @@
 
     move-result-object v0
 
-    .line 732
+    .line 738
     const-wide/16 v1, 0xc8
 
     invoke-virtual {v0, v1, v2}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
-    .line 733
+    .line 739
     invoke-virtual {v0, p0}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    .line 735
+    .line 741
     :cond_0
     return-object v0
 .end method
@@ -669,16 +669,16 @@
     .locals 6
 
     .prologue
-    .line 739
+    .line 745
     const/4 v0, 0x0
 
-    .line 740
+    .line 746
     .local v0, "animator":Landroid/animation/ObjectAnimator;
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     if-eqz v1, :cond_0
 
-    .line 741
+    .line 747
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     const-string v2, "translationY"
@@ -705,15 +705,15 @@
 
     move-result-object v0
 
-    .line 743
+    .line 749
     const-wide/16 v1, 0xc8
 
     invoke-virtual {v0, v1, v2}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
-    .line 744
+    .line 750
     invoke-virtual {v0, p0}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    .line 746
+    .line 752
     :cond_0
     return-object v0
 .end method
@@ -726,47 +726,47 @@
     .prologue
     const/4 v1, 0x2
 
-    .line 475
+    .line 481
     iget v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mAnimationMode:I
 
     if-ne v0, v1, :cond_1
 
-    .line 495
+    .line 501
     :cond_0
     :goto_0
     return-void
 
-    .line 479
+    .line 485
     :cond_1
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     if-nez v0, :cond_2
 
-    .line 480
+    .line 486
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->killMode()V
 
     goto :goto_0
 
-    .line 484
+    .line 490
     :cond_2
     invoke-direct {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->finishAnimation()V
 
-    .line 489
+    .line 495
     iput v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mAnimationMode:I
 
-    .line 490
+    .line 496
     invoke-direct {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->makeSplitMenuOutAnimation()Landroid/animation/Animator;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCurrentAnimation:Landroid/animation/Animator;
 
-    .line 491
+    .line 497
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCurrentAnimation:Landroid/animation/Animator;
 
     if-eqz v0, :cond_0
 
-    .line 492
+    .line 498
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCurrentAnimation:Landroid/animation/Animator;
 
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
@@ -778,7 +778,7 @@
     .locals 1
 
     .prologue
-    .line 243
+    .line 249
     const/4 v0, 0x0
 
     return v0
@@ -788,7 +788,7 @@
     .locals 3
 
     .prologue
-    .line 544
+    .line 550
     new-instance v0, Landroid/view/ViewGroup$MarginLayoutParams;
 
     const/4 v1, -0x1
@@ -805,7 +805,7 @@
     .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 549
+    .line 555
     new-instance v0, Landroid/view/ViewGroup$MarginLayoutParams;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getContext()Landroid/content/Context;
@@ -825,20 +825,20 @@
 
     const/4 v3, 0x0
 
-    .line 197
+    .line 203
     invoke-direct {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->initTitle()V
 
-    .line 198
+    .line 204
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     if-eqz v0, :cond_0
 
-    .line 199
+    .line 205
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {v0, v3, v3, v3, v3}, Landroid/widget/Button;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 200
+    .line 206
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getResources()Landroid/content/res/Resources;
@@ -859,32 +859,32 @@
 
     invoke-virtual {v0, v1, v3, v2, v3}, Landroid/widget/Button;->setPadding(IIII)V
 
-    .line 204
+    .line 210
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionModeBackOnClickListener:Landroid/view/View$OnClickListener;
 
     if-eqz v0, :cond_1
 
-    .line 205
+    .line 211
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionModeBackOnClickListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 214
+    .line 220
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     return-object v0
 
-    .line 207
+    .line 213
     :cond_1
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
-    new-instance v1, Lcom/tencent/qrom/internal/widget/ActionBarContextView$1;
+    new-instance v1, Lcom/tencent/qrom/internal/widget/ActionBarContextView$2;
 
-    invoke-direct {v1, p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView$1;-><init>(Lcom/tencent/qrom/internal/widget/ActionBarContextView;)V
+    invoke-direct {v1, p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView$2;-><init>(Lcom/tencent/qrom/internal/widget/ActionBarContextView;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -895,22 +895,22 @@
     .locals 2
 
     .prologue
-    .line 218
+    .line 224
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->initEdit()V
 
-    .line 219
+    .line 225
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     if-eqz v0, :cond_0
 
-    .line 220
+    .line 226
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 222
+    .line 228
     :cond_0
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mEdit:Landroid/widget/EditText;
 
@@ -924,14 +924,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 223
+    .line 229
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mEdit:Landroid/widget/EditText;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setVisibility(I)V
 
-    .line 226
+    .line 232
     :cond_1
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mEdit:Landroid/widget/EditText;
 
@@ -952,15 +952,15 @@
 
     const/4 v5, 0x0
 
-    .line 149
+    .line 150
     invoke-direct {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->initTitle()V
 
-    .line 151
+    .line 152
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     if-nez v2, :cond_5
 
-    .line 152
+    .line 153
     new-instance v2, Lcom/tencent/qrom/widget/ToggleButton;
 
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -969,14 +969,14 @@
 
     iput-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
-    .line 153
+    .line 154
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     const v3, 0x7a0900f9
 
     invoke-virtual {v2, v3}, Lcom/tencent/qrom/widget/ToggleButton;->setId(I)V
 
-    .line 154
+    .line 155
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -986,6 +986,15 @@
     invoke-virtual {v2, v3, v4}, Lcom/tencent/qrom/widget/ToggleButton;->setTextAppearance(Landroid/content/Context;I)V
 
     .line 156
+    iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
+
+    new-instance v3, Lcom/tencent/qrom/internal/widget/ActionBarContextView$1;
+
+    invoke-direct {v3, p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView$1;-><init>(Lcom/tencent/qrom/internal/widget/ActionBarContextView;)V
+
+    invoke-virtual {v2, v3}, Lcom/tencent/qrom/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 162
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -998,16 +1007,16 @@
 
     move-result v0
 
-    .line 157
+    .line 163
     .local v0, "bRipple":Z
     if-eqz v0, :cond_3
 
-    .line 158
+    .line 164
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-le v2, v6, :cond_2
 
-    .line 159
+    .line 165
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getContext()Landroid/content/Context;
@@ -1020,7 +1029,7 @@
 
     invoke-virtual {v2, v3}, Lcom/tencent/qrom/widget/ToggleButton;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 173
+    .line 179
     :goto_0
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -1042,40 +1051,40 @@
 
     invoke-direct {v1, v2, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 175
+    .line 181
     .local v1, "params":Landroid/widget/LinearLayout$LayoutParams;
     iput v7, v1, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 176
+    .line 182
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {v2, v1}, Lcom/tencent/qrom/widget/ToggleButton;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 177
+    .line 183
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     sget-object v3, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v2, v3}, Lcom/tencent/qrom/widget/ToggleButton;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 178
+    .line 184
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {v2, v7}, Lcom/tencent/qrom/widget/ToggleButton;->setGravity(I)V
 
-    .line 179
+    .line 185
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {v2, v5}, Lcom/tencent/qrom/widget/ToggleButton;->setFocusable(Z)V
 
-    .line 180
+    .line 186
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     const/4 v3, 0x1
 
     invoke-virtual {v2, v3}, Lcom/tencent/qrom/widget/ToggleButton;->setSingleLine(Z)V
 
-    .line 181
+    .line 187
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getResources()Landroid/content/res/Resources;
@@ -1096,12 +1105,12 @@
 
     invoke-virtual {v2, v3, v5, v4, v5}, Lcom/tencent/qrom/widget/ToggleButton;->setPadding(IIII)V
 
-    .line 185
+    .line 191
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {p0, v2}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->addView(Landroid/view/View;)V
 
-    .line 190
+    .line 196
     .end local v0    # "bRipple":Z
     .end local v1    # "params":Landroid/widget/LinearLayout$LayoutParams;
     :cond_0
@@ -1118,18 +1127,18 @@
 
     if-eqz v2, :cond_1
 
-    .line 191
+    .line 197
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {v2, v5}, Lcom/tencent/qrom/widget/ToggleButton;->setVisibility(I)V
 
-    .line 193
+    .line 199
     :cond_1
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     return-object v2
 
-    .line 162
+    .line 168
     .restart local v0    # "bRipple":Z
     :cond_2
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
@@ -1146,20 +1155,20 @@
 
     goto :goto_0
 
-    .line 165
+    .line 171
     :cond_3
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-le v2, v6, :cond_4
 
-    .line 166
+    .line 172
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {v2, v9}, Lcom/tencent/qrom/widget/ToggleButton;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 
-    .line 169
+    .line 175
     :cond_4
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
@@ -1167,7 +1176,7 @@
 
     goto :goto_0
 
-    .line 186
+    .line 192
     .end local v0    # "bRipple":Z
     :cond_5
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
@@ -1178,7 +1187,7 @@
 
     if-nez v2, :cond_0
 
-    .line 187
+    .line 193
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     invoke-virtual {p0, v2}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->addView(Landroid/view/View;)V
@@ -1190,19 +1199,19 @@
     .locals 1
 
     .prologue
-    .line 880
+    .line 886
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 881
+    .line 887
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->getOverflowButton()Landroid/view/View;
 
     move-result-object v0
 
-    .line 883
+    .line 889
     :goto_0
     return-object v0
 
@@ -1216,7 +1225,7 @@
     .locals 1
 
     .prologue
-    .line 318
+    .line 324
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitle:Ljava/lang/CharSequence;
 
     return-object v0
@@ -1226,10 +1235,10 @@
     .locals 1
 
     .prologue
-    .line 234
+    .line 240
     invoke-direct {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->initSubTitle()V
 
-    .line 235
+    .line 241
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
 
     return-object v0
@@ -1239,7 +1248,7 @@
     .locals 1
 
     .prologue
-    .line 314
+    .line 320
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitle:Ljava/lang/CharSequence;
 
     return-object v0
@@ -1249,7 +1258,7 @@
     .locals 1
 
     .prologue
-    .line 230
+    .line 236
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleView:Landroid/widget/TextView;
 
     return-object v0
@@ -1259,19 +1268,19 @@
     .locals 1
 
     .prologue
-    .line 526
+    .line 532
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 527
+    .line 533
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->hideOverflowMenu()Z
 
     move-result v0
 
-    .line 529
+    .line 535
     :goto_0
     return v0
 
@@ -1286,12 +1295,12 @@
     .param p1, "mode"    # Landroid/view/ActionMode;
 
     .prologue
-    .line 375
+    .line 381
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->initForMode(Landroid/view/ActionMode;I)V
 
-    .line 376
+    .line 382
     return-void
 .end method
 
@@ -1301,12 +1310,12 @@
     .param p2, "imageType"    # I
 
     .prologue
-    .line 378
+    .line 384
     new-instance v4, Landroid/util/TypedValue;
 
     invoke-direct {v4}, Landroid/util/TypedValue;-><init>()V
 
-    .line 379
+    .line 385
     .local v4, "res":Landroid/util/TypedValue;
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
 
@@ -1320,12 +1329,12 @@
 
     invoke-virtual {v5, v6, v4, v7}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    .line 381
+    .line 387
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     if-nez v5, :cond_5
 
-    .line 384
+    .line 390
     new-instance v5, Landroid/widget/Button;
 
     iget-object v6, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -1334,14 +1343,14 @@
 
     iput-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
-    .line 385
+    .line 391
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     const v6, 0x7a090059
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setId(I)V
 
-    .line 386
+    .line 392
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     iget-object v6, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -1350,7 +1359,7 @@
 
     invoke-virtual {v5, v6, v7}, Landroid/widget/Button;->setTextAppearance(Landroid/content/Context;I)V
 
-    .line 387
+    .line 393
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     iget-object v6, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCloseDrawable:Landroid/graphics/drawable/Drawable;
@@ -1363,7 +1372,7 @@
 
     invoke-virtual {v5, v6, v7, v8, v9}, Landroid/widget/Button;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 388
+    .line 394
     new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v5, -0x2
@@ -1384,46 +1393,46 @@
 
     invoke-direct {v3, v5, v6}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 390
+    .line 396
     .local v3, "params":Landroid/widget/LinearLayout$LayoutParams;
     const/16 v5, 0x11
 
     iput v5, v3, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 391
+    .line 397
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {v5, v3}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 392
+    .line 398
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     sget-object v6, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 393
+    .line 399
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     const/16 v6, 0x11
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setGravity(I)V
 
-    .line 394
+    .line 400
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     const/4 v6, 0x0
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setFocusable(Z)V
 
-    .line 395
+    .line 401
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     const/4 v6, 0x1
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setSingleLine(Z)V
 
-    .line 396
+    .line 402
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getResources()Landroid/content/res/Resources;
@@ -1452,7 +1461,7 @@
 
     invoke-virtual {v5, v6, v7, v8, v9}, Landroid/widget/Button;->setPadding(IIII)V
 
-    .line 399
+    .line 405
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -1465,18 +1474,18 @@
 
     move-result v0
 
-    .line 400
+    .line 406
     .local v0, "bRipple":Z
     if-eqz v0, :cond_3
 
-    .line 401
+    .line 407
     sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v6, 0xf
 
     if-le v5, v6, :cond_2
 
-    .line 402
+    .line 408
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getContext()Landroid/content/Context;
@@ -1489,13 +1498,13 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 415
+    .line 421
     :goto_0
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {p0, v5}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->addView(Landroid/view/View;)V
 
-    .line 420
+    .line 426
     .end local v0    # "bRipple":Z
     .end local v3    # "params":Landroid/widget/LinearLayout$LayoutParams;
     :cond_0
@@ -1504,14 +1513,14 @@
 
     if-eqz v5, :cond_6
 
-    .line 421
+    .line 427
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     iget-object v6, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionModeBackOnClickListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 431
+    .line 437
     :goto_2
     invoke-virtual {p1}, Landroid/view/ActionMode;->getMenu()Landroid/view/Menu;
 
@@ -1519,24 +1528,24 @@
 
     check-cast v2, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
-    .line 432
+    .line 438
     .local v2, "menu":Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v5, :cond_1
 
-    .line 433
+    .line 439
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v5}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->dismissPopupMenus()Z
 
-    .line 437
+    .line 443
     :cond_1
     iget v5, v4, Landroid/util/TypedValue;->resourceId:I
 
     if-lez v5, :cond_7
 
-    .line 438
+    .line 444
     new-instance v5, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     iget-object v6, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -1547,7 +1556,7 @@
 
     iput-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
-    .line 442
+    .line 448
     :goto_3
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
@@ -1555,7 +1564,7 @@
 
     invoke-virtual {v5, v6}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setReserveOverflow(Z)V
 
-    .line 444
+    .line 450
     new-instance v1, Landroid/view/ViewGroup$LayoutParams;
 
     const/4 v5, -0x2
@@ -1564,7 +1573,7 @@
 
     invoke-direct {v1, v5, v6}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 446
+    .line 452
     .local v1, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     iget-boolean v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSplitActionBar:Z
 
@@ -1572,12 +1581,12 @@
 
     if-eqz p2, :cond_8
 
-    .line 447
+    .line 453
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v2, v5}, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;->addMenuPresenter(Lcom/tencent/qrom/internal/view/menu/MenuPresenter;)V
 
-    .line 448
+    .line 454
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v5, p0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->getMenuView(Landroid/view/ViewGroup;)Lcom/tencent/qrom/internal/view/menu/MenuView;
@@ -1588,31 +1597,31 @@
 
     iput-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
-    .line 449
+    .line 455
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     const/4 v6, 0x0
 
     invoke-virtual {v5, v6}, Lcom/tencent/qrom/internal/view/menu/ActionMenuView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 450
+    .line 456
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {p0, v5, v1}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 467
+    .line 473
     :goto_4
     const/4 v5, 0x1
 
     iput-boolean v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mAnimateInOnLayout:Z
 
-    .line 469
+    .line 475
     iput-object p1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMode:Landroid/view/ActionMode;
 
-    .line 471
+    .line 477
     return-void
 
-    .line 405
+    .line 411
     .end local v1    # "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     .end local v2    # "menu":Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
     .restart local v0    # "bRipple":Z
@@ -1632,7 +1641,7 @@
 
     goto :goto_0
 
-    .line 408
+    .line 414
     :cond_3
     sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -1640,7 +1649,7 @@
 
     if-le v5, v6, :cond_4
 
-    .line 409
+    .line 415
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     const/4 v6, 0x0
@@ -1649,7 +1658,7 @@
 
     goto :goto_0
 
-    .line 412
+    .line 418
     :cond_4
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
@@ -1659,7 +1668,7 @@
 
     goto/16 :goto_0
 
-    .line 416
+    .line 422
     .end local v0    # "bRipple":Z
     .end local v3    # "params":Landroid/widget/LinearLayout$LayoutParams;
     :cond_5
@@ -1671,26 +1680,26 @@
 
     if-nez v5, :cond_0
 
-    .line 417
+    .line 423
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {p0, v5}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->addView(Landroid/view/View;)V
 
     goto/16 :goto_1
 
-    .line 423
+    .line 429
     :cond_6
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
-    new-instance v6, Lcom/tencent/qrom/internal/widget/ActionBarContextView$2;
+    new-instance v6, Lcom/tencent/qrom/internal/widget/ActionBarContextView$3;
 
-    invoke-direct {v6, p0, p1}, Lcom/tencent/qrom/internal/widget/ActionBarContextView$2;-><init>(Lcom/tencent/qrom/internal/widget/ActionBarContextView;Landroid/view/ActionMode;)V
+    invoke-direct {v6, p0, p1}, Lcom/tencent/qrom/internal/widget/ActionBarContextView$3;-><init>(Lcom/tencent/qrom/internal/widget/ActionBarContextView;Landroid/view/ActionMode;)V
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     goto/16 :goto_2
 
-    .line 440
+    .line 446
     .restart local v2    # "menu":Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
     :cond_7
     new-instance v5, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
@@ -1703,7 +1712,7 @@
 
     goto :goto_3
 
-    .line 453
+    .line 459
     .restart local v1    # "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     :cond_8
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
@@ -1726,29 +1735,29 @@
 
     invoke-virtual {v5, v6, v7}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setWidthLimit(IZ)V
 
-    .line 456
+    .line 462
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     const v6, 0x7fffffff
 
     invoke-virtual {v5, v6}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setItemLimit(I)V
 
-    .line 458
+    .line 464
     const/4 v5, -0x1
 
     iput v5, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 460
+    .line 466
     iget v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContextSplitHeight:I
 
     iput v5, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 461
+    .line 467
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v2, v5}, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;->addMenuPresenter(Lcom/tencent/qrom/internal/view/menu/MenuPresenter;)V
 
-    .line 462
+    .line 468
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v5, p0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->getMenuView(Landroid/view/ViewGroup;)Lcom/tencent/qrom/internal/view/menu/MenuView;
@@ -1759,14 +1768,14 @@
 
     iput-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
-    .line 463
+    .line 469
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     const/4 v6, 0x0
 
     invoke-virtual {v5, v6}, Lcom/tencent/qrom/internal/view/menu/ActionMenuView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 464
+    .line 470
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSplitView:Lcom/tencent/qrom/internal/widget/ActionBarContainer;
 
     iget-object v6, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
@@ -1780,19 +1789,19 @@
     .locals 1
 
     .prologue
-    .line 534
+    .line 540
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 535
+    .line 541
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->isOverflowMenuShowing()Z
 
     move-result v0
 
-    .line 537
+    .line 543
     :goto_0
     return v0
 
@@ -1808,37 +1817,37 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 506
+    .line 512
     invoke-direct {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->finishAnimation()V
 
-    .line 507
+    .line 513
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->removeAllViews()V
 
-    .line 508
+    .line 514
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSplitView:Lcom/tencent/qrom/internal/widget/ActionBarContainer;
 
     if-eqz v0, :cond_0
 
-    .line 509
+    .line 515
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSplitView:Lcom/tencent/qrom/internal/widget/ActionBarContainer;
 
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/internal/widget/ActionBarContainer;->removeView(Landroid/view/View;)V
 
-    .line 511
+    .line 517
     :cond_0
     iput-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCustomView:Landroid/view/View;
 
-    .line 512
+    .line 518
     iput-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
-    .line 513
+    .line 519
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mAnimateInOnLayout:Z
 
-    .line 514
+    .line 520
     return-void
 .end method
 
@@ -1847,7 +1856,7 @@
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
-    .line 835
+    .line 841
     return-void
 .end method
 
@@ -1856,23 +1865,23 @@
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
-    .line 827
+    .line 833
     iget v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mAnimationMode:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
 
-    .line 828
+    .line 834
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->killMode()V
 
-    .line 830
+    .line 836
     :cond_0
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mAnimationMode:I
 
-    .line 831
+    .line 837
     return-void
 .end method
 
@@ -1881,7 +1890,7 @@
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
-    .line 839
+    .line 845
     return-void
 .end method
 
@@ -1890,7 +1899,7 @@
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
-    .line 823
+    .line 829
     return-void
 .end method
 
@@ -1898,25 +1907,25 @@
     .locals 1
 
     .prologue
-    .line 140
-    invoke-super {p0}, Lcom/tencent/qrom/internal/widget/AbsActionBarView;->onDetachedFromWindow()V
-
     .line 141
-    iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
-
-    if-eqz v0, :cond_0
+    invoke-super {p0}, Lcom/tencent/qrom/internal/widget/AbsActionBarView;->onDetachedFromWindow()V
 
     .line 142
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
-    invoke-virtual {v0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->hideOverflowMenu()Z
+    if-eqz v0, :cond_0
 
     .line 143
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
+    invoke-virtual {v0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->hideOverflowMenu()Z
+
+    .line 144
+    iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
+
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->hideSubMenus()Z
 
-    .line 145
+    .line 146
     :cond_0
     return-void
 .end method
@@ -1926,7 +1935,7 @@
     .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
-    .line 848
+    .line 854
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
 
     move-result v0
@@ -1935,10 +1944,10 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 850
+    .line 856
     invoke-virtual {p1, p0}, Landroid/view/accessibility/AccessibilityEvent;->setSource(Landroid/view/View;)V
 
-    .line 851
+    .line 857
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -1949,7 +1958,7 @@
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
 
-    .line 852
+    .line 858
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1960,16 +1969,16 @@
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityEvent;->setPackageName(Ljava/lang/CharSequence;)V
 
-    .line 853
+    .line 859
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitle:Ljava/lang/CharSequence;
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityEvent;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 857
+    .line 863
     :goto_0
     return-void
 
-    .line 855
+    .line 861
     :cond_0
     invoke-super {p0, p1}, Lcom/tencent/qrom/internal/widget/AbsActionBarView;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
@@ -1987,18 +1996,18 @@
     .prologue
     const/16 v6, 0x8
 
-    .line 762
+    .line 768
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getPaddingLeft()I
 
     move-result v1
 
-    .line 763
+    .line 769
     .local v1, "x":I
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getPaddingTop()I
 
     move-result v2
 
-    .line 764
+    .line 770
     .local v2, "y":I
     sub-int v3, p5, p3
 
@@ -2014,7 +2023,7 @@
 
     sub-int v0, v3, v4
 
-    .line 779
+    .line 785
     .local v0, "contentHeight":I
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
@@ -2028,7 +2037,7 @@
 
     if-eq v3, v6, :cond_0
 
-    .line 786
+    .line 792
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getPaddingLeft()I
@@ -2037,7 +2046,7 @@
 
     invoke-virtual {p0, v3, v4, v2, v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->positionChild(Landroid/view/View;III)I
 
-    .line 790
+    .line 796
     :cond_0
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
@@ -2047,7 +2056,7 @@
 
     if-nez v3, :cond_1
 
-    .line 791
+    .line 797
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -2076,7 +2085,7 @@
 
     invoke-virtual {p0, v3, v4, v2, v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->positionChild(Landroid/view/View;III)I
 
-    .line 799
+    .line 805
     :cond_1
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
@@ -2090,7 +2099,7 @@
 
     if-eq v3, v6, :cond_2
 
-    .line 800
+    .line 806
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
 
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -2115,7 +2124,7 @@
 
     invoke-virtual {p0, v3, v4, v2, v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->positionChild(Landroid/view/View;III)I
 
-    .line 805
+    .line 811
     :cond_2
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mEdit:Landroid/widget/EditText;
 
@@ -2129,7 +2138,7 @@
 
     if-eq v3, v6, :cond_3
 
-    .line 806
+    .line 812
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mEdit:Landroid/widget/EditText;
 
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -2158,13 +2167,13 @@
 
     invoke-virtual {p0, v3, v4, v2, v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->positionChild(Landroid/view/View;III)I
 
-    .line 810
+    .line 816
     :cond_3
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCustomView:Landroid/view/View;
 
     if-eqz v3, :cond_4
 
-    .line 811
+    .line 817
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCustomView:Landroid/view/View;
 
     invoke-virtual {p0, v3, v1, v2, v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->positionChild(Landroid/view/View;III)I
@@ -2173,7 +2182,7 @@
 
     add-int/2addr v1, v3
 
-    .line 814
+    .line 820
     :cond_4
     sub-int v3, p4, p2
 
@@ -2183,12 +2192,12 @@
 
     sub-int v1, v3, v4
 
-    .line 816
+    .line 822
     iget-object v3, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     if-eqz v3, :cond_5
 
-    .line 819
+    .line 825
     :cond_5
     return-void
 .end method
@@ -2199,7 +2208,7 @@
     .param p2, "heightMeasureSpec"    # I
 
     .prologue
-    .line 555
+    .line 561
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getPaddingLeft()I
 
     move-result v26
@@ -2234,12 +2243,12 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->setPadding(IIII)V
 
-    .line 558
+    .line 564
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v25
 
-    .line 559
+    .line 565
     .local v25, "widthMode":I
     const/high16 v26, 0x40000000    # 2.0f
 
@@ -2249,7 +2258,7 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 560
+    .line 566
     new-instance v26, Ljava/lang/IllegalStateException;
 
     new-instance v27, Ljava/lang/StringBuilder;
@@ -2288,17 +2297,17 @@
 
     throw v26
 
-    .line 564
+    .line 570
     :cond_0
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v15
 
-    .line 565
+    .line 571
     .local v15, "heightMode":I
     if-nez v15, :cond_1
 
-    .line 566
+    .line 572
     new-instance v26, Ljava/lang/IllegalStateException;
 
     new-instance v27, Ljava/lang/StringBuilder;
@@ -2337,13 +2346,13 @@
 
     throw v26
 
-    .line 570
+    .line 576
     :cond_1
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v8
 
-    .line 572
+    .line 578
     .local v8, "contentWidth":I
     move-object/from16 v0, p0
 
@@ -2359,7 +2368,7 @@
 
     move/from16 v18, v0
 
-    .line 575
+    .line 581
     .local v18, "maxHeight":I
     :goto_0
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getPaddingTop()I
@@ -2372,7 +2381,7 @@
 
     add-int v24, v26, v27
 
-    .line 576
+    .line 582
     .local v24, "verticalPadding":I
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getPaddingLeft()I
 
@@ -2386,11 +2395,11 @@
 
     sub-int v5, v26, v27
 
-    .line 577
+    .line 583
     .local v5, "availableWidth":I
     sub-int v14, v18, v24
 
-    .line 578
+    .line 584
     .local v14, "height":I
     const/high16 v26, -0x80000000
 
@@ -2400,7 +2409,7 @@
 
     move-result v6
 
-    .line 580
+    .line 586
     .local v6, "childSpecHeight":I
     move-object/from16 v0, p0
 
@@ -2410,7 +2419,7 @@
 
     if-eqz v26, :cond_2
 
-    .line 584
+    .line 590
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
@@ -2429,7 +2438,7 @@
 
     move-result v5
 
-    .line 585
+    .line 591
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
@@ -2442,7 +2451,7 @@
 
     check-cast v17, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 586
+    .line 592
     .local v17, "lp":Landroid/view/ViewGroup$MarginLayoutParams;
     move-object/from16 v0, v17
 
@@ -2460,7 +2469,7 @@
 
     sub-int v5, v5, v26
 
-    .line 590
+    .line 596
     .end local v17    # "lp":Landroid/view/ViewGroup$MarginLayoutParams;
     :cond_2
     move-object/from16 v0, p0
@@ -2471,7 +2480,7 @@
 
     if-eqz v26, :cond_3
 
-    .line 591
+    .line 597
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
@@ -2500,7 +2509,7 @@
 
     invoke-virtual/range {v26 .. v28}, Lcom/tencent/qrom/widget/ToggleButton;->measure(II)V
 
-    .line 593
+    .line 599
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleView:Landroid/widget/TextView;
@@ -2509,7 +2518,7 @@
 
     if-eqz v26, :cond_3
 
-    .line 594
+    .line 600
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMulti:Lcom/tencent/qrom/widget/ToggleButton;
@@ -2583,7 +2592,7 @@
 
     if-le v0, v1, :cond_f
 
-    .line 596
+    .line 602
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleView:Landroid/widget/TextView;
@@ -2594,7 +2603,7 @@
 
     invoke-virtual/range {v26 .. v27}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 604
+    .line 610
     :cond_3
     :goto_2
     move-object/from16 v0, p0
@@ -2605,7 +2614,7 @@
 
     if-eqz v26, :cond_4
 
-    .line 605
+    .line 611
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
@@ -2624,7 +2633,7 @@
 
     move-result v7
 
-    .line 606
+    .line 612
     .local v7, "closeWidth":I
     :goto_3
     move-object/from16 v0, p0
@@ -2663,7 +2672,7 @@
 
     move-result v20
 
-    .line 607
+    .line 613
     .local v20, "multiWidth":I
     :goto_4
     move-object/from16 v0, p0
@@ -2710,7 +2719,7 @@
 
     invoke-virtual/range {v26 .. v27}, Landroid/widget/EditText;->setMaxWidth(I)V
 
-    .line 608
+    .line 614
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mEdit:Landroid/widget/EditText;
@@ -2735,7 +2744,7 @@
 
     invoke-virtual/range {v26 .. v28}, Landroid/widget/EditText;->measure(II)V
 
-    .line 614
+    .line 620
     .end local v7    # "closeWidth":I
     .end local v20    # "multiWidth":I
     :cond_4
@@ -2763,7 +2772,7 @@
 
     if-ne v0, v1, :cond_5
 
-    .line 615
+    .line 621
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
@@ -2782,7 +2791,7 @@
 
     move-result v5
 
-    .line 619
+    .line 625
     :cond_5
     move-object/from16 v0, p0
 
@@ -2800,7 +2809,7 @@
 
     if-nez v26, :cond_a
 
-    .line 621
+    .line 627
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mClose:Landroid/widget/Button;
@@ -2819,7 +2828,7 @@
 
     move-result v7
 
-    .line 622
+    .line 628
     .restart local v7    # "closeWidth":I
     :goto_5
     move-object/from16 v0, p0
@@ -2858,7 +2867,7 @@
 
     move-result v20
 
-    .line 623
+    .line 629
     .restart local v20    # "multiWidth":I
     :goto_6
     move-object/from16 v0, p0
@@ -2869,7 +2878,7 @@
 
     if-eqz v26, :cond_8
 
-    .line 624
+    .line 630
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleView:Landroid/widget/TextView;
@@ -2878,7 +2887,7 @@
 
     if-eqz v26, :cond_6
 
-    .line 625
+    .line 631
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleView:Landroid/widget/TextView;
@@ -2887,7 +2896,7 @@
 
     invoke-virtual/range {v26 .. v26}, Landroid/widget/TextView;->requestLayout()V
 
-    .line 626
+    .line 632
     :cond_6
     move-object/from16 v0, p0
 
@@ -2897,7 +2906,7 @@
 
     if-eqz v26, :cond_7
 
-    .line 627
+    .line 633
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitleView:Landroid/widget/TextView;
@@ -2906,7 +2915,7 @@
 
     invoke-virtual/range {v26 .. v26}, Landroid/widget/TextView;->requestLayout()V
 
-    .line 628
+    .line 634
     :cond_7
     move-object/from16 v0, p0
 
@@ -2936,7 +2945,7 @@
 
     invoke-virtual/range {v26 .. v28}, Landroid/widget/LinearLayout;->measure(II)V
 
-    .line 631
+    .line 637
     const/16 v26, 0x0
 
     move/from16 v0, v26
@@ -2945,7 +2954,7 @@
 
     iput-boolean v0, v1, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->firstMeasureTitle:Z
 
-    .line 633
+    .line 639
     :cond_8
     move-object/from16 v0, p0
 
@@ -2957,7 +2966,7 @@
 
     move-result v22
 
-    .line 634
+    .line 640
     .local v22, "tagWidth":I
     div-int/lit8 v26, v8, 0x2
 
@@ -3001,7 +3010,7 @@
 
     if-le v0, v1, :cond_9
 
-    .line 635
+    .line 641
     div-int/lit8 v26, v8, 0x2
 
     move-object/from16 v0, p0
@@ -3038,7 +3047,7 @@
 
     mul-int/lit8 v22, v26, 0x2
 
-    .line 637
+    .line 643
     :cond_9
     move-object/from16 v0, p0
 
@@ -3070,7 +3079,7 @@
 
     invoke-virtual/range {v26 .. v28}, Landroid/widget/LinearLayout;->measure(II)V
 
-    .line 642
+    .line 648
     .end local v7    # "closeWidth":I
     .end local v20    # "multiWidth":I
     .end local v22    # "tagWidth":I
@@ -3083,7 +3092,7 @@
 
     if-eqz v26, :cond_b
 
-    .line 643
+    .line 649
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCustomView:Landroid/view/View;
@@ -3094,7 +3103,7 @@
 
     move-result-object v17
 
-    .line 644
+    .line 650
     .local v17, "lp":Landroid/view/ViewGroup$LayoutParams;
     move-object/from16 v0, v17
 
@@ -3112,7 +3121,7 @@
 
     const/high16 v13, 0x40000000    # 2.0f
 
-    .line 646
+    .line 652
     .local v13, "customWidthMode":I
     :goto_7
     move-object/from16 v0, v17
@@ -3135,7 +3144,7 @@
 
     move-result v12
 
-    .line 648
+    .line 654
     .local v12, "customWidth":I
     :goto_8
     move-object/from16 v0, v17
@@ -3154,7 +3163,7 @@
 
     const/high16 v11, 0x40000000    # 2.0f
 
-    .line 650
+    .line 656
     .local v11, "customHeightMode":I
     :goto_9
     move-object/from16 v0, v17
@@ -3177,7 +3186,7 @@
 
     move-result v10
 
-    .line 652
+    .line 658
     .local v10, "customHeight":I
     :goto_a
     move-object/from16 v0, p0
@@ -3196,7 +3205,7 @@
 
     invoke-virtual/range {v26 .. v28}, Landroid/view/View;->measure(II)V
 
-    .line 657
+    .line 663
     .end local v10    # "customHeight":I
     .end local v11    # "customHeightMode":I
     .end local v12    # "customWidth":I
@@ -3211,16 +3220,16 @@
 
     if-gtz v26, :cond_19
 
-    .line 658
+    .line 664
     const/16 v19, 0x0
 
-    .line 659
+    .line 665
     .local v19, "measuredHeight":I
     invoke-virtual/range {p0 .. p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->getChildCount()I
 
     move-result v9
 
-    .line 660
+    .line 666
     .local v9, "count":I
     const/16 v16, 0x0
 
@@ -3230,7 +3239,7 @@
 
     if-ge v0, v9, :cond_18
 
-    .line 661
+    .line 667
     move-object/from16 v0, p0
 
     move/from16 v1, v16
@@ -3239,7 +3248,7 @@
 
     move-result-object v23
 
-    .line 662
+    .line 668
     .local v23, "v":Landroid/view/View;
     invoke-virtual/range {v23 .. v23}, Landroid/view/View;->getMeasuredHeight()I
 
@@ -3247,7 +3256,7 @@
 
     add-int v21, v26, v24
 
-    .line 663
+    .line 669
     .local v21, "paddedViewHeight":I
     move/from16 v0, v21
 
@@ -3255,16 +3264,16 @@
 
     if-le v0, v1, :cond_c
 
-    .line 664
+    .line 670
     move/from16 v19, v21
 
-    .line 660
+    .line 666
     :cond_c
     add-int/lit8 v16, v16, 0x1
 
     goto :goto_b
 
-    .line 572
+    .line 578
     .end local v5    # "availableWidth":I
     .end local v6    # "childSpecHeight":I
     .end local v9    # "count":I
@@ -3282,7 +3291,7 @@
 
     goto/16 :goto_0
 
-    .line 594
+    .line 600
     .restart local v5    # "availableWidth":I
     .restart local v6    # "childSpecHeight":I
     .restart local v14    # "height":I
@@ -3293,7 +3302,7 @@
 
     goto/16 :goto_1
 
-    .line 599
+    .line 605
     :cond_f
     move-object/from16 v0, p0
 
@@ -3307,34 +3316,34 @@
 
     goto/16 :goto_2
 
-    .line 605
+    .line 611
     :cond_10
     const/4 v7, 0x0
 
     goto/16 :goto_3
 
-    .line 606
+    .line 612
     .restart local v7    # "closeWidth":I
     :cond_11
     const/16 v20, 0x0
 
     goto/16 :goto_4
 
-    .line 621
+    .line 627
     .end local v7    # "closeWidth":I
     :cond_12
     const/4 v7, 0x0
 
     goto/16 :goto_5
 
-    .line 622
+    .line 628
     .restart local v7    # "closeWidth":I
     :cond_13
     const/16 v20, 0x0
 
     goto/16 :goto_6
 
-    .line 644
+    .line 650
     .end local v7    # "closeWidth":I
     .restart local v17    # "lp":Landroid/view/ViewGroup$LayoutParams;
     :cond_14
@@ -3346,10 +3355,10 @@
     :cond_15
     move v12, v5
 
-    .line 646
+    .line 652
     goto/16 :goto_8
 
-    .line 648
+    .line 654
     .restart local v12    # "customWidth":I
     :cond_16
     const/high16 v11, -0x80000000
@@ -3360,10 +3369,10 @@
     :cond_17
     move v10, v14
 
-    .line 650
+    .line 656
     goto :goto_a
 
-    .line 667
+    .line 673
     .end local v11    # "customHeightMode":I
     .end local v12    # "customWidth":I
     .end local v13    # "customWidthMode":I
@@ -3378,14 +3387,14 @@
 
     invoke-virtual {v0, v8, v1}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->setMeasuredDimension(II)V
 
-    .line 671
+    .line 677
     .end local v9    # "count":I
     .end local v16    # "i":I
     .end local v19    # "measuredHeight":I
     :goto_c
     return-void
 
-    .line 669
+    .line 675
     :cond_19
     move-object/from16 v0, p0
 
@@ -3400,40 +3409,40 @@
     .locals 1
 
     .prologue
-    .line 750
+    .line 756
     iget-boolean v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mAnimateInOnLayout:Z
 
     if-eqz v0, :cond_1
 
-    .line 751
+    .line 757
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mAnimationMode:I
 
-    .line 752
+    .line 758
     invoke-direct {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->makeSplitMenuInAnimation()Landroid/animation/Animator;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCurrentAnimation:Landroid/animation/Animator;
 
-    .line 753
+    .line 759
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCurrentAnimation:Landroid/animation/Animator;
 
     if-eqz v0, :cond_0
 
-    .line 754
+    .line 760
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCurrentAnimation:Landroid/animation/Animator;
 
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
-    .line 756
+    .line 762
     :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mAnimateInOnLayout:Z
 
-    .line 758
+    .line 764
     :cond_1
     return-void
 .end method
@@ -3443,10 +3452,10 @@
     .param p1, "clickListener"    # Landroid/view/View$OnClickListener;
 
     .prologue
-    .line 860
+    .line 866
     iput-object p1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionModeBackOnClickListener:Landroid/view/View$OnClickListener;
 
-    .line 861
+    .line 867
     return-void
 .end method
 
@@ -3455,10 +3464,10 @@
     .param p1, "height"    # I
 
     .prologue
-    .line 282
+    .line 288
     iput p1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContentHeight:I
 
-    .line 283
+    .line 289
     return-void
 .end method
 
@@ -3467,47 +3476,47 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 286
+    .line 292
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCustomView:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 287
+    .line 293
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCustomView:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->removeView(Landroid/view/View;)V
 
-    .line 289
+    .line 295
     :cond_0
     iput-object p1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mCustomView:Landroid/view/View;
 
-    .line 290
+    .line 296
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     if-eqz v0, :cond_1
 
-    .line 291
+    .line 297
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {p0, v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->removeView(Landroid/view/View;)V
 
-    .line 292
+    .line 298
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
-    .line 294
+    .line 300
     :cond_1
     if-eqz p1, :cond_2
 
-    .line 295
+    .line 301
     invoke-virtual {p0, p1}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->addView(Landroid/view/View;)V
 
-    .line 297
+    .line 303
     :cond_2
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->requestLayout()V
 
-    .line 298
+    .line 304
     return-void
 .end method
 
@@ -3516,17 +3525,17 @@
     .param p1, "isTransPopup"    # Z
 
     .prologue
-    .line 889
+    .line 895
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 890
+    .line 896
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setIsTransPopup(Z)V
 
-    .line 892
+    .line 898
     :cond_0
     return-void
 .end method
@@ -3536,12 +3545,12 @@
     .param p1, "enable"    # Z
 
     .prologue
-    .line 865
+    .line 871
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-nez v0, :cond_0
 
-    .line 866
+    .line 872
     new-instance v0, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContext:Landroid/content/Context;
@@ -3550,13 +3559,13 @@
 
     iput-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
-    .line 867
+    .line 873
     :cond_0
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setOverflowButtonState(Z)V
 
-    .line 868
+    .line 874
     return-void
 .end method
 
@@ -3565,17 +3574,17 @@
     .param p1, "listener"    # Lcom/tencent/qrom/app/ActionBar$OverflowClickListener;
 
     .prologue
-    .line 872
+    .line 878
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 873
+    .line 879
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setOverflowClickListener(Lcom/tencent/qrom/app/ActionBar$OverflowClickListener;)V
 
-    .line 875
+    .line 881
     :cond_0
     return-void
 .end method
@@ -3585,17 +3594,17 @@
     .param p1, "isDelay"    # Z
 
     .prologue
-    .line 911
+    .line 917
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 912
+    .line 918
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setOverflowDelay(Z)V
 
-    .line 914
+    .line 920
     :cond_0
     return-void
 .end method
@@ -3605,17 +3614,17 @@
     .param p1, "isMarks"    # [Z
 
     .prologue
-    .line 897
+    .line 903
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 898
+    .line 904
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setPopupMenuMarks([Z)V
 
-    .line 900
+    .line 906
     :cond_0
     return-void
 .end method
@@ -3625,17 +3634,17 @@
     .param p1, "textColors"    # [I
 
     .prologue
-    .line 904
+    .line 910
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 905
+    .line 911
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setPopupTextColors([I)V
 
-    .line 907
+    .line 913
     :cond_0
     return-void
 .end method
@@ -3649,28 +3658,28 @@
 
     const/4 v5, -0x1
 
-    .line 249
+    .line 255
     iget-boolean v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSplitActionBar:Z
 
     if-eq v2, p1, :cond_2
 
-    .line 250
+    .line 256
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v2, :cond_1
 
-    .line 252
+    .line 258
     new-instance v0, Landroid/view/ViewGroup$LayoutParams;
 
     const/4 v2, -0x2
 
     invoke-direct {v0, v2, v5}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 254
+    .line 260
     .local v0, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     if-nez p1, :cond_3
 
-    .line 255
+    .line 261
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v2, p0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->getMenuView(Landroid/view/ViewGroup;)Lcom/tencent/qrom/internal/view/menu/MenuView;
@@ -3681,12 +3690,12 @@
 
     iput-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
-    .line 256
+    .line 262
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v2, v6}, Lcom/tencent/qrom/internal/view/menu/ActionMenuView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 257
+    .line 263
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v2}, Lcom/tencent/qrom/internal/view/menu/ActionMenuView;->getParent()Landroid/view/ViewParent;
@@ -3695,7 +3704,7 @@
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    .line 258
+    .line 264
     .local v1, "oldParent":Landroid/view/ViewGroup;
     if-eqz v1, :cond_0
 
@@ -3703,24 +3712,24 @@
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 259
+    .line 265
     :cond_0
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {p0, v2, v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 277
+    .line 283
     .end local v0    # "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     .end local v1    # "oldParent":Landroid/view/ViewGroup;
     :cond_1
     :goto_0
     invoke-super {p0, p1}, Lcom/tencent/qrom/internal/widget/AbsActionBarView;->setSplitActionBar(Z)V
 
-    .line 279
+    .line 285
     :cond_2
     return-void
 
-    .line 262
+    .line 268
     .restart local v0    # "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     :cond_3
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
@@ -3743,22 +3752,22 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setWidthLimit(IZ)V
 
-    .line 265
+    .line 271
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     const v3, 0x7fffffff
 
     invoke-virtual {v2, v3}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->setItemLimit(I)V
 
-    .line 267
+    .line 273
     iput v5, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 269
+    .line 275
     iget v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mContextSplitHeight:I
 
     iput v2, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 270
+    .line 276
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v2, p0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->getMenuView(Landroid/view/ViewGroup;)Lcom/tencent/qrom/internal/view/menu/MenuView;
@@ -3769,12 +3778,12 @@
 
     iput-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
-    .line 271
+    .line 277
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v2, v6}, Lcom/tencent/qrom/internal/view/menu/ActionMenuView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 272
+    .line 278
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mMenuView:Lcom/tencent/qrom/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v2}, Lcom/tencent/qrom/internal/view/menu/ActionMenuView;->getParent()Landroid/view/ViewParent;
@@ -3783,7 +3792,7 @@
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    .line 273
+    .line 279
     .restart local v1    # "oldParent":Landroid/view/ViewGroup;
     if-eqz v1, :cond_4
 
@@ -3791,7 +3800,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 274
+    .line 280
     :cond_4
     iget-object v2, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSplitView:Lcom/tencent/qrom/internal/widget/ActionBarContainer;
 
@@ -3807,16 +3816,16 @@
     .param p1, "subtitle"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 308
+    .line 314
     iput-object p1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mSubtitle:Ljava/lang/CharSequence;
 
-    .line 309
+    .line 315
     invoke-direct {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->initTitle()V
 
-    .line 310
+    .line 316
     invoke-direct {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->initSubTitle()V
 
-    .line 311
+    .line 317
     return-void
 .end method
 
@@ -3825,21 +3834,21 @@
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 301
+    .line 307
     iput-object p1, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mTitle:Ljava/lang/CharSequence;
 
-    .line 302
+    .line 308
     invoke-direct {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->initTitle()V
 
-    .line 303
+    .line 309
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->firstMeasureTitle:Z
 
-    .line 304
+    .line 310
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->requestLayout()V
 
-    .line 305
+    .line 311
     return-void
 .end method
 
@@ -3847,7 +3856,7 @@
     .locals 1
 
     .prologue
-    .line 843
+    .line 849
     const/4 v0, 0x0
 
     return v0
@@ -3857,19 +3866,19 @@
     .locals 1
 
     .prologue
-    .line 518
+    .line 524
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 519
+    .line 525
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->mActionMenuPresenter:Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/view/menu/ActionMenuPresenter;->showOverflowMenu()Z
 
     move-result v0
 
-    .line 521
+    .line 527
     :goto_0
     return v0
 
@@ -3883,7 +3892,7 @@
     .locals 1
 
     .prologue
-    .line 239
+    .line 245
     const/4 v0, 0x0
 
     return v0

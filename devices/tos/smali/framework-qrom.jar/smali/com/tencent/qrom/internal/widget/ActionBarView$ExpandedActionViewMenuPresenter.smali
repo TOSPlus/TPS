@@ -30,7 +30,7 @@
     .locals 0
 
     .prologue
-    .line 1401
+    .line 1406
     iput-object p1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
     .param p2, "x1"    # Lcom/tencent/qrom/internal/widget/ActionBarView$1;
 
     .prologue
-    .line 1401
+    .line 1406
     invoke-direct {p0, p1}, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;-><init>(Lcom/tencent/qrom/internal/widget/ActionBarView;)V
 
     return-void
@@ -60,7 +60,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1478
+    .line 1483
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     # getter for: Lcom/tencent/qrom/internal/widget/ActionBarView;->mDisplayOptions:I
@@ -72,7 +72,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1479
+    .line 1484
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     # getter for: Lcom/tencent/qrom/internal/widget/ActionBarView;->mHomeLayout:Landroid/widget/ImageButton;
@@ -82,7 +82,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setVisibility(I)V
 
-    .line 1480
+    .line 1485
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     # getter for: Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
@@ -92,7 +92,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1481
+    .line 1486
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     # getter for: Lcom/tencent/qrom/internal/widget/ActionBarView;->mClose:Landroid/widget/Button;
@@ -104,7 +104,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 1484
+    .line 1489
     :cond_0
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
@@ -117,7 +117,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 1485
+    .line 1490
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     # getter for: Lcom/tencent/qrom/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
@@ -127,13 +127,13 @@
 
     if-nez v0, :cond_4
 
-    .line 1486
+    .line 1491
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     # invokes: Lcom/tencent/qrom/internal/widget/ActionBarView;->initTitle()V
     invoke-static {v0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->access$1200(Lcom/tencent/qrom/internal/widget/ActionBarView;)V
 
-    .line 1491
+    .line 1496
     :cond_1
     :goto_0
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
@@ -156,7 +156,7 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 1492
+    .line 1497
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     # getter for: Lcom/tencent/qrom/internal/widget/ActionBarView;->mTabScrollView:Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;
@@ -166,7 +166,7 @@
 
     invoke-virtual {v0, v2}, Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;->setVisibility(I)V
 
-    .line 1494
+    .line 1499
     :cond_2
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
@@ -188,7 +188,7 @@
 
     if-eqz v0, :cond_3
 
-    .line 1495
+    .line 1500
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     # getter for: Lcom/tencent/qrom/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
@@ -198,26 +198,26 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1497
+    .line 1502
     :cond_3
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/tencent/qrom/internal/view/menu/MenuItemImpl;
 
-    .line 1498
+    .line 1503
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->requestLayout()V
 
-    .line 1499
+    .line 1504
     invoke-virtual {p2, v2}, Lcom/tencent/qrom/internal/view/menu/MenuItemImpl;->setActionViewExpanded(Z)V
 
-    .line 1501
+    .line 1506
     const/4 v0, 0x1
 
     return v0
 
-    .line 1488
+    .line 1493
     :cond_4
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
@@ -241,10 +241,10 @@
 
     const/16 v1, 0x8
 
-    .line 1463
+    .line 1468
     iput-object p2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/tencent/qrom/internal/view/menu/MenuItemImpl;
 
-    .line 1464
+    .line 1469
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     # getter for: Lcom/tencent/qrom/internal/widget/ActionBarView;->mHomeLayout:Landroid/widget/ImageButton;
@@ -254,7 +254,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
 
-    .line 1465
+    .line 1470
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     # getter for: Lcom/tencent/qrom/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
@@ -273,7 +273,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 1466
+    .line 1471
     :cond_0
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
@@ -293,7 +293,7 @@
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;->setVisibility(I)V
 
-    .line 1467
+    .line 1472
     :cond_1
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
@@ -313,16 +313,16 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1468
+    .line 1473
     :cond_2
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/tencent/qrom/internal/widget/ActionBarView;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/widget/ActionBarView;->requestLayout()V
 
-    .line 1469
+    .line 1474
     invoke-virtual {p2, v2}, Lcom/tencent/qrom/internal/view/menu/MenuItemImpl;->setActionViewExpanded(Z)V
 
-    .line 1471
+    .line 1476
     return v2
 .end method
 
@@ -330,7 +330,7 @@
     .locals 1
 
     .prologue
-    .line 1458
+    .line 1463
     const/4 v0, 0x0
 
     return v0
@@ -340,7 +340,7 @@
     .locals 1
 
     .prologue
-    .line 1506
+    .line 1511
     const/4 v0, 0x0
 
     return v0
@@ -351,7 +351,7 @@
     .param p1, "root"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 1416
+    .line 1421
     const/4 v0, 0x0
 
     return-object v0
@@ -363,7 +363,7 @@
     .param p2, "menu"    # Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     .prologue
-    .line 1408
+    .line 1413
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     if-eqz v0, :cond_0
@@ -372,18 +372,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 1409
+    .line 1414
     iget-object v0, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     iget-object v1, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/tencent/qrom/internal/view/menu/MenuItemImpl;
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;->collapseItemActionView(Lcom/tencent/qrom/internal/view/menu/MenuItemImpl;)Z
 
-    .line 1411
+    .line 1416
     :cond_0
     iput-object p2, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
-    .line 1412
+    .line 1417
     return-void
 .end method
 
@@ -393,7 +393,7 @@
     .param p2, "allMenusAreClosing"    # Z
 
     .prologue
-    .line 1454
+    .line 1459
     return-void
 .end method
 
@@ -402,7 +402,7 @@
     .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
-    .line 1516
+    .line 1521
     return-void
 .end method
 
@@ -410,7 +410,7 @@
     .locals 1
 
     .prologue
-    .line 1511
+    .line 1516
     const/4 v0, 0x0
 
     return-object v0
@@ -421,7 +421,7 @@
     .param p1, "subMenu"    # Lcom/tencent/qrom/internal/view/menu/SubMenuBuilder;
 
     .prologue
-    .line 1449
+    .line 1454
     const/4 v0, 0x0
 
     return v0
@@ -432,7 +432,7 @@
     .param p1, "cb"    # Lcom/tencent/qrom/internal/view/menu/MenuPresenter$Callback;
 
     .prologue
-    .line 1445
+    .line 1450
     return-void
 .end method
 
@@ -441,28 +441,28 @@
     .param p1, "cleared"    # Z
 
     .prologue
-    .line 1422
+    .line 1427
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/tencent/qrom/internal/view/menu/MenuItemImpl;
 
     if-eqz v4, :cond_1
 
-    .line 1423
+    .line 1428
     const/4 v1, 0x0
 
-    .line 1425
+    .line 1430
     .local v1, "found":Z
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     if-eqz v4, :cond_0
 
-    .line 1426
+    .line 1431
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v4}, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;->size()I
 
     move-result v0
 
-    .line 1427
+    .line 1432
     .local v0, "count":I
     const/4 v2, 0x0
 
@@ -470,42 +470,42 @@
     :goto_0
     if-ge v2, v0, :cond_0
 
-    .line 1428
+    .line 1433
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v4, v2}, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;->getItem(I)Landroid/view/MenuItem;
 
     move-result-object v3
 
-    .line 1429
+    .line 1434
     .local v3, "item":Landroid/view/MenuItem;
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/tencent/qrom/internal/view/menu/MenuItemImpl;
 
     if-ne v3, v4, :cond_2
 
-    .line 1430
+    .line 1435
     const/4 v1, 0x1
 
-    .line 1436
+    .line 1441
     .end local v0    # "count":I
     .end local v2    # "i":I
     .end local v3    # "item":Landroid/view/MenuItem;
     :cond_0
     if-nez v1, :cond_1
 
-    .line 1438
+    .line 1443
     iget-object v4, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     iget-object v5, p0, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/tencent/qrom/internal/view/menu/MenuItemImpl;
 
     invoke-virtual {p0, v4, v5}, Lcom/tencent/qrom/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->collapseItemActionView(Lcom/tencent/qrom/internal/view/menu/MenuBuilder;Lcom/tencent/qrom/internal/view/menu/MenuItemImpl;)Z
 
-    .line 1441
+    .line 1446
     .end local v1    # "found":Z
     :cond_1
     return-void
 
-    .line 1427
+    .line 1432
     .restart local v0    # "count":I
     .restart local v1    # "found":Z
     .restart local v2    # "i":I

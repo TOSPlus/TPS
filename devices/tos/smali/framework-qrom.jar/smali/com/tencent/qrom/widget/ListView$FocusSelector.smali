@@ -30,7 +30,7 @@
     .locals 0
 
     .prologue
-    .line 1245
+    .line 1246
     iput-object p1, p0, Lcom/tencent/qrom/widget/ListView$FocusSelector;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
     .param p2, "x1"    # Lcom/tencent/qrom/widget/ListView$1;
 
     .prologue
-    .line 1245
+    .line 1246
     invoke-direct {p0, p1}, Lcom/tencent/qrom/widget/ListView$FocusSelector;-><init>(Lcom/tencent/qrom/widget/ListView;)V
 
     return-void
@@ -56,7 +56,7 @@
     .locals 3
 
     .prologue
-    .line 1256
+    .line 1257
     iget-object v0, p0, Lcom/tencent/qrom/widget/ListView$FocusSelector;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     iget v1, p0, Lcom/tencent/qrom/widget/ListView$FocusSelector;->mPosition:I
@@ -65,7 +65,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/tencent/qrom/widget/ListView;->setSelectionFromTop(II)V
 
-    .line 1257
+    .line 1258
     return-void
 .end method
 
@@ -75,12 +75,12 @@
     .param p2, "top"    # I
 
     .prologue
-    .line 1250
+    .line 1251
     iput p1, p0, Lcom/tencent/qrom/widget/ListView$FocusSelector;->mPosition:I
 
-    .line 1251
+    .line 1252
     iput p2, p0, Lcom/tencent/qrom/widget/ListView$FocusSelector;->mPositionTop:I
 
-    .line 1252
+    .line 1253
     return-object p0
 .end method

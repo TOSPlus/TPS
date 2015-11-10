@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 4454
+    .line 4460
     iput-object p1, p0, Lcom/tencent/qrom/widget/ListView$3;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .param p1, "arg0"    # Landroid/animation/Animator;
 
     .prologue
-    .line 4470
+    .line 4476
     return-void
 .end method
 
@@ -50,13 +50,13 @@
     .param p1, "arg0"    # Landroid/animation/Animator;
 
     .prologue
-    .line 4465
+    .line 4471
     iget-object v0, p0, Lcom/tencent/qrom/widget/ListView$3;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     # invokes: Lcom/tencent/qrom/widget/ListView;->finalizeRemove()V
     invoke-static {v0}, Lcom/tencent/qrom/widget/ListView;->access$700(Lcom/tencent/qrom/widget/ListView;)V
 
-    .line 4466
+    .line 4472
     return-void
 .end method
 
@@ -65,7 +65,7 @@
     .param p1, "arg0"    # Landroid/animation/Animator;
 
     .prologue
-    .line 4461
+    .line 4467
     return-void
 .end method
 
@@ -74,6 +74,6 @@
     .param p1, "arg0"    # Landroid/animation/Animator;
 
     .prologue
-    .line 4457
+    .line 4463
     return-void
 .end method

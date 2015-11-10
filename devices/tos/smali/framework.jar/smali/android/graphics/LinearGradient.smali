@@ -156,7 +156,7 @@
     .line 55
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "needs >= 2 number of colors"
+    const-string/jumbo v2, "needs >= 2 number of colors"
 
     invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 

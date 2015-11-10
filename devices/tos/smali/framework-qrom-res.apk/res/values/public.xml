@@ -2013,6 +2013,19 @@
     <public type="color" name="qrom_dialog_button_text_dark" id="0x7a0b005a" />
     <public type="color" name="qrom_dialog_button_text_light" id="0x7a0b005b" />
     <public type="color" name="qrom_bottom_dialog_list_item_light" id="0x7a0b005c" />
+    <public type="color" name="sidebar_normal_textcolor" id="0x7a0b005d" />
+    <public type="color" name="sidebar_selected_textcolor" id="0x7a0b005e" />
+    <public type="color" name="qrom_picker_selected_textcolor" id="0x7a0b005f" />
+    <public type="color" name="qrom_picker_normal_textcolor" id="0x7a0b0060" />
+    <public type="color" name="qrom_chooser_layout_textcolor" id="0x7a0b0061" />
+    <public type="color" name="qrom_tab_sub_disabled" id="0x7a0b0062" />
+    <public type="color" name="qrom_tab_sub_pressed" id="0x7a0b0063" />
+    <public type="color" name="qrom_tab_sub_selected" id="0x7a0b0064" />
+    <public type="color" name="qrom_tab_sub_normal" id="0x7a0b0065" />
+    <public type="color" name="search_view_text_color_light" id="0x7a0b0066" />
+    <public type="color" name="search_view_text_color_dark" id="0x7a0b0067" />
+    <public type="color" name="qrom_toast_text_shadowcolor" id="0x7a0b0068" />
+    <public type="color" name="qrom_toast_textcolor" id="0x7a0b0069" />
     <public type="integer" name="config_screenBrightnessDim" id="0x7a0c0000" />
     <public type="integer" name="config_lowBatteryCloseWarningLevel" id="0x7a0c0001" />
     <public type="integer" name="config_lowBatteryWarningLevel" id="0x7a0c0002" />

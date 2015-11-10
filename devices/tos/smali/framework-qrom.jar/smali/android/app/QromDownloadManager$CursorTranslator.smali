@@ -27,7 +27,7 @@
     .locals 1
 
     .prologue
-    .line 576
+    .line 583
     const-class v0, Landroid/app/QromDownloadManager;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -55,13 +55,13 @@
     .param p2, "baseUri"    # Landroid/net/Uri;
 
     .prologue
-    .line 580
+    .line 587
     invoke-direct {p0, p1}, Landroid/database/CursorWrapper;-><init>(Landroid/database/Cursor;)V
 
-    .line 581
+    .line 588
     iput-object p2, p0, Landroid/app/QromDownloadManager$CursorTranslator;->mBaseUri:Landroid/net/Uri;
 
-    .line 582
+    .line 589
     return-void
 .end method
 
@@ -70,7 +70,7 @@
     .param p1, "status"    # I
 
     .prologue
-    .line 653
+    .line 660
     const/16 v0, 0x190
 
     if-gt v0, p1, :cond_0
@@ -88,72 +88,72 @@
 
     if-ge p1, v0, :cond_2
 
-    .line 656
+    .line 663
     :cond_1
     int-to-long v0, p1
 
-    .line 686
+    .line 693
     :goto_0
     return-wide v0
 
-    .line 659
+    .line 666
     :cond_2
     sparse-switch p1, :sswitch_data_0
 
-    .line 686
+    .line 693
     const-wide/16 v0, 0x3e8
 
     goto :goto_0
 
-    .line 661
+    .line 668
     :sswitch_0
     const-wide/16 v0, 0x3e9
 
     goto :goto_0
 
-    .line 665
+    .line 672
     :sswitch_1
     const-wide/16 v0, 0x3ea
 
     goto :goto_0
 
-    .line 668
+    .line 675
     :sswitch_2
     const-wide/16 v0, 0x3ec
 
     goto :goto_0
 
-    .line 671
+    .line 678
     :sswitch_3
     const-wide/16 v0, 0x3ed
 
     goto :goto_0
 
-    .line 674
+    .line 681
     :sswitch_4
     const-wide/16 v0, 0x3ee
 
     goto :goto_0
 
-    .line 677
+    .line 684
     :sswitch_5
     const-wide/16 v0, 0x3ef
 
     goto :goto_0
 
-    .line 680
+    .line 687
     :sswitch_6
     const-wide/16 v0, 0x3f0
 
     goto :goto_0
 
-    .line 683
+    .line 690
     :sswitch_7
     const-wide/16 v0, 0x3f1
 
     goto :goto_0
 
-    .line 659
+    .line 666
     :sswitch_data_0
     .sparse-switch
         0xc6 -> :sswitch_4
@@ -172,7 +172,7 @@
     .locals 7
 
     .prologue
-    .line 607
+    .line 614
     const-string v5, "destination"
 
     invoke-virtual {p0, v5}, Landroid/app/QromDownloadManager$CursorTranslator;->getColumnIndex(Ljava/lang/String;)I
@@ -183,7 +183,7 @@
 
     move-result-wide v0
 
-    .line 608
+    .line 615
     .local v0, "destinationType":J
     const-wide/16 v5, 0x4
 
@@ -203,7 +203,7 @@
 
     if-nez v5, :cond_2
 
-    .line 611
+    .line 618
     :cond_0
     const-string v5, "local_filename"
 
@@ -215,19 +215,19 @@
 
     move-result-object v4
 
-    .line 612
+    .line 619
     .local v4, "localPath":Ljava/lang/String;
     if-nez v4, :cond_1
 
-    .line 613
+    .line 620
     const/4 v5, 0x0
 
-    .line 620
+    .line 627
     .end local v4    # "localPath":Ljava/lang/String;
     :goto_0
     return-object v5
 
-    .line 615
+    .line 622
     .restart local v4    # "localPath":Ljava/lang/String;
     :cond_1
     new-instance v5, Ljava/io/File;
@@ -244,7 +244,7 @@
 
     goto :goto_0
 
-    .line 619
+    .line 626
     .end local v4    # "localPath":Ljava/lang/String;
     :cond_2
     const-string v5, "_id"
@@ -257,7 +257,7 @@
 
     move-result-wide v2
 
-    .line 620
+    .line 627
     .local v2, "downloadId":J
     iget-object v5, p0, Landroid/app/QromDownloadManager$CursorTranslator;->mBaseUri:Landroid/net/Uri;
 
@@ -277,34 +277,34 @@
     .param p1, "status"    # I
 
     .prologue
-    .line 637
+    .line 644
     packed-switch p1, :pswitch_data_0
 
-    .line 648
+    .line 655
     const-wide/16 v0, 0x4
 
     :goto_0
     return-wide v0
 
-    .line 639
+    .line 646
     :pswitch_0
     const-wide/16 v0, 0x1
 
     goto :goto_0
 
-    .line 642
+    .line 649
     :pswitch_1
     const-wide/16 v0, 0x2
 
     goto :goto_0
 
-    .line 645
+    .line 652
     :pswitch_2
     const-wide/16 v0, 0x3
 
     goto :goto_0
 
-    .line 637
+    .line 644
     nop
 
     :pswitch_data_0
@@ -320,20 +320,20 @@
     .param p1, "status"    # I
 
     .prologue
-    .line 624
+    .line 631
     invoke-direct {p0, p1}, Landroid/app/QromDownloadManager$CursorTranslator;->translateStatus(I)I
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 632
+    .line 639
     const-wide/16 v0, 0x0
 
     :goto_0
     return-wide v0
 
-    .line 626
+    .line 633
     :sswitch_0
     invoke-direct {p0, p1}, Landroid/app/QromDownloadManager$CursorTranslator;->getErrorCode(I)J
 
@@ -341,7 +341,7 @@
 
     goto :goto_0
 
-    .line 629
+    .line 636
     :sswitch_1
     invoke-direct {p0, p1}, Landroid/app/QromDownloadManager$CursorTranslator;->getPausedReason(I)J
 
@@ -349,7 +349,7 @@
 
     goto :goto_0
 
-    .line 624
+    .line 631
     :sswitch_data_0
     .sparse-switch
         0x4 -> :sswitch_1
@@ -362,10 +362,10 @@
     .param p1, "status"    # I
 
     .prologue
-    .line 691
+    .line 698
     packed-switch p1, :pswitch_data_0
 
-    .line 708
+    .line 715
     :pswitch_0
     sget-boolean v0, Landroid/app/QromDownloadManager$CursorTranslator;->$assertionsDisabled:Z
 
@@ -383,39 +383,39 @@
 
     throw v0
 
-    .line 693
+    .line 700
     :pswitch_1
     const/4 v0, 0x1
 
-    .line 709
+    .line 716
     :goto_0
     return v0
 
-    .line 696
+    .line 703
     :pswitch_2
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 702
+    .line 709
     :pswitch_3
     const/4 v0, 0x4
 
     goto :goto_0
 
-    .line 705
+    .line 712
     :pswitch_4
     const/16 v0, 0x8
 
     goto :goto_0
 
-    .line 709
+    .line 716
     :cond_0
     const/16 v0, 0x10
 
     goto :goto_0
 
-    .line 691
+    .line 698
     nop
 
     :pswitch_data_0
@@ -441,7 +441,7 @@
     .param p1, "columnIndex"    # I
 
     .prologue
-    .line 586
+    .line 593
     invoke-virtual {p0, p1}, Landroid/app/QromDownloadManager$CursorTranslator;->getLong(I)J
 
     move-result-wide v0
@@ -456,7 +456,7 @@
     .param p1, "columnIndex"    # I
 
     .prologue
-    .line 591
+    .line 598
     invoke-virtual {p0, p1}, Landroid/app/QromDownloadManager$CursorTranslator;->getColumnName(I)Ljava/lang/String;
 
     move-result-object v0
@@ -469,7 +469,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 592
+    .line 599
     const-string v0, "status"
 
     invoke-virtual {p0, v0}, Landroid/app/QromDownloadManager$CursorTranslator;->getColumnIndex(Ljava/lang/String;)I
@@ -484,11 +484,11 @@
 
     move-result-wide v0
 
-    .line 596
+    .line 603
     :goto_0
     return-wide v0
 
-    .line 593
+    .line 600
     :cond_0
     invoke-virtual {p0, p1}, Landroid/app/QromDownloadManager$CursorTranslator;->getColumnName(I)Ljava/lang/String;
 
@@ -502,7 +502,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 594
+    .line 601
     const-string v0, "status"
 
     invoke-virtual {p0, v0}, Landroid/app/QromDownloadManager$CursorTranslator;->getColumnIndex(Ljava/lang/String;)I
@@ -521,7 +521,7 @@
 
     goto :goto_0
 
-    .line 596
+    .line 603
     :cond_1
     invoke-super {p0, p1}, Landroid/database/CursorWrapper;->getLong(I)J
 
@@ -535,7 +535,7 @@
     .param p1, "columnIndex"    # I
 
     .prologue
-    .line 602
+    .line 609
     invoke-virtual {p0, p1}, Landroid/app/QromDownloadManager$CursorTranslator;->getColumnName(I)Ljava/lang/String;
 
     move-result-object v0

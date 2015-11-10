@@ -729,7 +729,7 @@
 
     iput-object v0, p0, Landroid/view/ViewRootImpl;->mInvalidateOnAnimationRunnable:Landroid/view/ViewRootImpl$InvalidateOnAnimationRunnable;
 
-    .line 6344
+    .line 6358
     new-instance v0, Landroid/view/ViewRootImpl$5;
 
     invoke-direct {v0, p0}, Landroid/view/ViewRootImpl$5;-><init>(Landroid/view/ViewRootImpl;)V
@@ -2823,46 +2823,46 @@
     .param p2, "second"    # Landroid/view/View;
 
     .prologue
-    .line 6064
+    .line 6078
     iget-object v5, p0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     if-eqz v5, :cond_6
 
-    .line 6065
+    .line 6079
     iget-object v5, p0, Landroid/view/ViewRootImpl;->mTempHashSet:Ljava/util/HashSet;
 
     if-nez v5, :cond_0
 
-    .line 6066
+    .line 6080
     new-instance v5, Ljava/util/HashSet;
 
     invoke-direct {v5}, Ljava/util/HashSet;-><init>()V
 
     iput-object v5, p0, Landroid/view/ViewRootImpl;->mTempHashSet:Ljava/util/HashSet;
 
-    .line 6068
+    .line 6082
     :cond_0
     iget-object v4, p0, Landroid/view/ViewRootImpl;->mTempHashSet:Ljava/util/HashSet;
 
-    .line 6069
+    .line 6083
     .local v4, "seen":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroid/view/View;>;"
     invoke-virtual {v4}, Ljava/util/HashSet;->clear()V
 
-    .line 6070
+    .line 6084
     move-object v0, p1
 
-    .line 6071
+    .line 6085
     .local v0, "firstCurrent":Landroid/view/View;
     :goto_0
     if-eqz v0, :cond_2
 
-    .line 6072
+    .line 6086
     invoke-virtual {v4, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 6073
+    .line 6087
     iget-object v1, v0, Landroid/view/View;->mParent:Landroid/view/ViewParent;
 
-    .line 6074
+    .line 6088
     .local v1, "firstCurrentParent":Landroid/view/ViewParent;
     instance-of v5, v1, Landroid/view/View;
 
@@ -2870,52 +2870,52 @@
 
     move-object v0, v1
 
-    .line 6075
+    .line 6089
     check-cast v0, Landroid/view/View;
 
     goto :goto_0
 
-    .line 6077
+    .line 6091
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 6080
+    .line 6094
     .end local v1    # "firstCurrentParent":Landroid/view/ViewParent;
     :cond_2
     move-object v2, p2
 
-    .line 6081
+    .line 6095
     .local v2, "secondCurrent":Landroid/view/View;
     :goto_1
     if-eqz v2, :cond_5
 
-    .line 6082
+    .line 6096
     invoke-virtual {v4, v2}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
     move-result v5
 
     if-eqz v5, :cond_3
 
-    .line 6083
+    .line 6097
     invoke-virtual {v4}, Ljava/util/HashSet;->clear()V
 
-    .line 6095
+    .line 6109
     .end local v0    # "firstCurrent":Landroid/view/View;
     .end local v2    # "secondCurrent":Landroid/view/View;
     .end local v4    # "seen":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroid/view/View;>;"
     :goto_2
     return-object v2
 
-    .line 6086
+    .line 6100
     .restart local v0    # "firstCurrent":Landroid/view/View;
     .restart local v2    # "secondCurrent":Landroid/view/View;
     .restart local v4    # "seen":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroid/view/View;>;"
     :cond_3
     iget-object v3, v2, Landroid/view/View;->mParent:Landroid/view/ViewParent;
 
-    .line 6087
+    .line 6101
     .local v3, "secondCurrentParent":Landroid/view/ViewParent;
     instance-of v5, v3, Landroid/view/View;
 
@@ -2923,23 +2923,23 @@
 
     move-object v2, v3
 
-    .line 6088
+    .line 6102
     check-cast v2, Landroid/view/View;
 
     goto :goto_1
 
-    .line 6090
+    .line 6104
     :cond_4
     const/4 v2, 0x0
 
     goto :goto_1
 
-    .line 6093
+    .line 6107
     .end local v3    # "secondCurrentParent":Landroid/view/ViewParent;
     :cond_5
     invoke-virtual {v4}, Ljava/util/HashSet;->clear()V
 
-    .line 6095
+    .line 6109
     .end local v0    # "firstCurrent":Landroid/view/View;
     .end local v2    # "secondCurrent":Landroid/view/View;
     .end local v4    # "seen":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroid/view/View;>;"
@@ -3125,7 +3125,7 @@
     .locals 2
 
     .prologue
-    .line 6407
+    .line 6421
     sget-object v1, Landroid/view/ViewRootImpl;->sRunQueues:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -3134,22 +3134,22 @@
 
     check-cast v0, Landroid/view/ViewRootImpl$RunQueue;
 
-    .line 6408
+    .line 6422
     .local v0, "rq":Landroid/view/ViewRootImpl$RunQueue;
     if-eqz v0, :cond_0
 
-    .line 6413
+    .line 6427
     :goto_0
     return-object v0
 
-    .line 6411
+    .line 6425
     :cond_0
     new-instance v0, Landroid/view/ViewRootImpl$RunQueue;
 
     .end local v0    # "rq":Landroid/view/ViewRootImpl$RunQueue;
     invoke-direct {v0}, Landroid/view/ViewRootImpl$RunQueue;-><init>()V
 
-    .line 6412
+    .line 6426
     .restart local v0    # "rq":Landroid/view/ViewRootImpl$RunQueue;
     sget-object v1, Landroid/view/ViewRootImpl;->sRunQueues:Ljava/lang/ThreadLocal;
 
@@ -8712,12 +8712,12 @@
     .param p2, "changeType"    # I
 
     .prologue
-    .line 5938
+    .line 5952
     iget-object v0, p0, Landroid/view/ViewRootImpl;->mSendWindowContentChangedAccessibilityEvent:Landroid/view/ViewRootImpl$SendWindowContentChangedAccessibilityEvent;
 
     if-nez v0, :cond_0
 
-    .line 5939
+    .line 5953
     new-instance v0, Landroid/view/ViewRootImpl$SendWindowContentChangedAccessibilityEvent;
 
     const/4 v1, 0x0
@@ -8726,13 +8726,13 @@
 
     iput-object v0, p0, Landroid/view/ViewRootImpl;->mSendWindowContentChangedAccessibilityEvent:Landroid/view/ViewRootImpl$SendWindowContentChangedAccessibilityEvent;
 
-    .line 5942
+    .line 5956
     :cond_0
     iget-object v0, p0, Landroid/view/ViewRootImpl;->mSendWindowContentChangedAccessibilityEvent:Landroid/view/ViewRootImpl$SendWindowContentChangedAccessibilityEvent;
 
     invoke-virtual {v0, p1, p2}, Landroid/view/ViewRootImpl$SendWindowContentChangedAccessibilityEvent;->runOrPost(Landroid/view/View;I)V
 
-    .line 5943
+    .line 5957
     return-void
 .end method
 
@@ -9123,19 +9123,19 @@
     .locals 2
 
     .prologue
-    .line 5950
+    .line 5964
     iget-object v0, p0, Landroid/view/ViewRootImpl;->mSendWindowContentChangedAccessibilityEvent:Landroid/view/ViewRootImpl$SendWindowContentChangedAccessibilityEvent;
 
     if-eqz v0, :cond_0
 
-    .line 5951
+    .line 5965
     iget-object v0, p0, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;
 
     iget-object v1, p0, Landroid/view/ViewRootImpl;->mSendWindowContentChangedAccessibilityEvent:Landroid/view/ViewRootImpl$SendWindowContentChangedAccessibilityEvent;
 
     invoke-virtual {v0, v1}, Landroid/view/ViewRootImpl$ViewRootHandler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 5953
+    .line 5967
     :cond_0
     return-void
 .end method
@@ -10192,7 +10192,7 @@
     .locals 1
 
     .prologue
-    .line 6020
+    .line 6034
     const/4 v0, 0x1
 
     return v0
@@ -10202,7 +10202,7 @@
     .locals 1
 
     .prologue
-    .line 6050
+    .line 6064
     const/4 v0, 0x1
 
     return v0
@@ -10212,7 +10212,7 @@
     .locals 1
 
     .prologue
-    .line 6035
+    .line 6049
     const/4 v0, 0x1
 
     return v0
@@ -10251,7 +10251,7 @@
     .param p1, "opaque"    # Z
 
     .prologue
-    .line 6133
+    .line 6147
     const-string v0, "ViewRootImpl"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -10274,7 +10274,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6134
+    .line 6148
     return-void
 .end method
 
@@ -10282,7 +10282,7 @@
     .locals 2
 
     .prologue
-    .line 6099
+    .line 6113
     iget-object v0, p0, Landroid/view/ViewRootImpl;->mThread:Ljava/lang/Thread;
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -10291,7 +10291,7 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 6100
+    .line 6114
     new-instance v0, Landroid/view/ViewRootImpl$CalledFromWrongThreadException;
 
     const-string v1, "Only the original thread that created a view hierarchy can touch its views."
@@ -10300,7 +10300,7 @@
 
     throw v0
 
-    .line 6103
+    .line 6117
     :cond_0
     return-void
 .end method
@@ -10310,7 +10310,7 @@
     .param p1, "child"    # Landroid/view/View;
 
     .prologue
-    .line 5971
+    .line 5985
     return-void
 .end method
 
@@ -10320,7 +10320,7 @@
     .param p2, "hasTransientState"    # Z
 
     .prologue
-    .line 6129
+    .line 6143
     return-void
 .end method
 
@@ -10344,7 +10344,7 @@
     .param p1, "menu"    # Landroid/view/ContextMenu;
 
     .prologue
-    .line 5967
+    .line 5981
     return-void
 .end method
 
@@ -10626,7 +10626,7 @@
     .prologue
     const/16 v1, 0xd
 
-    .line 5925
+    .line 5939
     iget-object v0, p0, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;
 
     invoke-virtual {v0, v1}, Landroid/view/ViewRootImpl$ViewRootHandler;->hasMessages(I)Z
@@ -10635,12 +10635,12 @@
 
     if-nez v0, :cond_0
 
-    .line 5927
+    .line 5941
     iget-object v0, p0, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;
 
     invoke-virtual {v0, v1}, Landroid/view/ViewRootImpl$ViewRootHandler;->sendEmptyMessage(I)Z
 
-    .line 5929
+    .line 5943
     :cond_0
     return-void
 .end method
@@ -10855,17 +10855,51 @@
 .end method
 
 .method public dispatchDoneAnimating()V
-    .locals 2
+    .locals 4
+    .annotation build Landroid/annotation/TOSHook;
+        hooktype = .enum Landroid/annotation/TOSHook$TOSHookType;->CHANGE_METHOD:Landroid/annotation/TOSHook$TOSHookType;
+        note = "SetupFlashRom: systemui part ::terryfgao::20151015"
+        romtype = .enum Landroid/annotation/TOSHook$TOSRomType;->ROM:Landroid/annotation/TOSHook$TOSRomType;
+    .end annotation
 
     .prologue
-    .line 5921
-    iget-object v0, p0, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;
+    const/4 v1, 0x1
 
-    const/16 v1, 0x16
+    .line 5925
+    new-instance v0, Lcom/android/internal/os/TosPlugMethod$MethodPlugParam;
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewRootImpl$ViewRootHandler;->sendEmptyMessage(I)Z
+    invoke-direct {v0}, Lcom/android/internal/os/TosPlugMethod$MethodPlugParam;-><init>()V
 
-    .line 5922
+    .line 5926
+    .local v0, "param":Lcom/android/internal/os/TosPlugMethod$MethodPlugParam;
+    iput v1, v0, Lcom/android/internal/os/TosPlugMethod$MethodPlugParam;->invokeType:I
+
+    .line 5927
+    iput-object p0, v0, Lcom/android/internal/os/TosPlugMethod$MethodPlugParam;->thisObject:Ljava/lang/Object;
+
+    .line 5928
+    new-array v1, v1, [Ljava/lang/Object;
+
+    iput-object v1, v0, Lcom/android/internal/os/TosPlugMethod$MethodPlugParam;->args:[Ljava/lang/Object;
+
+    .line 5929
+    iget-object v1, v0, Lcom/android/internal/os/TosPlugMethod$MethodPlugParam;->args:[Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    iget-object v3, p0, Landroid/view/ViewRootImpl;->mContext:Landroid/content/Context;
+
+    aput-object v3, v1, v2
+
+    .line 5930
+    const-string v1, "android.view.ViewRootImpl#dispatchDoneAnimating"
+
+    invoke-static {v1, v0}, Lcom/android/internal/os/TosModulesLoader;->invoke(Ljava/lang/String;Lcom/android/internal/os/TosPlugMethod$MethodPlugParam;)V
+
+    .line 5931
+    invoke-virtual {p0}, Landroid/view/ViewRootImpl;->tos_org_dispatchDoneAnimating()V
+
+    .line 5932
     return-void
 .end method
 
@@ -12470,7 +12504,7 @@
     .locals 1
 
     .prologue
-    .line 6030
+    .line 6044
     const/4 v0, 0x0
 
     return v0
@@ -12510,7 +12544,7 @@
     .locals 1
 
     .prologue
-    .line 6060
+    .line 6074
     const/4 v0, 0x1
 
     return v0
@@ -12520,7 +12554,7 @@
     .locals 1
 
     .prologue
-    .line 6045
+    .line 6059
     const/4 v0, 0x1
 
     return v0
@@ -12979,7 +13013,7 @@
     .locals 1
 
     .prologue
-    .line 6025
+    .line 6039
     const/4 v0, 0x1
 
     return v0
@@ -12999,7 +13033,7 @@
     .locals 1
 
     .prologue
-    .line 6055
+    .line 6069
     const/4 v0, 0x1
 
     return v0
@@ -13009,7 +13043,7 @@
     .locals 1
 
     .prologue
-    .line 6040
+    .line 6054
     const/4 v0, 0x1
 
     return v0
@@ -13039,10 +13073,10 @@
     .param p3, "changeType"    # I
 
     .prologue
-    .line 6015
+    .line 6029
     invoke-direct {p0, p2, p3}, Landroid/view/ViewRootImpl;->postSendWindowContentChangedCallback(Landroid/view/View;I)V
 
-    .line 6016
+    .line 6030
     return-void
 .end method
 
@@ -13441,21 +13475,21 @@
     .param p3, "immediate"    # Z
 
     .prologue
-    .line 6112
+    .line 6126
     invoke-virtual {p0, p2, p3}, Landroid/view/ViewRootImpl;->scrollToRectOrFocus(Landroid/graphics/Rect;Z)Z
 
     move-result v0
 
-    .line 6113
+    .line 6127
     .local v0, "scrolled":Z
     if-eqz p2, :cond_0
 
-    .line 6114
+    .line 6128
     iget-object v1, p0, Landroid/view/ViewRootImpl;->mTempRect:Landroid/graphics/Rect;
 
     invoke-virtual {v1, p2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 6115
+    .line 6129
     iget-object v1, p0, Landroid/view/ViewRootImpl;->mTempRect:Landroid/graphics/Rect;
 
     const/4 v2, 0x0
@@ -13466,7 +13500,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/graphics/Rect;->offset(II)V
 
-    .line 6116
+    .line 6130
     iget-object v1, p0, Landroid/view/ViewRootImpl;->mTempRect:Landroid/graphics/Rect;
 
     iget-object v2, p0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
@@ -13479,7 +13513,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/graphics/Rect;->offset(II)V
 
-    .line 6118
+    .line 6132
     :try_start_0
     iget-object v1, p0, Landroid/view/ViewRootImpl;->mWindowSession:Landroid/view/IWindowSession;
 
@@ -13491,12 +13525,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 6123
+    .line 6137
     :cond_0
     :goto_0
     return v0
 
-    .line 6119
+    .line 6133
     :catch_0
     move-exception v1
 
@@ -13508,7 +13542,7 @@
     .param p1, "disallowIntercept"    # Z
 
     .prologue
-    .line 6108
+    .line 6122
     return-void
 .end method
 
@@ -13612,53 +13646,53 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 5975
+    .line 5989
     iget-object v7, p0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
     if-nez v7, :cond_0
 
-    .line 5976
+    .line 5990
     const/4 v7, 0x0
 
-    .line 6010
+    .line 6024
     :goto_0
     return v7
 
-    .line 5980
+    .line 5994
     :cond_0
     invoke-virtual {p2}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
 
     move-result v1
 
-    .line 5981
+    .line 5995
     .local v1, "eventType":I
     sparse-switch v1, :sswitch_data_0
 
-    .line 6009
+    .line 6023
     :cond_1
     :goto_1
     iget-object v7, p0, Landroid/view/ViewRootImpl;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
     invoke-virtual {v7, p2}, Landroid/view/accessibility/AccessibilityManager;->sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 6010
+    .line 6024
     const/4 v7, 0x1
 
     goto :goto_0
 
-    .line 5983
+    .line 5997
     :sswitch_0
     invoke-virtual {p2}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
 
     move-result-wide v5
 
-    .line 5984
+    .line 5998
     .local v5, "sourceNodeId":J
     invoke-static {v5, v6}, Landroid/view/accessibility/AccessibilityNodeInfo;->getAccessibilityViewId(J)I
 
     move-result v0
 
-    .line 5986
+    .line 6000
     .local v0, "accessibilityViewId":I
     iget-object v7, p0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
@@ -13666,20 +13700,20 @@
 
     move-result-object v4
 
-    .line 5987
+    .line 6001
     .local v4, "source":Landroid/view/View;
     if-eqz v4, :cond_1
 
-    .line 5988
+    .line 6002
     invoke-virtual {v4}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
 
     move-result-object v3
 
-    .line 5989
+    .line 6003
     .local v3, "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     if-eqz v3, :cond_1
 
-    .line 5990
+    .line 6004
     invoke-static {v5, v6}, Landroid/view/accessibility/AccessibilityNodeInfo;->getVirtualDescendantId(J)I
 
     move-result v7
@@ -13688,13 +13722,13 @@
 
     move-result-object v2
 
-    .line 5992
+    .line 6006
     .local v2, "node":Landroid/view/accessibility/AccessibilityNodeInfo;
     invoke-virtual {p0, v4, v2}, Landroid/view/ViewRootImpl;->setAccessibilityFocus(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
     goto :goto_1
 
-    .line 5997
+    .line 6011
     .end local v0    # "accessibilityViewId":I
     .end local v2    # "node":Landroid/view/accessibility/AccessibilityNodeInfo;
     .end local v3    # "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
@@ -13705,13 +13739,13 @@
 
     move-result-wide v5
 
-    .line 5998
+    .line 6012
     .restart local v5    # "sourceNodeId":J
     invoke-static {v5, v6}, Landroid/view/accessibility/AccessibilityNodeInfo;->getAccessibilityViewId(J)I
 
     move-result v0
 
-    .line 6000
+    .line 6014
     .restart local v0    # "accessibilityViewId":I
     iget-object v7, p0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
@@ -13719,25 +13753,25 @@
 
     move-result-object v4
 
-    .line 6001
+    .line 6015
     .restart local v4    # "source":Landroid/view/View;
     if-eqz v4, :cond_1
 
-    .line 6002
+    .line 6016
     invoke-virtual {v4}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
 
     move-result-object v3
 
-    .line 6003
+    .line 6017
     .restart local v3    # "provider":Landroid/view/accessibility/AccessibilityNodeProvider;
     if-eqz v3, :cond_1
 
-    .line 6004
+    .line 6018
     invoke-virtual {p0, v8, v8}, Landroid/view/ViewRootImpl;->setAccessibilityFocus(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
     goto :goto_1
 
-    .line 5981
+    .line 5995
     nop
 
     :sswitch_data_0
@@ -15950,7 +15984,7 @@
     .param p1, "originalView"    # Landroid/view/View;
 
     .prologue
-    .line 5957
+    .line 5971
     const/4 v0, 0x0
 
     return v0
@@ -15962,10 +15996,25 @@
     .param p2, "callback"    # Landroid/view/ActionMode$Callback;
 
     .prologue
-    .line 5962
+    .line 5976
     const/4 v0, 0x0
 
     return-object v0
+.end method
+
+.method public tos_org_dispatchDoneAnimating()V
+    .locals 2
+
+    .prologue
+    .line 5935
+    iget-object v0, p0, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;
+
+    const/16 v1, 0x16
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewRootImpl$ViewRootHandler;->sendEmptyMessage(I)Z
+
+    .line 5936
+    return-void
 .end method
 
 .method tos_org_doDie()V

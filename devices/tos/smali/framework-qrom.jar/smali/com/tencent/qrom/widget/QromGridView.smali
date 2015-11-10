@@ -54,6 +54,8 @@
 
 .field private mColumnWidth:I
 
+.field private mEnableBlur:Z
+
 .field private mFooterViewInfos:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -118,7 +120,7 @@
     .locals 1
 
     .prologue
-    .line 3037
+    .line 3050
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/tencent/qrom/widget/QromGridView;->isFooterflag:Z
@@ -164,9 +166,9 @@
     .prologue
     const/4 v6, 0x0
 
-    const/4 v10, 0x1
+    const/4 v10, 0x2
 
-    const/4 v9, 0x2
+    const/4 v9, 0x1
 
     const/4 v8, -0x1
 
@@ -185,7 +187,7 @@
     iput v7, p0, Lcom/tencent/qrom/widget/QromGridView;->mVerticalSpacing:I
 
     .line 120
-    iput v9, p0, Lcom/tencent/qrom/widget/QromGridView;->mStretchMode:I
+    iput v10, p0, Lcom/tencent/qrom/widget/QromGridView;->mStretchMode:I
 
     .line 125
     iput-object v6, p0, Lcom/tencent/qrom/widget/QromGridView;->mReferenceView:Landroid/view/View;
@@ -219,6 +221,9 @@
 
     iput-object v6, p0, Lcom/tencent/qrom/widget/QromGridView;->mFooterViewInfos:Ljava/util/ArrayList;
 
+    .line 2840
+    iput-boolean v9, p0, Lcom/tencent/qrom/widget/QromGridView;->mEnableBlur:Z
+
     .line 143
     sget-object v6, Lcom/android/internal/R$styleable;->GridView:[I
 
@@ -228,7 +233,7 @@
 
     .line 146
     .local v0, "a":Landroid/content/res/TypedArray;
-    invoke-virtual {v0, v10, v7}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
+    invoke-virtual {v0, v9, v7}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
 
     move-result v2
 
@@ -237,7 +242,7 @@
     invoke-virtual {p0, v2}, Lcom/tencent/qrom/widget/QromGridView;->setHorizontalSpacing(I)V
 
     .line 150
-    invoke-virtual {v0, v9, v7}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
+    invoke-virtual {v0, v10, v7}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
 
     move-result v5
 
@@ -248,7 +253,7 @@
     .line 154
     const/4 v6, 0x3
 
-    invoke-virtual {v0, v6, v9}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v6, v10}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v3
 
@@ -278,7 +283,7 @@
     :cond_1
     const/4 v6, 0x5
 
-    invoke-virtual {v0, v6, v10}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v6, v9}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v4
 
@@ -537,385 +542,452 @@
 .end method
 
 .method private blurInit()V
-    .locals 5
+    .locals 8
 
     .prologue
-    const v4, 0x3dcccccd    # 0.1f
+    const v7, 0x3dcccccd    # 0.1f
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    .line 2933
-    iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
+    const/4 v2, 0x1
 
-    if-gtz v0, :cond_0
+    .line 2938
+    iget v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
 
-    iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
+    if-gtz v3, :cond_0
 
-    if-lez v0, :cond_a
+    iget v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
 
-    .line 2935
-    :cond_0
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurPaint:Landroid/graphics/Paint;
-
-    if-nez v0, :cond_1
-
-    .line 2936
-    new-instance v0, Landroid/graphics/Paint;
-
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
-
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurPaint:Landroid/graphics/Paint;
-
-    .line 2937
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurPaint:Landroid/graphics/Paint;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    if-lez v3, :cond_12
 
     .line 2940
-    :cond_1
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
+    :cond_0
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurPaint:Landroid/graphics/Paint;
 
-    if-nez v0, :cond_2
+    if-nez v3, :cond_1
 
     .line 2941
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance v3, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v3}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
+    iput-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurPaint:Landroid/graphics/Paint;
 
-    .line 2943
-    :cond_2
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
+    .line 2942
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurPaint:Landroid/graphics/Paint;
 
-    iput v3, v0, Landroid/graphics/Rect;->left:I
-
-    .line 2944
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
-
-    invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getWidth()I
-
-    move-result v1
-
-    iput v1, v0, Landroid/graphics/Rect;->right:I
+    invoke-virtual {v3, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 2945
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
+    :cond_1
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
 
-    iput v3, v0, Landroid/graphics/Rect;->top:I
+    if-nez v3, :cond_2
 
     .line 2946
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
+    new-instance v3, Landroid/graphics/Rect;
 
-    iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
+    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
-    iput v1, v0, Landroid/graphics/Rect;->bottom:I
+    iput-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
 
     .line 2948
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+    :cond_2
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
 
-    if-nez v0, :cond_3
+    iput v6, v3, Landroid/graphics/Rect;->left:I
 
     .line 2949
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
-
-    .line 2951
-    :cond_3
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
-
-    iput v3, v0, Landroid/graphics/Rect;->left:I
-
-    .line 2952
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getWidth()I
 
-    move-result v1
+    move-result v4
 
-    iput v1, v0, Landroid/graphics/Rect;->right:I
+    iput v4, v3, Landroid/graphics/Rect;->right:I
+
+    .line 2950
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
+
+    iput v6, v3, Landroid/graphics/Rect;->top:I
+
+    .line 2951
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
+
+    iget v4, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
+
+    iput v4, v3, Landroid/graphics/Rect;->bottom:I
 
     .line 2953
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+
+    if-nez v3, :cond_3
+
+    .line 2954
+    new-instance v3, Landroid/graphics/Rect;
+
+    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+
+    .line 2956
+    :cond_3
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+
+    iput v6, v3, Landroid/graphics/Rect;->left:I
+
+    .line 2957
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getWidth()I
+
+    move-result v4
+
+    iput v4, v3, Landroid/graphics/Rect;->right:I
+
+    .line 2958
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getHeight()I
 
-    move-result v1
+    move-result v4
 
-    iput v1, v0, Landroid/graphics/Rect;->bottom:I
-
-    .line 2954
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
-
-    iget v1, v1, Landroid/graphics/Rect;->bottom:I
-
-    iget v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
-
-    sub-int/2addr v1, v2
-
-    iput v1, v0, Landroid/graphics/Rect;->top:I
-
-    .line 2956
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
-
-    if-nez v0, :cond_4
-
-    .line 2957
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
+    iput v4, v3, Landroid/graphics/Rect;->bottom:I
 
     .line 2959
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+
+    iget-object v4, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+
+    iget v4, v4, Landroid/graphics/Rect;->bottom:I
+
+    iget v5, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
+
+    sub-int/2addr v4, v5
+
+    iput v4, v3, Landroid/graphics/Rect;->top:I
+
+    .line 2961
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
+
+    if-nez v3, :cond_4
+
+    .line 2962
+    new-instance v3, Landroid/graphics/Rect;
+
+    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
+
+    .line 2964
     :cond_4
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
 
-    iput v3, v0, Landroid/graphics/Rect;->left:I
+    iput v6, v3, Landroid/graphics/Rect;->left:I
 
-    .line 2960
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
+    .line 2965
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getWidth()I
 
-    move-result v1
+    move-result v4
 
-    iput v1, v0, Landroid/graphics/Rect;->right:I
-
-    .line 2961
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
-
-    iget v1, v1, Landroid/graphics/Rect;->top:I
-
-    iput v1, v0, Landroid/graphics/Rect;->bottom:I
-
-    .line 2962
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
-
-    iget v1, v1, Landroid/graphics/Rect;->bottom:I
-
-    iput v1, v0, Landroid/graphics/Rect;->top:I
-
-    .line 2964
-    invoke-direct {p0}, Lcom/tencent/qrom/widget/QromGridView;->blurRecycle()V
+    iput v4, v3, Landroid/graphics/Rect;->right:I
 
     .line 2966
-    iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
 
-    if-lez v0, :cond_5
+    iget-object v4, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+
+    iget v4, v4, Landroid/graphics/Rect;->top:I
+
+    iput v4, v3, Landroid/graphics/Rect;->bottom:I
 
     .line 2967
-    sget-boolean v0, Lcom/tencent/qrom/gaussblur/NativeBlurProcess;->noBlurSo:Z
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
 
-    if-eqz v0, :cond_8
+    iget-object v4, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
 
-    .line 2968
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+    iget v4, v4, Landroid/graphics/Rect;->bottom:I
 
-    iget v0, v0, Landroid/graphics/Rect;->right:I
+    iput v4, v3, Landroid/graphics/Rect;->top:I
 
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+    .line 2969
+    invoke-direct {p0}, Lcom/tencent/qrom/widget/QromGridView;->blurRecycle()V
 
-    iget v1, v1, Landroid/graphics/Rect;->left:I
+    .line 2971
+    iget v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
 
-    sub-int/2addr v0, v1
+    if-lez v3, :cond_5
 
-    iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
+    .line 2972
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
 
-    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    iget v3, v3, Landroid/graphics/Rect;->right:I
 
-    invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    iget-object v4, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
 
-    move-result-object v0
+    iget v4, v4, Landroid/graphics/Rect;->left:I
 
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomBitmap:Landroid/graphics/Bitmap;
-
-    .line 2970
-    new-instance v0, Landroid/graphics/Canvas;
-
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomBitmap:Landroid/graphics/Bitmap;
-
-    invoke-direct {v0, v1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomCanvas:Landroid/graphics/Canvas;
-
-    .line 2980
-    :cond_5
-    :goto_0
-    iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
-
-    if-lez v0, :cond_6
-
-    .line 2981
-    sget-boolean v0, Lcom/tencent/qrom/gaussblur/NativeBlurProcess;->noBlurSo:Z
-
-    if-eqz v0, :cond_9
-
-    .line 2982
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
-
-    iget v0, v0, Landroid/graphics/Rect;->right:I
-
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
-
-    iget v1, v1, Landroid/graphics/Rect;->left:I
-
-    sub-int/2addr v0, v1
-
-    iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
-
-    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopBitmap:Landroid/graphics/Bitmap;
-
-    .line 2984
-    new-instance v0, Landroid/graphics/Canvas;
-
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopBitmap:Landroid/graphics/Bitmap;
-
-    invoke-direct {v0, v1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopCanvas:Landroid/graphics/Canvas;
-
-    .line 2994
-    :cond_6
-    :goto_1
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlur:Lcom/tencent/qrom/gaussblur/JNIBlur;
-
-    if-nez v0, :cond_7
-
-    .line 2995
-    new-instance v0, Lcom/tencent/qrom/gaussblur/JNIBlur;
-
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, v1}, Lcom/tencent/qrom/gaussblur/JNIBlur;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlur:Lcom/tencent/qrom/gaussblur/JNIBlur;
-
-    .line 3005
-    :cond_7
-    iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
-
-    iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
-
-    invoke-direct {p0, v0, v1}, Lcom/tencent/qrom/widget/QromGridView;->qromSetParameters(II)V
-
-    .line 3017
-    :goto_2
-    return-void
+    sub-int v1, v3, v4
 
     .line 2973
-    :cond_8
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
+    .local v1, "blurRectW":I
+    iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
 
-    iget v0, v0, Landroid/graphics/Rect;->right:I
+    .line 2974
+    .local v0, "blurRectH":I
+    sget-boolean v3, Lcom/tencent/qrom/gaussblur/NativeBlurProcess;->noBlurSo:Z
 
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
-
-    iget v1, v1, Landroid/graphics/Rect;->left:I
-
-    sub-int/2addr v0, v1
-
-    div-int/lit8 v0, v0, 0xa
-
-    iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
-
-    div-int/lit8 v1, v1, 0xa
-
-    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomBitmap:Landroid/graphics/Bitmap;
+    if-eqz v3, :cond_a
 
     .line 2975
-    new-instance v0, Landroid/graphics/Canvas;
+    if-lez v1, :cond_8
 
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomBitmap:Landroid/graphics/Bitmap;
+    .end local v1    # "blurRectW":I
+    :goto_0
+    if-lez v0, :cond_9
 
-    invoke-direct {v0, v1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    .end local v0    # "blurRectH":I
+    :goto_1
+    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomCanvas:Landroid/graphics/Canvas;
+    invoke-static {v1, v0, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    .line 2976
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomCanvas:Landroid/graphics/Canvas;
+    move-result-object v3
 
-    invoke-virtual {v0, v4, v4}, Landroid/graphics/Canvas;->scale(FF)V
+    iput-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomBitmap:Landroid/graphics/Bitmap;
 
-    goto :goto_0
+    .line 2978
+    new-instance v3, Landroid/graphics/Canvas;
 
-    .line 2987
-    :cond_9
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
+    iget-object v4, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomBitmap:Landroid/graphics/Bitmap;
 
-    iget v0, v0, Landroid/graphics/Rect;->right:I
+    invoke-direct {v3, v4}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
-
-    iget v1, v1, Landroid/graphics/Rect;->left:I
-
-    sub-int/2addr v0, v1
-
-    div-int/lit8 v0, v0, 0xa
-
-    iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
-
-    div-int/lit8 v1, v1, 0xa
-
-    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopBitmap:Landroid/graphics/Bitmap;
+    iput-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomCanvas:Landroid/graphics/Canvas;
 
     .line 2989
-    new-instance v0, Landroid/graphics/Canvas;
+    :cond_5
+    :goto_2
+    iget v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
 
-    iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopBitmap:Landroid/graphics/Bitmap;
-
-    invoke-direct {v0, v1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopCanvas:Landroid/graphics/Canvas;
+    if-lez v3, :cond_6
 
     .line 2990
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopCanvas:Landroid/graphics/Canvas;
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v0, v4, v4}, Landroid/graphics/Canvas;->scale(FF)V
+    iget v3, v3, Landroid/graphics/Rect;->right:I
+
+    iget-object v4, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
+
+    iget v4, v4, Landroid/graphics/Rect;->left:I
+
+    sub-int v1, v3, v4
+
+    .line 2991
+    .restart local v1    # "blurRectW":I
+    iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
+
+    .line 2992
+    .restart local v0    # "blurRectH":I
+    sget-boolean v3, Lcom/tencent/qrom/gaussblur/NativeBlurProcess;->noBlurSo:Z
+
+    if-eqz v3, :cond_f
+
+    .line 2993
+    if-lez v1, :cond_d
+
+    .end local v1    # "blurRectW":I
+    :goto_3
+    if-lez v0, :cond_e
+
+    .end local v0    # "blurRectH":I
+    :goto_4
+    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    invoke-static {v1, v0, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopBitmap:Landroid/graphics/Bitmap;
+
+    .line 2996
+    new-instance v2, Landroid/graphics/Canvas;
+
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopBitmap:Landroid/graphics/Bitmap;
+
+    invoke-direct {v2, v3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    iput-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopCanvas:Landroid/graphics/Canvas;
+
+    .line 3007
+    :cond_6
+    :goto_5
+    iget-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlur:Lcom/tencent/qrom/gaussblur/JNIBlur;
+
+    if-nez v2, :cond_7
+
+    .line 3008
+    new-instance v2, Lcom/tencent/qrom/gaussblur/JNIBlur;
+
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mContext:Landroid/content/Context;
+
+    invoke-direct {v2, v3}, Lcom/tencent/qrom/gaussblur/JNIBlur;-><init>(Landroid/content/Context;)V
+
+    iput-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlur:Lcom/tencent/qrom/gaussblur/JNIBlur;
+
+    .line 3018
+    :cond_7
+    iget v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
+
+    iget v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
+
+    invoke-direct {p0, v2, v3}, Lcom/tencent/qrom/widget/QromGridView;->qromSetParameters(II)V
+
+    .line 3030
+    :goto_6
+    return-void
+
+    .restart local v0    # "blurRectH":I
+    .restart local v1    # "blurRectW":I
+    :cond_8
+    move v1, v2
+
+    .line 2975
+    goto :goto_0
+
+    .end local v1    # "blurRectW":I
+    :cond_9
+    move v0, v2
 
     goto :goto_1
 
-    .line 3015
+    .line 2981
+    .restart local v1    # "blurRectW":I
     :cond_a
-    invoke-direct {p0, v3, v3}, Lcom/tencent/qrom/widget/QromGridView;->qromSetParameters(II)V
+    div-int/lit8 v3, v1, 0xa
+
+    if-lez v3, :cond_b
+
+    div-int/lit8 v3, v1, 0xa
+
+    :goto_7
+    div-int/lit8 v4, v0, 0xa
+
+    if-lez v4, :cond_c
+
+    div-int/lit8 v4, v0, 0xa
+
+    :goto_8
+    sget-object v5, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    invoke-static {v3, v4, v5}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomBitmap:Landroid/graphics/Bitmap;
+
+    .line 2984
+    new-instance v3, Landroid/graphics/Canvas;
+
+    iget-object v4, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomBitmap:Landroid/graphics/Bitmap;
+
+    invoke-direct {v3, v4}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    iput-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomCanvas:Landroid/graphics/Canvas;
+
+    .line 2985
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomCanvas:Landroid/graphics/Canvas;
+
+    invoke-virtual {v3, v7, v7}, Landroid/graphics/Canvas;->scale(FF)V
 
     goto :goto_2
+
+    :cond_b
+    move v3, v2
+
+    .line 2981
+    goto :goto_7
+
+    :cond_c
+    move v4, v2
+
+    goto :goto_8
+
+    :cond_d
+    move v1, v2
+
+    .line 2993
+    goto :goto_3
+
+    .end local v1    # "blurRectW":I
+    :cond_e
+    move v0, v2
+
+    goto :goto_4
+
+    .line 2999
+    .restart local v1    # "blurRectW":I
+    :cond_f
+    div-int/lit8 v3, v1, 0xa
+
+    if-lez v3, :cond_11
+
+    div-int/lit8 v3, v1, 0xa
+
+    :goto_9
+    div-int/lit8 v4, v0, 0xa
+
+    if-lez v4, :cond_10
+
+    div-int/lit8 v2, v0, 0xa
+
+    :cond_10
+    sget-object v4, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    invoke-static {v3, v2, v4}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopBitmap:Landroid/graphics/Bitmap;
+
+    .line 3002
+    new-instance v2, Landroid/graphics/Canvas;
+
+    iget-object v3, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopBitmap:Landroid/graphics/Bitmap;
+
+    invoke-direct {v2, v3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    iput-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopCanvas:Landroid/graphics/Canvas;
+
+    .line 3003
+    iget-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopCanvas:Landroid/graphics/Canvas;
+
+    invoke-virtual {v2, v7, v7}, Landroid/graphics/Canvas;->scale(FF)V
+
+    goto :goto_5
+
+    :cond_11
+    move v3, v2
+
+    .line 2999
+    goto :goto_9
+
+    .line 3028
+    .end local v0    # "blurRectH":I
+    .end local v1    # "blurRectW":I
+    :cond_12
+    invoke-direct {p0, v6, v6}, Lcom/tencent/qrom/widget/QromGridView;->qromSetParameters(II)V
+
+    goto :goto_6
 .end method
 
 .method private blurRecycle()V
     .locals 1
 
     .prologue
-    .line 3021
+    .line 3034
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_0
@@ -928,12 +1000,12 @@
 
     if-nez v0, :cond_0
 
-    .line 3022
+    .line 3035
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 3025
+    .line 3038
     :cond_0
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopBitmap:Landroid/graphics/Bitmap;
 
@@ -947,12 +1019,12 @@
 
     if-nez v0, :cond_1
 
-    .line 3026
+    .line 3039
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 3028
+    .line 3041
     :cond_1
     return-void
 .end method
@@ -966,16 +1038,16 @@
 
     const v0, 0x3e99999a    # 0.3f
 
-    .line 3031
+    .line 3044
     new-instance v5, Landroid/graphics/Matrix;
 
     invoke-direct {v5}, Landroid/graphics/Matrix;-><init>()V
 
-    .line 3032
+    .line 3045
     .local v5, "matrix":Landroid/graphics/Matrix;
     invoke-virtual {v5, v0, v0}, Landroid/graphics/Matrix;->postScale(FF)Z
 
-    .line 3033
+    .line 3046
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v3
@@ -994,7 +1066,7 @@
 
     move-result-object v7
 
-    .line 3034
+    .line 3047
     .local v7, "resizeBmp":Landroid/graphics/Bitmap;
     return-object v7
 .end method
@@ -1011,12 +1083,12 @@
 
     const/4 v3, -0x1
 
-    .line 2901
+    .line 2906
     iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
 
     if-lez v1, :cond_1
 
-    .line 2902
+    .line 2907
     new-instance v1, Landroid/view/View;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getContext()Landroid/content/Context;
@@ -1027,51 +1099,51 @@
 
     iput-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
 
-    .line 2903
+    .line 2908
     new-instance v0, Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
 
     iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
 
     invoke-direct {v0, v3, v1}, Lcom/tencent/qrom/widget/AbsListView$LayoutParams;-><init>(II)V
 
-    .line 2904
+    .line 2909
     .local v0, "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 2905
+    .line 2910
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v1, :cond_0
 
-    .line 2906
+    .line 2911
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-le v1, v5, :cond_4
 
-    .line 2907
+    .line 2912
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
 
     iget-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2913
+    .line 2918
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
 
     invoke-virtual {p0, v1, v6, v4}, Lcom/tencent/qrom/widget/QromGridView;->addFooterView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 2916
+    .line 2921
     .end local v0    # "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     :cond_1
     iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
 
     if-lez v1, :cond_3
 
-    .line 2917
+    .line 2922
     new-instance v1, Landroid/view/View;
 
     invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getContext()Landroid/content/Context;
@@ -1082,49 +1154,49 @@
 
     iput-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
 
-    .line 2918
+    .line 2923
     new-instance v0, Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
 
     iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
 
     invoke-direct {v0, v3, v1}, Lcom/tencent/qrom/widget/AbsListView$LayoutParams;-><init>(II)V
 
-    .line 2919
+    .line 2924
     .restart local v0    # "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 2920
+    .line 2925
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v1, :cond_2
 
-    .line 2921
+    .line 2926
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-le v1, v5, :cond_5
 
-    .line 2922
+    .line 2927
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
 
     iget-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2928
+    .line 2933
     :cond_2
     :goto_1
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
 
     invoke-virtual {p0, v1, v6, v4}, Lcom/tencent/qrom/widget/QromGridView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 2930
+    .line 2935
     .end local v0    # "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     :cond_3
     return-void
 
-    .line 2910
+    .line 2915
     .restart local v0    # "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     :cond_4
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
@@ -1135,7 +1207,7 @@
 
     goto :goto_0
 
-    .line 2925
+    .line 2930
     :cond_5
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
 
@@ -4522,7 +4594,7 @@
     .param p1, "initialize"    # Z
 
     .prologue
-    .line 3173
+    .line 3190
     :try_start_0
     const-string v9, "qrom.widget.ListView"
 
@@ -4530,14 +4602,14 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3175
+    .line 3192
     const-string v9, "android.view.View"
 
     invoke-static {v9}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v8
 
-    .line 3176
+    .line 3193
     .local v8, "viewClz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string v9, "mScrollCache"
 
@@ -4545,33 +4617,33 @@
 
     move-result-object v7
 
-    .line 3177
+    .line 3194
     .local v7, "scrollCacheField":Ljava/lang/reflect/Field;
     const/4 v9, 0x1
 
     invoke-virtual {v7, v9}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
-    .line 3178
+    .line 3195
     invoke-virtual {v7, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
 
-    .line 3179
+    .line 3196
     .local v5, "scrollCache":Ljava/lang/Object;
     invoke-virtual {v7}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
     move-result-object v6
 
-    .line 3181
+    .line 3198
     .local v6, "scrollCacheClz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     if-eqz p1, :cond_0
 
     if-nez v5, :cond_0
 
-    .line 3182
+    .line 3199
     const-string v2, "initScrollCache"
 
-    .line 3183
+    .line 3200
     .local v2, "methodName":Ljava/lang/String;
     const/4 v9, 0x0
 
@@ -4581,67 +4653,67 @@
 
     move-result-object v1
 
-    .line 3184
+    .line 3201
     .local v1, "method":Ljava/lang/reflect/Method;
     const/4 v9, 0x1
 
     invoke-virtual {v1, v9}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
-    .line 3185
+    .line 3202
     const/4 v9, 0x0
 
     new-array v9, v9, [Ljava/lang/Object;
 
     invoke-virtual {v1, p0, v9}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 3187
+    .line 3204
     const-string v9, "qrom.widget.ListView"
 
     const-string v10, "qromInitQromScrollBarDrawable|initScrollCache"
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3189
+    .line 3206
     invoke-virtual {v7, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
 
-    .line 3192
+    .line 3209
     .end local v1    # "method":Ljava/lang/reflect/Method;
     .end local v2    # "methodName":Ljava/lang/String;
     :cond_0
     if-eqz v5, :cond_1
 
-    .line 3193
+    .line 3210
     const-string v9, "scrollBar"
 
     invoke-virtual {v6, v9}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v4
 
-    .line 3194
+    .line 3211
     .local v4, "scrollBarField":Ljava/lang/reflect/Field;
     const/4 v9, 0x1
 
     invoke-virtual {v4, v9}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
-    .line 3195
+    .line 3212
     invoke-virtual {v4, v5}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    .line 3196
+    .line 3213
     .local v3, "scrollBar":Ljava/lang/Object;
     if-nez v3, :cond_1
 
-    .line 3197
+    .line 3214
     new-instance v9, Lcom/tencent/qrom/drawable/QromScrollBarDrawable;
 
     invoke-direct {v9}, Lcom/tencent/qrom/drawable/QromScrollBarDrawable;-><init>()V
 
     invoke-virtual {v4, v5, v9}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 3199
+    .line 3216
     const-string v9, "qrom.widget.ListView"
 
     const-string v10, "qromInitQromScrollBarDrawable|new QromScrollBarDrawable"
@@ -4650,7 +4722,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 3205
+    .line 3222
     .end local v3    # "scrollBar":Ljava/lang/Object;
     .end local v4    # "scrollBarField":Ljava/lang/reflect/Field;
     .end local v5    # "scrollCache":Ljava/lang/Object;
@@ -4661,11 +4733,11 @@
     :goto_0
     return-void
 
-    .line 3202
+    .line 3219
     :catch_0
     move-exception v0
 
-    .line 3203
+    .line 3220
     .local v0, "e":Ljava/lang/Exception;
     const-string v9, "qrom.widget.ListView"
 
@@ -4702,7 +4774,7 @@
     .param p2, "end"    # I
 
     .prologue
-    .line 3225
+    .line 3242
     :try_start_0
     const-string v9, "qrom.widget.ListView"
 
@@ -4736,14 +4808,14 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3227
+    .line 3244
     const-string v9, "android.view.View"
 
     invoke-static {v9}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v8
 
-    .line 3228
+    .line 3245
     .local v8, "viewClz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string v9, "mScrollCache"
 
@@ -4751,62 +4823,62 @@
 
     move-result-object v7
 
-    .line 3229
+    .line 3246
     .local v7, "scrollCacheField":Ljava/lang/reflect/Field;
     const/4 v9, 0x1
 
     invoke-virtual {v7, v9}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
-    .line 3230
+    .line 3247
     invoke-virtual {v7, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
 
-    .line 3231
+    .line 3248
     .local v5, "scrollCache":Ljava/lang/Object;
     invoke-virtual {v7}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
     move-result-object v6
 
-    .line 3233
+    .line 3250
     .local v6, "scrollCacheClz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     if-eqz v5, :cond_0
 
-    .line 3234
+    .line 3251
     const-string v9, "scrollBar"
 
     invoke-virtual {v6, v9}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v4
 
-    .line 3235
+    .line 3252
     .local v4, "scrollBarField":Ljava/lang/reflect/Field;
     const/4 v9, 0x1
 
     invoke-virtual {v4, v9}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
-    .line 3236
+    .line 3253
     invoke-virtual {v4, v5}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    .line 3237
+    .line 3254
     .local v3, "scrollBar":Ljava/lang/Object;
     if-eqz v3, :cond_0
 
-    .line 3238
+    .line 3255
     instance-of v9, v3, Lcom/tencent/qrom/drawable/QromScrollBarDrawable;
 
     if-eqz v9, :cond_0
 
-    .line 3239
+    .line 3256
     move-object v0, v3
 
     check-cast v0, Lcom/tencent/qrom/drawable/QromScrollBarDrawable;
 
     move-object v1, v0
 
-    .line 3240
+    .line 3257
     .local v1, "drawable":Lcom/tencent/qrom/drawable/QromScrollBarDrawable;
     invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getHeight()I
 
@@ -4816,7 +4888,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 3247
+    .line 3264
     .end local v1    # "drawable":Lcom/tencent/qrom/drawable/QromScrollBarDrawable;
     .end local v3    # "scrollBar":Ljava/lang/Object;
     .end local v4    # "scrollBarField":Ljava/lang/reflect/Field;
@@ -4828,11 +4900,11 @@
     :goto_0
     return-void
 
-    .line 3244
+    .line 3261
     :catch_0
     move-exception v2
 
-    .line 3245
+    .line 3262
     .local v2, "e":Ljava/lang/Exception;
     const-string v9, "qrom.widget.ListView"
 
@@ -6100,12 +6172,12 @@
     .param p2, "invalidate"    # Z
 
     .prologue
-    .line 3218
+    .line 3235
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/tencent/qrom/widget/QromGridView;->qromInitQromScrollBarDrawable(Z)V
 
-    .line 3220
+    .line 3237
     invoke-super {p0, p1, p2}, Lcom/tencent/qrom/widget/AbsListView;->awakenScrollBars(IZ)Z
 
     move-result v0
@@ -6118,10 +6190,10 @@
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
-    .line 3144
+    .line 3157
     iput-object p1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 3145
+    .line 3158
     return-void
 .end method
 
@@ -6130,10 +6202,10 @@
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
-    .line 3140
+    .line 3153
     iput-object p1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 3141
+    .line 3154
     return-void
 .end method
 
@@ -6463,6 +6535,11 @@
     const/4 v3, 0x1
 
     .line 2844
+    iget-boolean v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mEnableBlur:Z
+
+    if-eqz v0, :cond_9
+
+    .line 2845
     iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
 
     if-gtz v0, :cond_0
@@ -6471,7 +6548,7 @@
 
     if-lez v0, :cond_8
 
-    .line 2845
+    .line 2846
     :cond_0
     iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
 
@@ -6481,12 +6558,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 2846
+    .line 2847
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomCanvas:Landroid/graphics/Canvas;
 
     invoke-virtual {v0}, Landroid/graphics/Canvas;->save()I
 
-    .line 2847
+    .line 2848
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomCanvas:Landroid/graphics/Canvas;
 
     const/4 v1, 0x0
@@ -6501,7 +6578,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 2848
+    .line 2849
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomCanvas:Landroid/graphics/Canvas;
 
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mContext:Landroid/content/Context;
@@ -6516,17 +6593,17 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->drawColor(I)V
 
-    .line 2849
+    .line 2850
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomCanvas:Landroid/graphics/Canvas;
 
     invoke-super {p0, v0}, Lcom/tencent/qrom/widget/AbsListView;->draw(Landroid/graphics/Canvas;)V
 
-    .line 2850
+    .line 2851
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomCanvas:Landroid/graphics/Canvas;
 
     invoke-virtual {v0}, Landroid/graphics/Canvas;->restore()V
 
-    .line 2853
+    .line 2854
     :cond_1
     iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
 
@@ -6536,12 +6613,12 @@
 
     if-eqz v0, :cond_2
 
-    .line 2854
+    .line 2855
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopCanvas:Landroid/graphics/Canvas;
 
     invoke-virtual {v0}, Landroid/graphics/Canvas;->save()I
 
-    .line 2855
+    .line 2856
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopCanvas:Landroid/graphics/Canvas;
 
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mContext:Landroid/content/Context;
@@ -6556,38 +6633,38 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->drawColor(I)V
 
-    .line 2856
+    .line 2857
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopCanvas:Landroid/graphics/Canvas;
 
     invoke-super {p0, v0}, Lcom/tencent/qrom/widget/AbsListView;->draw(Landroid/graphics/Canvas;)V
 
-    .line 2857
+    .line 2858
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopCanvas:Landroid/graphics/Canvas;
 
     invoke-virtual {v0}, Landroid/graphics/Canvas;->restore()V
 
-    .line 2860
+    .line 2861
     :cond_2
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
-
-    .line 2861
-    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
-
-    if-eqz v0, :cond_3
 
     .line 2862
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
 
+    if-eqz v0, :cond_3
+
+    .line 2863
+    iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForContentRect:Landroid/graphics/Rect;
+
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->clipRect(Landroid/graphics/Rect;)Z
 
-    .line 2864
+    .line 2865
     :cond_3
     invoke-super {p0, p1}, Lcom/tencent/qrom/widget/AbsListView;->draw(Landroid/graphics/Canvas;)V
 
-    .line 2865
+    .line 2866
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 2867
+    .line 2868
     iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
 
     if-lez v0, :cond_4
@@ -6596,17 +6673,17 @@
 
     if-eqz v0, :cond_4
 
-    .line 2868
+    .line 2869
     sget-boolean v0, Lcom/tencent/qrom/gaussblur/NativeBlurProcess;->noBlurSo:Z
 
     if-eqz v0, :cond_6
 
-    .line 2869
+    .line 2870
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForBottomBitmap:Landroid/graphics/Bitmap;
 
     iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->bottomBitmap:Landroid/graphics/Bitmap;
 
-    .line 2874
+    .line 2875
     :goto_0
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->bottomBitmap:Landroid/graphics/Bitmap;
 
@@ -6620,7 +6697,7 @@
 
     if-nez v0, :cond_4
 
-    .line 2875
+    .line 2876
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->bottomBitmap:Landroid/graphics/Bitmap;
 
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForBottomRect:Landroid/graphics/Rect;
@@ -6629,7 +6706,7 @@
 
     invoke-virtual {p1, v0, v5, v1, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
-    .line 2877
+    .line 2878
     :cond_4
     iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
 
@@ -6639,17 +6716,17 @@
 
     if-eqz v0, :cond_5
 
-    .line 2878
+    .line 2879
     sget-boolean v0, Lcom/tencent/qrom/gaussblur/NativeBlurProcess;->noBlurSo:Z
 
     if-eqz v0, :cond_7
 
-    .line 2879
+    .line 2880
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mForTopBitmap:Landroid/graphics/Bitmap;
 
     iput-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->topBitmap:Landroid/graphics/Bitmap;
 
-    .line 2884
+    .line 2885
     :goto_1
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->topBitmap:Landroid/graphics/Bitmap;
 
@@ -6663,7 +6740,7 @@
 
     if-nez v0, :cond_5
 
-    .line 2885
+    .line 2886
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->topBitmap:Landroid/graphics/Bitmap;
 
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurForTopRect:Landroid/graphics/Rect;
@@ -6672,12 +6749,12 @@
 
     invoke-virtual {p1, v0, v5, v1, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
-    .line 2891
+    .line 2896
     :cond_5
     :goto_2
     return-void
 
-    .line 2872
+    .line 2873
     :cond_6
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlur:Lcom/tencent/qrom/gaussblur/JNIBlur;
 
@@ -6691,7 +6768,7 @@
 
     goto :goto_0
 
-    .line 2882
+    .line 2883
     :cond_7
     iget-object v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlur:Lcom/tencent/qrom/gaussblur/JNIBlur;
 
@@ -6705,8 +6782,14 @@
 
     goto :goto_1
 
-    .line 2889
+    .line 2890
     :cond_8
+    invoke-super {p0, p1}, Lcom/tencent/qrom/widget/AbsListView;->draw(Landroid/graphics/Canvas;)V
+
+    goto :goto_2
+
+    .line 2894
+    :cond_9
     invoke-super {p0, p1}, Lcom/tencent/qrom/widget/AbsListView;->draw(Landroid/graphics/Canvas;)V
 
     goto :goto_2
@@ -6719,20 +6802,20 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 3110
+    .line 3123
     if-eqz p1, :cond_4
 
-    .line 3111
+    .line 3124
     const/4 v1, 0x1
 
     invoke-virtual {p0, v1}, Lcom/tencent/qrom/widget/QromGridView;->setFooterBlank(Z)V
 
-    .line 3112
+    .line 3125
     iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
 
     if-lez v1, :cond_1
 
-    .line 3113
+    .line 3126
     new-instance v1, Landroid/view/View;
 
     iget-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mContext:Landroid/content/Context;
@@ -6741,7 +6824,7 @@
 
     iput-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
 
-    .line 3114
+    .line 3127
     new-instance v0, Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
 
     const/4 v1, -0x1
@@ -6750,32 +6833,32 @@
 
     invoke-direct {v0, v1, v2}, Lcom/tencent/qrom/widget/AbsListView$LayoutParams;-><init>(II)V
 
-    .line 3115
+    .line 3128
     .local v0, "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 3116
+    .line 3129
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v1, :cond_0
 
-    .line 3117
+    .line 3130
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0xf
 
     if-le v1, v2, :cond_3
 
-    .line 3118
+    .line 3131
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
 
     iget-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 3124
+    .line 3137
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
@@ -6784,20 +6867,20 @@
 
     invoke-virtual {p0, v1, v2, v3}, Lcom/tencent/qrom/widget/QromGridView;->addFooterView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 3126
+    .line 3139
     .end local v0    # "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     :cond_1
     invoke-direct {p0}, Lcom/tencent/qrom/widget/QromGridView;->blurInit()V
 
-    .line 3135
+    .line 3148
     :cond_2
     :goto_1
     sput-boolean p1, Lcom/tencent/qrom/widget/QromGridView;->isFooterflag:Z
 
-    .line 3136
+    .line 3149
     return p1
 
-    .line 3121
+    .line 3134
     .restart local v0    # "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     :cond_3
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
@@ -6808,20 +6891,20 @@
 
     goto :goto_0
 
-    .line 3129
+    .line 3142
     .end local v0    # "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     :cond_4
     invoke-virtual {p0, v3}, Lcom/tencent/qrom/widget/QromGridView;->setFooterBlank(Z)V
 
-    .line 3130
+    .line 3143
     invoke-direct {p0}, Lcom/tencent/qrom/widget/QromGridView;->blurInit()V
 
-    .line 3131
+    .line 3144
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
 
     if-eqz v1, :cond_2
 
-    .line 3132
+    .line 3145
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBottomBlurView:Landroid/view/View;
 
     invoke-virtual {p0, v1}, Lcom/tencent/qrom/widget/QromGridView;->removeFooterView(Landroid/view/View;)Z
@@ -6836,20 +6919,20 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 3081
+    .line 3094
     if-eqz p1, :cond_4
 
-    .line 3082
+    .line 3095
     const/4 v1, 0x1
 
     invoke-virtual {p0, v1}, Lcom/tencent/qrom/widget/QromGridView;->setHeaderBlankWithStatusbar(Z)V
 
-    .line 3083
+    .line 3096
     iget v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
 
     if-lez v1, :cond_1
 
-    .line 3084
+    .line 3097
     new-instance v1, Landroid/view/View;
 
     iget-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mContext:Landroid/content/Context;
@@ -6858,7 +6941,7 @@
 
     iput-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
 
-    .line 3085
+    .line 3098
     new-instance v0, Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
 
     const/4 v1, -0x1
@@ -6867,32 +6950,32 @@
 
     invoke-direct {v0, v1, v2}, Lcom/tencent/qrom/widget/AbsListView$LayoutParams;-><init>(II)V
 
-    .line 3086
+    .line 3099
     .local v0, "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 3087
+    .line 3100
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v1, :cond_0
 
-    .line 3088
+    .line 3101
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0xf
 
     if-le v1, v2, :cond_3
 
-    .line 3089
+    .line 3102
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
 
     iget-object v2, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 3095
+    .line 3108
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
@@ -6901,17 +6984,17 @@
 
     invoke-virtual {p0, v1, v2, v3}, Lcom/tencent/qrom/widget/QromGridView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 3097
+    .line 3110
     .end local v0    # "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     :cond_1
     invoke-direct {p0}, Lcom/tencent/qrom/widget/QromGridView;->blurInit()V
 
-    .line 3106
+    .line 3119
     :cond_2
     :goto_1
     return p1
 
-    .line 3092
+    .line 3105
     .restart local v0    # "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     :cond_3
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
@@ -6922,20 +7005,20 @@
 
     goto :goto_0
 
-    .line 3100
+    .line 3113
     .end local v0    # "params":Lcom/tencent/qrom/widget/AbsListView$LayoutParams;
     :cond_4
     invoke-virtual {p0, v3}, Lcom/tencent/qrom/widget/QromGridView;->setHeaderBlankWithStatusbar(Z)V
 
-    .line 3101
+    .line 3114
     invoke-direct {p0}, Lcom/tencent/qrom/widget/QromGridView;->blurInit()V
 
-    .line 3102
+    .line 3115
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
 
     if-eqz v1, :cond_2
 
-    .line 3103
+    .line 3116
     iget-object v1, p0, Lcom/tencent/qrom/widget/QromGridView;->mTopBlurView:Landroid/view/View;
 
     invoke-virtual {p0, v1}, Lcom/tencent/qrom/widget/QromGridView;->removeHeaderView(Landroid/view/View;)Z
@@ -7345,16 +7428,16 @@
     .param p1, "childCount"    # I
 
     .prologue
-    .line 3149
+    .line 3166
     const/4 v5, 0x0
 
-    .line 3150
+    .line 3167
     .local v5, "totalHeight":I
     iget v7, p0, Lcom/tencent/qrom/widget/QromGridView;->mRequestedNumColumns:I
 
     if-lez v7, :cond_3
 
-    .line 3151
+    .line 3168
     invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getHeaderViewCount()I
 
     move-result v7
@@ -7363,7 +7446,7 @@
 
     mul-int v1, v7, v8
 
-    .line 3152
+    .line 3169
     .local v1, "headerViewCount":I
     invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getFooterViewCount()I
 
@@ -7373,13 +7456,13 @@
 
     mul-int v0, v7, v8
 
-    .line 3153
+    .line 3170
     .local v0, "footerViewCount":I
     sub-int v7, p1, v1
 
     sub-int v4, v7, v0
 
-    .line 3155
+    .line 3172
     .local v4, "totalCount":I
     int-to-double v7, v4
 
@@ -7395,20 +7478,20 @@
 
     double-to-int v2, v7
 
-    .line 3156
+    .line 3173
     .local v2, "horizontalCount":I
     const/4 v6, 0x0
 
-    .line 3157
+    .line 3174
     .local v6, "verSpaceCount":I
     const/4 v7, 0x1
 
     if-le v2, v7, :cond_0
 
-    .line 3158
+    .line 3175
     add-int/lit8 v6, v2, -0x1
 
-    .line 3160
+    .line 3177
     :cond_0
     move v3, v1
 
@@ -7416,14 +7499,14 @@
     :goto_0
     if-ge v3, v4, :cond_2
 
-    .line 3161
+    .line 3178
     iget v7, p0, Lcom/tencent/qrom/widget/QromGridView;->mRequestedNumColumns:I
 
     rem-int v7, v3, v7
 
     if-nez v7, :cond_1
 
-    .line 3162
+    .line 3179
     invoke-virtual {p0, v3}, Lcom/tencent/qrom/widget/QromGridView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v7
@@ -7434,13 +7517,13 @@
 
     add-int/2addr v5, v7
 
-    .line 3160
+    .line 3177
     :cond_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 3165
+    .line 3182
     :cond_2
     iget v7, p0, Lcom/tencent/qrom/widget/QromGridView;->mVerticalSpacing:I
 
@@ -7448,7 +7531,7 @@
 
     add-int/2addr v5, v7
 
-    .line 3167
+    .line 3184
     .end local v0    # "footerViewCount":I
     .end local v1    # "headerViewCount":I
     .end local v2    # "horizontalCount":I
@@ -7564,22 +7647,22 @@
     .param p1, "a"    # Landroid/content/res/TypedArray;
 
     .prologue
-    .line 3209
+    .line 3226
     const-string v0, "qrom.widget.ListView"
 
     const-string v1, "initializeScrollbars"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3211
+    .line 3228
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/tencent/qrom/widget/QromGridView;->qromInitQromScrollBarDrawable(Z)V
 
-    .line 3213
+    .line 3230
     invoke-super {p0, p1}, Lcom/tencent/qrom/widget/AbsListView;->initializeScrollbars(Landroid/content/res/TypedArray;)V
 
-    .line 3214
+    .line 3231
     return-void
 .end method
 
@@ -8683,13 +8766,13 @@
     .locals 0
 
     .prologue
-    .line 2895
+    .line 2900
     invoke-super {p0}, Lcom/tencent/qrom/widget/AbsListView;->onDetachedFromWindow()V
 
-    .line 2896
+    .line 2901
     invoke-direct {p0}, Lcom/tencent/qrom/widget/QromGridView;->blurRecycle()V
 
-    .line 2897
+    .line 2902
     return-void
 .end method
 
@@ -10404,15 +10487,27 @@
     return-void
 .end method
 
+.method public setEnableBlur(Z)V
+    .locals 0
+    .param p1, "enable"    # Z
+
+    .prologue
+    .line 3161
+    iput-boolean p1, p0, Lcom/tencent/qrom/widget/QromGridView;->mEnableBlur:Z
+
+    .line 3162
+    return-void
+.end method
+
 .method public setFooterBlank(Z)V
     .locals 2
     .param p1, "flag"    # Z
 
     .prologue
-    .line 3040
+    .line 3053
     if-eqz p1, :cond_0
 
-    .line 3041
+    .line 3054
     invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -10431,14 +10526,14 @@
 
     iput v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurBottomHeight:I
 
-    .line 3044
+    .line 3057
     :goto_0
     sput-boolean p1, Lcom/tencent/qrom/widget/QromGridView;->isFooterflag:Z
 
-    .line 3046
+    .line 3059
     return-void
 
-    .line 3043
+    .line 3056
     :cond_0
     const/4 v0, 0x0
 
@@ -10473,10 +10568,10 @@
     .param p1, "flag"    # Z
 
     .prologue
-    .line 3049
+    .line 3062
     if-eqz p1, :cond_0
 
-    .line 3050
+    .line 3063
     invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -10495,11 +10590,11 @@
 
     iput v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
 
-    .line 3053
+    .line 3066
     :goto_0
     return-void
 
-    .line 3052
+    .line 3065
     :cond_0
     const/4 v0, 0x0
 
@@ -10513,10 +10608,10 @@
     .param p1, "flag"    # Z
 
     .prologue
-    .line 3056
+    .line 3069
     if-eqz p1, :cond_0
 
-    .line 3057
+    .line 3070
     invoke-virtual {p0}, Lcom/tencent/qrom/widget/QromGridView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -10535,11 +10630,11 @@
 
     iput v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
 
-    .line 3060
+    .line 3073
     :goto_0
     return-void
 
-    .line 3059
+    .line 3072
     :cond_0
     const/4 v0, 0x0
 
@@ -10554,13 +10649,13 @@
     .param p2, "height"    # I
 
     .prologue
-    .line 3063
+    .line 3076
     if-eqz p1, :cond_0
 
-    .line 3064
+    .line 3077
     iput p2, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
 
-    .line 3075
+    .line 3088
     :goto_0
     iget v0, p0, Lcom/tencent/qrom/widget/QromGridView;->mBlurTopHeight:I
 
@@ -10568,10 +10663,10 @@
 
     invoke-direct {p0, v0, v1}, Lcom/tencent/qrom/widget/QromGridView;->qromSetParameters(II)V
 
-    .line 3077
+    .line 3090
     return p1
 
-    .line 3066
+    .line 3079
     :cond_0
     const/4 v0, 0x0
 

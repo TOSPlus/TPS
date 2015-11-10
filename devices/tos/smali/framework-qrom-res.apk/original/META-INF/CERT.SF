@@ -1,6 +1,6 @@
 Signature-Version: 1.0
 Created-By: 1.0 (Android SignApk)
-SHA1-Digest-Manifest: Up8KEw+D0wU8bs5hg3n7IKo1pr4=
+SHA1-Digest-Manifest: hthSJk2sWU2IJgNBvezjMOWjWzE=
 
 Name: res/drawable-xxhdpi/progressbar_indeterminate_holo6.png
 SHA1-Digest-Manifest: AJle3eJc07jVu8cESc+egpQ6K6U=
@@ -508,7 +508,7 @@ Name: res/drawable/second_btn_dialog_full.xml
 SHA1-Digest-Manifest: yJQPRSOvZum7QASIq7MYEXFD1+M=
 
 Name: res/drawable-xxhdpi/launcher_theme_icon_cover.png
-SHA1-Digest-Manifest: 3gO+VAMpN/4gszUUTRGrgbaRsXw=
+SHA1-Digest-Manifest: Dk7wMXcvEVAX+i0bWLB4uUfw85M=
 
 Name: res/drawable-xxhdpi/text_edit_paste_window_up.9.png
 SHA1-Digest-Manifest: XYNgLbku5TmBtNh41FoIIj9zaQU=
@@ -929,7 +929,7 @@ Name: res/drawable-xxhdpi/fastscroll_thumb_default_holo.png
 SHA1-Digest-Manifest: tc5xpwKECPw4VHCa5ynPVL3xUNk=
 
 Name: res/layout/transient_notification.xml
-SHA1-Digest-Manifest: 5+y4t4D6nUwCNPbEUVBQNaeV8vA=
+SHA1-Digest-Manifest: H5lByZuOGDC8QcJ0e2A4g8Bc6kU=
 
 Name: res/drawable-xxhdpi/com_tencent_mm_ui_tools_sharetotimelineui.pn
  g
@@ -2246,7 +2246,7 @@ Name: res/drawable/qrom_switch_inner_light.xml
 SHA1-Digest-Manifest: jaGvD132+9vVnGNo7hEoonkGHsc=
 
 Name: res/drawable/tab_indicator_holo_sub.xml
-SHA1-Digest-Manifest: 6mNl0/YLxpKF0iOrlI4Y0IJXRT8=
+SHA1-Digest-Manifest: XqMr2WY2nuGcPj4mBRjMEUKjc8M=
 
 Name: res/drawable/numberpicker_up_btn.xml
 SHA1-Digest-Manifest: sjN797ucQsy7fFXjEaoX+4XCLNs=
@@ -2344,7 +2344,7 @@ Name: res/drawable/seekbar_progress_holo_light.xml
 SHA1-Digest-Manifest: j0JUSKDJIRX+SiFhhX5vUUcWKew=
 
 Name: res/layout/chooserlayout_gridview_item.xml
-SHA1-Digest-Manifest: f8lNl4aC1MWyB1piKQqcP/lpVQU=
+SHA1-Digest-Manifest: GctGVS4QxhO+PRewisX0UZ1hRG4=
 
 Name: res/drawable-xxhdpi/ic_menu_edit_disabled_holo.png
 SHA1-Digest-Manifest: 0Um7mKaYp0Z8uJMwsMTKF5+aqyc=
@@ -2718,7 +2718,7 @@ Name: res/drawable-xxhdpi/tab_selected_holo.9.png
 SHA1-Digest-Manifest: q8qluVeGu+gbKzyww1gi96KF3bY=
 
 Name: resources.arsc
-SHA1-Digest-Manifest: b9OxnqDFRv280uF2jRrrRWSJLCc=
+SHA1-Digest-Manifest: PsUQGQPZ/LdBjSX2zt9jHv8Lq8c=
 
 Name: res/drawable/btn_check_to_off_material_anim.xml
 SHA1-Digest-Manifest: A6lruISgtFHB8Z0wz3N+VXakzK8=

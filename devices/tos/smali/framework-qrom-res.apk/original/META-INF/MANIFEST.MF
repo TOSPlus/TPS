@@ -507,7 +507,7 @@ Name: res/drawable/second_btn_dialog_full.xml
 SHA1-Digest: pfZGDGoyPA3ptYpWdsGDCK9knMg=
 
 Name: res/drawable-xxhdpi/launcher_theme_icon_cover.png
-SHA1-Digest: Dkii8YWAQldD4Gb9u+LnfknZLZA=
+SHA1-Digest: lJre6uD/R1rS2wISpxe4Uu3iJHM=
 
 Name: res/drawable-xxhdpi/text_edit_paste_window_up.9.png
 SHA1-Digest: Wds3O+dUAzNChi/7V4c4M1rOXqE=
@@ -928,7 +928,7 @@ Name: res/drawable-xxhdpi/fastscroll_thumb_default_holo.png
 SHA1-Digest: IxtAXP6f2IfX2stno5x0Sp+BSbE=
 
 Name: res/layout/transient_notification.xml
-SHA1-Digest: zZ+gRMA70POAvwXbM/yCUgnq4FY=
+SHA1-Digest: G8MnLP9uXpoOIEeH6jWOzeudCcI=
 
 Name: res/drawable-xxhdpi/com_tencent_mm_ui_tools_sharetotimelineui.pn
  g
@@ -2245,7 +2245,7 @@ Name: res/drawable/qrom_switch_inner_light.xml
 SHA1-Digest: 6M4rjugrthz8S1t/2hL8vhKBIr8=
 
 Name: res/drawable/tab_indicator_holo_sub.xml
-SHA1-Digest: JfUwxKYG4tItwWVEXnd4ZKG3faw=
+SHA1-Digest: xebSIvn8Uzk2IaSkAEQE856z1TQ=
 
 Name: res/drawable/numberpicker_up_btn.xml
 SHA1-Digest: oPyPCMo0wOiveUh5VP8K8iFkaGA=
@@ -2343,7 +2343,7 @@ Name: res/drawable-xxhdpi/switch_track_on_disabled.png
 SHA1-Digest: Nq5TpJJOV3OTiCcIkKALRAN4QcA=
 
 Name: res/layout/chooserlayout_gridview_item.xml
-SHA1-Digest: QDO5wNBKsgtIU7KHi9N3ggOUhiI=
+SHA1-Digest: Vg26docxaOh+lBJbaBFu3720MoA=
 
 Name: res/drawable/textfield_searchview_right_holo_light.xml
 SHA1-Digest: xh1fbk0HhCcTdcqU73BgbWkjcnA=
@@ -2714,7 +2714,7 @@ Name: res/drawable-xxhdpi/qrom_stat_sys_download_anim2.png
 SHA1-Digest: WlUcJmJ7CY0USR1nwpbYYKU1mWE=
 
 Name: resources.arsc
-SHA1-Digest: Q4awCb6jTAu8VKdjQHNvRbZcaFs=
+SHA1-Digest: 4pohxPssttaV0L17N6Pf4HGBZ0g=
 
 Name: res/drawable-xxhdpi/tab_selected_holo.9.png
 SHA1-Digest: /Z9hTt0Ay6o9Y7rZalhBnmpftag=

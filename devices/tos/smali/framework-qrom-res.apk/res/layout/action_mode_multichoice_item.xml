@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:gravity="center" android:background="@color/transparent" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.tencent.qrom.widget.ToggleButton android:ellipsize="end" android:gravity="right|center" android:layout_gravity="center_vertical" android:focusable="false" android:layout_width="wrap_content" android:layout_height="@dimen/actionbar_btn_height" android:layout_marginRight="@dimen/actionbar_mode_padding" android:minWidth="@dimen/actionbar_btn_width" android:singleLine="true" style="?com.tencent.qrom:attr/actionbarrightbtnstyle" />
+    <com.tencent.qrom.widget.ToggleButton android:ellipsize="end" android:gravity="center|right" android:layout_gravity="center_vertical" android:focusable="false" android:layout_width="wrap_content" android:layout_height="@dimen/actionbar_btn_height" android:layout_marginRight="@dimen/actionbar_mode_padding" android:minWidth="@dimen/actionbar_btn_width" android:singleLine="true" style="?com.tencent.qrom:attr/actionbarrightbtnstyle" />
 </LinearLayout>

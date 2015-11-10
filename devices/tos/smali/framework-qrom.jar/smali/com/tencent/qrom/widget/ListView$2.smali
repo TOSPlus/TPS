@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 4446
+    .line 4452
     iput-object p1, p0, Lcom/tencent/qrom/widget/ListView$2;->this$0:Lcom/tencent/qrom/widget/ListView;
 
     iput-object p2, p0, Lcom/tencent/qrom/widget/ListView$2;->val$view:Landroid/view/View;
@@ -45,14 +45,14 @@
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .prologue
-    .line 4449
+    .line 4455
     iget-object v1, p0, Lcom/tencent/qrom/widget/ListView$2;->val$view:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
-    .line 4450
+    .line 4456
     .local v0, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
@@ -66,11 +66,11 @@
 
     iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 4451
+    .line 4457
     iget-object v1, p0, Lcom/tencent/qrom/widget/ListView$2;->val$view:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 4452
+    .line 4458
     return-void
 .end method

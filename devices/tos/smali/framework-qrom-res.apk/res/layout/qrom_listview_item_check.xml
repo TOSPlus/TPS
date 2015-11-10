@@ -9,5 +9,5 @@
             <TextView android:id="@id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="4" style="@com.tencent.qrom:style/TextAppearance.qrom.Second.qromtextSmallLightSummary" />
         </LinearLayout>
     </RelativeLayout>
-    <com.tencent.qrom.widget.CheckBox android:layout_gravity="right|center" android:id="@id/checkbox" android:paddingLeft="0.0dip" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.tencent.qrom.widget.CheckBox android:layout_gravity="center|right" android:id="@id/checkbox" android:paddingLeft="0.0dip" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" />
 </LinearLayout>
