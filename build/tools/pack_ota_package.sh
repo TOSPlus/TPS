@@ -238,7 +238,7 @@ copy_system_files_in_list()
     local DEST_DIR=$2
     local FILE_LIST=$3
     
-    while read FILE
+    while read FILE || [[ -n "$FILE" ]]
     do
         FILE=`echo "$FILE" | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//'`
         if [ -z "$FILE" ]; then
@@ -342,7 +342,7 @@ prepare_system_files()
         exit
     fi
     
-    while read REMOVE_FILE
+    while read REMOVE_FILE || [[ -n "$REMOVE_FILE" ]]
     do
         REMOVE_FILE=`echo "$REMOVE_FILE" | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//'`
         if [ -z "$REMOVE_FILE" ]; then
