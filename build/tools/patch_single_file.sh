@@ -8,7 +8,7 @@
 # 		$2:目标机型的反编译的smali文件夹，用于搜索与tos文件对应的目标机型源文件
 # 		$3:输出目录
 # usage example:.
-#		./patch_by_smali.sh android_hardware_Camera.smali devices/i9500/smali/ out_dir
+#		./patch_single_file.sh android_hardware_Camera.smali devices/i9500/smali/ out_dir
 #
 
 if [ $# -ne 3 ]; then
