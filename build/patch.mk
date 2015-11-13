@@ -22,7 +22,7 @@ define patch_by_smali
 		fi
 endef
 
-.PHONY: patch javapatch incpatch
+.PHONY: patch javapatch incpatch syncpatch
 
 ##############################################################################################
 patch:
@@ -89,3 +89,5 @@ incpackage:
 		else \
 			$(PORT_TOOLS)/incremental_package.sh; \
 		fi
+syncpatch:
+	$(hide)$(PORT_TOOLS)/sync_tos_updated_framework_jars.sh $(DEVICE_NAME)

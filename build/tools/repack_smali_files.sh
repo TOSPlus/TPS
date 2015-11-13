@@ -103,10 +103,6 @@ check_preparation()
     IFS=$'\n'
     while read LINE
     do
-        should_debug "method" "$LINE" ""
-        if [ $? -eq 0 ]; then
-            continue
-        fi
         
         # 格式: android/widget/Editor/Editor.smali
         local SMALI_TARGET_FILE=$TARGET_PATH/$LINE
