@@ -2705,7 +2705,7 @@
 
     move-result v6
 
-    if-eq v5, v6, :cond_0
+    if-ne v5, v6, :cond_0
 
     .line 773
     :goto_0
@@ -2841,7 +2841,7 @@
 
     move-result v6
 
-    if-eq v5, v6, :cond_0
+    if-ne v5, v6, :cond_0
 
     .line 748
     :goto_0

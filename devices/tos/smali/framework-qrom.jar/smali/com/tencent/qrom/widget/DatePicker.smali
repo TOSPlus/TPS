@@ -3013,7 +3013,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_0
+    if-ne v0, v1, :cond_0
 
     .line 400
     :goto_0
@@ -3098,7 +3098,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_0
+    if-ne v0, v1, :cond_0
 
     .line 363
     :goto_0

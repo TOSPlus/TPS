@@ -31,7 +31,7 @@
 
 .field private static final DEBUG_PRETEND_PROXIMITY_SENSOR_ABSENT:Z = false
 
-.field private static final ELECTRON_BEAM_OFF_ANIMATION_DURATION_MILLIS:I = 0x190
+.field private static final ELECTRON_BEAM_OFF_ANIMATION_DURATION_MILLIS:I = 0xc8
 
 .field private static final ELECTRON_BEAM_ON_ANIMATION_DURATION_MILLIS:I = 0xfa
 
@@ -2364,7 +2364,7 @@
     .line 540
     iget-object v0, p0, Lcom/android/server/power/DisplayPowerController;->mElectronBeamOffAnimator:Landroid/animation/ObjectAnimator;
 
-    const-wide/16 v1, 0x190
+    const-wide/16 v1, 0xc8
 
     invoke-virtual {v0, v1, v2}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
