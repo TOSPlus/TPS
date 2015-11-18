@@ -347,6 +347,11 @@ def SignOutput(temp_zip_name, output_zip_name):
 
 
 def AppendAssertions(script, info_dict):
+  if "recovery_device_assert" in OPTIONS.info_dict.keys():
+      if cmp("false",OPTIONS.info_dict["recovery_device_assert"]) == 0:
+          print "update_script will not append device assertions as recovery_device_assert is set to false"
+          return
+  print "append device assertions"
   if len(OPTIONS.suitable_devices) == 0:
       device = GetBuildProp("ro.product.device", info_dict)
       script.AssertDevice(device)

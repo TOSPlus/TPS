@@ -21,7 +21,8 @@ if [ $? -ne 0 ]; then
 fi
 
 DEVICE_NAME=$1
-SUITABLE_DEVICES=$2
+RECOVERY_DEVICE_ASSERT=$2
+SUITABLE_DEVICES=$3
 DEVICE_ROOT=$PORT_DEVICE/$DEVICE_NAME
 PACKAGE_PATH=$DEVICE_ROOT/package
 BOOT_PATH=$DEVICE_ROOT/boot
@@ -934,7 +935,10 @@ generate_misc_info()
     else
         sed -i "s#selinux_fc=.*#selinux_fc=$SELINUX_FC#" "$MISC_INFO_FILE"
     fi
-    
+    #add device assertions configuration
+	sed -i "/recovery_device_assert=/d" "$MISC_INFO_FILE"
+	echo "recovery_device_assert=$RECOVERY_DEVICE_ASSERT">> "$MISC_INFO_FILE"
+	
     cp -f "$MISC_INFO_FILE" "$TARGET_PATH/META/"
     
     if [ -f "$CONFIG_PATH/recovery.fstab" ]; then
@@ -1137,3 +1141,19 @@ main()
 }
 
 main
+
+test_ota(){
+	OUTPUT_FILE=$PACKAGE_PATH/$DEVICE_NAME.zip
+	TARGET_FILES=$PACKAGE_PATH/target_files.zip
+
+	MAKE_OTA_CMD="-n -k $PORT_CONFIG/security/testkey"
+	if [ "$SUITABLE_DEVICES" ]; then
+		echo SUITABLE_DEVICES:$SUITABLE_DEVICES
+		exit 1
+		MAKE_OTA_CMD="$MAKE_OTA_CMD --suitable_devices $SUITABLE_DEVICES"
+	fi
+	MAKE_OTA_CMD="$MAKE_OTA_CMD $TARGET_FILES $OUTPUT_FILE"
+	"$PORT_TOOLS/releasetools/ota_from_target_files" $MAKE_OTA_CMD
+}
+
+#test_ota
