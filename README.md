@@ -14,8 +14,9 @@
 patch
 - **make repack**：对拆分到方法级的 smali 文件进行合并并重新打包成 jar 包
 - **make package**：生成最终的 OTA 刷机包
--  **make incpatch**：将新版本 TOS patch 到已经适配好的目标机型的 TOS 上
--  **make incpackage**：针对新版本 TOS 重新将上一个 patch 好的版本重新打包
+- **make sysnpatch**:用于framework更新后的patch，不改变开发者对原厂smali文件的修改
+- **make incpatch**：将新版本 TOS patch 到已经适配好的目标机型的 TOS 上
+- **make incpackage**：针对新版本 TOS 重新将上一个 patch 好的版本重新打包
 - **make clean**： 执行清理操作
 
 -------------------
@@ -51,7 +52,7 @@ chmod -R 755 build/tools/*
 - **配置N900的环境** 
 > 在TPS根目录再次执行
 
-		make create brand=Samsung device=N900（xxx为要适配的机型名称）
+		make create brand=Samsung device=N900（要适配的机型名称）
 
 将要适配机型的N900.zip包放到device/N900目录下，重命名或链接为ota.zip，要求有system目录和boot.img文件。
 注意 ：N900的ota包的获取，需要获取机型原底包的odex经过优化的包，而TOS在创建机型目录的时候，会在机型的根目录下生成一个N900.zip，这个是经过odex优化的。这个包里面只有一个system文件夹，这个包需要再放入一个N900原厂的boot.img文件到N900.zip包的根目录。这个就可以用来作为ota包使用。
