@@ -1142,18 +1142,3 @@ main()
 
 main
 
-test_ota(){
-	OUTPUT_FILE=$PACKAGE_PATH/$DEVICE_NAME.zip
-	TARGET_FILES=$PACKAGE_PATH/target_files.zip
-
-	MAKE_OTA_CMD="-n -k $PORT_CONFIG/security/testkey"
-	if [ "$SUITABLE_DEVICES" ]; then
-		echo SUITABLE_DEVICES:$SUITABLE_DEVICES
-		exit 1
-		MAKE_OTA_CMD="$MAKE_OTA_CMD --suitable_devices $SUITABLE_DEVICES"
-	fi
-	MAKE_OTA_CMD="$MAKE_OTA_CMD $TARGET_FILES $OUTPUT_FILE"
-	"$PORT_TOOLS/releasetools/ota_from_target_files" $MAKE_OTA_CMD
-}
-
-#test_ota
