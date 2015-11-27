@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:id="@id/action_mode_close_button" android:background="@color/transparent" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_gravity="center" android:id="@id/action_mode_close_button_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/actionbar_mode_padding_backbtn" android:src="?homebutton" android:scaleType="fitCenter" />
-    <Button android:ellipsize="none" android:gravity="center|left" android:id="@id/action_mode_close_button_btn" android:focusable="false" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/actionbar_btn_height" android:layout_marginLeft="@dimen/actionbar_mode_padding" android:minWidth="@dimen/actionbar_btn_width" android:singleLine="true" style="?com.tencent.qrom:attr/actionbarleftbtnstyle" />
-</LinearLayout>

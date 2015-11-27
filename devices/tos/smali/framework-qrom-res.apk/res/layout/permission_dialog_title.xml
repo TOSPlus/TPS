@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="26.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="14.0dip">
-        <ImageView android:id="@id/icon" android:layout_width="36.0dip" android:layout_height="36.0dip" android:layout_alignParentLeft="true" />
-        <TextView android:ellipsize="end" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:singleLine="true" android:layout_toRightOf="@id/icon" android:layout_centerVertical="true" style="@com.tencent.qrom:style/TextAppearance.qrom.Second.qromTextLargerLightTitleMenuItem" />
-    </RelativeLayout>
-</RelativeLayout>

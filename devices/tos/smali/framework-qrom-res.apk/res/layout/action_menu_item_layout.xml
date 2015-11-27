@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.tencent.qrom.internal.view.menu.ActionMenuItemView android:gravity="center" android:layout_gravity="center" android:focusable="true" android:addStatesFromChildren="true" android:layout_width="wrap_content" android:layout_height="fill_parent" style="?com.tencent.qrom:attr/actionButtonStyle_menuitem"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_gravity="center" android:id="@id/imageButton" android:background="@null" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-    <TextView android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/textButton" android:background="@null" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="?com.tencent.qrom:attr/menuitemstyle" />
-</com.tencent.qrom.internal.view.menu.ActionMenuItemView>

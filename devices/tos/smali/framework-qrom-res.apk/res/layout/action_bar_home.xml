@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<view android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="fill_parent" class="com.tencent.qrom.internal.widget.ActionBarView$HomeView"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageButton android:gravity="center" android:layout_gravity="center" android:id="@android:id/home" android:background="?homebackground" android:layout_width="@dimen/action_bar_back_btn_width" android:layout_height="fill_parent" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:layout_marginRight="0.0dip" android:layout_marginBottom="0.0dip" android:src="?homebutton" />
-</view>

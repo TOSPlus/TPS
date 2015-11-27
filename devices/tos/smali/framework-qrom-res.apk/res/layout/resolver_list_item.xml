@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:gravity="center_vertical" android:paddingTop="@dimen/qrom_listview_item_padding_side_top" android:paddingBottom="@dimen/qrom_listview_item_padding_side_bottom" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/app_icon" android:layout_width="@dimen/qrom_listview_icon_size" android:layout_height="@dimen/qrom_listview_icon_size" android:layout_marginRight="@dimen/qrom_listview_icon_margin_right_small" android:scaleType="fitCenter" android:layout_alignParentLeft="true" />
-    <com.tencent.qrom.widget.RadioButton android:id="@id/is_default" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-    <TextView android:ellipsize="marquee" android:id="@id/app_name" android:fadingEdge="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:singleLine="true" android:layout_toLeftOf="@id/is_default" android:layout_toRightOf="@id/app_icon" android:layout_centerVertical="true" style="@com.tencent.qrom:style/TextAppearance.qrom.Second.qromTextMediumLightTitle" />
-</RelativeLayout>

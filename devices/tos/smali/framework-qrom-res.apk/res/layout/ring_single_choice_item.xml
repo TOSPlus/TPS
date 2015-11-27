@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.tencent.qrom.widget.CheckedTextView android:textAppearance="?android:textAppearanceMedium" android:textColor="@color/qrom_text_blue_checked" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/ringTtitle" android:paddingLeft="@dimen/qrom_listview_item_padding_side_left" android:paddingRight="@dimen/qrom_listview_item_padding_side_right" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkMark="?android:listChoiceIndicatorSingle" android:minHeight="@dimen/qrom_listview_item_height" qrom:qromCheckStyle="qromSingle"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:qrom="http://schemas.android.com/apk/res/com.tencent.qrom" />

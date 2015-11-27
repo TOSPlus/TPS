@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/list_selector_background" android:paddingLeft="18.0dip" android:paddingRight="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
-        <TextView android:textAppearance="@style/TextAppearance.qrom.Second.qromTextMediumLightBody" android:ellipsize="marquee" android:gravity="center|left" android:id="@android:id/text1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
-        <TextView android:textAppearance="@style/TextAppearance.qrom.Second.qromtextMicroLightSummary" android:ellipsize="marquee" android:gravity="center|left" android:id="@android:id/text2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
-    </LinearLayout>
-    <RadioButton android:gravity="center_vertical" android:id="@id/radio" android:background="@drawable/second_btn_radio_holo_light" android:paddingRight="12.0dip" android:focusable="false" android:clickable="false" android:layout_width="35.0dip" android:layout_height="wrap_content" android:button="@null" />
-</LinearLayout>

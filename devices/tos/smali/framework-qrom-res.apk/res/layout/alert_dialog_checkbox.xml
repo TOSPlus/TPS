@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:paddingBottom="36.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="left" android:id="@id/messageLayout" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <TextView android:id="@id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineSpacingExtra="3.0dip" style="@com.tencent.qrom:style/TextAppearance.qrom.Second.qromTextMediumLightBody" />
-    </LinearLayout>
-    <com.tencent.qrom.widget.CheckBox android:textAppearance="@style/TextAppearance.qrom.Second.qromTextMediumLightBody" android:textColor="@color/qrom_light_body_sub" android:gravity="center|left" android:layout_gravity="center|left" android:id="@id/checkBox" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginTop="12.0dip" android:button="@drawable/second_btn_check_holo_light" />
-</LinearLayout>
