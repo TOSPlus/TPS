@@ -2,6 +2,9 @@
 .super Lcom/android/internal/app/AlertController;
 .source "QromAlertController.java"
 
+# interfaces
+.implements Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -88,6 +91,12 @@
 
 .field private mNeutralColor:Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
+.field mOldNegativeVisibility:I
+
+.field mOldNeutralVisibility:I
+
+.field mOldPositiveVisibility:I
+
 .field private mPositiveColor:Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
 .field private mScrollView:Landroid/widget/ScrollView;
@@ -140,9 +149,9 @@
 
     const/4 v7, 0x1
 
-    const/4 v2, -0x1
-
     const/4 v6, 0x0
+
+    const/4 v3, -0x1
 
     .line 217
     invoke-direct {p0, p1, p2, p3}, Lcom/android/internal/app/AlertController;-><init>(Landroid/content/Context;Landroid/content/DialogInterface;Landroid/view/Window;)V
@@ -151,13 +160,13 @@
     iput-boolean v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mViewSpacingSpecified:Z
 
     .line 128
-    iput v2, p0, Lcom/tencent/qrom/app/QromAlertController;->mIconId:I
+    iput v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mIconId:I
 
     .line 145
     iput-boolean v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mIsContextMenu:Z
 
     .line 152
-    iput v2, p0, Lcom/tencent/qrom/app/QromAlertController;->mCheckedItem:I
+    iput v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mCheckedItem:I
 
     .line 163
     new-instance v2, Lcom/tencent/qrom/app/QromAlertController$1;
@@ -165,6 +174,15 @@
     invoke-direct {v2, p0}, Lcom/tencent/qrom/app/QromAlertController$1;-><init>(Lcom/tencent/qrom/app/QromAlertController;)V
 
     iput-object v2, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonHandler:Landroid/view/View$OnClickListener;
+
+    .line 940
+    iput v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mOldPositiveVisibility:I
+
+    .line 941
+    iput v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mOldNegativeVisibility:I
+
+    .line 942
+    iput v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mOldNeutralVisibility:I
 
     .line 218
     const-string v2, "QromAlertController"
@@ -635,28 +653,28 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 939
+    .line 969
     invoke-virtual {p1}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 940
+    .line 970
     .local v1, "params":Landroid/widget/LinearLayout$LayoutParams;
     const/4 v3, 0x1
 
     iput v3, v1, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 941
+    .line 971
     const/high16 v3, 0x3f000000    # 0.5f
 
     iput v3, v1, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    .line 942
+    .line 972
     invoke-virtual {p1, v1}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 943
+    .line 973
     iget-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
     const v4, 0x7a09009c
@@ -665,14 +683,14 @@
 
     move-result-object v0
 
-    .line 944
+    .line 974
     .local v0, "leftSpacer":Landroid/view/View;
     if-eqz v0, :cond_0
 
-    .line 945
+    .line 975
     invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
 
-    .line 947
+    .line 977
     :cond_0
     iget-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
@@ -682,14 +700,14 @@
 
     move-result-object v2
 
-    .line 948
+    .line 978
     .local v2, "rightSpacer":Landroid/view/View;
     if-eqz v2, :cond_1
 
-    .line 949
+    .line 979
     invoke-virtual {v2, v5}, Landroid/view/View;->setVisibility(I)V
 
-    .line 951
+    .line 981
     :cond_1
     return-void
 .end method
@@ -699,7 +717,7 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 1458
+    .line 1488
     invoke-virtual {p1}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
@@ -710,13 +728,13 @@
 
     move-result v5
 
-    .line 1460
+    .line 1490
     .local v5, "textColor":I
     sget-boolean v6, Lcom/tencent/qrom/app/QromAlertController;->sIsBlackTheme:Z
 
     if-eqz v6, :cond_0
 
-    .line 1461
+    .line 1491
     invoke-virtual {p1}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
@@ -727,14 +745,14 @@
 
     move-result v5
 
-    .line 1465
+    .line 1495
     :cond_0
     :try_start_0
     instance-of v6, p1, Landroid/view/ViewGroup;
 
     if-eqz v6, :cond_4
 
-    .line 1466
+    .line 1496
     move-object v0, p1
 
     check-cast v0, Landroid/view/ViewGroup;
@@ -745,7 +763,7 @@
 
     move-result v1
 
-    .line 1467
+    .line 1497
     .local v1, "childCount":I
     const/4 v4, 0x0
 
@@ -753,7 +771,7 @@
     :goto_0
     if-ge v4, v1, :cond_3
 
-    .line 1468
+    .line 1498
     move-object v0, p1
 
     check-cast v0, Landroid/view/ViewGroup;
@@ -764,16 +782,16 @@
 
     move-result-object v2
 
-    .line 1469
+    .line 1499
     .local v2, "childView":Landroid/view/View;
     instance-of v6, v2, Landroid/view/ViewGroup;
 
     if-eqz v6, :cond_2
 
-    .line 1470
+    .line 1500
     invoke-direct {p0, v2}, Lcom/tencent/qrom/app/QromAlertController;->qromSetTextViewColor(Landroid/view/View;)V
 
-    .line 1467
+    .line 1497
     .end local v2    # "childView":Landroid/view/View;
     :cond_1
     :goto_1
@@ -781,14 +799,14 @@
 
     goto :goto_0
 
-    .line 1471
+    .line 1501
     .restart local v2    # "childView":Landroid/view/View;
     :cond_2
     instance-of v6, v2, Landroid/widget/TextView;
 
     if-eqz v6, :cond_1
 
-    .line 1472
+    .line 1502
     check-cast v2, Landroid/widget/TextView;
 
     .end local v2    # "childView":Landroid/view/View;
@@ -798,24 +816,24 @@
 
     goto :goto_1
 
-    .line 1478
+    .line 1508
     .end local v1    # "childCount":I
     .end local v4    # "i":I
     .end local p1    # "view":Landroid/view/View;
     :catch_0
     move-exception v3
 
-    .line 1479
+    .line 1509
     .local v3, "e":Ljava/lang/Exception;
     invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 1481
+    .line 1511
     .end local v3    # "e":Ljava/lang/Exception;
     :cond_3
     :goto_2
     return-void
 
-    .line 1475
+    .line 1505
     .restart local p1    # "view":Landroid/view/View;
     :cond_4
     :try_start_1
@@ -823,7 +841,7 @@
 
     if-eqz v6, :cond_3
 
-    .line 1476
+    .line 1506
     check-cast p1, Landroid/widget/TextView;
 
     .end local p1    # "view":Landroid/view/View;
@@ -832,6 +850,133 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_2
+.end method
+
+.method private responseGlobalLayout()V
+    .locals 5
+
+    .prologue
+    .line 945
+    iget-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
+
+    const v4, 0x1020019
+
+    invoke-virtual {v3, v4}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/Button;
+
+    iput-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
+
+    .line 946
+    iget-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
+
+    const v4, 0x102001a
+
+    invoke-virtual {v3, v4}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/Button;
+
+    iput-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
+
+    .line 947
+    iget-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
+
+    const v4, 0x102001b
+
+    invoke-virtual {v3, v4}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/Button;
+
+    iput-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
+
+    .line 948
+    const/4 v2, -0x1
+
+    .line 949
+    .local v2, "positiveVisibility":I
+    iget-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
+
+    if-eqz v3, :cond_0
+
+    .line 950
+    iget-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
+
+    invoke-virtual {v3}, Landroid/widget/Button;->getVisibility()I
+
+    move-result v2
+
+    .line 952
+    :cond_0
+    const/4 v0, -0x1
+
+    .line 953
+    .local v0, "negativeVisibility":I
+    iget-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
+
+    if-eqz v3, :cond_1
+
+    .line 954
+    iget-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
+
+    invoke-virtual {v3}, Landroid/widget/Button;->getVisibility()I
+
+    move-result v0
+
+    .line 956
+    :cond_1
+    const/4 v1, -0x1
+
+    .line 957
+    .local v1, "neutralVisibility":I
+    iget-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
+
+    if-eqz v3, :cond_2
+
+    .line 958
+    iget-object v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
+
+    invoke-virtual {v3}, Landroid/widget/Button;->getVisibility()I
+
+    move-result v1
+
+    .line 960
+    :cond_2
+    iget v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mOldPositiveVisibility:I
+
+    if-ne v3, v2, :cond_3
+
+    iget v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mOldNegativeVisibility:I
+
+    if-ne v3, v0, :cond_3
+
+    iget v3, p0, Lcom/tencent/qrom/app/QromAlertController;->mOldNeutralVisibility:I
+
+    if-eq v3, v1, :cond_4
+
+    .line 961
+    :cond_3
+    iput v2, p0, Lcom/tencent/qrom/app/QromAlertController;->mOldPositiveVisibility:I
+
+    .line 962
+    iput v0, p0, Lcom/tencent/qrom/app/QromAlertController;->mOldNegativeVisibility:I
+
+    .line 963
+    iput v1, p0, Lcom/tencent/qrom/app/QromAlertController;->mOldNeutralVisibility:I
+
+    .line 964
+    const/4 v3, 0x1
+
+    invoke-direct {p0, v3}, Lcom/tencent/qrom/app/QromAlertController;->setupButtons(Z)Z
+
+    .line 966
+    :cond_4
+    return-void
 .end method
 
 .method private setBackground(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/view/View;ZLandroid/content/res/TypedArray;ZLandroid/view/View;)V
@@ -845,7 +990,7 @@
     .param p7, "buttonPanel"    # Landroid/view/View;
 
     .prologue
-    .line 958
+    .line 988
     const/16 v24, 0x0
 
     const v25, 0x7a0200ca
@@ -860,7 +1005,7 @@
 
     move-result v9
 
-    .line 960
+    .line 990
     .local v9, "fullDark":I
     const/16 v24, 0x1
 
@@ -876,7 +1021,7 @@
 
     move-result v19
 
-    .line 962
+    .line 992
     .local v19, "topDark":I
     const/16 v24, 0x2
 
@@ -892,7 +1037,7 @@
 
     move-result v7
 
-    .line 964
+    .line 994
     .local v7, "centerDark":I
     const/16 v24, 0x3
 
@@ -908,7 +1053,7 @@
 
     move-result v4
 
-    .line 966
+    .line 996
     .local v4, "bottomDark":I
     const/16 v24, 0x4
 
@@ -924,7 +1069,7 @@
 
     move-result v8
 
-    .line 968
+    .line 998
     .local v8, "fullBright":I
     const/16 v24, 0x5
 
@@ -940,7 +1085,7 @@
 
     move-result v18
 
-    .line 970
+    .line 1000
     .local v18, "topBright":I
     const/16 v24, 0x6
 
@@ -956,7 +1101,7 @@
 
     move-result v6
 
-    .line 972
+    .line 1002
     .local v6, "centerBright":I
     const/16 v24, 0x7
 
@@ -972,7 +1117,7 @@
 
     move-result v3
 
-    .line 974
+    .line 1004
     .local v3, "bottomBright":I
     const/16 v24, 0x8
 
@@ -988,7 +1133,7 @@
 
     move-result v5
 
-    .line 977
+    .line 1007
     .local v5, "bottomMedium":I
     move-object/from16 v0, p0
 
@@ -998,13 +1143,13 @@
 
     if-eqz v24, :cond_0
 
-    .line 978
+    .line 1008
     const v18, 0x7a0200b7
 
-    .line 979
+    .line 1009
     move/from16 v19, v18
 
-    .line 982
+    .line 1012
     :cond_0
     const/16 v24, 0x9
 
@@ -1050,13 +1195,13 @@
 
     aput v5, v20, v24
 
-    .line 983
+    .line 1013
     .local v20, "typeArray":[I
     new-instance v21, Ljava/util/ArrayList;
 
     invoke-direct/range {v21 .. v21}, Ljava/util/ArrayList;-><init>()V
 
-    .line 985
+    .line 1015
     .local v21, "typeArrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     const/4 v10, 0x0
 
@@ -1072,7 +1217,7 @@
 
     if-ge v10, v0, :cond_1
 
-    .line 986
+    .line 1016
     aget v24, v20, v10
 
     invoke-static/range {v24 .. v24}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1085,12 +1230,12 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 985
+    .line 1015
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_0
 
-    .line 989
+    .line 1019
     :cond_1
     const-string v24, "QromAlertController"
 
@@ -1118,7 +1263,7 @@
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 990
+    .line 1020
     const-string v24, "QromAlertController"
 
     new-instance v25, Ljava/lang/StringBuilder;
@@ -1175,7 +1320,7 @@
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1002
+    .line 1032
     const/16 v24, 0x4
 
     move/from16 v0, v24
@@ -1184,7 +1329,7 @@
 
     move-object/from16 v23, v0
 
-    .line 1003
+    .line 1033
     .local v23, "views":[Landroid/view/View;
     const/16 v24, 0x4
 
@@ -1192,34 +1337,34 @@
 
     new-array v13, v0, [Z
 
-    .line 1004
+    .line 1034
     .local v13, "light":[Z
     const/4 v12, 0x0
 
-    .line 1005
+    .line 1035
     .local v12, "lastView":Landroid/view/View;
     const/4 v11, 0x0
 
-    .line 1007
+    .line 1037
     .local v11, "lastLight":Z
     const/4 v15, 0x0
 
-    .line 1008
+    .line 1038
     .local v15, "pos":I
     if-eqz p6, :cond_2
 
-    .line 1009
+    .line 1039
     aput-object p1, v23, v15
 
-    .line 1010
+    .line 1040
     const/16 v24, 0x1
 
     aput-boolean v24, v13, v15
 
-    .line 1011
+    .line 1041
     add-int/lit8 v15, v15, 0x1
 
-    .line 1019
+    .line 1049
     :cond_2
     invoke-virtual/range {p2 .. p2}, Landroid/widget/LinearLayout;->getVisibility()I
 
@@ -1239,7 +1384,7 @@
     :cond_3
     aput-object p2, v23, v15
 
-    .line 1020
+    .line 1050
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/app/QromAlertController;->mListView:Landroid/widget/ListView;
@@ -1253,16 +1398,16 @@
     :goto_1
     aput-boolean v24, v13, v15
 
-    .line 1021
+    .line 1051
     add-int/lit8 v15, v15, 0x1
 
-    .line 1022
+    .line 1052
     if-eqz p3, :cond_4
 
-    .line 1023
+    .line 1053
     aput-object p3, v23, v15
 
-    .line 1024
+    .line 1054
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/tencent/qrom/app/QromAlertController;->mForceInverseBackground:Z
@@ -1271,28 +1416,28 @@
 
     aput-boolean v24, v13, v15
 
-    .line 1025
+    .line 1055
     add-int/lit8 v15, v15, 0x1
 
-    .line 1027
+    .line 1057
     :cond_4
     if-eqz p4, :cond_5
 
-    .line 1028
+    .line 1058
     aput-object p7, v23, v15
 
-    .line 1029
+    .line 1059
     const/16 v24, 0x1
 
     aput-boolean v24, v13, v15
 
-    .line 1032
+    .line 1062
     :cond_5
     new-instance v14, Ljava/util/ArrayList;
 
     invoke-direct {v14}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1034
+    .line 1064
     .local v14, "lightArrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     const/4 v10, 0x0
 
@@ -1305,7 +1450,7 @@
 
     if-ge v10, v0, :cond_7
 
-    .line 1035
+    .line 1065
     aget-boolean v24, v13, v10
 
     invoke-static/range {v24 .. v24}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -1316,19 +1461,19 @@
 
     invoke-virtual {v14, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1034
+    .line 1064
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_2
 
-    .line 1020
+    .line 1050
     .end local v14    # "lightArrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     :cond_6
     const/16 v24, 0x0
 
     goto :goto_1
 
-    .line 1038
+    .line 1068
     .restart local v14    # "lightArrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     :cond_7
     const-string v24, "QromAlertController"
@@ -1357,10 +1502,10 @@
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1040
+    .line 1070
     const/16 v17, 0x0
 
-    .line 1041
+    .line 1071
     .local v17, "setView":Z
     const/4 v15, 0x0
 
@@ -1375,27 +1520,27 @@
 
     if-ge v15, v0, :cond_d
 
-    .line 1042
+    .line 1072
     aget-object v22, v23, v15
 
-    .line 1043
+    .line 1073
     .local v22, "v":Landroid/view/View;
     if-nez v22, :cond_8
 
-    .line 1041
+    .line 1071
     :goto_4
     add-int/lit8 v15, v15, 0x1
 
     goto :goto_3
 
-    .line 1046
+    .line 1076
     :cond_8
     if-eqz v12, :cond_9
 
-    .line 1047
+    .line 1077
     if-nez v17, :cond_b
 
-    .line 1048
+    .line 1078
     if-eqz v11, :cond_a
 
     move/from16 v24, v18
@@ -1405,15 +1550,15 @@
 
     invoke-virtual {v12, v0}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 1052
+    .line 1082
     :goto_6
     const/16 v17, 0x1
 
-    .line 1054
+    .line 1084
     :cond_9
     move-object/from16 v12, v22
 
-    .line 1055
+    .line 1085
     aget-boolean v11, v13, v15
 
     goto :goto_4
@@ -1421,10 +1566,10 @@
     :cond_a
     move/from16 v24, v19
 
-    .line 1048
+    .line 1078
     goto :goto_5
 
-    .line 1050
+    .line 1080
     :cond_b
     if-eqz v11, :cond_c
 
@@ -1442,22 +1587,22 @@
 
     goto :goto_7
 
-    .line 1058
+    .line 1088
     .end local v22    # "v":Landroid/view/View;
     :cond_d
     if-eqz v12, :cond_f
 
-    .line 1059
+    .line 1089
     if-eqz v17, :cond_13
 
-    .line 1063
+    .line 1093
     if-eqz v11, :cond_12
 
     if-eqz p4, :cond_11
 
     move/from16 v16, v5
 
-    .line 1064
+    .line 1094
     .local v16, "resId":I
     :goto_8
     move-object/from16 v0, p0
@@ -1470,23 +1615,23 @@
 
     const v16, 0x7a0200b6
 
-    .line 1065
+    .line 1095
     :cond_e
     move/from16 v0, v16
 
     invoke-virtual {v12, v0}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 1066
+    .line 1096
     if-eqz p4, :cond_f
 
-    .line 1067
+    .line 1097
     const/16 v24, 0x0
 
     move-object/from16 v0, v24
 
     invoke-virtual {v12, v0}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1101
+    .line 1131
     .end local v8    # "fullBright":I
     .end local v16    # "resId":I
     :cond_f
@@ -1507,7 +1652,7 @@
 
     if-eqz v24, :cond_10
 
-    .line 1102
+    .line 1132
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/app/QromAlertController;->mListView:Landroid/widget/ListView;
@@ -1522,7 +1667,7 @@
 
     invoke-virtual/range {v24 .. v25}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 1103
+    .line 1133
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/tencent/qrom/app/QromAlertController;->mCheckedItem:I
@@ -1537,7 +1682,7 @@
 
     if-le v0, v1, :cond_10
 
-    .line 1104
+    .line 1134
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/app/QromAlertController;->mListView:Landroid/widget/ListView;
@@ -1554,7 +1699,7 @@
 
     invoke-virtual/range {v24 .. v26}, Landroid/widget/ListView;->setItemChecked(IZ)V
 
-    .line 1105
+    .line 1135
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/app/QromAlertController;->mListView:Landroid/widget/ListView;
@@ -1569,7 +1714,7 @@
 
     invoke-virtual/range {v24 .. v25}, Landroid/widget/ListView;->setSelection(I)V
 
-    .line 1108
+    .line 1138
     :cond_10
     return-void
 
@@ -1577,7 +1722,7 @@
     :cond_11
     move/from16 v16, v3
 
-    .line 1063
+    .line 1093
     goto :goto_8
 
     :cond_12
@@ -1585,7 +1730,7 @@
 
     goto :goto_8
 
-    .line 1072
+    .line 1102
     :cond_13
     if-eqz v11, :cond_14
 
@@ -1613,74 +1758,31 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 1394
+    .line 1424
     sget-boolean v0, Lcom/tencent/qrom/app/QromAlertController;->sIsBlackTheme:Z
 
     if-eqz v0, :cond_3
 
-    .line 1395
+    .line 1425
     if-eqz p3, :cond_1
 
     if-nez p4, :cond_1
-
-    .line 1396
-    add-int/lit8 v0, p2, -0x1
-
-    if-ne p1, v0, :cond_0
-
-    .line 1453
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 1401
-    :cond_1
-    if-nez p3, :cond_2
-
-    if-eqz p4, :cond_2
-
-    .line 1402
-    if-nez p1, :cond_0
-
-    goto :goto_0
-
-    .line 1407
-    :cond_2
-    if-nez p3, :cond_0
-
-    if-nez p4, :cond_0
-
-    .line 1408
-    if-le p2, v1, :cond_0
-
-    .line 1409
-    if-eqz p1, :cond_0
-
-    .line 1411
-    add-int/lit8 v0, p2, -0x1
-
-    if-ne p1, v0, :cond_0
-
-    goto :goto_0
-
-    .line 1425
-    :cond_3
-    if-eqz p3, :cond_4
-
-    if-nez p4, :cond_4
 
     .line 1426
     add-int/lit8 v0, p2, -0x1
 
     if-ne p1, v0, :cond_0
 
-    goto :goto_0
+    .line 1483
+    :cond_0
+    :goto_0
+    return-void
 
     .line 1431
-    :cond_4
-    if-nez p3, :cond_5
+    :cond_1
+    if-nez p3, :cond_2
 
-    if-eqz p4, :cond_5
+    if-eqz p4, :cond_2
 
     .line 1432
     if-nez p1, :cond_0
@@ -1688,7 +1790,7 @@
     goto :goto_0
 
     .line 1437
-    :cond_5
+    :cond_2
     if-nez p3, :cond_0
 
     if-nez p4, :cond_0
@@ -1700,6 +1802,49 @@
     if-eqz p1, :cond_0
 
     .line 1441
+    add-int/lit8 v0, p2, -0x1
+
+    if-ne p1, v0, :cond_0
+
+    goto :goto_0
+
+    .line 1455
+    :cond_3
+    if-eqz p3, :cond_4
+
+    if-nez p4, :cond_4
+
+    .line 1456
+    add-int/lit8 v0, p2, -0x1
+
+    if-ne p1, v0, :cond_0
+
+    goto :goto_0
+
+    .line 1461
+    :cond_4
+    if-nez p3, :cond_5
+
+    if-eqz p4, :cond_5
+
+    .line 1462
+    if-nez p1, :cond_0
+
+    goto :goto_0
+
+    .line 1467
+    :cond_5
+    if-nez p3, :cond_0
+
+    if-nez p4, :cond_0
+
+    .line 1468
+    if-le p2, v1, :cond_0
+
+    .line 1469
+    if-eqz p1, :cond_0
+
+    .line 1471
     add-int/lit8 v0, p2, -0x1
 
     if-ne p1, v0, :cond_0
@@ -1722,26 +1867,26 @@
 
     const/16 v9, 0x8
 
-    .line 755
+    .line 757
     const/4 v2, 0x1
 
-    .line 756
+    .line 758
     .local v2, "BIT_BUTTON_POSITIVE":I
     const/4 v0, 0x2
 
-    .line 757
+    .line 759
     .local v0, "BIT_BUTTON_NEGATIVE":I
     const/4 v1, 0x4
 
-    .line 758
+    .line 760
     .local v1, "BIT_BUTTON_NEUTRAL":I
     const/4 v5, 0x0
 
-    .line 759
+    .line 761
     .local v5, "whichButtons":I
     const/4 v3, 0x0
 
-    .line 760
+    .line 762
     .local v3, "buttonCount":I
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
@@ -1755,22 +1900,22 @@
 
     iput-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
-    .line 761
+    .line 763
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
     if-eqz v6, :cond_a
 
-    .line 762
+    .line 764
     if-nez p1, :cond_0
 
-    .line 763
+    .line 765
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v6, v8}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 766
+    .line 768
     :cond_0
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
@@ -1780,7 +1925,7 @@
 
     if-eq v6, v9, :cond_1
 
-    .line 767
+    .line 769
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositiveText:Ljava/lang/CharSequence;
 
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -1801,19 +1946,19 @@
 
     if-eqz v6, :cond_8
 
-    .line 769
+    .line 771
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
     invoke-virtual {v6, v9}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 771
+    .line 773
     const-string v6, "QromAlertController"
 
     const-string v8, "setupButtons|mButtonPositive gone"
 
     invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 788
+    .line 790
     :cond_1
     :goto_0
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
@@ -1828,22 +1973,22 @@
 
     iput-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
-    .line 789
+    .line 791
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
     if-eqz v6, :cond_d
 
-    .line 790
+    .line 792
     if-nez p1, :cond_2
 
-    .line 791
+    .line 793
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v6, v8}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 794
+    .line 796
     :cond_2
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
@@ -1853,7 +1998,7 @@
 
     if-eq v6, v9, :cond_3
 
-    .line 795
+    .line 797
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegativeText:Ljava/lang/CharSequence;
 
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -1874,19 +2019,19 @@
 
     if-eqz v6, :cond_b
 
-    .line 797
+    .line 799
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
     invoke-virtual {v6, v9}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 799
+    .line 801
     const-string v6, "QromAlertController"
 
     const-string v8, "setupButtons|mButtonNegative gone"
 
     invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 816
+    .line 818
     :cond_3
     :goto_1
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
@@ -1901,22 +2046,22 @@
 
     iput-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
-    .line 817
+    .line 819
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
     if-eqz v6, :cond_f
 
-    .line 818
+    .line 820
     if-nez p1, :cond_4
 
-    .line 819
+    .line 821
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v6, v8}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 822
+    .line 824
     :cond_4
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
@@ -1926,7 +2071,7 @@
 
     if-eq v6, v9, :cond_5
 
-    .line 823
+    .line 825
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutralText:Ljava/lang/CharSequence;
 
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -1947,19 +2092,19 @@
 
     if-eqz v6, :cond_e
 
-    .line 825
+    .line 827
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
     invoke-virtual {v6, v9}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 827
+    .line 829
     const-string v6, "QromAlertController"
 
     const-string v8, "setupButtons|mButtonNeutral gone"
 
     invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 842
+    .line 844
     :cond_5
     :goto_2
     const-string v6, "QromAlertController"
@@ -1984,7 +2129,7 @@
 
     invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 844
+    .line 846
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
     invoke-static {v6}, Lcom/tencent/qrom/app/QromAlertController;->shouldCenterSingleButton(Landroid/content/Context;)Z
@@ -1993,20 +2138,20 @@
 
     if-eqz v6, :cond_6
 
-    .line 849
+    .line 851
     if-ne v5, v2, :cond_10
 
-    .line 850
+    .line 852
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
     invoke-direct {p0, v6}, Lcom/tencent/qrom/app/QromAlertController;->centerButton(Landroid/widget/Button;)V
 
-    .line 857
+    .line 859
     :cond_6
     :goto_3
     packed-switch v3, :pswitch_data_0
 
-    .line 935
+    .line 937
     :cond_7
     :goto_4
     if-eqz v5, :cond_21
@@ -2016,7 +2161,7 @@
     :goto_5
     return v6
 
-    .line 773
+    .line 775
     :cond_8
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
@@ -2030,28 +2175,28 @@
 
     if-eqz v6, :cond_9
 
-    .line 774
+    .line 776
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositiveText:Ljava/lang/CharSequence;
 
     invoke-virtual {v6, v8}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 776
+    .line 778
     :cond_9
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
     invoke-virtual {v6, v7}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 777
+    .line 779
     or-int/2addr v5, v2
 
-    .line 778
+    .line 780
     add-int/lit8 v3, v3, 0x1
 
     goto/16 :goto_0
 
-    .line 785
+    .line 787
     :cond_a
     const-string v6, "QromAlertController"
 
@@ -2061,7 +2206,7 @@
 
     goto/16 :goto_0
 
-    .line 801
+    .line 803
     :cond_b
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
@@ -2075,28 +2220,28 @@
 
     if-eqz v6, :cond_c
 
-    .line 802
+    .line 804
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegativeText:Ljava/lang/CharSequence;
 
     invoke-virtual {v6, v8}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 804
+    .line 806
     :cond_c
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
     invoke-virtual {v6, v7}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 806
+    .line 808
     or-int/2addr v5, v0
 
-    .line 807
+    .line 809
     add-int/lit8 v3, v3, 0x1
 
     goto/16 :goto_1
 
-    .line 813
+    .line 815
     :cond_d
     const-string v6, "QromAlertController"
 
@@ -2106,7 +2251,7 @@
 
     goto/16 :goto_1
 
-    .line 829
+    .line 831
     :cond_e
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
@@ -2114,20 +2259,20 @@
 
     invoke-virtual {v6, v8}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 830
+    .line 832
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
     invoke-virtual {v6, v7}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 832
+    .line 834
     or-int/2addr v5, v1
 
-    .line 833
+    .line 835
     add-int/lit8 v3, v3, 0x1
 
     goto/16 :goto_2
 
-    .line 839
+    .line 841
     :cond_f
     const-string v6, "QromAlertController"
 
@@ -2137,45 +2282,45 @@
 
     goto/16 :goto_2
 
-    .line 851
+    .line 853
     :cond_10
     if-ne v5, v0, :cond_11
 
-    .line 852
+    .line 854
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
     invoke-direct {p0, v6}, Lcom/tencent/qrom/app/QromAlertController;->centerButton(Landroid/widget/Button;)V
 
     goto :goto_3
 
-    .line 853
+    .line 855
     :cond_11
     if-ne v5, v1, :cond_6
 
-    .line 854
+    .line 856
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
     invoke-direct {p0, v6}, Lcom/tencent/qrom/app/QromAlertController;->centerButton(Landroid/widget/Button;)V
 
     goto :goto_3
 
-    .line 859
+    .line 861
     :pswitch_0
     const/4 v4, 0x0
 
-    .line 860
+    .line 862
     .local v4, "onlyBtn":Landroid/widget/Button;
     if-ne v5, v2, :cond_13
 
-    .line 861
+    .line 863
     iget-object v4, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
-    .line 867
+    .line 869
     :cond_12
     :goto_6
     if-eqz v4, :cond_7
 
-    .line 870
+    .line 872
     sget-boolean v6, Lcom/tencent/qrom/app/QromAlertController;->sIsBlackTheme:Z
 
     if-eqz v6, :cond_15
@@ -2193,25 +2338,25 @@
 
     goto/16 :goto_4
 
-    .line 862
+    .line 864
     :cond_13
     if-ne v5, v0, :cond_14
 
-    .line 863
+    .line 865
     iget-object v4, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
     goto :goto_6
 
-    .line 864
+    .line 866
     :cond_14
     if-ne v5, v1, :cond_12
 
-    .line 865
+    .line 867
     iget-object v4, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
     goto :goto_6
 
-    .line 870
+    .line 872
     :cond_15
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -2223,7 +2368,7 @@
 
     goto :goto_7
 
-    .line 875
+    .line 877
     .end local v4    # "onlyBtn":Landroid/widget/Button;
     :pswitch_1
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositiveText:Ljava/lang/CharSequence;
@@ -2234,7 +2379,7 @@
 
     if-eqz v6, :cond_18
 
-    .line 883
+    .line 885
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
     sget-boolean v6, Lcom/tencent/qrom/app/QromAlertController;->sIsBlackTheme:Z
@@ -2252,7 +2397,7 @@
     :goto_8
     invoke-virtual {v8, v6}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 885
+    .line 887
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
     sget-boolean v6, Lcom/tencent/qrom/app/QromAlertController;->sIsBlackTheme:Z
@@ -2270,7 +2415,7 @@
 
     goto/16 :goto_4
 
-    .line 883
+    .line 885
     :cond_16
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -2280,7 +2425,7 @@
 
     goto :goto_8
 
-    .line 885
+    .line 887
     :cond_17
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -2290,7 +2435,7 @@
 
     goto :goto_9
 
-    .line 887
+    .line 889
     :cond_18
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutralText:Ljava/lang/CharSequence;
 
@@ -2300,7 +2445,7 @@
 
     if-eqz v6, :cond_1b
 
-    .line 895
+    .line 897
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
     sget-boolean v6, Lcom/tencent/qrom/app/QromAlertController;->sIsBlackTheme:Z
@@ -2318,7 +2463,7 @@
     :goto_a
     invoke-virtual {v8, v6}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 897
+    .line 899
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
     sget-boolean v6, Lcom/tencent/qrom/app/QromAlertController;->sIsBlackTheme:Z
@@ -2336,7 +2481,7 @@
 
     goto/16 :goto_4
 
-    .line 895
+    .line 897
     :cond_19
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -2346,7 +2491,7 @@
 
     goto :goto_a
 
-    .line 897
+    .line 899
     :cond_1a
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -2356,7 +2501,7 @@
 
     goto :goto_b
 
-    .line 899
+    .line 901
     :cond_1b
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegativeText:Ljava/lang/CharSequence;
 
@@ -2366,7 +2511,7 @@
 
     if-eqz v6, :cond_7
 
-    .line 907
+    .line 909
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
     sget-boolean v6, Lcom/tencent/qrom/app/QromAlertController;->sIsBlackTheme:Z
@@ -2384,7 +2529,7 @@
     :goto_c
     invoke-virtual {v8, v6}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 909
+    .line 911
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
     sget-boolean v6, Lcom/tencent/qrom/app/QromAlertController;->sIsBlackTheme:Z
@@ -2402,7 +2547,7 @@
 
     goto/16 :goto_4
 
-    .line 907
+    .line 909
     :cond_1c
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -2412,7 +2557,7 @@
 
     goto :goto_c
 
-    .line 909
+    .line 911
     :cond_1d
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -2422,7 +2567,7 @@
 
     goto :goto_d
 
-    .line 924
+    .line 926
     :pswitch_2
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonPositive:Landroid/widget/Button;
 
@@ -2441,7 +2586,7 @@
     :goto_e
     invoke-virtual {v8, v6}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 926
+    .line 928
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNeutral:Landroid/widget/Button;
 
     sget-boolean v6, Lcom/tencent/qrom/app/QromAlertController;->sIsBlackTheme:Z
@@ -2459,7 +2604,7 @@
     :goto_f
     invoke-virtual {v8, v6}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 928
+    .line 930
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mButtonNegative:Landroid/widget/Button;
 
     sget-boolean v6, Lcom/tencent/qrom/app/QromAlertController;->sIsBlackTheme:Z
@@ -2477,7 +2622,7 @@
 
     goto/16 :goto_4
 
-    .line 924
+    .line 926
     :cond_1e
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -2487,7 +2632,7 @@
 
     goto :goto_e
 
-    .line 926
+    .line 928
     :cond_1f
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -2499,7 +2644,7 @@
 
     goto :goto_f
 
-    .line 928
+    .line 930
     :cond_20
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -2512,10 +2657,10 @@
     :cond_21
     move v6, v7
 
-    .line 935
+    .line 937
     goto/16 :goto_5
 
-    .line 857
+    .line 859
     nop
 
     :pswitch_data_0
@@ -2541,7 +2686,7 @@
 
     const/4 v10, 0x0
 
-    .line 675
+    .line 677
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
     const v8, 0x7a090065
@@ -2554,23 +2699,23 @@
 
     iput-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mScrollView:Landroid/widget/ScrollView;
 
-    .line 676
+    .line 678
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mScrollView:Landroid/widget/ScrollView;
 
     if-nez v7, :cond_1
 
-    .line 737
+    .line 739
     :cond_0
     :goto_0
     return-void
 
-    .line 679
+    .line 681
     :cond_1
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mScrollView:Landroid/widget/ScrollView;
 
     invoke-virtual {v7, v10}, Landroid/widget/ScrollView;->setFocusable(Z)V
 
-    .line 682
+    .line 684
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
     const v8, 0x102000b
@@ -2583,7 +2728,7 @@
 
     iput-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mMessageView:Landroid/widget/TextView;
 
-    .line 685
+    .line 687
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
     const v8, 0x7a0900fc
@@ -2594,53 +2739,53 @@
 
     iput-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mMsgSpacer:Landroid/view/View;
 
-    .line 687
+    .line 689
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mMessageView:Landroid/widget/TextView;
 
     if-eqz v7, :cond_0
 
-    .line 691
+    .line 693
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mMessage:Ljava/lang/CharSequence;
 
     if-eqz v7, :cond_3
 
-    .line 692
+    .line 694
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mMessageView:Landroid/widget/TextView;
 
     iget-object v8, p0, Lcom/tencent/qrom/app/QromAlertController;->mMessage:Ljava/lang/CharSequence;
 
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 693
+    .line 695
     new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v3, v12, v12}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 695
+    .line 697
     .local v3, "lp":Landroid/widget/LinearLayout$LayoutParams;
     const/16 v7, 0x11
 
     iput v7, v3, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 696
+    .line 698
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mMessageView:Landroid/widget/TextView;
 
     invoke-virtual {v7}, Landroid/widget/TextView;->getLineCount()I
 
     move-result v1
 
-    .line 697
+    .line 699
     .local v1, "lineCount":I
     const/4 v7, 0x1
 
     if-le v1, v7, :cond_2
 
-    .line 698
+    .line 700
     const/4 v7, 0x3
 
     iput v7, v3, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 700
+    .line 702
     :cond_2
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mMessageView:Landroid/widget/TextView;
 
@@ -2648,7 +2793,7 @@
 
     goto :goto_0
 
-    .line 702
+    .line 704
     .end local v1    # "lineCount":I
     .end local v3    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     :cond_3
@@ -2656,7 +2801,7 @@
 
     invoke-virtual {v7, v11}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 703
+    .line 705
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
     const v8, 0x7a09010f
@@ -2665,25 +2810,25 @@
 
     move-result-object v4
 
-    .line 704
+    .line 706
     .local v4, "massageLayout":Landroid/view/View;
     if-eqz v4, :cond_4
 
-    .line 705
+    .line 707
     invoke-virtual {v4, v11}, Landroid/view/View;->setVisibility(I)V
 
-    .line 706
+    .line 708
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mScrollView:Landroid/widget/ScrollView;
 
     invoke-virtual {v7, v4}, Landroid/widget/ScrollView;->removeView(Landroid/view/View;)V
 
-    .line 711
+    .line 713
     :goto_1
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mListView:Landroid/widget/ListView;
 
     if-eqz v7, :cond_7
 
-    .line 712
+    .line 714
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
     const v8, 0x7a090065
@@ -2694,7 +2839,7 @@
 
     invoke-virtual {p1, v7}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
 
-    .line 714
+    .line 716
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mListView:Landroid/widget/ListView;
 
     new-instance v8, Landroid/widget/LinearLayout$LayoutParams;
@@ -2703,34 +2848,34 @@
 
     invoke-virtual {p1, v7, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 716
+    .line 718
     new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
 
     const/high16 v7, 0x3f800000    # 1.0f
 
     invoke-direct {v3, v9, v10, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    .line 717
+    .line 719
     .restart local v3    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mAdapter:Landroid/widget/ListAdapter;
 
     if-eqz v7, :cond_6
 
-    .line 718
+    .line 720
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mAdapter:Landroid/widget/ListAdapter;
 
     invoke-interface {v7}, Landroid/widget/ListAdapter;->getCount()I
 
     move-result v5
 
-    .line 719
+    .line 721
     .local v5, "num":I
     if-le v5, v13, :cond_0
 
-    .line 720
+    .line 722
     const/4 v6, 0x0
 
-    .line 721
+    .line 723
     .local v6, "totalHeight":I
     const/4 v0, 0x0
 
@@ -2738,7 +2883,7 @@
     :goto_2
     if-ge v0, v13, :cond_5
 
-    .line 722
+    .line 724
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mAdapter:Landroid/widget/ListAdapter;
 
     const/4 v8, 0x0
@@ -2749,23 +2894,23 @@
 
     move-result-object v2
 
-    .line 723
+    .line 725
     .local v2, "listItem":Landroid/view/View;
     invoke-virtual {v2, v10, v10}, Landroid/view/View;->measure(II)V
 
-    .line 724
+    .line 726
     invoke-virtual {v2}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v7
 
     add-int/2addr v6, v7
 
-    .line 721
+    .line 723
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 
-    .line 708
+    .line 710
     .end local v0    # "i":I
     .end local v2    # "listItem":Landroid/view/View;
     .end local v3    # "lp":Landroid/widget/LinearLayout$LayoutParams;
@@ -2780,7 +2925,7 @@
 
     goto :goto_1
 
-    .line 726
+    .line 728
     .restart local v0    # "i":I
     .restart local v3    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     .restart local v5    # "num":I
@@ -2798,12 +2943,12 @@
 
     iput v7, v3, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
-    .line 727
+    .line 729
     invoke-virtual {p1, v3}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     goto/16 :goto_0
 
-    .line 730
+    .line 732
     .end local v0    # "i":I
     .end local v5    # "num":I
     .end local v6    # "totalHeight":I
@@ -2812,7 +2957,7 @@
 
     goto/16 :goto_0
 
-    .line 734
+    .line 736
     .end local v3    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     :cond_7
     invoke-virtual {p1, v11}, Landroid/widget/LinearLayout;->setVisibility(I)V
@@ -2835,10 +2980,10 @@
 
     const/16 v8, 0x8
 
-    .line 595
+    .line 597
     const/4 v1, 0x1
 
-    .line 598
+    .line 600
     .local v1, "hasTitle":Z
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
@@ -2848,31 +2993,31 @@
 
     move-result-object v4
 
-    .line 601
+    .line 603
     .local v4, "titleTemplate":Landroid/view/View;
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mCustomTitleView:Landroid/view/View;
 
     if-eqz v5, :cond_0
 
-    .line 603
+    .line 605
     new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v3, v10, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 606
+    .line 608
     .local v3, "lp":Landroid/widget/LinearLayout$LayoutParams;
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mCustomTitleView:Landroid/view/View;
 
     invoke-virtual {p1, v5, v0, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
-    .line 608
+    .line 610
     invoke-virtual {v4, v8}, Landroid/view/View;->setVisibility(I)V
 
-    .line 671
+    .line 673
     :goto_0
     return v1
 
-    .line 610
+    .line 612
     .end local v3    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     :cond_0
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mTitle:Ljava/lang/CharSequence;
@@ -2885,7 +3030,7 @@
 
     move v0, v6
 
-    .line 612
+    .line 614
     .local v0, "hasTextTitle":Z
     :cond_1
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
@@ -2900,7 +3045,7 @@
 
     iput-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mIconView:Landroid/widget/ImageView;
 
-    .line 615
+    .line 617
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
     const v7, 0x7a090062
@@ -2913,49 +3058,49 @@
 
     iput-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mTitleView:Landroid/widget/TextView;
 
-    .line 618
+    .line 620
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mIconView:Landroid/widget/ImageView;
 
     invoke-virtual {v5, v8}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 619
+    .line 621
     if-eqz v0, :cond_3
 
-    .line 621
+    .line 623
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mTitleView:Landroid/widget/TextView;
 
     iget-object v7, p0, Lcom/tencent/qrom/app/QromAlertController;->mTitle:Ljava/lang/CharSequence;
 
     invoke-virtual {v5, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 622
+    .line 624
     new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v3, v9, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 624
+    .line 626
     .restart local v3    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     const/16 v5, 0x11
 
     iput v5, v3, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 625
+    .line 627
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mTitleView:Landroid/widget/TextView;
 
     invoke-virtual {v5}, Landroid/widget/TextView;->getLineCount()I
 
     move-result v2
 
-    .line 626
+    .line 628
     .local v2, "lineCount":I
     if-le v2, v6, :cond_2
 
-    .line 627
+    .line 629
     const/4 v5, 0x3
 
     iput v5, v3, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 629
+    .line 631
     :cond_2
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mTitleView:Landroid/widget/TextView;
 
@@ -2963,7 +3108,7 @@
 
     goto :goto_0
 
-    .line 651
+    .line 653
     .end local v2    # "lineCount":I
     .end local v3    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     :cond_3
@@ -2971,28 +3116,28 @@
 
     invoke-virtual {v5, v8}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 652
+    .line 654
     new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v3, v10, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 654
+    .line 656
     .restart local v3    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     const/16 v5, 0x11
 
     iput v5, v3, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 656
+    .line 658
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mIconView:Landroid/widget/ImageView;
 
     invoke-virtual {v5, v3}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 657
+    .line 659
     iget v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mIconId:I
 
     if-lez v5, :cond_4
 
-    .line 658
+    .line 660
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mIconView:Landroid/widget/ImageView;
 
     iget v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mIconId:I
@@ -3001,13 +3146,13 @@
 
     goto :goto_0
 
-    .line 659
+    .line 661
     :cond_4
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mIcon:Landroid/graphics/drawable/Drawable;
 
     if-eqz v5, :cond_5
 
-    .line 660
+    .line 662
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mIconView:Landroid/widget/ImageView;
 
     iget-object v6, p0, Lcom/tencent/qrom/app/QromAlertController;->mIcon:Landroid/graphics/drawable/Drawable;
@@ -3016,11 +3161,11 @@
 
     goto :goto_0
 
-    .line 663
+    .line 665
     :cond_5
     invoke-virtual {v4, v8}, Landroid/view/View;->setVisibility(I)V
 
-    .line 664
+    .line 666
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
     const v6, 0x7a09010a
@@ -3031,22 +3176,22 @@
 
     invoke-virtual {v5, v8}, Landroid/view/View;->setVisibility(I)V
 
-    .line 665
+    .line 667
     iget-object v5, p0, Lcom/tencent/qrom/app/QromAlertController;->mIconView:Landroid/widget/ImageView;
 
     invoke-virtual {v5, v8}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 666
+    .line 668
     invoke-virtual {p1, v8}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 667
+    .line 669
     const/4 v1, 0x0
 
     goto/16 :goto_0
 .end method
 
 .method private setupView()V
-    .locals 29
+    .locals 30
 
     .prologue
     .line 463
@@ -3054,9 +3199,9 @@
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
-    const v25, 0x7a090064
+    const v26, 0x7a090064
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
@@ -3068,7 +3213,7 @@
     .local v6, "contentPanel":Landroid/widget/LinearLayout;
     if-nez v6, :cond_0
 
-    .line 592
+    .line 594
     :goto_0
     return-void
 
@@ -3093,9 +3238,9 @@
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
-    const v25, 0x7a09005e
+    const v26, 0x7a09005e
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
@@ -3107,35 +3252,35 @@
     .local v5, "topPanel":Landroid/widget/LinearLayout;
     const-string v4, "QromAlertController"
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v26, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v26, "setupView|mContext="
+    const-string v27, "setupView|mContext="
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v26
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v27
+
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v26
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v26
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v25
-
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-static {v4, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3144,21 +3289,21 @@
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
-    sget-object v26, Lcom/android/internal/R$styleable;->AlertDialog:[I
+    sget-object v27, Lcom/android/internal/R$styleable;->AlertDialog:[I
 
-    const v27, 0x101005d
+    const v28, 0x101005d
 
-    const/16 v28, 0x0
+    const/16 v29, 0x0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v27
 
-    move/from16 v2, v27
+    move/from16 v2, v28
 
-    move/from16 v3, v28
+    move/from16 v3, v29
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
@@ -3178,39 +3323,52 @@
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
-    const v25, 0x7a090068
+    const v26, 0x7a090068
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v11
 
-    .line 478
+    .line 477
     .local v11, "buttonPanel":Landroid/view/View;
+    invoke-virtual {v11}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v25
+
+    .line 478
+    .local v25, "vto":Landroid/view/ViewTreeObserver;
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+
+    .line 480
     if-nez v8, :cond_2
 
-    .line 479
+    .line 481
     const/16 v4, 0x8
 
     invoke-virtual {v11, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 480
+    .line 482
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
-    const/16 v25, 0x1
+    const/16 v26, 0x1
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/Window;->setCloseOnTouchOutside(Z)V
 
-    .line 486
+    .line 488
     :goto_1
     const/4 v7, 0x0
 
-    .line 487
+    .line 489
     .local v7, "customPanel":Landroid/widget/LinearLayout;
     move-object/from16 v0, p0
 
@@ -3218,7 +3376,7 @@
 
     if-eqz v4, :cond_c
 
-    .line 489
+    .line 491
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mView:Landroid/view/View;
@@ -3227,14 +3385,14 @@
 
     invoke-direct {v0, v4}, Lcom/tencent/qrom/app/QromAlertController;->qromSetTextViewColor(Landroid/view/View;)V
 
-    .line 491
+    .line 493
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
-    const v25, 0x7a090067
+    const v26, 0x7a090067
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
@@ -3243,15 +3401,15 @@
     .end local v7    # "customPanel":Landroid/widget/LinearLayout;
     check-cast v7, Landroid/widget/LinearLayout;
 
-    .line 494
+    .line 496
     .restart local v7    # "customPanel":Landroid/widget/LinearLayout;
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
-    const v25, 0x7a090094
+    const v26, 0x7a090094
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
@@ -3259,32 +3417,32 @@
 
     check-cast v13, Landroid/widget/FrameLayout;
 
-    .line 497
+    .line 499
     .local v13, "custom":Landroid/widget/FrameLayout;
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mView:Landroid/view/View;
 
-    new-instance v25, Landroid/view/ViewGroup$LayoutParams;
-
-    const/16 v26, -0x1
+    new-instance v26, Landroid/view/ViewGroup$LayoutParams;
 
     const/16 v27, -0x1
 
-    invoke-direct/range {v25 .. v27}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
+    const/16 v28, -0x1
 
-    move-object/from16 v0, v25
+    invoke-direct/range {v26 .. v28}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
+
+    move-object/from16 v0, v26
 
     invoke-virtual {v13, v4, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 498
+    .line 500
     move-object/from16 v0, p0
 
     iget-boolean v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mViewSpacingSpecified:Z
 
     if-eqz v4, :cond_1
 
-    .line 499
+    .line 501
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mViewSpacingLeft:I
@@ -3293,29 +3451,29 @@
 
     iget v0, v0, Lcom/tencent/qrom/app/QromAlertController;->mViewSpacingTop:I
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/tencent/qrom/app/QromAlertController;->mViewSpacingRight:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/tencent/qrom/app/QromAlertController;->mViewSpacingBottom:I
 
-    move/from16 v27, v0
+    move/from16 v28, v0
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
-    move/from16 v1, v26
+    move/from16 v1, v27
 
-    move/from16 v2, v27
+    move/from16 v2, v28
 
     invoke-virtual {v13, v4, v0, v1, v2}, Landroid/widget/FrameLayout;->setPadding(IIII)V
 
-    .line 502
+    .line 504
     :cond_1
     move-object/from16 v0, p0
 
@@ -3325,12 +3483,12 @@
 
     if-eqz v4, :cond_b
 
-    .line 503
+    .line 505
     invoke-virtual {v13}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v20
 
-    .line 504
+    .line 506
     .local v20, "lp":Landroid/view/ViewGroup$LayoutParams;
     move-object/from16 v0, p0
 
@@ -3342,16 +3500,16 @@
 
     move-result-object v12
 
-    .line 505
+    .line 507
     .local v12, "adapter":Landroid/widget/ListAdapter;
     if-eqz v12, :cond_4
 
-    .line 506
+    .line 508
     invoke-interface {v12}, Landroid/widget/ListAdapter;->getCount()I
 
     move-result v22
 
-    .line 507
+    .line 509
     .local v22, "num":I
     const/4 v4, 0x6
 
@@ -3359,10 +3517,10 @@
 
     if-le v0, v4, :cond_4
 
-    .line 508
+    .line 510
     const/16 v24, 0x0
 
-    .line 509
+    .line 511
     .local v24, "totalHeight":I
     const/16 v18, 0x0
 
@@ -3374,8 +3532,8 @@
 
     if-ge v0, v4, :cond_3
 
-    .line 510
-    const/16 v25, 0x0
+    .line 512
+    const/16 v26, 0x0
 
     move-object/from16 v0, p0
 
@@ -3385,37 +3543,37 @@
 
     move/from16 v0, v18
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-interface {v12, v0, v1, v4}, Landroid/widget/ListAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v19
 
-    .line 511
+    .line 513
     .local v19, "listItem":Landroid/view/View;
     const/4 v4, 0x0
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     move-object/from16 v0, v19
 
-    move/from16 v1, v25
+    move/from16 v1, v26
 
     invoke-virtual {v0, v4, v1}, Landroid/view/View;->measure(II)V
 
-    .line 512
+    .line 514
     invoke-virtual/range {v19 .. v19}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v4
 
     add-int v24, v24, v4
 
-    .line 509
+    .line 511
     add-int/lit8 v18, v18, 0x1
 
     goto :goto_2
 
-    .line 482
+    .line 484
     .end local v7    # "customPanel":Landroid/widget/LinearLayout;
     .end local v12    # "adapter":Landroid/widget/ListAdapter;
     .end local v13    # "custom":Landroid/widget/FrameLayout;
@@ -3429,20 +3587,20 @@
 
     invoke-virtual {v11, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 483
+    .line 485
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/Window;->setCloseOnTouchOutside(Z)V
 
     goto/16 :goto_1
 
-    .line 514
+    .line 516
     .restart local v7    # "customPanel":Landroid/widget/LinearLayout;
     .restart local v12    # "adapter":Landroid/widget/ListAdapter;
     .restart local v13    # "custom":Landroid/widget/FrameLayout;
@@ -3469,12 +3627,12 @@
 
     iput v4, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 515
+    .line 517
     move-object/from16 v0, v20
 
     invoke-virtual {v13, v0}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 531
+    .line 533
     .end local v12    # "adapter":Landroid/widget/ListAdapter;
     .end local v18    # "i":I
     .end local v20    # "lp":Landroid/view/ViewGroup$LayoutParams;
@@ -3488,29 +3646,29 @@
 
     if-eqz v4, :cond_5
 
-    .line 532
+    .line 534
     invoke-virtual {v7}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v4
 
     check-cast v4, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     iput v0, v4, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    .line 543
+    .line 545
     .end local v13    # "custom":Landroid/widget/FrameLayout;
     :cond_5
     :goto_4
     if-eqz v10, :cond_10
 
-    .line 544
+    .line 546
     const/4 v14, 0x0
 
-    .line 545
+    .line 547
     .local v14, "divider":Landroid/view/View;
     move-object/from16 v0, p0
 
@@ -3530,25 +3688,25 @@
 
     if-eqz v4, :cond_7
 
-    .line 546
+    .line 548
     :cond_6
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
-    const v25, 0x7a090063
+    const v26, 0x7a090063
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v14
 
-    .line 553
+    .line 555
     :cond_7
     if-eqz v14, :cond_8
 
-    .line 555
+    .line 557
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mTitle:Ljava/lang/CharSequence;
@@ -3561,17 +3719,17 @@
 
     const/16 v16, 0x1
 
-    .line 556
+    .line 558
     .local v16, "hasTextTitle":Z
     :goto_5
     if-eqz v16, :cond_e
 
-    .line 557
+    .line 559
     const/4 v4, 0x0
 
     invoke-virtual {v14, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 564
+    .line 566
     .end local v16    # "hasTextTitle":Z
     :cond_8
     :goto_6
@@ -3581,7 +3739,7 @@
 
     if-nez v4, :cond_f
 
-    .line 566
+    .line 568
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mView:Landroid/view/View;
@@ -3598,24 +3756,24 @@
 
     if-eqz v4, :cond_9
 
-    .line 568
+    .line 570
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
-    const v25, 0x7a09010b
+    const v26, 0x7a09010b
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v23
 
-    .line 571
+    .line 573
     .local v23, "titleSpacer":Landroid/view/View;
     if-eqz v23, :cond_9
 
-    .line 572
+    .line 574
     const/4 v4, 0x0
 
     move-object/from16 v0, v23
@@ -3628,36 +3786,36 @@
     :goto_7
     move-object/from16 v4, p0
 
-    .line 587
+    .line 589
     invoke-direct/range {v4 .. v11}, Lcom/tencent/qrom/app/QromAlertController;->setBackground(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/view/View;ZLandroid/content/res/TypedArray;ZLandroid/view/View;)V
 
-    .line 588
+    .line 590
     if-eqz v8, :cond_a
 
-    .line 589
+    .line 591
     const/4 v4, 0x0
-
-    const/16 v25, 0x0
 
     const/16 v26, 0x0
 
     const/16 v27, 0x0
 
-    move/from16 v0, v25
+    const/16 v28, 0x0
 
-    move/from16 v1, v26
+    move/from16 v0, v26
 
-    move/from16 v2, v27
+    move/from16 v1, v27
+
+    move/from16 v2, v28
 
     invoke-virtual {v11, v4, v0, v1, v2}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 591
+    .line 593
     :cond_a
     invoke-virtual {v9}, Landroid/content/res/TypedArray;->recycle()V
 
     goto/16 :goto_0
 
-    .line 520
+    .line 522
     .restart local v13    # "custom":Landroid/widget/FrameLayout;
     :cond_b
     move-object/from16 v0, p0
@@ -3668,7 +3826,7 @@
 
     move-result v15
 
-    .line 521
+    .line 523
     .local v15, "h":I
     move-object/from16 v0, p0
 
@@ -3678,9 +3836,9 @@
 
     move-result-object v4
 
-    const v25, 0x7a0d0063
+    const v26, 0x7a0d0063
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3690,18 +3848,18 @@
 
     move/from16 v21, v0
 
-    .line 524
+    .line 526
     .local v21, "mMaxHeight":I
     move/from16 v0, v21
 
     if-le v15, v0, :cond_4
 
-    .line 525
+    .line 527
     invoke-virtual {v13}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v20
 
-    .line 526
+    .line 528
     .restart local v20    # "lp":Landroid/view/ViewGroup$LayoutParams;
     move/from16 v0, v21
 
@@ -3709,14 +3867,14 @@
 
     iput v0, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 527
+    .line 529
     move-object/from16 v0, v20
 
     invoke-virtual {v13, v0}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     goto/16 :goto_3
 
-    .line 535
+    .line 537
     .end local v13    # "custom":Landroid/widget/FrameLayout;
     .end local v15    # "h":I
     .end local v20    # "lp":Landroid/view/ViewGroup$LayoutParams;
@@ -3726,30 +3884,30 @@
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mWindow:Landroid/view/Window;
 
-    const v25, 0x7a090067
+    const v26, 0x7a090067
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
-    const/16 v25, 0x8
+    const/16 v26, 0x8
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_4
 
-    .line 555
+    .line 557
     .restart local v14    # "divider":Landroid/view/View;
     :cond_d
     const/16 v16, 0x0
 
     goto/16 :goto_5
 
-    .line 559
+    .line 561
     .restart local v16    # "hasTextTitle":Z
     :cond_e
     const/16 v4, 0x8
@@ -3758,7 +3916,7 @@
 
     goto/16 :goto_6
 
-    .line 576
+    .line 578
     .end local v16    # "hasTextTitle":Z
     :cond_f
     invoke-virtual {v14}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -3769,7 +3927,7 @@
 
     move-result v17
 
-    .line 577
+    .line 579
     .local v17, "height":I
     move/from16 v0, v17
 
@@ -3777,7 +3935,7 @@
 
     goto :goto_7
 
-    .line 582
+    .line 584
     .end local v14    # "divider":Landroid/view/View;
     .end local v17    # "height":I
     :cond_10
@@ -3787,14 +3945,14 @@
 
     if-nez v4, :cond_9
 
-    .line 583
+    .line 585
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/tencent/qrom/app/QromAlertController;->mMsgSpacer:Landroid/view/View;
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
     invoke-virtual {v4, v0}, Landroid/view/View;->setVisibility(I)V
 
@@ -3937,6 +4095,24 @@
     invoke-direct {p0}, Lcom/tencent/qrom/app/QromAlertController;->setupView()V
 
     .line 300
+    return-void
+.end method
+
+.method public onGlobalLayout()V
+    .locals 2
+
+    .prologue
+    .line 1516
+    const-string v0, "AlertController"
+
+    const-string v1, "onGlobalLayout"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1517
+    invoke-direct {p0}, Lcom/tencent/qrom/app/QromAlertController;->responseGlobalLayout()V
+
+    .line 1518
     return-void
 .end method
 
@@ -4114,7 +4290,7 @@
     .param p2, "buttonColor"    # Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
     .prologue
-    .line 740
+    .line 742
     sget-object v0, Lcom/tencent/qrom/app/QromAlertController$2;->$SwitchMap$com$tencent$qrom$app$QromAlertController$ButtonColor:[I
 
     invoke-virtual {p2}, Lcom/tencent/qrom/app/QromAlertController$ButtonColor;->ordinal()I
@@ -4125,7 +4301,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 748
+    .line 750
     iget-object v0, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -4140,11 +4316,11 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setTextColor(I)V
 
-    .line 752
+    .line 754
     :goto_0
     return-void
 
-    .line 742
+    .line 744
     :pswitch_0
     iget-object v0, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -4162,7 +4338,7 @@
 
     goto :goto_0
 
-    .line 745
+    .line 747
     :pswitch_1
     iget-object v0, p0, Lcom/tencent/qrom/app/QromAlertController;->mContext:Landroid/content/Context;
 
@@ -4180,7 +4356,7 @@
 
     goto :goto_0
 
-    .line 740
+    .line 742
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

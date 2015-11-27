@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:paddingLeft="@dimen/qrom_listview_item_padding_side_left" android:paddingTop="@dimen/qrom_listview_item_padding_side_top" android:paddingRight="@dimen/qrom_listview_item_padding_side_right" android:paddingBottom="@dimen/qrom_listview_item_padding_side_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="16.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/icon" android:visibility="gone" android:layout_width="@dimen/qrom_listview_icon_size" android:layout_height="@dimen/qrom_listview_icon_size" android:layout_marginRight="@dimen/qrom_listview_icon_margin_right_small" android:scaleType="fitCenter" />
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:ellipsize="marquee" android:id="@id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@com.tencent.qrom:style/TextAppearance.qrom.Second.qromTextMediumLightBody" />
+        <LinearLayout android:gravity="center_vertical" android:paddingTop="@dimen/qrom_listview_subtitle_padding_top" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/title" android:layout_alignLeft="@id/title">
+            <ProgressBar android:id="@id/progressBar" android:visibility="gone" android:layout_width="@dimen/child_indicate_marginLeft" android:layout_height="@dimen/child_indicate_marginLeft" android:layout_marginRight="@dimen/qrom_listview_subtitle_padding_top" style="?android:attr/progressBarStyleSmall" />
+            <TextView android:id="@id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="4" style="@com.tencent.qrom:style/TextAppearance.qrom.Second.qromtextSmallLightSummary" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout android:layout_gravity="center|right" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:layout_gravity="center_vertical" android:id="@id/caption" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@com.tencent.qrom:style/TextAppearance.qrom.Second.qromtextSmallLightSummary" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/rightIcon" android:visibility="gone" android:layout_width="@dimen/preference_icon_size" android:layout_height="@dimen/preference_icon_size" android:scaleType="center" />
+    </LinearLayout>
+</LinearLayout>

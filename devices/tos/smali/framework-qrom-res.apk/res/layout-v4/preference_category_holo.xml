@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:id="@id/title" android:paddingLeft="@dimen/qrom_listview_item_padding_side_left" android:paddingRight="@dimen/qrom_listview_item_padding_side_right" style="?android:attr/listSeparatorTextViewStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 1355
+    .line 1385
     iput-object p1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$5;->this$0:Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;
 
     iput-object p2, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$5;->val$dialog:Lcom/tencent/qrom/app/QromAlertController;
@@ -48,7 +48,7 @@
     .param p4, "id"    # J
 
     .prologue
-    .line 1357
+    .line 1387
     iget-object v0, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$5;->this$0:Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;
 
     iget-object v0, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
@@ -62,14 +62,14 @@
 
     invoke-interface {v0, v1, p3}, Landroid/content/DialogInterface$OnClickListener;->onClick(Landroid/content/DialogInterface;I)V
 
-    .line 1358
+    .line 1388
     iget-object v0, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$5;->this$0:Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;
 
     iget-boolean v0, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mIsSingleChoice:Z
 
     if-nez v0, :cond_0
 
-    .line 1359
+    .line 1389
     iget-object v0, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$5;->val$dialog:Lcom/tencent/qrom/app/QromAlertController;
 
     # getter for: Lcom/tencent/qrom/app/QromAlertController;->mDialogInterface:Landroid/content/DialogInterface;
@@ -79,7 +79,7 @@
 
     invoke-interface {v0}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 1361
+    .line 1391
     :cond_0
     return-void
 .end method

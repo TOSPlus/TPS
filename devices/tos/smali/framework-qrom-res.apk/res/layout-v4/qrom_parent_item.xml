@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/parent_total_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/parent_marginLeft" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+        <TextView android:textSize="@dimen/qrom_Medium_TextSize" android:textColor="@color/qrom_light_title" android:layout_gravity="center_vertical" android:id="@id/parent_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/parent_divider" android:layout_width="wrap_content" android:layout_height="@dimen/parent_divider_height" android:layout_marginLeft="@dimen/parent_divider_marginLeft" android:src="@color/qrom_dark_selected" android:contentDescription="@null" />
+        <TextView android:textSize="@dimen/qrom_Large_TextSize" android:textColor="@color/qrom_text_light_summary" android:layout_gravity="center_vertical" android:id="@id/parent_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/parent_subtitle_marginLeft" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/parent_indicate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/parent_indicate_marginRight" android:contentDescription="@null" />
+    </LinearLayout>
+</RelativeLayout>

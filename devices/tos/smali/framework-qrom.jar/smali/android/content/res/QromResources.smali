@@ -131,33 +131,33 @@
     .param p2, "configChanges"    # I
 
     .prologue
-    .line 512
+    .line 513
     invoke-static {p0}, Landroid/content/res/QromResources;->getQromResourcesInfo(Landroid/content/res/Resources;)Landroid/content/res/QromResources$QromResourcesInfo;
 
     move-result-object v0
 
-    .line 513
+    .line 514
     .local v0, "info":Landroid/content/res/QromResources$QromResourcesInfo;
     if-nez v0, :cond_1
 
-    .line 532
+    .line 533
     :cond_0
     :goto_0
     return-void
 
-    .line 517
+    .line 518
     :cond_1
     iget-object v3, v0, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeResources:Lcom/tencent/qrom/theme/QromThemeResources;
 
     if-eqz v3, :cond_0
 
-    .line 518
+    .line 519
     # getter for: Landroid/content/res/QromResources$QromResourcesInfo;->mUpdatedTime:J
     invoke-static {v0}, Landroid/content/res/QromResources$QromResourcesInfo;->access$000(Landroid/content/res/QromResources$QromResourcesInfo;)J
 
     move-result-wide v1
 
-    .line 519
+    .line 520
     .local v1, "updatedTime":J
     invoke-static {p2, p1}, Lcom/tencent/qrom/theme/QromConfiguration;->needNewResources(ILandroid/content/res/Configuration;)Z
 
@@ -165,12 +165,12 @@
 
     if-eqz v3, :cond_3
 
-    .line 520
+    .line 521
     sget-object v4, Landroid/content/res/QromResources$QromResourcesInfo;->sUpdatedTimeSystem:Ljava/lang/Long;
 
     monitor-enter v4
 
-    .line 521
+    .line 522
     :try_start_0
     invoke-static {}, Lcom/tencent/qrom/theme/QromThemeResources;->getSystem()Lcom/tencent/qrom/theme/QromThemeResourcesSystem;
 
@@ -180,7 +180,7 @@
 
     move-result-wide v1
 
-    .line 522
+    .line 523
     sget-object v3, Landroid/content/res/QromResources$QromResourcesInfo;->sUpdatedTimeSystem:Ljava/lang/Long;
 
     invoke-virtual {v3}, Ljava/lang/Long;->longValue()J
@@ -191,20 +191,20 @@
 
     if-gez v3, :cond_2
 
-    .line 523
+    .line 524
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
 
     sput-object v3, Landroid/content/res/QromResources$QromResourcesInfo;->sUpdatedTimeSystem:Ljava/lang/Long;
 
-    .line 525
+    .line 526
     :cond_2
     monitor-exit v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 526
+    .line 527
     # getter for: Landroid/content/res/QromResources$QromResourcesInfo;->mUpdatedTime:J
     invoke-static {v0}, Landroid/content/res/QromResources$QromResourcesInfo;->access$000(Landroid/content/res/QromResources$QromResourcesInfo;)J
 
@@ -214,13 +214,13 @@
 
     move-result-wide v1
 
-    .line 529
+    .line 530
     :cond_3
     invoke-static {p0, p2, p1}, Landroid/content/res/QromResources;->qromClearCache(Landroid/content/res/Resources;ILandroid/content/res/Configuration;)V
 
     goto :goto_0
 
-    .line 525
+    .line 526
     :catchall_0
     move-exception v3
 
@@ -317,10 +317,10 @@
     .end annotation
 
     .prologue
-    .line 558
+    .line 559
     const/4 v12, 0x0
 
-    .line 559
+    .line 560
     .local v12, "isColorDrawable":Z
     move-object/from16 v0, p1
 
@@ -350,10 +350,10 @@
 
     if-gt v0, v1, :cond_0
 
-    .line 561
+    .line 562
     const/4 v12, 0x1
 
-    .line 563
+    .line 564
     :cond_0
     if-eqz v12, :cond_2
 
@@ -367,14 +367,14 @@
 
     int-to-long v13, v0
 
-    .line 566
+    .line 567
     .local v13, "key":J
     :goto_0
     sget-object v20, Landroid/content/res/QromResources;->getCachedDrawable:Ljava/lang/reflect/Method;
 
     if-nez v20, :cond_1
 
-    .line 567
+    .line 568
     const-class v20, Landroid/content/res/Resources;
 
     const-string v21, "getCachedDrawable"
@@ -413,7 +413,7 @@
 
     sput-object v20, Landroid/content/res/QromResources;->getCachedDrawable:Ljava/lang/reflect/Method;
 
-    .line 569
+    .line 570
     :cond_1
     sget-object v21, Landroid/content/res/QromResources;->getCachedDrawable:Ljava/lang/reflect/Method;
 
@@ -458,19 +458,19 @@
 
     check-cast v7, Landroid/graphics/drawable/Drawable;
 
-    .line 572
+    .line 573
     .local v7, "dr":Landroid/graphics/drawable/Drawable;
     if-eqz v7, :cond_4
 
     move-object v8, v7
 
-    .line 715
+    .line 716
     .end local v7    # "dr":Landroid/graphics/drawable/Drawable;
     .local v8, "dr":Landroid/graphics/drawable/Drawable;
     :goto_2
     return-object v8
 
-    .line 563
+    .line 564
     .end local v8    # "dr":Landroid/graphics/drawable/Drawable;
     .end local v13    # "key":J
     :cond_2
@@ -506,7 +506,7 @@
 
     goto :goto_0
 
-    .line 569
+    .line 570
     .restart local v13    # "key":J
     :cond_3
     move-object/from16 v0, p0
@@ -517,7 +517,7 @@
 
     goto :goto_1
 
-    .line 575
+    .line 576
     .restart local v7    # "dr":Landroid/graphics/drawable/Drawable;
     :cond_4
     move-object/from16 v0, p0
@@ -526,12 +526,12 @@
 
     invoke-static {v0, v1}, Landroid/content/res/QromResources;->qromClearSkipFile(Landroid/content/res/Resources;I)V
 
-    .line 578
+    .line 579
     sget-object v20, Landroid/content/res/QromResources;->sPreloadedColorDrawablesField:Ljava/lang/reflect/Field;
 
     if-nez v20, :cond_5
 
-    .line 579
+    .line 580
     const-class v20, Landroid/content/res/Resources;
 
     const-string v21, "sPreloadedColorDrawables"
@@ -542,7 +542,7 @@
 
     sput-object v20, Landroid/content/res/QromResources;->sPreloadedColorDrawablesField:Ljava/lang/reflect/Field;
 
-    .line 581
+    .line 582
     :cond_5
     sget-object v20, Landroid/content/res/QromResources;->sPreloadedColorDrawablesField:Ljava/lang/reflect/Field;
 
@@ -554,11 +554,11 @@
 
     check-cast v18, Landroid/util/LongSparseArray;
 
-    .line 582
+    .line 583
     .local v18, "sPreloadedColorDrawables":Landroid/util/LongSparseArray;, "Landroid/util/LongSparseArray<Landroid/graphics/drawable/Drawable$ConstantState;>;"
     if-eqz v12, :cond_a
 
-    .line 583
+    .line 584
     move-object/from16 v0, v18
 
     invoke-virtual {v0, v13, v14}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
@@ -567,24 +567,24 @@
 
     check-cast v6, Landroid/graphics/drawable/Drawable$ConstantState;
 
-    .line 587
+    .line 588
     .local v6, "cs":Landroid/graphics/drawable/Drawable$ConstantState;
     :goto_3
     if-eqz v6, :cond_b
 
-    .line 588
+    .line 589
     move-object/from16 v0, p0
 
     invoke-virtual {v6, v0}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v7
 
-    .line 657
+    .line 658
     :cond_6
     :goto_4
     if-eqz v7, :cond_9
 
-    .line 658
+    .line 659
     move-object/from16 v0, p1
 
     iget v0, v0, Landroid/util/TypedValue;->changingConfigurations:I
@@ -595,15 +595,15 @@
 
     invoke-virtual {v7, v0}, Landroid/graphics/drawable/Drawable;->setChangingConfigurations(I)V
 
-    .line 659
+    .line 660
     invoke-virtual {v7}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
     move-result-object v6
 
-    .line 660
+    .line 661
     if-eqz v6, :cond_9
 
-    .line 661
+    .line 662
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/content/res/Resources;->mPreloading:Z
@@ -612,18 +612,18 @@
 
     if-eqz v20, :cond_12
 
-    .line 662
+    .line 663
     invoke-virtual {v6}, Landroid/graphics/drawable/Drawable$ConstantState;->getChangingConfigurations()I
 
     move-result v5
 
-    .line 663
+    .line 664
     .local v5, "changingConfigs":I
     sget-object v20, Landroid/content/res/QromResources;->verifyPreloadConfig:Ljava/lang/reflect/Method;
 
     if-nez v20, :cond_7
 
-    .line 664
+    .line 665
     const-class v20, Landroid/content/res/Resources;
 
     const-string v21, "verifyPreloadConfig"
@@ -666,11 +666,11 @@
 
     sput-object v20, Landroid/content/res/QromResources;->verifyPreloadConfig:Ljava/lang/reflect/Method;
 
-    .line 667
+    .line 668
     :cond_7
     if-eqz v12, :cond_f
 
-    .line 668
+    .line 669
     sget-object v20, Landroid/content/res/QromResources;->verifyPreloadConfig:Ljava/lang/reflect/Method;
 
     const/16 v21, 0x4
@@ -737,17 +737,17 @@
 
     if-eqz v20, :cond_9
 
-    .line 670
+    .line 671
     move-object/from16 v0, v18
 
     invoke-virtual {v0, v13, v14, v6}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
-    .line 671
+    .line 672
     sget-object v20, Landroid/content/res/QromResources;->sPreloadedColorDrawablesField:Ljava/lang/reflect/Field;
 
     if-nez v20, :cond_8
 
-    .line 672
+    .line 673
     const-class v20, Landroid/content/res/Resources;
 
     const-string v21, "sPreloadedColorDrawables"
@@ -758,7 +758,7 @@
 
     sput-object v20, Landroid/content/res/QromResources;->sPreloadedColorDrawablesField:Ljava/lang/reflect/Field;
 
-    .line 675
+    .line 676
     :cond_8
     const/16 v20, 0x0
 
@@ -777,12 +777,12 @@
     :goto_5
     move-object v8, v7
 
-    .line 715
+    .line 716
     .end local v7    # "dr":Landroid/graphics/drawable/Drawable;
     .restart local v8    # "dr":Landroid/graphics/drawable/Drawable;
     goto/16 :goto_2
 
-    .line 585
+    .line 586
     .end local v6    # "cs":Landroid/graphics/drawable/Drawable$ConstantState;
     .end local v8    # "dr":Landroid/graphics/drawable/Drawable;
     .restart local v7    # "dr":Landroid/graphics/drawable/Drawable;
@@ -800,11 +800,11 @@
     .restart local v6    # "cs":Landroid/graphics/drawable/Drawable$ConstantState;
     goto/16 :goto_3
 
-    .line 590
+    .line 591
     :cond_b
     if-eqz v12, :cond_c
 
-    .line 591
+    .line 592
     new-instance v7, Landroid/graphics/drawable/ColorDrawable;
 
     .end local v7    # "dr":Landroid/graphics/drawable/Drawable;
@@ -818,12 +818,12 @@
 
     invoke-direct {v7, v0}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
-    .line 594
+    .line 595
     .restart local v7    # "dr":Landroid/graphics/drawable/Drawable;
     :cond_c
     if-nez v7, :cond_6
 
-    .line 595
+    .line 596
     move-object/from16 v0, p1
 
     iget-object v0, v0, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
@@ -832,7 +832,7 @@
 
     if-nez v20, :cond_d
 
-    .line 596
+    .line 597
     new-instance v20, Landroid/content/res/Resources$NotFoundException;
 
     new-instance v21, Ljava/lang/StringBuilder;
@@ -861,7 +861,7 @@
 
     throw v20
 
-    .line 600
+    .line 601
     :cond_d
     move-object/from16 v0, p1
 
@@ -873,7 +873,7 @@
 
     move-result-object v10
 
-    .line 615
+    .line 616
     .local v10, "file":Ljava/lang/String;
     const-string v20, ".xml"
 
@@ -885,14 +885,14 @@
 
     if-eqz v20, :cond_e
 
-    .line 616
+    .line 617
     const-wide/16 v20, 0x2000
 
     move-wide/from16 v0, v20
 
     invoke-static {v0, v1, v10}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
-    .line 618
+    .line 619
     :try_start_0
     move-object/from16 v0, p1
 
@@ -914,7 +914,7 @@
 
     move-result-object v17
 
-    .line 620
+    .line 621
     .local v17, "rp":Landroid/content/res/XmlResourceParser;
     move-object/from16 v0, p0
 
@@ -924,30 +924,30 @@
 
     move-result-object v7
 
-    .line 621
+    .line 622
     invoke-interface/range {v17 .. v17}, Landroid/content/res/XmlResourceParser;->close()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 630
+    .line 631
     const-wide/16 v20, 0x2000
 
     invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
 
     goto/16 :goto_4
 
-    .line 622
+    .line 623
     .end local v17    # "rp":Landroid/content/res/XmlResourceParser;
     :catch_0
     move-exception v9
 
-    .line 623
+    .line 624
     .local v9, "e":Ljava/lang/Exception;
     const-wide/16 v20, 0x2000
 
     invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
 
-    .line 624
+    .line 625
     new-instance v16, Landroid/content/res/Resources$NotFoundException;
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -990,16 +990,16 @@
 
     invoke-direct {v0, v1}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
 
-    .line 627
+    .line 628
     .local v16, "rnf":Landroid/content/res/Resources$NotFoundException;
     move-object/from16 v0, v16
 
     invoke-virtual {v0, v9}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 628
+    .line 629
     throw v16
 
-    .line 634
+    .line 635
     .end local v9    # "e":Ljava/lang/Exception;
     .end local v16    # "rnf":Landroid/content/res/Resources$NotFoundException;
     :cond_e
@@ -1028,7 +1028,7 @@
 
     move-result-object v11
 
-    .line 640
+    .line 641
     .local v11, "is":Ljava/io/InputStream;
     move-object/from16 v0, p0
 
@@ -1040,30 +1040,30 @@
 
     move-result-object v7
 
-    .line 642
+    .line 643
     invoke-virtual {v11}, Ljava/io/InputStream;->close()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 652
+    .line 653
     const-wide/16 v20, 0x2000
 
     invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
 
     goto/16 :goto_4
 
-    .line 644
+    .line 645
     .end local v11    # "is":Ljava/io/InputStream;
     :catch_1
     move-exception v9
 
-    .line 645
+    .line 646
     .restart local v9    # "e":Ljava/lang/Exception;
     const-wide/16 v20, 0x2000
 
     invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
 
-    .line 646
+    .line 647
     new-instance v16, Landroid/content/res/Resources$NotFoundException;
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -1106,16 +1106,16 @@
 
     invoke-direct {v0, v1}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
 
-    .line 649
+    .line 650
     .restart local v16    # "rnf":Landroid/content/res/Resources$NotFoundException;
     move-object/from16 v0, v16
 
     invoke-virtual {v0, v9}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 650
+    .line 651
     throw v16
 
-    .line 678
+    .line 679
     .end local v9    # "e":Ljava/lang/Exception;
     .end local v10    # "file":Ljava/lang/String;
     .end local v16    # "rnf":Landroid/content/res/Resources$NotFoundException;
@@ -1137,7 +1137,7 @@
 
     move-result v4
 
-    .line 679
+    .line 680
     .local v4, "LAYOUT_DIR_CONFIG":I
     sget-object v20, Landroid/content/res/QromResources;->verifyPreloadConfig:Ljava/lang/reflect/Method;
 
@@ -1203,12 +1203,12 @@
 
     if-eqz v20, :cond_9
 
-    .line 681
+    .line 682
     sget-object v20, Landroid/content/res/QromResources;->sPreloadedDrawablesField:Ljava/lang/reflect/Field;
 
     if-nez v20, :cond_10
 
-    .line 682
+    .line 683
     const-class v20, Landroid/content/res/Resources;
 
     const-string v21, "sPreloadedDrawables"
@@ -1219,7 +1219,7 @@
 
     sput-object v20, Landroid/content/res/QromResources;->sPreloadedDrawablesField:Ljava/lang/reflect/Field;
 
-    .line 684
+    .line 685
     :cond_10
     sget-object v20, Landroid/content/res/QromResources;->sPreloadedDrawablesField:Ljava/lang/reflect/Field;
 
@@ -1235,13 +1235,13 @@
 
     check-cast v19, [Landroid/util/LongSparseArray;
 
-    .line 686
+    .line 687
     .local v19, "sPreloadedDrawables":[Landroid/util/LongSparseArray;, "[Landroid/util/LongSparseArray<Landroid/graphics/drawable/Drawable$ConstantState;>;"
     and-int v20, v5, v4
 
     if-nez v20, :cond_11
 
-    .line 689
+    .line 690
     const/16 v20, 0x0
 
     aget-object v20, v19, v20
@@ -1250,7 +1250,7 @@
 
     invoke-virtual {v0, v13, v14, v6}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
-    .line 690
+    .line 691
     const/16 v20, 0x1
 
     aget-object v20, v19, v20
@@ -1259,7 +1259,7 @@
 
     invoke-virtual {v0, v13, v14, v6}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
-    .line 697
+    .line 698
     :goto_6
     const/16 v20, 0x0
 
@@ -1275,7 +1275,7 @@
 
     goto/16 :goto_5
 
-    .line 693
+    .line 694
     :cond_11
     invoke-virtual/range {p0 .. p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
@@ -1287,13 +1287,13 @@
 
     aget-object v15, v19, v20
 
-    .line 695
+    .line 696
     .local v15, "preloads":Landroid/util/LongSparseArray;, "Landroid/util/LongSparseArray<Landroid/graphics/drawable/Drawable$ConstantState;>;"
     invoke-virtual {v15, v13, v14, v6}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
     goto :goto_6
 
-    .line 701
+    .line 702
     .end local v4    # "LAYOUT_DIR_CONFIG":I
     .end local v5    # "changingConfigs":I
     .end local v15    # "preloads":Landroid/util/LongSparseArray;, "Landroid/util/LongSparseArray<Landroid/graphics/drawable/Drawable$ConstantState;>;"
@@ -1307,10 +1307,10 @@
 
     monitor-enter v21
 
-    .line 705
+    .line 706
     if-eqz v12, :cond_13
 
-    .line 706
+    .line 707
     :try_start_2
     move-object/from16 v0, p0
 
@@ -1330,7 +1330,7 @@
 
     invoke-virtual {v0, v13, v14, v1}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
-    .line 710
+    .line 711
     :goto_7
     monitor-exit v21
 
@@ -1345,7 +1345,7 @@
 
     throw v20
 
-    .line 708
+    .line 709
     :cond_13
     :try_start_3
     move-object/from16 v0, p0
@@ -1384,7 +1384,7 @@
     .end annotation
 
     .prologue
-    .line 544
+    .line 545
     invoke-static {p0, p1, p2}, Landroid/content/res/QromResources;->loadDrawable(Landroid/content/res/Resources;Landroid/util/TypedValue;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -1404,21 +1404,21 @@
     .end annotation
 
     .prologue
-    .line 394
+    .line 395
     const/4 v3, 0x1
 
     invoke-virtual {p0, p1, p2, v3}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
-    .line 397
+    .line 398
     invoke-static {p0, p1, p2}, Landroid/content/res/QromResources;->qromLoadOverlayRawResource(Landroid/content/res/Resources;ILandroid/util/TypedValue;)Ljava/io/InputStream;
 
     move-result-object v1
 
-    .line 398
+    .line 399
     .local v1, "input":Ljava/io/InputStream;
     if-eqz v1, :cond_0
 
-    .line 404
+    .line 405
     .end local v1    # "input":Ljava/io/InputStream;
     :goto_0
     return-object v1
@@ -1446,11 +1446,11 @@
 
     goto :goto_0
 
-    .line 406
+    .line 407
     :catch_0
     move-exception v0
 
-    .line 407
+    .line 408
     .local v0, "e":Ljava/lang/Exception;
     new-instance v2, Landroid/content/res/Resources$NotFoundException;
 
@@ -1494,11 +1494,11 @@
 
     invoke-direct {v2, v3}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
 
-    .line 409
+    .line 410
     .local v2, "rnf":Landroid/content/res/Resources$NotFoundException;
     invoke-virtual {v2, v0}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 410
+    .line 411
     throw v2
 .end method
 
@@ -1831,29 +1831,29 @@
     .param p4, "id"    # I
 
     .prologue
-    .line 437
+    .line 438
     invoke-static {p0}, Landroid/content/res/QromResources;->getQromResourcesInfo(Landroid/content/res/Resources;)Landroid/content/res/QromResources$QromResourcesInfo;
 
     move-result-object v1
 
-    .line 438
+    .line 439
     .local v1, "info":Landroid/content/res/QromResources$QromResourcesInfo;
     invoke-static {p0, v1, p1, p4}, Landroid/content/res/QromResources;->qromLoadOverlayDrawable(Landroid/content/res/Resources;Landroid/content/res/QromResources$QromResourcesInfo;Landroid/util/TypedValue;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 439
+    .line 440
     .local v0, "dr":Landroid/graphics/drawable/Drawable;
     if-nez v0, :cond_0
 
-    .line 440
+    .line 441
     const/4 v2, 0x0
 
     invoke-static {p0, p1, p2, p3, v2}, Landroid/graphics/drawable/Drawable;->createFromResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 442
+    .line 443
     :cond_0
     return-object v0
 .end method
@@ -1865,7 +1865,7 @@
     .param p2, "resId"    # I
 
     .prologue
-    .line 479
+    .line 480
     invoke-static {p0, p1, p2}, Landroid/content/res/QromResources;->qromDispostDefaultIconFromProvider(Landroid/content/res/Resources;Landroid/graphics/drawable/Drawable;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -1880,12 +1880,12 @@
     .param p2, "resId"    # I
 
     .prologue
-    .line 453
+    .line 454
     invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getResourceName(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 454
+    .line 455
     .local v1, "mDefaultIconName":Ljava/lang/String;
     if-eqz v1, :cond_0
 
@@ -1897,12 +1897,12 @@
 
     if-eqz v3, :cond_0
 
-    .line 456
+    .line 457
     invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getResourcePackageName(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 458
+    .line 459
     .local v2, "mDefaultIconPackageName":Ljava/lang/String;
     const-string v3, "QromResources"
 
@@ -1936,38 +1936,38 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 460
+    .line 461
     instance-of v3, p1, Landroid/graphics/drawable/BitmapDrawable;
 
     if-eqz v3, :cond_2
 
     move-object v3, p1
 
-    .line 462
+    .line 463
     check-cast v3, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-static {p0, v3}, Lcom/tencent/qrom/theme/QromIconManager;->qromDispostDefaultIcon(Landroid/content/res/Resources;Landroid/graphics/drawable/BitmapDrawable;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 464
+    .line 465
     .local v0, "bmp":Landroid/graphics/Bitmap;
     if-eqz v0, :cond_1
 
-    .line 465
+    .line 466
     new-instance p1, Landroid/graphics/drawable/BitmapDrawable;
 
     .end local p1    # "mdr":Landroid/graphics/drawable/Drawable;
     invoke-direct {p1, p0, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    .line 474
+    .line 475
     .end local v0    # "bmp":Landroid/graphics/Bitmap;
     .end local v2    # "mDefaultIconPackageName":Ljava/lang/String;
     :cond_0
     :goto_0
     return-object p1
 
-    .line 467
+    .line 468
     .restart local v0    # "bmp":Landroid/graphics/Bitmap;
     .restart local v2    # "mDefaultIconPackageName":Ljava/lang/String;
     .restart local p1    # "mdr":Landroid/graphics/drawable/Drawable;
@@ -1980,7 +1980,7 @@
 
     goto :goto_0
 
-    .line 470
+    .line 471
     .end local v0    # "bmp":Landroid/graphics/Bitmap;
     :cond_2
     const-string v3, "QromResources"
@@ -1999,29 +1999,29 @@
     .param p2, "id"    # I
 
     .prologue
-    .line 318
+    .line 319
     iget-object v2, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeCookies:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, p2}, Landroid/util/SparseIntArray;->get(I)I
 
     move-result v0
 
-    .line 319
+    .line 320
     .local v0, "i":I
     const/4 v1, 0x0
 
-    .line 320
+    .line 321
     .local v1, "packageName":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 321
+    .line 322
     iget-object v2, p0, Landroid/content/res/Resources;->mAssets:Landroid/content/res/AssetManager;
 
     invoke-virtual {v2, p2}, Landroid/content/res/AssetManager;->getCookieName(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 322
+    .line 323
     const-string v2, "/system/framework/framework-res.apk"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2030,20 +2030,20 @@
 
     if-eqz v2, :cond_1
 
-    .line 323
+    .line 324
     const/4 v0, 0x1
 
-    .line 329
+    .line 330
     :goto_0
     iget-object v2, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeCookies:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, p2, v0}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 331
+    .line 332
     :cond_0
     return v0
 
-    .line 324
+    .line 325
     :cond_1
     const-string v2, "/system/framework/framework-qrom-res.apk"
 
@@ -2053,12 +2053,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 325
+    .line 326
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 327
+    .line 328
     :cond_2
     const/4 v0, 0x3
 
@@ -2188,12 +2188,12 @@
     .param p1, "id"    # I
 
     .prologue
-    .line 335
+    .line 336
     invoke-static {p0}, Landroid/content/res/QromResources;->getQromResourcesInfo(Landroid/content/res/Resources;)Landroid/content/res/QromResources$QromResourcesInfo;
 
     move-result-object v1
 
-    .line 337
+    .line 338
     .local v1, "info":Landroid/content/res/QromResources$QromResourcesInfo;
     iget-boolean v3, v1, Landroid/content/res/QromResources$QromResourcesInfo;->mIsHasQromThemeValues:Z
 
@@ -2203,16 +2203,16 @@
 
     if-nez v3, :cond_1
 
-    .line 338
+    .line 339
     :cond_0
     const/4 v2, 0x0
 
-    .line 348
+    .line 349
     .local v2, "res":Ljava/lang/Integer;
     :goto_0
     return-object v2
 
-    .line 340
+    .line 341
     .end local v2    # "res":Ljava/lang/Integer;
     :cond_1
     iget-object v3, v1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeIntegers:Landroid/util/SparseArray;
@@ -2221,11 +2221,11 @@
 
     move-result v0
 
-    .line 341
+    .line 342
     .local v0, "index":I
     if-ltz v0, :cond_2
 
-    .line 342
+    .line 343
     iget-object v3, v1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeIntegers:Landroid/util/SparseArray;
 
     invoke-virtual {v3, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -2237,7 +2237,7 @@
     .restart local v2    # "res":Ljava/lang/Integer;
     goto :goto_0
 
-    .line 344
+    .line 345
     .end local v2    # "res":Ljava/lang/Integer;
     :cond_2
     iget-object v3, v1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeResources:Lcom/tencent/qrom/theme/QromThemeResources;
@@ -2246,7 +2246,7 @@
 
     move-result-object v2
 
-    .line 345
+    .line 346
     .restart local v2    # "res":Ljava/lang/Integer;
     iget-object v3, v1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeIntegers:Landroid/util/SparseArray;
 
@@ -2534,59 +2534,59 @@
 .end method
 
 .method private static qromLoadOverlayDrawable(Landroid/content/res/Resources;Landroid/content/res/QromResources$QromResourcesInfo;Landroid/util/TypedValue;I)Landroid/graphics/drawable/Drawable;
-    .locals 11
+    .locals 12
     .param p0, "resources"    # Landroid/content/res/Resources;
     .param p1, "info"    # Landroid/content/res/QromResources$QromResourcesInfo;
     .param p2, "value"    # Landroid/util/TypedValue;
     .param p3, "id"    # I
 
     .prologue
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     .line 261
     if-nez p1, :cond_0
 
     .line 262
-    const-string v8, "QromResources"
+    const-string v9, "QromResources"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "qromLoadOverlayDrawable|info null, resources="
+    const-string v11, "qromLoadOverlayDrawable|info null, resources="
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object v0, v7
+    move-object v0, v8
 
-    .line 314
+    .line 315
     :goto_0
     return-object v0
 
     .line 266
     :cond_0
-    iget-boolean v8, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeChangeEnable:Z
+    iget-boolean v9, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeChangeEnable:Z
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    iget-boolean v8, p0, Landroid/content/res/Resources;->mPreloading:Z
+    iget-boolean v9, p0, Landroid/content/res/Resources;->mPreloading:Z
 
-    if-eqz v8, :cond_2
+    if-eqz v9, :cond_2
 
     :cond_1
-    move-object v0, v7
+    move-object v0, v8
 
     .line 267
     goto :goto_0
@@ -2597,272 +2597,284 @@
 
     .line 270
     .local v0, "drawable":Landroid/graphics/drawable/Drawable;
-    iget-object v8, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeResources:Lcom/tencent/qrom/theme/QromThemeResources;
+    iget-object v9, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeResources:Lcom/tencent/qrom/theme/QromThemeResources;
 
-    if-eqz v8, :cond_7
+    if-eqz v9, :cond_7
 
     .line 272
-    const-string v8, "QromResources"
+    const-string v9, "QromResources"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "loadOverlayDrawable value = "
+    const-string v11, "loadOverlayDrawable value = "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 275
     if-eqz p2, :cond_3
 
-    iget-object v8, p2, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
+    iget-object v9, p2, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
-    if-nez v8, :cond_4
+    if-nez v9, :cond_4
 
     :cond_3
-    move-object v0, v7
+    move-object v0, v8
 
     .line 276
     goto :goto_0
 
     .line 279
     :cond_4
-    iget-object v8, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeSkipFiles:Landroid/util/SparseArray;
+    iget-object v9, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeSkipFiles:Landroid/util/SparseArray;
 
-    invoke-virtual {v8, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v9, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v9
 
-    if-eqz v8, :cond_5
+    if-eqz v9, :cond_5
 
-    move-object v0, v7
+    move-object v0, v8
 
     .line 280
     goto :goto_0
 
     .line 283
     :cond_5
-    iget-object v8, p2, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
+    iget-object v9, p2, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
-    invoke-virtual {v8}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v5
 
     .line 284
     .local v5, "path":Ljava/lang/String;
-    iget-object v8, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeResources:Lcom/tencent/qrom/theme/QromThemeResources;
+    const-string v9, "-v4"
 
-    iget v9, p2, Landroid/util/TypedValue;->assetCookie:I
+    const-string v10, ""
 
-    invoke-static {p0, p1, v9}, Landroid/content/res/QromResources;->qromGetCookieType(Landroid/content/res/Resources;Landroid/content/res/QromResources$QromResourcesInfo;I)I
-
-    move-result v9
-
-    invoke-virtual {v8, v9, v5}, Lcom/tencent/qrom/theme/QromThemeResources;->getThemeFileStream(ILjava/lang/String;)Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;
+    invoke-virtual {v5, v9, v10}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 288
-    .local v6, "themeFileInfo":Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;
-    const-string v8, "QromResources"
+    .line 285
+    .local v6, "temp":Ljava/lang/String;
+    iget-object v9, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeResources:Lcom/tencent/qrom/theme/QromThemeResources;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    iget v10, p2, Landroid/util/TypedValue;->assetCookie:I
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p0, p1, v10}, Landroid/content/res/QromResources;->qromGetCookieType(Landroid/content/res/Resources;Landroid/content/res/QromResources$QromResourcesInfo;I)I
 
-    const-string v10, "loadOverlayDrawable themeFileInfo = "
+    move-result v10
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10, v6}, Lcom/tencent/qrom/theme/QromThemeResources;->getThemeFileStream(ILjava/lang/String;)Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;
 
-    move-result-object v9
+    move-result-object v7
 
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    .line 289
+    .local v7, "themeFileInfo":Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;
+    const-string v9, "QromResources"
 
-    move-result-object v9
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v9
+    const-string v11, "loadOverlayDrawable themeFileInfo = "
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 291
-    if-nez v6, :cond_6
+    move-result-object v10
 
-    move-object v0, v7
+    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 292
+    if-nez v7, :cond_6
+
+    move-object v0, v8
+
+    .line 293
     goto :goto_0
 
-    .line 295
+    .line 296
     :cond_6
     :try_start_0
     new-instance v4, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v4}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    .line 296
-    .local v4, "options":Landroid/graphics/BitmapFactory$Options;
-    iget v7, v6, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mDensity:I
-
-    iput v7, v4, Landroid/graphics/BitmapFactory$Options;->inDensity:I
-
     .line 297
-    iget-object v1, v6, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+    .local v4, "options":Landroid/graphics/BitmapFactory$Options;
+    iget v8, v7, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mDensity:I
+
+    iput v8, v4, Landroid/graphics/BitmapFactory$Options;->inDensity:I
 
     .line 298
+    iget-object v1, v7, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+
+    .line 299
     .local v1, "input":Ljava/io/InputStream;
     invoke-static {p0, p2, v1, v5}, Landroid/graphics/drawable/Drawable;->createFromResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 299
+    .line 300
     invoke-virtual {v1}, Ljava/io/InputStream;->close()V
     :try_end_0
     .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 306
-    if-eqz v6, :cond_7
-
     .line 307
-    :try_start_1
-    iget-object v7, v6, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+    if-eqz v7, :cond_7
 
-    invoke-virtual {v7}, Ljava/io/InputStream;->close()V
+    .line 308
+    :try_start_1
+    iget-object v8, v7, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+
+    invoke-virtual {v8}, Ljava/io/InputStream;->close()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_5
 
-    .line 313
+    .line 314
     .end local v1    # "input":Ljava/io/InputStream;
     .end local v4    # "options":Landroid/graphics/BitmapFactory$Options;
     .end local v5    # "path":Ljava/lang/String;
-    .end local v6    # "themeFileInfo":Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;
+    .end local v6    # "temp":Ljava/lang/String;
+    .end local v7    # "themeFileInfo":Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;
     :cond_7
     :goto_1
-    iget-object v7, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeSkipFiles:Landroid/util/SparseArray;
+    iget-object v8, p1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeSkipFiles:Landroid/util/SparseArray;
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
-    invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v7, p3, v8}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v8, p3, v9}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     goto/16 :goto_0
 
-    .line 300
+    .line 301
     .restart local v5    # "path":Ljava/lang/String;
-    .restart local v6    # "themeFileInfo":Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;
+    .restart local v6    # "temp":Ljava/lang/String;
+    .restart local v7    # "themeFileInfo":Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;
     :catch_0
     move-exception v3
 
-    .line 301
+    .line 302
     .local v3, "localOutOfMemoryError":Ljava/lang/OutOfMemoryError;
     :try_start_2
-    const-string v7, "QromResources"
+    const-string v8, "QromResources"
 
-    const-string v8, "out of memory !!"
+    const-string v9, "out of memory !!"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 306
-    if-eqz v6, :cond_7
-
     .line 307
-    :try_start_3
-    iget-object v7, v6, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+    if-eqz v7, :cond_7
 
-    invoke-virtual {v7}, Ljava/io/InputStream;->close()V
+    .line 308
+    :try_start_3
+    iget-object v8, v7, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+
+    invoke-virtual {v8}, Ljava/io/InputStream;->close()V
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
 
     goto :goto_1
 
-    .line 309
+    .line 310
     :catch_1
-    move-exception v7
+    move-exception v8
 
     goto :goto_1
 
-    .line 302
+    .line 303
     .end local v3    # "localOutOfMemoryError":Ljava/lang/OutOfMemoryError;
     :catch_2
     move-exception v2
 
-    .line 303
+    .line 304
     .local v2, "ioException":Ljava/io/IOException;
     :try_start_4
     invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 306
-    if-eqz v6, :cond_7
-
     .line 307
-    :try_start_5
-    iget-object v7, v6, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+    if-eqz v7, :cond_7
 
-    invoke-virtual {v7}, Ljava/io/InputStream;->close()V
+    .line 308
+    :try_start_5
+    iget-object v8, v7, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+
+    invoke-virtual {v8}, Ljava/io/InputStream;->close()V
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
 
     goto :goto_1
 
-    .line 309
+    .line 310
     :catch_3
-    move-exception v7
+    move-exception v8
 
     goto :goto_1
 
-    .line 305
+    .line 306
     .end local v2    # "ioException":Ljava/io/IOException;
     :catchall_0
-    move-exception v7
-
-    .line 306
-    if-eqz v6, :cond_8
+    move-exception v8
 
     .line 307
-    :try_start_6
-    iget-object v8, v6, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+    if-eqz v7, :cond_8
 
-    invoke-virtual {v8}, Ljava/io/InputStream;->close()V
+    .line 308
+    :try_start_6
+    iget-object v9, v7, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+
+    invoke-virtual {v9}, Ljava/io/InputStream;->close()V
     :try_end_6
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_4
 
-    .line 310
+    .line 311
     :cond_8
     :goto_2
-    throw v7
+    throw v8
 
-    .line 309
+    .line 310
     :catch_4
-    move-exception v8
+    move-exception v9
 
     goto :goto_2
 
     .restart local v1    # "input":Ljava/io/InputStream;
     .restart local v4    # "options":Landroid/graphics/BitmapFactory$Options;
     :catch_5
-    move-exception v7
+    move-exception v8
 
     goto :goto_1
 .end method
@@ -2879,47 +2891,47 @@
     .end annotation
 
     .prologue
-    .line 415
+    .line 416
     invoke-static {p0}, Landroid/content/res/QromResources;->getQromResourcesInfo(Landroid/content/res/Resources;)Landroid/content/res/QromResources$QromResourcesInfo;
 
     move-result-object v0
 
-    .line 417
+    .line 418
     .local v0, "info":Landroid/content/res/QromResources$QromResourcesInfo;
     iget-boolean v4, v0, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeChangeEnable:Z
 
     if-nez v4, :cond_1
 
-    .line 418
+    .line 419
     const/4 v1, 0x0
 
-    .line 432
+    .line 433
     :cond_0
     :goto_0
     return-object v1
 
-    .line 420
+    .line 421
     :cond_1
     const/4 v3, 0x0
 
-    .line 421
+    .line 422
     .local v3, "themeFileInfo":Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;
     const/4 v1, 0x0
 
-    .line 423
+    .line 424
     .local v1, "input":Ljava/io/InputStream;
     iget-object v4, v0, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeResources:Lcom/tencent/qrom/theme/QromThemeResources;
 
     if-eqz v4, :cond_0
 
-    .line 424
+    .line 425
     iget-object v4, p2, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 425
+    .line 426
     .local v2, "path":Ljava/lang/String;
     iget-object v4, v0, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeResources:Lcom/tencent/qrom/theme/QromThemeResources;
 
@@ -2933,10 +2945,10 @@
 
     move-result-object v3
 
-    .line 426
+    .line 427
     if-eqz v3, :cond_0
 
-    .line 427
+    .line 428
     iget-object v1, v3, Lcom/tencent/qrom/theme/QromThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
 
     goto :goto_0
@@ -2948,30 +2960,30 @@
     .param p1, "typedarray"    # Landroid/content/res/TypedArray;
 
     .prologue
-    .line 362
+    .line 363
     if-nez p1, :cond_1
 
-    .line 364
+    .line 365
     const/4 p1, 0x0
 
-    .line 390
+    .line 391
     .end local p1    # "typedarray":Landroid/content/res/TypedArray;
     :cond_0
     :goto_0
     return-object p1
 
-    .line 367
+    .line 368
     .restart local p1    # "typedarray":Landroid/content/res/TypedArray;
     :cond_1
     invoke-static {p0}, Landroid/content/res/QromResources;->getQromResourcesInfo(Landroid/content/res/Resources;)Landroid/content/res/QromResources$QromResourcesInfo;
 
     move-result-object v3
 
-    .line 369
+    .line 370
     .local v3, "info":Landroid/content/res/QromResources$QromResourcesInfo;
     if-nez v3, :cond_2
 
-    .line 370
+    .line 371
     const-string v6, "QromResources"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -2996,7 +3008,7 @@
 
     goto :goto_0
 
-    .line 374
+    .line 375
     :cond_2
     iget-boolean v6, v3, Landroid/content/res/QromResources$QromResourcesInfo;->mIsHasQromThemeValues:Z
 
@@ -3006,33 +3018,33 @@
 
     if-eqz v6, :cond_0
 
-    .line 375
+    .line 376
     :cond_3
     iget-object v0, p1, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 376
+    .line 377
     .local v0, "ai":[I
     const/4 v1, 0x0
 
-    .line 377
+    .line 378
     .local v1, "i":I
     :goto_1
     array-length v6, v0
 
     if-ge v1, v6, :cond_0
 
-    .line 378
+    .line 379
     add-int/lit8 v6, v1, 0x0
 
     aget v5, v0, v6
 
-    .line 379
+    .line 380
     .local v5, "type":I
     add-int/lit8 v6, v1, 0x3
 
     aget v2, v0, v6
 
-    .line 380
+    .line 381
     .local v2, "id":I
     const/16 v6, 0x10
 
@@ -3047,17 +3059,17 @@
 
     if-ne v5, v6, :cond_6
 
-    .line 382
+    .line 383
     :cond_5
     invoke-static {p0, v2}, Landroid/content/res/QromResources;->qromGetThemeInt(Landroid/content/res/Resources;I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    .line 383
+    .line 384
     .local v4, "res":Ljava/lang/Integer;
     if-eqz v4, :cond_6
 
-    .line 384
+    .line 385
     add-int/lit8 v6, v1, 0x1
 
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
@@ -3066,12 +3078,12 @@
 
     aput v7, v0, v6
 
-    .line 387
+    .line 388
     .end local v4    # "res":Ljava/lang/Integer;
     :cond_6
     add-int/lit8 v1, v1, 0x6
 
-    .line 388
+    .line 389
     goto :goto_1
 .end method
 
@@ -3082,7 +3094,7 @@
     .param p2, "outValue"    # Landroid/util/TypedValue;
 
     .prologue
-    .line 352
+    .line 353
     iget v1, p2, Landroid/util/TypedValue;->type:I
 
     const/16 v2, 0x10
@@ -3102,24 +3114,24 @@
 
     if-eq v1, v2, :cond_2
 
-    .line 354
+    .line 355
     :cond_1
     invoke-static {p0, p1}, Landroid/content/res/QromResources;->qromGetThemeInt(Landroid/content/res/Resources;I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    .line 355
+    .line 356
     .local v0, "res":Ljava/lang/Integer;
     if-eqz v0, :cond_2
 
-    .line 356
+    .line 357
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
     iput v1, p2, Landroid/util/TypedValue;->data:I
 
-    .line 359
+    .line 360
     .end local v0    # "res":Ljava/lang/Integer;
     :cond_2
     return-void
@@ -3222,21 +3234,21 @@
     .param p3, "compat"    # Landroid/content/res/CompatibilityInfo;
 
     .prologue
-    .line 484
+    .line 485
     invoke-static {p0}, Landroid/content/res/QromResources;->getQromResourcesInfo(Landroid/content/res/Resources;)Landroid/content/res/QromResources$QromResourcesInfo;
 
     move-result-object v1
 
-    .line 485
+    .line 486
     .local v1, "info":Landroid/content/res/QromResources$QromResourcesInfo;
     if-nez v1, :cond_1
 
-    .line 509
+    .line 510
     :cond_0
     :goto_0
     return-void
 
-    .line 489
+    .line 490
     :cond_1
     if-eqz p1, :cond_4
 
@@ -3248,7 +3260,7 @@
 
     move-result v0
 
-    .line 491
+    .line 492
     .local v0, "configChanges":I
     :goto_1
     const-string v4, "QromResources"
@@ -3273,21 +3285,21 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 493
+    .line 494
     invoke-virtual {p0, p1, p2, p3}, Landroid/content/res/Resources;->tos_org_updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
 
-    .line 494
+    .line 495
     iget-object v4, v1, Landroid/content/res/QromResources$QromResourcesInfo;->mQromThemeResources:Lcom/tencent/qrom/theme/QromThemeResources;
 
     if-eqz v4, :cond_0
 
-    .line 495
+    .line 496
     # getter for: Landroid/content/res/QromResources$QromResourcesInfo;->mUpdatedTime:J
     invoke-static {v1}, Landroid/content/res/QromResources$QromResourcesInfo;->access$000(Landroid/content/res/QromResources$QromResourcesInfo;)J
 
     move-result-wide v2
 
-    .line 496
+    .line 497
     .local v2, "updatedTime":J
     invoke-static {v0, p1}, Lcom/tencent/qrom/theme/QromConfiguration;->needNewResources(ILandroid/content/res/Configuration;)Z
 
@@ -3295,12 +3307,12 @@
 
     if-eqz v4, :cond_3
 
-    .line 497
+    .line 498
     sget-object v5, Landroid/content/res/QromResources$QromResourcesInfo;->sUpdatedTimeSystem:Ljava/lang/Long;
 
     monitor-enter v5
 
-    .line 498
+    .line 499
     :try_start_0
     invoke-static {}, Lcom/tencent/qrom/theme/QromThemeResources;->getSystem()Lcom/tencent/qrom/theme/QromThemeResourcesSystem;
 
@@ -3310,7 +3322,7 @@
 
     move-result-wide v2
 
-    .line 499
+    .line 500
     sget-object v4, Landroid/content/res/QromResources$QromResourcesInfo;->sUpdatedTimeSystem:Ljava/lang/Long;
 
     invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
@@ -3321,20 +3333,20 @@
 
     if-gez v4, :cond_2
 
-    .line 500
+    .line 501
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v4
 
     sput-object v4, Landroid/content/res/QromResources$QromResourcesInfo;->sUpdatedTimeSystem:Ljava/lang/Long;
 
-    .line 502
+    .line 503
     :cond_2
     monitor-exit v5
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 503
+    .line 504
     # getter for: Landroid/content/res/QromResources$QromResourcesInfo;->mUpdatedTime:J
     invoke-static {v1}, Landroid/content/res/QromResources$QromResourcesInfo;->access$000(Landroid/content/res/QromResources$QromResourcesInfo;)J
 
@@ -3344,13 +3356,13 @@
 
     move-result-wide v2
 
-    .line 506
+    .line 507
     :cond_3
     invoke-static {p0, v0, p1}, Landroid/content/res/QromResources;->qromClearCache(Landroid/content/res/Resources;ILandroid/content/res/Configuration;)V
 
     goto :goto_0
 
-    .line 489
+    .line 490
     .end local v0    # "configChanges":I
     .end local v2    # "updatedTime":J
     :cond_4
@@ -3358,7 +3370,7 @@
 
     goto :goto_1
 
-    .line 502
+    .line 503
     .restart local v0    # "configChanges":I
     .restart local v2    # "updatedTime":J
     :catchall_0

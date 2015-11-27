@@ -51,7 +51,7 @@
     .param p5, "x3"    # [Ljava/lang/CharSequence;
 
     .prologue
-    .line 1317
+    .line 1347
     iput-object p1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$3;->this$0:Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;
 
     iput-boolean p6, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$3;->val$hasTitle:Z
@@ -60,7 +60,7 @@
 
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;II[Ljava/lang/Object;)V
 
-    .line 1319
+    .line 1349
     iget-object v0, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$3;->this$0:Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;
 
     iget-object v0, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mItems:[Ljava/lang/CharSequence;
@@ -83,12 +83,12 @@
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 1323
+    .line 1353
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 1324
+    .line 1354
     .local v0, "view":Landroid/view/View;
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$3;->mList:Ljava/util/List;
 
@@ -103,6 +103,6 @@
     # invokes: Lcom/tencent/qrom/app/QromAlertController;->setListBackground(Landroid/view/View;IIZZ)V
     invoke-static {v0, p1, v1, v2, v3}, Lcom/tencent/qrom/app/QromAlertController;->access$1000(Landroid/view/View;IIZZ)V
 
-    .line 1325
+    .line 1355
     return-object v0
 .end method

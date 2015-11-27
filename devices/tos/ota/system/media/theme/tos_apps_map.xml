@@ -646,4 +646,6 @@
 	<icon name="com_android_stk.png"  package="com.android.stk"/>
 	<icon name="com_netease_cloudmusic.png"  package="com.netease.cloudmusic"/>
 	<icon name="com_puscene_client.png"  package="com.puscene.client"/>
+	<icon name="com_tencent_qrom_recorder.png"  package="com.tencent.qrom.recorder"/>
+	<icon name="com_tencent_qrom_mail.png"  package="com.tencent.qrom.mail"/>
 </iconinfo>

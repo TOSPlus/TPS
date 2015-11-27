@@ -40,7 +40,7 @@
     .param p4, "x2"    # Z
 
     .prologue
-    .line 1278
+    .line 1308
     iput-object p1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->this$0:Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;
 
     iput-object p5, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->val$listView:Lcom/tencent/qrom/app/QromAlertController$RecycleListView;
@@ -53,12 +53,12 @@
 
     invoke-direct {p0, p2, p3, p4}, Landroid/widget/CursorAdapter;-><init>(Landroid/content/Context;Landroid/database/Cursor;Z)V
 
-    .line 1283
+    .line 1313
     invoke-virtual {p0}, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->getCursor()Landroid/database/Cursor;
 
     move-result-object v0
 
-    .line 1284
+    .line 1314
     .local v0, "cursor":Landroid/database/Cursor;
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->this$0:Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;
 
@@ -70,7 +70,7 @@
 
     iput v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->mLabelIndex:I
 
-    .line 1285
+    .line 1315
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->this$0:Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;
 
     iget-object v1, v1, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mIsCheckedColumn:Ljava/lang/String;
@@ -81,7 +81,7 @@
 
     iput v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->mIsCheckedIndex:I
 
-    .line 1302
+    .line 1332
     invoke-virtual {p0}, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->getCursor()Landroid/database/Cursor;
 
     move-result-object v1
@@ -106,7 +106,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 1290
+    .line 1320
     const v2, 0x7a0900ee
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -115,7 +115,7 @@
 
     check-cast v0, Landroid/widget/CheckedTextView;
 
-    .line 1292
+    .line 1322
     .local v0, "text":Landroid/widget/CheckedTextView;
     iget v2, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->mLabelIndex:I
 
@@ -125,7 +125,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/CheckedTextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1293
+    .line 1323
     iget-object v2, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->val$listView:Lcom/tencent/qrom/app/QromAlertController$RecycleListView;
 
     invoke-interface {p3}, Landroid/database/Cursor;->getPosition()I
@@ -143,10 +143,10 @@
     :goto_0
     invoke-virtual {v2, v3, v1}, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->setItemChecked(IZ)V
 
-    .line 1294
+    .line 1324
     return-void
 
-    .line 1293
+    .line 1323
     :cond_0
     const/4 v1, 0x0
 
@@ -160,12 +160,12 @@
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 1306
+    .line 1336
     invoke-super {p0, p1, p2, p3}, Landroid/widget/CursorAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 1307
+    .line 1337
     .local v0, "view":Landroid/view/View;
     iget v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->count:I
 
@@ -176,7 +176,7 @@
     # invokes: Lcom/tencent/qrom/app/QromAlertController;->setListBackground(Landroid/view/View;IIZZ)V
     invoke-static {v0, p1, v1, v2, v3}, Lcom/tencent/qrom/app/QromAlertController;->access$1000(Landroid/view/View;IIZZ)V
 
-    .line 1308
+    .line 1338
     return-object v0
 .end method
 
@@ -187,7 +187,7 @@
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 1298
+    .line 1328
     iget-object v0, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;->this$0:Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;
 
     iget-object v0, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mInflater:Landroid/view/LayoutInflater;

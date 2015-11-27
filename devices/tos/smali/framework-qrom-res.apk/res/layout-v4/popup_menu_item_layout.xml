@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tencent.qrom.internal.view.menu.ListMenuItemView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginRight="0.0dip" android:minHeight="@dimen/qrom_listview_item_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/TextAppearance.qrom.Second.qromTextLargerLightTitleMenuItem" android:textColor="@color/qrom_text_light_title" android:ellipsize="marquee" android:layout_gravity="center|left" android:id="@id/title" android:fadingEdge="horizontal" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginRight="18.0dip" android:singleLine="true" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+</com.tencent.qrom.internal.view.menu.ListMenuItemView>

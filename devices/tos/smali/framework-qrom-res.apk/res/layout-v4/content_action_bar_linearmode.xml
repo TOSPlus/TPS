@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qrom.internal.widget.ActionBarContainer android:id="@id/qrom_action_bar_container" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?attr/actionBarStyle">
+        <com.tencent.qrom.internal.widget.ActionBarView android:id="@id/qrom_action_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?attr/actionBarStyle" />
+        <com.tencent.qrom.internal.widget.ActionBarContextView android:id="@id/qrom_action_context_bar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?com.tencent.qrom:attr/actionModeStyle" />
+    </com.tencent.qrom.internal.widget.ActionBarContainer>
+    <FrameLayout android:id="@android:id/content" android:layout_width="fill_parent" android:layout_height="0.0dip" android:foreground="?android:windowContentOverlay" android:layout_weight="1.0" android:foregroundGravity="fill_horizontal|center|top" />
+    <com.tencent.qrom.internal.widget.ActionBarContainer android:gravity="center" android:id="@id/qrom_split_action_bar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?attr/actionBarStyle" />
+</LinearLayout>

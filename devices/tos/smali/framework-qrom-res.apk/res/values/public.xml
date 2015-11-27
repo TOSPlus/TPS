@@ -663,12 +663,12 @@
     <public type="drawable" name="textfield_searchview_holo_light" id="0x7a02029a" />
     <public type="drawable" name="textfield_searchview_right_holo_light" id="0x7a02029b" />
     <public type="drawable" name="transparent_full_bg" id="0x7a02029f" />
-    <public type="drawable" name="notification_template_icon_bg" id="0x7a0202a2" />
-    <public type="drawable" name="safe_mode_background" id="0x7a0202a3" />
-    <public type="drawable" name="transparent_background" id="0x7a0202a4" />
     <public type="drawable" name="dialog_list_selector_background_transition_holo_dark" id="0x7a0202b1" />
     <public type="drawable" name="ic_menu_moreoverflow_bottom" id="0x7a0202d5" />
     <public type="drawable" name="ic_menu_moreoverflow_bottom_holo" id="0x7a0202d8" />
+    <public type="drawable" name="notification_template_icon_bg" id="0x7a0202a2" />
+    <public type="drawable" name="safe_mode_background" id="0x7a0202a3" />
+    <public type="drawable" name="transparent_background" id="0x7a0202a4" />
     <public type="drawable" name="launcher_theme_ic_app_market" id="0x7a020135" />
     <public type="drawable" name="launcher_theme_ic_app_mysetting" id="0x7a020138" />
     <public type="drawable" name="launcher_theme_ic_app_voicesearch" id="0x7a020141" />
@@ -1574,6 +1574,12 @@
     <public type="id" name="translucent" id="0x7a090029" />
     <public type="id" name="nest" id="0x7a09002a" />
     <public type="id" name="stack" id="0x7a09002b" />
+    <public type="id" name="dialog" id="0x7a090165" />
+    <public type="id" name="dropdown" id="0x7a090166" />
+    <public type="id" name="resolver_list" id="0x7a090167" />
+    <public type="id" name="app_icon" id="0x7a090168" />
+    <public type="id" name="is_default" id="0x7a090169" />
+    <public type="id" name="app_name" id="0x7a09016a" />
     <public type="id" name="action_mode_close_button_image" id="0x7a09002c" />
     <public type="id" name="message1" id="0x7a09002d" />
     <public type="id" name="save_menu_item" id="0x7a09002e" />
@@ -1887,12 +1893,6 @@
     <public type="id" name="qrom_logo" id="0x7a090162" />
     <public type="id" name="float_view_app_time" id="0x7a090163" />
     <public type="id" name="chooserlayout_setting" id="0x7a090164" />
-    <public type="id" name="dialog" id="0x7a090165" />
-    <public type="id" name="dropdown" id="0x7a090166" />
-    <public type="id" name="resolver_list" id="0x7a090167" />
-    <public type="id" name="app_icon" id="0x7a090168" />
-    <public type="id" name="is_default" id="0x7a090169" />
-    <public type="id" name="app_name" id="0x7a09016a" />
     <public type="bool" name="action_bar_embed_tabs" id="0x7a0a0000" />
     <public type="bool" name="split_action_bar_is_narrow" id="0x7a0a0001" />
     <public type="bool" name="preferences_prefer_dual_pane" id="0x7a0a0002" />

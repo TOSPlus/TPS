@@ -32,7 +32,7 @@
     .param p6, "x4"    # [I
 
     .prologue
-    .line 1331
+    .line 1361
     iput-object p1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$4;->this$0:Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;
 
     iput-boolean p7, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$4;->val$hasTitle:Z
@@ -65,12 +65,12 @@
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 1335
+    .line 1365
     invoke-super {p0, p1, p2, p3}, Landroid/widget/SimpleCursorAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 1336
+    .line 1366
     .local v0, "view":Landroid/view/View;
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$4;->this$0:Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;
 
@@ -87,6 +87,6 @@
     # invokes: Lcom/tencent/qrom/app/QromAlertController;->setListBackground(Landroid/view/View;IIZZ)V
     invoke-static {v0, p1, v1, v2, v3}, Lcom/tencent/qrom/app/QromAlertController;->access$1000(Landroid/view/View;IIZZ)V
 
-    .line 1337
+    .line 1367
     return-object v0
 .end method

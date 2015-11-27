@@ -24,15 +24,15 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 1114
+    .line 1144
     invoke-direct {p0, p1}, Landroid/widget/ListView;-><init>(Landroid/content/Context;)V
 
-    .line 1111
+    .line 1141
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->mRecycleOnMeasure:Z
 
-    .line 1115
+    .line 1145
     return-void
 .end method
 
@@ -42,15 +42,15 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 1118
+    .line 1148
     invoke-direct {p0, p1, p2}, Landroid/widget/ListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 1111
+    .line 1141
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->mRecycleOnMeasure:Z
 
-    .line 1119
+    .line 1149
     return-void
 .end method
 
@@ -61,15 +61,15 @@
     .param p3, "defStyle"    # I
 
     .prologue
-    .line 1122
+    .line 1152
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 1111
+    .line 1141
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->mRecycleOnMeasure:Z
 
-    .line 1123
+    .line 1153
     return-void
 .end method
 
@@ -79,7 +79,7 @@
     .locals 1
 
     .prologue
-    .line 1127
+    .line 1157
     iget-boolean v0, p0, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->mRecycleOnMeasure:Z
 
     return v0

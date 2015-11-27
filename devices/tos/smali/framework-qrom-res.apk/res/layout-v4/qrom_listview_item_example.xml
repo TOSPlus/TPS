@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:id="@id/listItem" android:paddingLeft="@dimen/qrom_listview_item_padding_side_left" android:paddingTop="@dimen/qrom_listview_item_padding_side_top" android:paddingRight="@dimen/qrom_listview_item_padding_side_right" android:paddingBottom="@dimen/qrom_listview_item_padding_side_bottom" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="16.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/icon" android:visibility="gone" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/qrom_listview_icon_margin_left" android:layout_marginRight="@dimen/qrom_listview_icon_margin_right" />
+    <RelativeLayout android:id="@id/titleLayout" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginRight="0.0dip" android:layout_weight="1.0">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:ellipsize="marquee" android:id="@id/title" android:fadingEdge="horizontal" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <TextView android:textAppearance="?android:textAppearanceSmall" android:ellipsize="end" android:id="@id/summary" android:paddingTop="@dimen/qrom_listview_subtitle_padding_top" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="false" android:layout_below="@id/title" android:layout_alignLeft="@id/title" />
+    </RelativeLayout>
+</LinearLayout>

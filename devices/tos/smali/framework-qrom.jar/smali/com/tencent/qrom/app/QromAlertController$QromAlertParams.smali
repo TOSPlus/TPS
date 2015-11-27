@@ -38,33 +38,33 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 1153
+    .line 1183
     invoke-direct {p0, p1}, Lcom/android/internal/app/AlertController$AlertParams;-><init>(Landroid/content/Context;)V
 
-    .line 1135
+    .line 1165
     sget-object v0, Lcom/tencent/qrom/app/QromAlertController$ButtonColor;->BTN_NORMAL:Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
     iput-object v0, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mPositiveColor:Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
-    .line 1136
+    .line 1166
     sget-object v0, Lcom/tencent/qrom/app/QromAlertController$ButtonColor;->BTN_NORMAL:Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
     iput-object v0, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mNegativeColor:Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
-    .line 1137
+    .line 1167
     sget-object v0, Lcom/tencent/qrom/app/QromAlertController$ButtonColor;->BTN_NORMAL:Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
     iput-object v0, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mNeutralColor:Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
-    .line 1154
+    .line 1184
     iput-object p1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mContext:Landroid/content/Context;
 
-    .line 1155
+    .line 1185
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mCancelable:Z
 
-    .line 1156
+    .line 1186
     const-string v0, "layout_inflater"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -75,7 +75,7 @@
 
     iput-object v0, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 1157
+    .line 1187
     return-void
 .end method
 
@@ -84,7 +84,7 @@
     .param p1, "ac"    # Lcom/android/internal/app/AlertController;
 
     .prologue
-    .line 1227
+    .line 1257
     move-object/from16 v0, p1
 
     instance-of v3, v0, Lcom/tencent/qrom/app/QromAlertController;
@@ -96,23 +96,23 @@
     .end local p1    # "ac":Lcom/android/internal/app/AlertController;
     move-object/from16 v17, p1
 
-    .line 1228
+    .line 1258
     .local v17, "dialog":Lcom/tencent/qrom/app/QromAlertController;
     :goto_0
     if-nez v17, :cond_1
 
-    .line 1229
+    .line 1259
     const-string v3, "rick_Print:"
 
     const-string v4, "createListView dialog == null"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1388
+    .line 1418
     :goto_1
     return-void
 
-    .line 1227
+    .line 1257
     .end local v17    # "dialog":Lcom/tencent/qrom/app/QromAlertController;
     .restart local p1    # "ac":Lcom/android/internal/app/AlertController;
     :cond_0
@@ -120,7 +120,7 @@
 
     goto :goto_0
 
-    .line 1233
+    .line 1263
     .end local p1    # "ac":Lcom/android/internal/app/AlertController;
     .restart local v17    # "dialog":Lcom/tencent/qrom/app/QromAlertController;
     :cond_1
@@ -185,7 +185,7 @@
     :cond_4
     const/4 v9, 0x1
 
-    .line 1236
+    .line 1266
     .local v9, "hasTitle":Z
     :goto_2
     move-object/from16 v0, p0
@@ -241,7 +241,7 @@
     :cond_7
     const/4 v10, 0x1
 
-    .line 1241
+    .line 1271
     .local v10, "hasButton":Z
     :goto_3
     move-object/from16 v0, p0
@@ -261,7 +261,7 @@
 
     check-cast v8, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;
 
-    .line 1242
+    .line 1272
     .local v8, "listView":Lcom/tencent/qrom/app/QromAlertController$RecycleListView;
     move-object/from16 v0, p0
 
@@ -277,11 +277,11 @@
 
     move-result v27
 
-    .line 1243
+    .line 1273
     .local v27, "bRipple":Z
     if-nez v27, :cond_e
 
-    .line 1244
+    .line 1274
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mContext:Landroid/content/Context;
@@ -298,27 +298,27 @@
 
     invoke-virtual {v8, v3}, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1255
+    .line 1285
     :goto_4
     const/4 v3, 0x0
 
     invoke-virtual {v8, v3}, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->setFooterDividersEnabled(Z)V
 
-    .line 1256
+    .line 1286
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mIsMultiChoice:Z
 
     if-eqz v3, :cond_10
 
-    .line 1257
+    .line 1287
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mCursor:Landroid/database/Cursor;
 
     if-nez v3, :cond_f
 
-    .line 1258
+    .line 1288
     new-instance v2, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$1;
 
     move-object/from16 v0, p0
@@ -340,7 +340,7 @@
 
     invoke-direct/range {v2 .. v10}, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$1;-><init>(Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;Landroid/content/Context;II[Ljava/lang/CharSequence;Lcom/tencent/qrom/app/QromAlertController$RecycleListView;ZZ)V
 
-    .line 1344
+    .line 1374
     .local v2, "adapter":Landroid/widget/ListAdapter;
     :goto_5
     move-object/from16 v0, p0
@@ -349,21 +349,21 @@
 
     if-eqz v3, :cond_8
 
-    .line 1345
+    .line 1375
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mOnPrepareListViewListener:Lcom/android/internal/app/AlertController$AlertParams$OnPrepareListViewListener;
 
     invoke-interface {v3, v8}, Lcom/android/internal/app/AlertController$AlertParams$OnPrepareListViewListener;->onPrepareListView(Landroid/widget/ListView;)V
 
-    .line 1351
+    .line 1381
     :cond_8
     move-object/from16 v0, v17
 
     # setter for: Lcom/tencent/qrom/app/QromAlertController;->mAdapter:Landroid/widget/ListAdapter;
     invoke-static {v0, v2}, Lcom/tencent/qrom/app/QromAlertController;->access$1302(Lcom/tencent/qrom/app/QromAlertController;Landroid/widget/ListAdapter;)Landroid/widget/ListAdapter;
 
-    .line 1352
+    .line 1382
     move-object/from16 v0, p0
 
     iget v3, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mCheckedItem:I
@@ -373,14 +373,14 @@
     # setter for: Lcom/tencent/qrom/app/QromAlertController;->mCheckedItem:I
     invoke-static {v0, v3}, Lcom/tencent/qrom/app/QromAlertController;->access$1402(Lcom/tencent/qrom/app/QromAlertController;I)I
 
-    .line 1354
+    .line 1384
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
     if-eqz v3, :cond_14
 
-    .line 1355
+    .line 1385
     new-instance v3, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$5;
 
     move-object/from16 v0, p0
@@ -391,7 +391,7 @@
 
     invoke-virtual {v8, v3}, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 1376
+    .line 1406
     :cond_9
     :goto_6
     move-object/from16 v0, p0
@@ -400,14 +400,14 @@
 
     if-eqz v3, :cond_a
 
-    .line 1377
+    .line 1407
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mOnItemSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
     invoke-virtual {v8, v3}, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    .line 1380
+    .line 1410
     :cond_a
     move-object/from16 v0, p0
 
@@ -415,12 +415,12 @@
 
     if-eqz v3, :cond_15
 
-    .line 1381
+    .line 1411
     const/4 v3, 0x1
 
     invoke-virtual {v8, v3}, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->setChoiceMode(I)V
 
-    .line 1385
+    .line 1415
     :cond_b
     :goto_7
     move-object/from16 v0, p0
@@ -429,7 +429,7 @@
 
     iput-boolean v3, v8, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->mRecycleOnMeasure:Z
 
-    .line 1387
+    .line 1417
     move-object/from16 v0, v17
 
     # setter for: Lcom/tencent/qrom/app/QromAlertController;->mListView:Landroid/widget/ListView;
@@ -437,7 +437,7 @@
 
     goto/16 :goto_1
 
-    .line 1233
+    .line 1263
     .end local v2    # "adapter":Landroid/widget/ListAdapter;
     .end local v8    # "listView":Lcom/tencent/qrom/app/QromAlertController$RecycleListView;
     .end local v9    # "hasTitle":Z
@@ -448,14 +448,14 @@
 
     goto/16 :goto_2
 
-    .line 1236
+    .line 1266
     .restart local v9    # "hasTitle":Z
     :cond_d
     const/4 v10, 0x0
 
     goto/16 :goto_3
 
-    .line 1246
+    .line 1276
     .restart local v8    # "listView":Lcom/tencent/qrom/app/QromAlertController$RecycleListView;
     .restart local v10    # "hasButton":Z
     .restart local v27    # "bRipple":Z
@@ -496,7 +496,7 @@
 
     invoke-direct {v0, v3, v4, v5}, Lcom/tencent/qrom/drawable/QromRippleDrawable;-><init>(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 1252
+    .line 1282
     .local v28, "drawable":Lcom/tencent/qrom/drawable/QromRippleDrawable;
     move-object/from16 v0, v28
 
@@ -504,7 +504,7 @@
 
     goto/16 :goto_4
 
-    .line 1278
+    .line 1308
     .end local v28    # "drawable":Lcom/tencent/qrom/drawable/QromRippleDrawable;
     :cond_f
     new-instance v2, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$2;
@@ -534,7 +534,7 @@
     .restart local v2    # "adapter":Landroid/widget/ListAdapter;
     goto/16 :goto_5
 
-    .line 1314
+    .line 1344
     .end local v2    # "adapter":Landroid/widget/ListAdapter;
     :cond_10
     move-object/from16 v0, p0
@@ -548,7 +548,7 @@
 
     move-result v21
 
-    .line 1315
+    .line 1345
     .local v21, "layout":I
     :goto_8
     move-object/from16 v0, p0
@@ -557,7 +557,7 @@
 
     if-nez v3, :cond_13
 
-    .line 1316
+    .line 1346
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mAdapter:Landroid/widget/ListAdapter;
@@ -572,7 +572,7 @@
     :goto_9
     goto/16 :goto_5
 
-    .line 1314
+    .line 1344
     .end local v2    # "adapter":Landroid/widget/ListAdapter;
     .end local v21    # "layout":I
     :cond_11
@@ -583,7 +583,7 @@
 
     goto :goto_8
 
-    .line 1316
+    .line 1346
     .restart local v21    # "layout":I
     :cond_12
     new-instance v18, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$3;
@@ -614,7 +614,7 @@
 
     goto :goto_9
 
-    .line 1330
+    .line 1360
     :cond_13
     new-instance v2, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$4;
 
@@ -669,7 +669,7 @@
     .restart local v2    # "adapter":Landroid/widget/ListAdapter;
     goto/16 :goto_5
 
-    .line 1363
+    .line 1393
     .end local v21    # "layout":I
     :cond_14
     move-object/from16 v0, p0
@@ -678,7 +678,7 @@
 
     if-eqz v3, :cond_9
 
-    .line 1364
+    .line 1394
     new-instance v3, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams$6;
 
     move-object/from16 v0, p0
@@ -691,7 +691,7 @@
 
     goto/16 :goto_6
 
-    .line 1382
+    .line 1412
     :cond_15
     move-object/from16 v0, p0
 
@@ -699,7 +699,7 @@
 
     if-eqz v3, :cond_b
 
-    .line 1383
+    .line 1413
     const/4 v3, 0x2
 
     invoke-virtual {v8, v3}, Lcom/tencent/qrom/app/QromAlertController$RecycleListView;->setChoiceMode(I)V
@@ -716,46 +716,46 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 1161
+    .line 1191
     instance-of v1, p1, Lcom/tencent/qrom/app/QromAlertController;
 
     if-eqz v1, :cond_9
 
     move-object v0, p1
 
-    .line 1162
+    .line 1192
     check-cast v0, Lcom/tencent/qrom/app/QromAlertController;
 
-    .line 1169
+    .line 1199
     .local v0, "dialog":Lcom/tencent/qrom/app/QromAlertController;
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mCustomTitleView:Landroid/view/View;
 
     if-eqz v1, :cond_a
 
-    .line 1170
+    .line 1200
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mCustomTitleView:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/app/QromAlertController;->setCustomTitle(Landroid/view/View;)V
 
-    .line 1185
+    .line 1215
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mMessage:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_1
 
-    .line 1186
+    .line 1216
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mMessage:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/app/QromAlertController;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 1188
+    .line 1218
     :cond_1
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_2
 
-    .line 1189
+    .line 1219
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mPositiveColor:Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
     const/4 v2, -0x1
@@ -766,13 +766,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/tencent/qrom/app/QromAlertController;->setButton(Lcom/tencent/qrom/app/QromAlertController$ButtonColor;ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;Landroid/os/Message;)V
 
-    .line 1192
+    .line 1222
     :cond_2
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_3
 
-    .line 1193
+    .line 1223
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mNegativeColor:Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
     const/4 v2, -0x2
@@ -783,13 +783,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/tencent/qrom/app/QromAlertController;->setButton(Lcom/tencent/qrom/app/QromAlertController$ButtonColor;ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;Landroid/os/Message;)V
 
-    .line 1196
+    .line 1226
     :cond_3
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mNeutralButtonText:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_4
 
-    .line 1197
+    .line 1227
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mNeutralColor:Lcom/tencent/qrom/app/QromAlertController$ButtonColor;
 
     const/4 v2, -0x3
@@ -800,18 +800,18 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/tencent/qrom/app/QromAlertController;->setButton(Lcom/tencent/qrom/app/QromAlertController$ButtonColor;ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;Landroid/os/Message;)V
 
-    .line 1200
+    .line 1230
     :cond_4
     iget-boolean v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mForceInverseBackground:Z
 
     if-eqz v1, :cond_5
 
-    .line 1201
+    .line 1231
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/app/QromAlertController;->setInverseBackgroundForced(Z)V
 
-    .line 1205
+    .line 1235
     :cond_5
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mItems:[Ljava/lang/CharSequence;
 
@@ -825,22 +825,22 @@
 
     if-eqz v1, :cond_7
 
-    .line 1206
+    .line 1236
     :cond_6
     invoke-direct {p0, v0}, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->createListView(Lcom/android/internal/app/AlertController;)V
 
-    .line 1208
+    .line 1238
     :cond_7
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mView:Landroid/view/View;
 
     if-eqz v1, :cond_8
 
-    .line 1209
+    .line 1239
     iget-boolean v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mViewSpacingSpecified:Z
 
     if-eqz v1, :cond_e
 
-    .line 1210
+    .line 1240
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mView:Landroid/view/View;
 
     iget v2, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mViewSpacingLeft:I
@@ -853,59 +853,59 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/tencent/qrom/app/QromAlertController;->setView(Landroid/view/View;IIII)V
 
-    .line 1224
+    .line 1254
     .end local v0    # "dialog":Lcom/tencent/qrom/app/QromAlertController;
     :cond_8
     :goto_1
     return-void
 
-    .line 1165
+    .line 1195
     :cond_9
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertController$AlertParams;->apply(Lcom/android/internal/app/AlertController;)V
 
     goto :goto_1
 
-    .line 1172
+    .line 1202
     .restart local v0    # "dialog":Lcom/tencent/qrom/app/QromAlertController;
     :cond_a
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mTitle:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_b
 
-    .line 1173
+    .line 1203
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mTitle:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/app/QromAlertController;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 1175
+    .line 1205
     :cond_b
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mIcon:Landroid/graphics/drawable/Drawable;
 
     if-eqz v1, :cond_c
 
-    .line 1176
+    .line 1206
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mIcon:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/app/QromAlertController;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1178
+    .line 1208
     :cond_c
     iget v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mIconId:I
 
     if-lez v1, :cond_d
 
-    .line 1179
+    .line 1209
     iget v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mIconId:I
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/app/QromAlertController;->setIcon(I)V
 
-    .line 1181
+    .line 1211
     :cond_d
     iget v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mIconAttrId:I
 
     if-lez v1, :cond_0
 
-    .line 1182
+    .line 1212
     iget v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mIconAttrId:I
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/app/QromAlertController;->getIconAttributeResId(I)I
@@ -916,7 +916,7 @@
 
     goto/16 :goto_0
 
-    .line 1213
+    .line 1243
     :cond_e
     iget-object v1, p0, Lcom/tencent/qrom/app/QromAlertController$QromAlertParams;->mView:Landroid/view/View;
 

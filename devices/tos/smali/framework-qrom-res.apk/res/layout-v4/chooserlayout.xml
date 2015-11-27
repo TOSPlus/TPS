@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.tencent.qrom.support.v4.view.ViewPager android:id="@id/chooserviewpager" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" android:overScrollMode="never" />
+    <LinearLayout android:gravity="bottom|center" android:orientation="horizontal" android:id="@id/chooserpoints" android:layout_width="fill_parent" android:layout_height="24.0dip" />
+</LinearLayout>
