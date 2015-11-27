@@ -14,6 +14,7 @@ clean:
 	$(hide) $(PORT_TOOLS)/remove.sh $(DEVICE_NAME) "$(DEVICE_ROOT)/progress/*" $(CLEAN_TIME) $(FORCE) 
 	$(hide) $(PORT_TOOLS)/remove.sh $(DEVICE_NAME) "$(DEVICE_ROOT)/smali/*" $(CLEAN_TIME) $(FORCE) 
 	$(hide) rm -rf $(DEVICE_ROOT)/temp $(DEVICE_ROOT)/config/file_record
+	$(hide)rm -rf $(DEVICE_ROOT)/out
             
 # 清除$DEBUG_CLASS环境变量指定的单个类的中间文件
 clean-debug:
@@ -49,7 +50,7 @@ clean-patch:
 	$(DEVICE_ROOT)/progress/prepare_system_files $(DEVICE_ROOT)/progress/make_boot_img $(DEVICE_ROOT)/progress/generate_apk_certs \
 	$(DEVICE_ROOT)/progress/generate_filesystem_config $(DEVICE_ROOT)/progress/generate_link_for_system_files $(DEVICE_ROOT)/progress/generate_ota_package \
 	$(DEVICE_ROOT)/progress/concat_build_prop
-    
+	
 clean-javapatch:
 	$(hide) $(PORT_TOOLS)/remove.sh $(DEVICE_NAME) "$(DEVICE_ROOT)/patch/java" $(CLEAN_TIME) $(FORCE) 
 	$(hide) rm -rf $(DEVICE_NAME) $(DEVICE_ROOT)/temp

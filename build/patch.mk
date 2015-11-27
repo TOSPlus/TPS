@@ -89,5 +89,46 @@ incpackage:
 		else \
 			$(PORT_TOOLS)/incremental_package.sh; \
 		fi
+		
+##############################################################################################
+
+TOS_SYSTEM:=$(PORT_DEVICE)/tos/ota/system/
+TOS_FRAMEWORK:=$(TOS_SYSTEM)/framework
+PACKAGE_SYSTEM_PATH=$(PORT_DEVICE)/$(DEVICE_NAME)/package/target_files/SYSTEM/
+
+USER_CUSTOM_APP_SH := $(PORT_DEVICE)/$(DEVICE_NAME)/custom_app.sh
+
+TOS_FRAMEWORK_RES_APK:=$(TOS_FRAMEWORK)/framework-qrom-res.apk
+TAG:=TPS_$(DEVICE_NAME)
+OUTPUT_DIR:=$(PORT_DEVICE)/$(DEVICE_NAME)/out
+OUTPUT_DIST_DIR:=$(PORT_DEVICE)/$(DEVICE_NAME)/out/dist
+
+
+define tos_custom_apk_build
+$(eval MODIFIED_APK:=$(shell find $(TOS_SYSTEM) -name $1.apk)) 
+$(if $(strip $(MODIFIED_APK)),,\
+	$(error $1.apk is not exit in tos system file,please check the variable TOS_CUSTOM_APPS configuration in Makefile))
+$(eval DEST_APK:=$(OUTPUT_DIST_DIR)/$1.apk) 
+$(eval tempSmaliPath:=$(shell mktemp -u $(OUTPUT_DIR)/$(apk).XXX.out)) 
+$(DEST_APK) : $(MODIFIED_APK)
+	@echo ">>>deal customed app: $(1).apk"
+	$(hide)mkdir -p $(OUTPUT_DIST_DIR)
+	$(hide)$(call decompile_apk,$(TAG),$(tempSmaliPath),$(MODIFIED_APK)) 
+	$(hide)$(call custom_app,$(USER_CUSTOM_APP_SH),$(apk),$(tempSmaliPath)) 
+	$(hide)$(call compile_apk,$(tempSmaliPath),$$@)
+endef
+
+ifneq ($(TOS_CUSTOM_APPS),)
+$(foreach apk,$(TOS_CUSTOM_APPS),$(eval $(call tos_custom_apk_build,$(apk))))
+
+TARGET_TOS_CUSTOM_APPS:=$(addprefix $(OUTPUT_DIST_DIR)/,$(TOS_CUSTOM_APPS))
+TARGET_TOS_CUSTOM_APPS:=$(addsuffix .apk,$(TARGET_TOS_CUSTOM_APPS))
+syncpatch:$(TARGET_TOS_CUSTOM_APPS)
+
+endif
+
+
 syncpatch:
 	$(hide)$(PORT_TOOLS)/sync_tos_updated_framework_jars.sh $(DEVICE_NAME)
+	
+	

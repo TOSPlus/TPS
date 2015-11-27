@@ -45,12 +45,17 @@ AAPT_PATH := default
 # The value is used to config the device's resolution.
 # such as 720x1280, 1080x1920.
 #-----------------------------------------------------------------------------
-#RESOLUTION := 1080x1920
+RESOLUTION :=1080x1920
 
 ##############################################################################
 # The value is used to config whether to append device assertions to update_script
 # such as true, false.
 #-----------------------------------------------------------------------------
 RECOVERY_DEVICE_ASSERT=true
+
+##############################################################################
+# The value is used to config the apps that should be modified 
+#-----------------------------------------------------------------------------
+#TOS_CUSTOM_APPS:=qphone qsystemui
 
 include $(PORT_BUILD)/main.mk
