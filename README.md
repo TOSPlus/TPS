@@ -144,3 +144,6 @@ N900.zip*    smali/    target_files/    target_files.zip
 ------
 
 [解决方法](https://github.com/TOSPlus/TPS/blob/master/Fix_Reject.md)
+
+更新日记：
+11.27：解决上两周用户反馈的淘宝闪退、闹钟不响、wifi信号不稳定等问题
