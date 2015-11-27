@@ -345,7 +345,7 @@ prepare_system_files()
         cp -f "$SRC_FILE" "$DEST_FILE"
     done
 	
-	if [ $DESINTY="1080*720" ]; then
+	if [ $DESINTY="1280x720" ]; then
         local DEST_FILE=`find "$DEST_DIR" -name framework-qrom-res.apk`
         if [ -z "$DEST_FILE" ]; then
 			echo "[ERROR] cannot find '$DEST_FILE' "

@@ -43,9 +43,9 @@ AAPT_PATH := default
 
 ##############################################################################
 # The value is used to config the device's resolution.
-# such as 720x1280, 1080x1920.
+# such as 1280x720, 1920x1080
 #-----------------------------------------------------------------------------
-RESOLUTION :=1080x1920
+RESOLUTION :=1920x1080
 
 ##############################################################################
 # The value is used to config whether to append device assertions to update_script
