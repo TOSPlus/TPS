@@ -14,7 +14,7 @@
 patch
 - **make repack**：对拆分到方法级的 smali 文件进行合并并重新打包成 jar 包
 - **make package**：生成最终的 OTA 刷机包
-- **make sysnpatch**:用于framework更新后的patch，不改变开发者对原厂smali文件的修改
+- **make syncpatch**:用于framework更新后的patch，不改变开发者对原厂smali文件的修改
 - **make incpatch**：将新版本 TOS patch 到已经适配好的目标机型的 TOS 上
 - **make incpackage**：针对新版本 TOS 重新将上一个 patch 好的版本重新打包
 - **make clean**： 执行清理操作
