@@ -147,4 +147,4 @@ N900.zip*    smali/    target_files/    target_files.zip
 
 TencentOS更新log：
 ------
-2015.11.27：解决上两周用户反馈的淘宝闪退、闹钟不响、wifi信号不稳定等问题
+[http://bbs.tos.cn/thread-207186-1-1.html](http://bbs.tos.cn/thread-207186-1-1.html "TencentOS发布公告及更新日志--第38弹")
