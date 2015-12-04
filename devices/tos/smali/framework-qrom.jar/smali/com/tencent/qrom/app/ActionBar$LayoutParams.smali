@@ -78,14 +78,14 @@
     .param p1, "gravity"    # I
 
     .prologue
-    .line 1134
+    .line 1139
     const/4 v0, -0x2
 
     const/4 v1, -0x1
 
     invoke-direct {p0, v0, v1, p1}, Lcom/tencent/qrom/app/ActionBar$LayoutParams;-><init>(III)V
 
-    .line 1135
+    .line 1140
     return-void
 .end method
 
@@ -95,20 +95,20 @@
     .param p2, "height"    # I
 
     .prologue
-    .line 1124
+    .line 1129
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(II)V
 
-    .line 1097
+    .line 1102
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->gravity:I
 
-    .line 1125
+    .line 1130
     const/16 v0, 0x13
 
     iput v0, p0, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->gravity:I
 
-    .line 1126
+    .line 1131
     return-void
 .end method
 
@@ -119,18 +119,18 @@
     .param p3, "gravity"    # I
 
     .prologue
-    .line 1129
+    .line 1134
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(II)V
 
-    .line 1097
+    .line 1102
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->gravity:I
 
-    .line 1130
+    .line 1135
     iput p3, p0, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->gravity:I
 
-    .line 1131
+    .line 1136
     return-void
 .end method
 
@@ -142,20 +142,20 @@
     .prologue
     const/4 v2, -0x1
 
-    .line 1114
+    .line 1119
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 1097
+    .line 1102
     iput v2, p0, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->gravity:I
 
-    .line 1116
+    .line 1121
     sget-object v1, Lcom/android/internal/R$styleable;->ActionBar_LayoutParams:[I
 
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 1118
+    .line 1123
     .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x0
 
@@ -165,10 +165,10 @@
 
     iput v1, p0, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->gravity:I
 
-    .line 1120
+    .line 1125
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 1121
+    .line 1126
     return-void
 .end method
 
@@ -177,15 +177,15 @@
     .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
-    .line 1144
+    .line 1149
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1097
+    .line 1102
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->gravity:I
 
-    .line 1145
+    .line 1150
     return-void
 .end method
 
@@ -194,19 +194,19 @@
     .param p1, "source"    # Lcom/tencent/qrom/app/ActionBar$LayoutParams;
 
     .prologue
-    .line 1138
+    .line 1143
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
 
-    .line 1097
+    .line 1102
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->gravity:I
 
-    .line 1140
+    .line 1145
     iget v0, p1, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->gravity:I
 
     iput v0, p0, Lcom/tencent/qrom/app/ActionBar$LayoutParams;->gravity:I
 
-    .line 1141
+    .line 1146
     return-void
 .end method

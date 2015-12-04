@@ -37,12 +37,12 @@
     .locals 1
 
     .prologue
-    .line 1448
+    .line 1521
     iput-object p1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     invoke-direct {p0}, Lcom/tencent/qrom/app/ActionBar$Tab;-><init>()V
 
-    .line 1454
+    .line 1527
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mPosition:I
@@ -56,7 +56,7 @@
     .locals 1
 
     .prologue
-    .line 1469
+    .line 1542
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mCallback:Lcom/tencent/qrom/app/ActionBar$TabListener;
 
     return-object v0
@@ -66,7 +66,7 @@
     .locals 1
 
     .prologue
-    .line 1566
+    .line 1639
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mContentDesc:Ljava/lang/CharSequence;
 
     return-object v0
@@ -76,7 +76,7 @@
     .locals 1
 
     .prologue
-    .line 1480
+    .line 1553
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mCustomView:Landroid/view/View;
 
     return-object v0
@@ -86,7 +86,7 @@
     .locals 1
 
     .prologue
-    .line 1500
+    .line 1573
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mIcon:Landroid/graphics/drawable/Drawable;
 
     return-object v0
@@ -96,7 +96,7 @@
     .locals 1
 
     .prologue
-    .line 1505
+    .line 1578
     iget v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
     return v0
@@ -106,7 +106,7 @@
     .locals 1
 
     .prologue
-    .line 1459
+    .line 1532
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mTag:Ljava/lang/Object;
 
     return-object v0
@@ -116,7 +116,7 @@
     .locals 1
 
     .prologue
-    .line 1514
+    .line 1587
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mText:Ljava/lang/CharSequence;
 
     return-object v0
@@ -126,12 +126,12 @@
     .locals 1
 
     .prologue
-    .line 1547
+    .line 1620
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     invoke-virtual {v0, p0}, Lcom/tencent/qrom/internal/app/ActionBarImpl;->selectTab(Lcom/tencent/qrom/app/ActionBar$Tab;)V
 
-    .line 1548
+    .line 1621
     return-void
 .end method
 
@@ -140,7 +140,7 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 1552
+    .line 1625
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
@@ -168,15 +168,15 @@
     .param p1, "contentDesc"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 1557
+    .line 1630
     iput-object p1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mContentDesc:Ljava/lang/CharSequence;
 
-    .line 1558
+    .line 1631
     iget v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
     if-ltz v0, :cond_0
 
-    .line 1559
+    .line 1632
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mTabScrollView:Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;
@@ -188,7 +188,7 @@
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    .line 1561
+    .line 1634
     :cond_0
     return-object p0
 .end method
@@ -198,7 +198,7 @@
     .param p1, "layoutResId"    # I
 
     .prologue
-    .line 1494
+    .line 1567
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/app/ActionBarImpl;->getThemedContext()Landroid/content/Context;
@@ -227,15 +227,15 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 1485
+    .line 1558
     iput-object p1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mCustomView:Landroid/view/View;
 
-    .line 1486
+    .line 1559
     iget v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
     if-ltz v0, :cond_0
 
-    .line 1487
+    .line 1560
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mTabScrollView:Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;
@@ -247,7 +247,7 @@
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    .line 1489
+    .line 1562
     :cond_0
     return-object p0
 .end method
@@ -257,7 +257,7 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 1528
+    .line 1601
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
@@ -285,15 +285,15 @@
     .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
-    .line 1519
+    .line 1592
     iput-object p1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    .line 1520
+    .line 1593
     iget v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
     if-ltz v0, :cond_0
 
-    .line 1521
+    .line 1594
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mTabScrollView:Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;
@@ -305,7 +305,7 @@
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    .line 1523
+    .line 1596
     :cond_0
     return-object p0
 .end method
@@ -315,10 +315,10 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 1509
+    .line 1582
     iput p1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
-    .line 1510
+    .line 1583
     return-void
 .end method
 
@@ -327,10 +327,10 @@
     .param p1, "callback"    # Lcom/tencent/qrom/app/ActionBar$TabListener;
 
     .prologue
-    .line 1474
+    .line 1547
     iput-object p1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mCallback:Lcom/tencent/qrom/app/ActionBar$TabListener;
 
-    .line 1475
+    .line 1548
     return-object p0
 .end method
 
@@ -339,10 +339,10 @@
     .param p1, "tag"    # Ljava/lang/Object;
 
     .prologue
-    .line 1464
+    .line 1537
     iput-object p1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mTag:Ljava/lang/Object;
 
-    .line 1465
+    .line 1538
     return-object p0
 .end method
 
@@ -351,7 +351,7 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 1542
+    .line 1615
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
@@ -379,15 +379,15 @@
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 1533
+    .line 1606
     iput-object p1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mText:Ljava/lang/CharSequence;
 
-    .line 1534
+    .line 1607
     iget v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
     if-ltz v0, :cond_0
 
-    .line 1535
+    .line 1608
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mTabScrollView:Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;
@@ -399,7 +399,7 @@
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/internal/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    .line 1537
+    .line 1610
     :cond_0
     return-object p0
 .end method

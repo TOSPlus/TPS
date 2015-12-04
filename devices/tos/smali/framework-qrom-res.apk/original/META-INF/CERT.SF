@@ -1,6 +1,6 @@
 Signature-Version: 1.0
 Created-By: 1.0 (Android SignApk)
-SHA1-Digest-Manifest: fUuFnKIGK1mg3u5DVrtdT+lgwps=
+SHA1-Digest-Manifest: uG8v4nir8awjDxVyxEZh2hhzADE=
 
 Name: res/drawable-xxhdpi-v4/qrom_preference_bottom_normal.9.png
 SHA1-Digest-Manifest: dS2MXO9/QfnFbLGfRKR/kovo9ok=
@@ -317,7 +317,7 @@ Name: res/drawable-xxhdpi-v4/spinner_ab_default_holo_light.9.png
 SHA1-Digest-Manifest: iDiOfhDOPUq1jr0fqhYkhxdPDbs=
 
 Name: res/layout-v4/alert_dialog_holo.xml
-SHA1-Digest-Manifest: fUYmiC0j/ot7f9pGwfLh56recl4=
+SHA1-Digest-Manifest: A55Rs5gJvdnTHg1vFgRIBvqcRdQ=
 
 Name: res/drawable-xxhdpi-v4/menu_fullwidth_bg_bottom.9.png
 SHA1-Digest-Manifest: OHiz4jbjZu1J/PP63KF1dngyaiQ=
@@ -817,7 +817,7 @@ Name: res/drawable-xxhdpi-v4/textfield_multiline_focused_holo_light.9.
 SHA1-Digest-Manifest: XHGjbNj584Dr4o83dQLhg3qGjIU=
 
 Name: res/layout-v4/progress_dialog_holo.xml
-SHA1-Digest-Manifest: YKHrkreR8ngsLGKSrIoGqS9Y0ds=
+SHA1-Digest-Manifest: 64UOE7DkG/nA5ZjL3E1x+hqpQ/4=
 
 Name: res/drawable/qrom_preference_single_item.xml
 SHA1-Digest-Manifest: EEHlEEIBt8Qv3prYgktqjmOcF8A=
@@ -959,7 +959,7 @@ Name: res/drawable-xxhdpi-v4/launcher_theme_icon_cover.png
 SHA1-Digest-Manifest: UbRCPgQGlniX9/+RamrN9MsslmQ=
 
 Name: res/layout-v4/select_dialog_item.xml
-SHA1-Digest-Manifest: jGAYPISJ6ls2aos2bnFXJfrbBKM=
+SHA1-Digest-Manifest: VHMJp3+vYnXOK4o/fhufh3BAz+c=
 
 Name: res/layout-v4/action_mode_multichoice_item.xml
 SHA1-Digest-Manifest: 15Iebp9plxy+2NuJTBkQ4NcJT5Y=
@@ -1966,7 +1966,7 @@ Name: res/drawable-xxhdpi-v4/btn_check_to_on_mtrl_000.png
 SHA1-Digest-Manifest: 7KHNylSyMh0u7rFSFCrw+8qDjTE=
 
 Name: res/layout-v4/select_dialog_android_multichoice.xml
-SHA1-Digest-Manifest: SxkvZZchPYAnKtMMV972OmKMuUE=
+SHA1-Digest-Manifest: mTWcSM0AJSMVODtnRMUv5a1lazE=
 
 Name: res/drawable-xxhdpi-v4/qrom_expand_arrow_up.png
 SHA1-Digest-Manifest: tzUcnFstTGl491ZLGmZNlETKS50=
@@ -2278,7 +2278,7 @@ Name: res/drawable-xxhdpi-v4/ic_menu_moreoverflow_bottom_disabled_holo
 SHA1-Digest-Manifest: IKuk2exDHq/MTfIxKYtyXVA9wEU=
 
 Name: res/layout-v4/select_dialog_android_singlechoice.xml
-SHA1-Digest-Manifest: H70/hy3eAqppKacUJ+xp7ABQDPQ=
+SHA1-Digest-Manifest: qmRN41w+wucczZtDOoo3FLGuaYA=
 
 Name: res/drawable-xxhdpi-v4/btn_noframe_blue_disabled_focused_holo_li
  ght.9.png
@@ -2665,7 +2665,7 @@ Name: res/drawable/switch_track_on_sel.xml
 SHA1-Digest-Manifest: a+LHDzda3R5KB7cMeLlikM/usnI=
 
 Name: res/layout-v4/qrom_alert_dialog_holo.xml
-SHA1-Digest-Manifest: +4UYDxEYZZwx8CBoWC8+DpKGpZk=
+SHA1-Digest-Manifest: ZA0PlwRDBRQfICA5tVbroyYsQ8s=
 
 Name: res/drawable-xxhdpi-v4/launcher_theme_ic_app_video.png
 SHA1-Digest-Manifest: XB3I0l0m66xhhvBTgCbaxzKiIJU=
@@ -2753,7 +2753,7 @@ Name: res/drawable-xxhdpi-v4/dialog_bg.9.png
 SHA1-Digest-Manifest: qKt2atsbeEOGRCGMcwC7HCKDTeE=
 
 Name: resources.arsc
-SHA1-Digest-Manifest: oLn07Ow2T2x6WUmxfGSdjZspAgQ=
+SHA1-Digest-Manifest: S34IdSm+Jw+hXAFrjX8UhYLMdMU=
 
 Name: res/drawable/btn_check_to_off_material_anim.xml
 SHA1-Digest-Manifest: A6lruISgtFHB8Z0wz3N+VXakzK8=

@@ -316,7 +316,7 @@ Name: res/drawable-xxhdpi-v4/spinner_ab_default_holo_light.9.png
 SHA1-Digest: UAevNka/RMfhu8VRlbB5O3VoJFs=
 
 Name: res/layout-v4/alert_dialog_holo.xml
-SHA1-Digest: jfswcCSVnWEc+TQ4UASV/TCS0lo=
+SHA1-Digest: ERsgFJJ4TfgssWJA9qBY1JuKYSI=
 
 Name: res/drawable-xxhdpi-v4/menu_fullwidth_bg_bottom.9.png
 SHA1-Digest: fRTo65pmFfANqd10GDyO2gj9Cqs=
@@ -812,7 +812,7 @@ Name: res/drawable-xxhdpi-v4/ic_ab_back_pressed.png
 SHA1-Digest: h1RXnDUs9WcPiEbR3nb8G4Eix4U=
 
 Name: res/layout-v4/progress_dialog_holo.xml
-SHA1-Digest: n+FRlLEcnOeM94qa3b99os62fOk=
+SHA1-Digest: VpXiR4joeEeiMvoRZE01qgOm73s=
 
 Name: res/drawable-xxhdpi-v4/textfield_multiline_focused_holo_light.9.
  png
@@ -958,7 +958,7 @@ Name: res/drawable-xxhdpi-v4/launcher_theme_icon_cover.png
 SHA1-Digest: lJre6uD/R1rS2wISpxe4Uu3iJHM=
 
 Name: res/layout-v4/select_dialog_item.xml
-SHA1-Digest: MR400sth2hyqBDV7YqFXB5y79p0=
+SHA1-Digest: XP9bkMRKYu8yWsFtMCri4IJKmV8=
 
 Name: res/layout-v4/action_mode_multichoice_item.xml
 SHA1-Digest: NpksWNM/LKRYV4f50lQJn+uj/Ts=
@@ -1965,7 +1965,7 @@ Name: res/drawable-xxhdpi-v4/btn_check_to_on_mtrl_000.png
 SHA1-Digest: r4CC8ceFEQMgqEN/Xt9KuN1YwLI=
 
 Name: res/layout-v4/select_dialog_android_multichoice.xml
-SHA1-Digest: 7ly1MBQNlgnNv5RWUPU3OxZgMEE=
+SHA1-Digest: A+bT5ZxXko7eBDFHXkJFQW/spFg=
 
 Name: res/drawable-xxhdpi-v4/qrom_expand_arrow_up.png
 SHA1-Digest: BA3zgn10vmr1yU9+EXwbnOdvQFk=
@@ -2277,7 +2277,7 @@ Name: res/drawable-xxhdpi-v4/ic_menu_moreoverflow_bottom_disabled_holo
 SHA1-Digest: LqmrwgsbTqQ57aMHfsfGa8A4ALw=
 
 Name: res/layout-v4/select_dialog_android_singlechoice.xml
-SHA1-Digest: ytEszOXbvRPOSiquEoYLIpWzosE=
+SHA1-Digest: KWfq0vs4R4sUfSjEXRpOMGm615Q=
 
 Name: res/drawable-xxhdpi-v4/btn_noframe_blue_disabled_focused_holo_li
  ght.9.png
@@ -2664,7 +2664,7 @@ Name: res/drawable-xhdpi-v4/launcher_theme_ic_app_mysetting.png
 SHA1-Digest: oDFY9GJccb0wCuvjy6pUkYfiegg=
 
 Name: res/layout-v4/qrom_alert_dialog_holo.xml
-SHA1-Digest: qkpoAmY+sWyObkpD6+y39kpeGjM=
+SHA1-Digest: GA04rcWbvQRqOzzhROllZkXnXdE=
 
 Name: res/drawable-xxhdpi-v4/launcher_theme_ic_app_video.png
 SHA1-Digest: UvD4fMocbyT2/ss5ijf8DQZuL2E=
@@ -2752,7 +2752,7 @@ Name: res/drawable-xxhdpi-v4/dialog_bg.9.png
 SHA1-Digest: HHXBYyTNCYljWjMtdhBBRDnXv4Y=
 
 Name: resources.arsc
-SHA1-Digest: 7wvTSyZs/stvqngkYIP3tSGeGt0=
+SHA1-Digest: YnyJaYFs5XFfXJd4kqOxSNWBgUE=
 
 Name: res/drawable/btn_check_to_off_material_anim.xml
 SHA1-Digest: gdTo9fPaRVdY45c8vfInNp4gN2Y=

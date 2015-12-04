@@ -42,15 +42,15 @@
     .param p2, "callback"    # Landroid/view/ActionMode$Callback;
 
     .prologue
-    .line 1301
+    .line 1374
     iput-object p1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     invoke-direct {p0}, Landroid/view/ActionMode;-><init>()V
 
-    .line 1302
+    .line 1375
     iput-object p2, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCallback:Landroid/view/ActionMode$Callback;
 
-    .line 1303
+    .line 1376
     new-instance v0, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     invoke-virtual {p1}, Lcom/tencent/qrom/internal/app/ActionBarImpl;->getThemedContext()Landroid/content/Context;
@@ -67,12 +67,12 @@
 
     iput-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
-    .line 1305
+    .line 1378
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v0, p0}, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;->setCallback(Lcom/tencent/qrom/internal/view/menu/MenuBuilder$Callback;)V
 
-    .line 1306
+    .line 1379
     return-void
 .end method
 
@@ -82,12 +82,12 @@
     .locals 2
 
     .prologue
-    .line 1360
+    .line 1433
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;->stopDispatchingItemsChanged()V
 
-    .line 1362
+    .line 1435
     :try_start_0
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCallback:Landroid/view/ActionMode$Callback;
 
@@ -99,7 +99,7 @@
 
     move-result v0
 
-    .line 1364
+    .line 1437
     iget-object v1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v1}, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;->startDispatchingItemsChanged()V
@@ -122,19 +122,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1320
+    .line 1393
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     iget-object v0, v0, Lcom/tencent/qrom/internal/app/ActionBarImpl;->mActionMode:Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;
 
     if-eq v0, p0, :cond_1
 
-    .line 1347
+    .line 1420
     :cond_0
     :goto_0
     return-void
 
-    .line 1329
+    .line 1402
     :cond_1
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
@@ -142,30 +142,30 @@
 
     if-eqz v0, :cond_2
 
-    .line 1330
+    .line 1403
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     iput-object p0, v0, Lcom/tencent/qrom/internal/app/ActionBarImpl;->mDeferredDestroyActionMode:Landroid/view/ActionMode;
 
-    .line 1331
+    .line 1404
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     iget-object v1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCallback:Landroid/view/ActionMode$Callback;
 
     iput-object v1, v0, Lcom/tencent/qrom/internal/app/ActionBarImpl;->mDeferredModeDestroyCallback:Landroid/view/ActionMode$Callback;
 
-    .line 1335
+    .line 1408
     :goto_1
     iput-object v2, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCallback:Landroid/view/ActionMode$Callback;
 
-    .line 1336
+    .line 1409
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/internal/app/ActionBarImpl;->animateToMode(Z)V
 
-    .line 1339
+    .line 1412
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContextView:Lcom/tencent/qrom/internal/widget/ActionBarContextView;
@@ -175,7 +175,7 @@
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->closeMode()V
 
-    .line 1340
+    .line 1413
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mActionView:Lcom/tencent/qrom/internal/widget/ActionBarView;
@@ -187,26 +187,26 @@
 
     invoke-virtual {v0, v1}, Lcom/tencent/qrom/internal/widget/ActionBarView;->sendAccessibilityEvent(I)V
 
-    .line 1342
+    .line 1415
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     iput-object v2, v0, Lcom/tencent/qrom/internal/app/ActionBarImpl;->mActionMode:Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;
 
-    .line 1344
+    .line 1417
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     iget-boolean v0, v0, Lcom/tencent/qrom/internal/app/ActionBarImpl;->mWasHiddenBeforeMode:Z
 
     if-eqz v0, :cond_0
 
-    .line 1345
+    .line 1418
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/app/ActionBarImpl;->hide()V
 
     goto :goto_0
 
-    .line 1333
+    .line 1406
     :cond_2
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCallback:Landroid/view/ActionMode$Callback;
 
@@ -219,7 +219,7 @@
     .locals 1
 
     .prologue
-    .line 1406
+    .line 1479
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCustomView:Ljava/lang/ref/WeakReference;
 
     if-eqz v0, :cond_0
@@ -245,7 +245,7 @@
     .locals 1
 
     .prologue
-    .line 1315
+    .line 1388
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     return-object v0
@@ -255,7 +255,7 @@
     .locals 2
 
     .prologue
-    .line 1310
+    .line 1383
     new-instance v0, Landroid/view/MenuInflater;
 
     iget-object v1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
@@ -273,7 +273,7 @@
     .locals 1
 
     .prologue
-    .line 1401
+    .line 1474
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContextView:Lcom/tencent/qrom/internal/widget/ActionBarContextView;
@@ -292,7 +292,7 @@
     .locals 1
 
     .prologue
-    .line 1396
+    .line 1469
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContextView:Lcom/tencent/qrom/internal/widget/ActionBarContextView;
@@ -311,12 +311,12 @@
     .locals 2
 
     .prologue
-    .line 1351
+    .line 1424
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;->stopDispatchingItemsChanged()V
 
-    .line 1353
+    .line 1426
     :try_start_0
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCallback:Landroid/view/ActionMode$Callback;
 
@@ -326,15 +326,15 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1355
+    .line 1428
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mMenu:Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v0}, Lcom/tencent/qrom/internal/view/menu/MenuBuilder;->startDispatchingItemsChanged()V
 
-    .line 1357
+    .line 1430
     return-void
 
-    .line 1355
+    .line 1428
     :catchall_0
     move-exception v0
 
@@ -351,7 +351,7 @@
     .param p2, "allMenusAreClosing"    # Z
 
     .prologue
-    .line 1418
+    .line 1491
     return-void
 .end method
 
@@ -360,7 +360,7 @@
     .param p1, "menu"    # Lcom/tencent/qrom/internal/view/menu/SubMenuBuilder;
 
     .prologue
-    .line 1434
+    .line 1507
     return-void
 .end method
 
@@ -370,19 +370,19 @@
     .param p2, "item"    # Landroid/view/MenuItem;
 
     .prologue
-    .line 1410
+    .line 1483
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCallback:Landroid/view/ActionMode$Callback;
 
     if-eqz v0, :cond_0
 
-    .line 1411
+    .line 1484
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCallback:Landroid/view/ActionMode$Callback;
 
     invoke-interface {v0, p0, p2}, Landroid/view/ActionMode$Callback;->onActionItemClicked(Landroid/view/ActionMode;Landroid/view/MenuItem;)Z
 
     move-result v0
 
-    .line 1413
+    .line 1486
     :goto_0
     return v0
 
@@ -397,20 +397,20 @@
     .param p1, "menu"    # Lcom/tencent/qrom/internal/view/menu/MenuBuilder;
 
     .prologue
-    .line 1437
+    .line 1510
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCallback:Landroid/view/ActionMode$Callback;
 
     if-nez v0, :cond_0
 
-    .line 1442
+    .line 1515
     :goto_0
     return-void
 
-    .line 1440
+    .line 1513
     :cond_0
     invoke-virtual {p0}, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->invalidate()V
 
-    .line 1441
+    .line 1514
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContextView:Lcom/tencent/qrom/internal/widget/ActionBarContextView;
@@ -430,20 +430,20 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 1421
+    .line 1494
     iget-object v1, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCallback:Landroid/view/ActionMode$Callback;
 
     if-nez v1, :cond_1
 
-    .line 1422
+    .line 1495
     const/4 v0, 0x0
 
-    .line 1430
+    .line 1503
     :cond_0
     :goto_0
     return v0
 
-    .line 1425
+    .line 1498
     :cond_1
     invoke-virtual {p1}, Lcom/tencent/qrom/internal/view/menu/SubMenuBuilder;->hasVisibleItems()Z
 
@@ -451,7 +451,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1429
+    .line 1502
     new-instance v1, Lcom/tencent/qrom/internal/view/menu/MenuPopupHelper;
 
     iget-object v2, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
@@ -472,7 +472,7 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 1370
+    .line 1443
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContextView:Lcom/tencent/qrom/internal/widget/ActionBarContextView;
@@ -482,14 +482,14 @@
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->setCustomView(Landroid/view/View;)V
 
-    .line 1371
+    .line 1444
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->mCustomView:Ljava/lang/ref/WeakReference;
 
-    .line 1372
+    .line 1445
     return-void
 .end method
 
@@ -498,7 +498,7 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 1391
+    .line 1464
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
@@ -516,7 +516,7 @@
 
     invoke-virtual {p0, v0}, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->setSubtitle(Ljava/lang/CharSequence;)V
 
-    .line 1392
+    .line 1465
     return-void
 .end method
 
@@ -525,7 +525,7 @@
     .param p1, "subtitle"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 1376
+    .line 1449
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContextView:Lcom/tencent/qrom/internal/widget/ActionBarContextView;
@@ -535,7 +535,7 @@
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->setSubtitle(Ljava/lang/CharSequence;)V
 
-    .line 1377
+    .line 1450
     return-void
 .end method
 
@@ -544,7 +544,7 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 1386
+    .line 1459
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
@@ -562,7 +562,7 @@
 
     invoke-virtual {p0, v0}, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 1387
+    .line 1460
     return-void
 .end method
 
@@ -571,7 +571,7 @@
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 1381
+    .line 1454
     iget-object v0, p0, Lcom/tencent/qrom/internal/app/ActionBarImpl$ActionModeImpl;->this$0:Lcom/tencent/qrom/internal/app/ActionBarImpl;
 
     # getter for: Lcom/tencent/qrom/internal/app/ActionBarImpl;->mContextView:Lcom/tencent/qrom/internal/widget/ActionBarContextView;
@@ -581,6 +581,6 @@
 
     invoke-virtual {v0, p1}, Lcom/tencent/qrom/internal/widget/ActionBarContextView;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 1382
+    .line 1455
     return-void
 .end method

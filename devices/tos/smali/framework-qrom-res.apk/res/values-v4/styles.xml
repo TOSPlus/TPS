@@ -207,6 +207,7 @@
         <item name="android:textAppearanceListItem">@style/TextAppearance.qrom.Second.qromTextMediumLightBody</item>
         <item name="android:textAppearanceListItemSmall">@style/TextAppearance.qrom.Second.qromtextMicroLightSummary</item>
         <item name="textColorSearchUrl">@color/search_url_text_holo</item>
+        <item name="textAppearanceMedium">@style/TextAppearance.qrom.Second.qromTextMediumLightBody</item>
         <item name="listChoiceBackgroundIndicator">@drawable/second_list_selector_holo_light</item>
         <item name="buttonStyleToggle">@style/Widget.qrom.Button.Second.Toggle</item>
         <item name="listDivider">@drawable/list_divider_holo_light</item>
@@ -456,6 +457,7 @@
         <item name="android:textAppearanceListItem">?android:textAppearanceMedium</item>
         <item name="android:textAppearanceListItemSmall">?android:textAppearanceMedium</item>
         <item name="textColorSearchUrl">@color/search_url_text_holo</item>
+        <item name="windowTitleStyle">@style/DialogWindowTitle.qrom</item>
         <item name="numberPickerStyle">@style/Widget.qrom.NumberPicker</item>
         <item name="numberPickerInputTextStyle">@style/Widget.qrom.EditText.NumberPickerInputText</item>
         <item name="datePickerStyle">@style/Widget.qrom.DatePicker.Second</item>
@@ -559,8 +561,10 @@
         <item name="android:alertDialogIcon">@drawable/ic_dialog_alert_holo_light</item>
         <item name="android:windowCloseOnTouchOutside">@bool/config_closeDialogWhenTouchOutside</item>
         <item name="textColorSearchUrl">@color/search_url_text_holo</item>
+        <item name="textAppearanceMedium">@style/TextAppearance.qrom.Second.qromTextMediumLightBody</item>
         <item name="listChoiceBackgroundIndicator">@drawable/second_list_selector_holo_light</item>
         <item name="listDivider">@drawable/list_divider_holo_light</item>
+        <item name="windowTitleStyle">@style/DialogWindowTitle.qrom.Second</item>
         <item name="checkboxStyle">@style/Widget.qrom.CompoundButton.CheckBox</item>
         <item name="listViewStyle">@style/Widget.qrom.ListView.Second</item>
         <item name="radioButtonStyle">@style/Widget.qrom.CompoundButton.RadioButton</item>
@@ -568,6 +572,7 @@
         <item name="numberPickerInputTextStyle">@style/Widget.qrom.EditText.NumberPickerInputText.Second</item>
         <item name="datePickerStyle">@style/Widget.qrom.DatePicker.Second</item>
         <item name="actionModePopupWindowStyle">@style/Widget.qrom.PopupWindow</item>
+        <item name="buttonBarButtonStyle">@style/TextAppearance.qrom.Second.qromTextDialogButton</item>
         <item name="bottomAlertDialogStyle">@style/AlertDialog.qrom.Second.Bottom</item>
         <item name="bottomDialogTheme">@style/Theme.qrom.Second.Dialog.Bottom</item>
         <item name="bottomalertDialogTheme">@style/AlertDialog.qrom.Second.Bottom</item>
@@ -625,6 +630,8 @@
         <item name="android:windowMinWidthMinor">@dimen/dialog_min_width_minor</item>
         <item name="android:textAppearanceListItem">@style/TextAppearance.qrom.Second.qromTextMediumLightBody</item>
         <item name="android:textAppearanceListItemSmall">@style/TextAppearance.qrom.Second.qromtextMicroLightSummary</item>
+        <item name="windowTitleStyle">@style/DialogWindowTitle.qrom.Second.default</item>
+        <item name="buttonBarButtonStyle">@style/TextAppearance.qrom.Second.qromTextDialogButton</item>
     </style>
     <style name="Theme.qrom.Second.Dialog.Alert" parent="@style/Theme.qrom.Second.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -693,10 +700,13 @@
         <item name="android:windowMinWidthMajor">@dimen/dialog_min_width_major</item>
         <item name="android:windowMinWidthMinor">@dimen/dialog_min_width_minor</item>
         <item name="textColorSearchUrl">@color/search_url_text_holo</item>
+        <item name="textAppearanceMedium">@style/TextAppearance.qrom.Second.qromTextMediumDarkBody</item>
         <item name="listChoiceBackgroundIndicator">@color/qrom_black</item>
         <item name="listDivider">@color/transparent</item>
+        <item name="windowTitleStyle">@style/DialogWindowTitle.qrom.Second.Dark</item>
         <item name="listViewStyle">@style/Widget.qrom.ListView.Second.Dialog.Dark</item>
         <item name="actionModePopupWindowStyle">@style/Widget.qrom.PopupWindow</item>
+        <item name="buttonBarButtonStyle">@style/TextAppearance.qrom.Second.qromTextDialogButton.Dark</item>
     </style>
     <style name="Theme.qrom.DialogWhenLarge" parent="@style/Theme.qrom" />
     <style name="Theme.qrom.Panel" parent="@style/Theme.qrom">

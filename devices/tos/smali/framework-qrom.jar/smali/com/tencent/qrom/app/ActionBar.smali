@@ -77,7 +77,7 @@
     .line 1039
     iput-boolean v0, p0, Lcom/tencent/qrom/app/ActionBar;->mActionBarHideNoAnim:Z
 
-    .line 1091
+    .line 1096
     return-void
 .end method
 
@@ -658,4 +658,10 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public abstract topActionbar_hide()V
+.end method
+
+.method public abstract topActionbar_show()V
 .end method
