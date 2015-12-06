@@ -145,6 +145,9 @@ N900.zip*    smali/    target_files/    target_files.zip
 
 [解决方法](https://github.com/TOSPlus/TPS/blob/master/Fix_Reject.md)
 
-TencentOS更新log：
+TencentOS更新日记：
 ------
-[http://bbs.tos.cn/thread-207186-1-1.html](http://bbs.tos.cn/thread-207186-1-1.html "TencentOS发布公告及更新日志--第38弹")
+[TencentOS发布公告及更新日志--第38弹"](http://bbs.tos.cn/thread-207186-1-1.html)
+
+
+
