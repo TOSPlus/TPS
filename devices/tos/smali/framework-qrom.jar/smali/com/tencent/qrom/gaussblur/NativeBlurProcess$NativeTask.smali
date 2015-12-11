@@ -49,25 +49,25 @@
     .param p5, "round"    # I
 
     .prologue
-    .line 55
+    .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 56
+    .line 59
     iput-object p1, p0, Lcom/tencent/qrom/gaussblur/NativeBlurProcess$NativeTask;->_bitmapOut:Landroid/graphics/Bitmap;
 
-    .line 57
+    .line 60
     iput p2, p0, Lcom/tencent/qrom/gaussblur/NativeBlurProcess$NativeTask;->_radius:I
 
-    .line 58
+    .line 61
     iput p3, p0, Lcom/tencent/qrom/gaussblur/NativeBlurProcess$NativeTask;->_totalCores:I
 
-    .line 59
+    .line 62
     iput p4, p0, Lcom/tencent/qrom/gaussblur/NativeBlurProcess$NativeTask;->_coreIndex:I
 
-    .line 60
+    .line 63
     iput p5, p0, Lcom/tencent/qrom/gaussblur/NativeBlurProcess$NativeTask;->_round:I
 
-    .line 61
+    .line 64
     return-void
 .end method
 
@@ -82,7 +82,7 @@
     .end annotation
 
     .prologue
-    .line 48
+    .line 51
     invoke-virtual {p0}, Lcom/tencent/qrom/gaussblur/NativeBlurProcess$NativeTask;->call()Ljava/lang/Void;
 
     move-result-object v0
@@ -99,7 +99,7 @@
     .end annotation
 
     .prologue
-    .line 64
+    .line 67
     iget-object v0, p0, Lcom/tencent/qrom/gaussblur/NativeBlurProcess$NativeTask;->_bitmapOut:Landroid/graphics/Bitmap;
 
     iget v1, p0, Lcom/tencent/qrom/gaussblur/NativeBlurProcess$NativeTask;->_radius:I
@@ -113,7 +113,7 @@
     # invokes: Lcom/tencent/qrom/gaussblur/NativeBlurProcess;->functionToBlur(Landroid/graphics/Bitmap;IIII)V
     invoke-static {v0, v1, v2, v3, v4}, Lcom/tencent/qrom/gaussblur/NativeBlurProcess;->access$000(Landroid/graphics/Bitmap;IIII)V
 
-    .line 65
+    .line 68
     const/4 v0, 0x0
 
     return-object v0

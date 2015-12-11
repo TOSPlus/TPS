@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 6358
+    .line 6386
     iput-object p1, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .param p1, "callback"    # Landroid/view/SurfaceHolder$Callback;
 
     .prologue
-    .line 6375
+    .line 6403
     return-void
 .end method
 
@@ -49,7 +49,7 @@
     .locals 1
 
     .prologue
-    .line 6365
+    .line 6393
     iget-object v0, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
 
     # getter for: Landroid/view/ViewRootImpl;->mSurface:Landroid/view/Surface;
@@ -64,7 +64,7 @@
     .locals 1
 
     .prologue
-    .line 6416
+    .line 6444
     const/4 v0, 0x0
 
     return-object v0
@@ -74,7 +74,7 @@
     .locals 1
 
     .prologue
-    .line 6370
+    .line 6398
     const/4 v0, 0x0
 
     return v0
@@ -84,7 +84,7 @@
     .locals 1
 
     .prologue
-    .line 6403
+    .line 6431
     const/4 v0, 0x0
 
     return-object v0
@@ -95,7 +95,7 @@
     .param p1, "dirty"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 6408
+    .line 6436
     const/4 v0, 0x0
 
     return-object v0
@@ -106,7 +106,7 @@
     .param p1, "callback"    # Landroid/view/SurfaceHolder$Callback;
 
     .prologue
-    .line 6379
+    .line 6407
     return-void
 .end method
 
@@ -116,7 +116,7 @@
     .param p2, "height"    # I
 
     .prologue
-    .line 6383
+    .line 6411
     return-void
 .end method
 
@@ -125,7 +125,7 @@
     .param p1, "format"    # I
 
     .prologue
-    .line 6391
+    .line 6419
     return-void
 .end method
 
@@ -134,7 +134,7 @@
     .param p1, "screenOn"    # Z
 
     .prologue
-    .line 6399
+    .line 6427
     return-void
 .end method
 
@@ -142,7 +142,7 @@
     .locals 0
 
     .prologue
-    .line 6387
+    .line 6415
     return-void
 .end method
 
@@ -151,7 +151,7 @@
     .param p1, "type"    # I
 
     .prologue
-    .line 6395
+    .line 6423
     return-void
 .end method
 
@@ -160,6 +160,6 @@
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
-    .line 6413
+    .line 6441
     return-void
 .end method

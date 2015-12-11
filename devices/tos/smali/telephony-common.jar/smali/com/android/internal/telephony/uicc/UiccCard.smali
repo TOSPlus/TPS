@@ -85,7 +85,7 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mAbsentRegistrants:Landroid/os/RegistrantList;
 
-    .line 275
+    .line 278
     new-instance v0, Lcom/android/internal/telephony/uicc/UiccCard$2;
 
     invoke-direct {v0, p0}, Lcom/android/internal/telephony/uicc/UiccCard$2;-><init>(Lcom/android/internal/telephony/uicc/UiccCard;)V
@@ -318,12 +318,12 @@
     .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 351
+    .line 354
     const-string v0, "UiccCard"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 352
+    .line 355
     return-void
 .end method
 
@@ -332,12 +332,12 @@
     .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 355
+    .line 358
     const-string v0, "UiccCard"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 356
+    .line 359
     return-void
 .end method
 
@@ -363,7 +363,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 257
+    .line 260
     .end local v2    # "listener":Landroid/content/DialogInterface$OnClickListener;
     .local v3, "listener":Landroid/content/DialogInterface$OnClickListener;
     :try_start_1
@@ -371,7 +371,7 @@
 
     move-result-object v5
 
-    .line 259
+    .line 262
     .local v5, "r":Landroid/content/res/Resources;
     if-eqz p1, :cond_0
 
@@ -381,7 +381,7 @@
 
     move-result-object v6
 
-    .line 261
+    .line 264
     .local v6, "title":Ljava/lang/String;
     :goto_0
     if-eqz p1, :cond_1
@@ -392,7 +392,7 @@
 
     move-result-object v4
 
-    .line 263
+    .line 266
     .local v4, "message":Ljava/lang/String;
     :goto_1
     const v7, 0x1040458
@@ -401,7 +401,7 @@
 
     move-result-object v0
 
-    .line 265
+    .line 268
     .local v0, "buttonTxt":Ljava/lang/String;
     new-instance v7, Landroid/app/AlertDialog$Builder;
 
@@ -425,7 +425,7 @@
 
     move-result-object v1
 
-    .line 270
+    .line 273
     .local v1, "dialog":Landroid/app/AlertDialog;
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
@@ -435,16 +435,16 @@
 
     invoke-virtual {v7, v9}, Landroid/view/Window;->setType(I)V
 
-    .line 271
+    .line 274
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
-    .line 272
+    .line 275
     monitor-exit v8
 
-    .line 273
+    .line 276
     return-void
 
-    .line 259
+    .line 262
     .end local v0    # "buttonTxt":Ljava/lang/String;
     .end local v1    # "dialog":Landroid/app/AlertDialog;
     .end local v4    # "message":Ljava/lang/String;
@@ -458,7 +458,7 @@
 
     goto :goto_0
 
-    .line 261
+    .line 264
     .restart local v6    # "title":Ljava/lang/String;
     :cond_1
     const v7, 0x1040454
@@ -471,7 +471,7 @@
 
     goto :goto_1
 
-    .line 272
+    .line 275
     .end local v3    # "listener":Landroid/content/DialogInterface$OnClickListener;
     .end local v5    # "r":Landroid/content/res/Resources;
     .end local v6    # "title":Ljava/lang/String;
@@ -640,12 +640,12 @@
     .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 359
+    .line 362
     const-string v6, "UiccCard:"
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 360
+    .line 363
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -668,7 +668,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 361
+    .line 364
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -691,7 +691,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 362
+    .line 365
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -714,7 +714,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 363
+    .line 366
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -737,7 +737,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 364
+    .line 367
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -764,7 +764,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 365
+    .line 368
     const/4 v2, 0x0
 
     .local v2, "i":I
@@ -777,7 +777,7 @@
 
     if-ge v2, v6, :cond_0
 
-    .line 366
+    .line 369
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -820,12 +820,12 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 365
+    .line 368
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 369
+    .line 372
     :cond_0
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -849,7 +849,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 370
+    .line 373
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -872,7 +872,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 371
+    .line 374
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -895,7 +895,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 372
+    .line 375
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -918,7 +918,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 373
+    .line 376
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -941,7 +941,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 374
+    .line 377
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -964,7 +964,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 375
+    .line 378
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -989,7 +989,7 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 376
+    .line 379
     const/4 v2, 0x0
 
     :goto_1
@@ -999,14 +999,14 @@
 
     if-ge v2, v6, :cond_2
 
-    .line 377
+    .line 380
     iget-object v6, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mUiccApplications:[Lcom/android/internal/telephony/uicc/UiccCardApplication;
 
     aget-object v6, v6, v2
 
     if-nez v6, :cond_1
 
-    .line 378
+    .line 381
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -1039,13 +1039,13 @@
 
     invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 376
+    .line 379
     :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 380
+    .line 383
     :cond_1
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -1101,11 +1101,11 @@
 
     goto :goto_2
 
-    .line 384
+    .line 387
     :cond_2
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
-    .line 386
+    .line 389
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mUiccApplications:[Lcom/android/internal/telephony/uicc/UiccCardApplication;
 
     .local v1, "arr$":[Lcom/android/internal/telephony/uicc/UiccCardApplication;
@@ -1120,23 +1120,23 @@
 
     aget-object v0, v1, v3
 
-    .line 387
+    .line 390
     .local v0, "app":Lcom/android/internal/telephony/uicc/UiccCardApplication;
     if-eqz v0, :cond_3
 
-    .line 388
+    .line 391
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/internal/telephony/uicc/UiccCardApplication;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
-    .line 389
+    .line 392
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
-    .line 386
+    .line 389
     :cond_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
-    .line 393
+    .line 396
     .end local v0    # "app":Lcom/android/internal/telephony/uicc/UiccCardApplication;
     :cond_4
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mUiccApplications:[Lcom/android/internal/telephony/uicc/UiccCardApplication;
@@ -1150,38 +1150,38 @@
 
     aget-object v0, v1, v3
 
-    .line 394
+    .line 397
     .restart local v0    # "app":Lcom/android/internal/telephony/uicc/UiccCardApplication;
     if-eqz v0, :cond_5
 
-    .line 395
+    .line 398
     invoke-virtual {v0}, Lcom/android/internal/telephony/uicc/UiccCardApplication;->getIccRecords()Lcom/android/internal/telephony/uicc/IccRecords;
 
     move-result-object v4
 
-    .line 396
+    .line 399
     .local v4, "ir":Lcom/android/internal/telephony/uicc/IccRecords;
     if-eqz v4, :cond_5
 
-    .line 397
+    .line 400
     invoke-virtual {v4, p1, p2, p3}, Lcom/android/internal/telephony/uicc/IccRecords;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
-    .line 398
+    .line 401
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
-    .line 393
+    .line 396
     .end local v4    # "ir":Lcom/android/internal/telephony/uicc/IccRecords;
     :cond_5
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_4
 
-    .line 402
+    .line 405
     .end local v0    # "app":Lcom/android/internal/telephony/uicc/UiccCardApplication;
     :cond_6
     invoke-virtual {p2}, Ljava/io/PrintWriter;->flush()V
 
-    .line 403
+    .line 406
     return-void
 .end method
 
@@ -1203,19 +1203,19 @@
     .param p1, "family"    # I
 
     .prologue
-    .line 321
+    .line 324
     iget-object v2, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 322
+    .line 325
     const/16 v0, 0x8
 
-    .line 323
+    .line 326
     .local v0, "index":I
     packed-switch p1, :pswitch_data_0
 
-    .line 334
+    .line 337
     :goto_0
     if-ltz v0, :cond_0
 
@@ -1226,38 +1226,38 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 335
+    .line 338
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mUiccApplications:[Lcom/android/internal/telephony/uicc/UiccCardApplication;
 
     aget-object v1, v1, v0
 
     monitor-exit v2
 
-    .line 337
+    .line 340
     :goto_1
     return-object v1
 
-    .line 325
+    .line 328
     :pswitch_0
     iget v0, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mGsmUmtsSubscriptionAppIndex:I
-
-    .line 326
-    goto :goto_0
-
-    .line 328
-    :pswitch_1
-    iget v0, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mCdmaSubscriptionAppIndex:I
 
     .line 329
     goto :goto_0
 
     .line 331
+    :pswitch_1
+    iget v0, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mCdmaSubscriptionAppIndex:I
+
+    .line 332
+    goto :goto_0
+
+    .line 334
     :pswitch_2
     iget v0, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mImsSubscriptionAppIndex:I
 
     goto :goto_0
 
-    .line 337
+    .line 340
     :cond_0
     const/4 v1, 0x0
 
@@ -1265,7 +1265,7 @@
 
     goto :goto_1
 
-    .line 338
+    .line 341
     :catchall_0
     move-exception v1
 
@@ -1275,7 +1275,7 @@
 
     throw v1
 
-    .line 323
+    .line 326
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1289,12 +1289,12 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 342
+    .line 345
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 343
+    .line 346
     if-ltz p1, :cond_0
 
     :try_start_0
@@ -1304,14 +1304,14 @@
 
     if-ge p1, v0, :cond_0
 
-    .line 344
+    .line 347
     iget-object v0, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mUiccApplications:[Lcom/android/internal/telephony/uicc/UiccCardApplication;
 
     aget-object v0, v0, p1
 
     monitor-exit v1
 
-    .line 346
+    .line 349
     :goto_0
     return-object v0
 
@@ -1322,7 +1322,7 @@
 
     goto :goto_0
 
-    .line 347
+    .line 350
     :catchall_0
     move-exception v0
 
@@ -1337,12 +1337,12 @@
     .locals 2
 
     .prologue
-    .line 309
+    .line 312
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 310
+    .line 313
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mCardState:Lcom/android/internal/telephony/uicc/IccCardStatus$CardState;
 
@@ -1350,7 +1350,7 @@
 
     return-object v0
 
-    .line 311
+    .line 314
     :catchall_0
     move-exception v0
 
@@ -1365,12 +1365,12 @@
     .locals 2
 
     .prologue
-    .line 315
+    .line 318
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 316
+    .line 319
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mUniversalPinState:Lcom/android/internal/telephony/uicc/IccCardStatus$PinState;
 
@@ -1378,7 +1378,7 @@
 
     return-object v0
 
-    .line 317
+    .line 320
     :catchall_0
     move-exception v0
 
@@ -1394,12 +1394,12 @@
     .param p1, "type"    # Lcom/android/internal/telephony/uicc/IccCardApplicationStatus$AppType;
 
     .prologue
-    .line 298
+    .line 301
     iget-object v2, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 299
+    .line 302
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -1411,7 +1411,7 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 300
+    .line 303
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard;->mUiccApplications:[Lcom/android/internal/telephony/uicc/UiccCardApplication;
 
     aget-object v1, v1, v0
@@ -1428,22 +1428,22 @@
 
     if-ne v1, p1, :cond_0
 
-    .line 301
+    .line 304
     const/4 v1, 0x1
 
     monitor-exit v2
 
-    .line 304
+    .line 307
     :goto_1
     return v1
 
-    .line 299
+    .line 302
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 304
+    .line 307
     :cond_1
     const/4 v1, 0x0
 
@@ -1451,7 +1451,7 @@
 
     goto :goto_1
 
-    .line 305
+    .line 308
     :catchall_0
     move-exception v1
 

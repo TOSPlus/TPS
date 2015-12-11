@@ -41,7 +41,7 @@
     .locals 0
 
     .prologue
-    .line 5483
+    .line 5511
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,7 +52,7 @@
     .param p1, "x0"    # Landroid/view/ViewRootImpl$1;
 
     .prologue
-    .line 5483
+    .line 5511
     invoke-direct {p0}, Landroid/view/ViewRootImpl$QueuedInputEvent;-><init>()V
 
     return-void
@@ -66,14 +66,14 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 5497
+    .line 5525
     iget v1, p0, Landroid/view/ViewRootImpl$QueuedInputEvent;->mFlags:I
 
     and-int/lit8 v1, v1, 0x1
 
     if-eqz v1, :cond_1
 
-    .line 5500
+    .line 5528
     :cond_0
     :goto_0
     return v0

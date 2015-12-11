@@ -82,21 +82,24 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 250
+    .line 251
     .local v0, "pm":Landroid/os/PowerManager;
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+
+    .line 253
     const-string v1, "SIM is added."
 
     invoke-virtual {v0, v1}, Landroid/os/PowerManager;->reboot(Ljava/lang/String;)V
 
-    .line 252
+    .line 255
     .end local v0    # "pm":Landroid/os/PowerManager;
     :cond_0
     monitor-exit v2
 
-    .line 253
+    .line 256
     return-void
 
-    .line 252
+    .line 255
     :catchall_0
     move-exception v1
 
