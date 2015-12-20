@@ -154,6 +154,7 @@
 	<icon name="com_tencent_Qfarm.png"  package="com.tencent.Qfarm"/> 
 	<icon name="com_tencent_qqgame.png"  package="com.tencent.qqgame"/>
 	<icon name="com_tencent_qqlite.png"  package="com.tencent.qqlite"/> 
+	<icon name="com_tencent_qqmusic.png"  package="com.tencent.qqmusic"/> 
 	<icon name="com_tencent_qqpim.png"  package="com.tencent.qqpim"/>
 	<icon name="com_tencent_qqpim-130.png"  package="com.tencent.qqpim-130"/> 
 	<icon name="com_tencent_qqpimsecure.png"  package="com.tencent.qqpimsecure"/> 
