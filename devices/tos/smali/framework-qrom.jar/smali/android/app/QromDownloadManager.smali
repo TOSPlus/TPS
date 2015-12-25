@@ -30,6 +30,8 @@
 
 .field public static final COLUMN_NEED_BROADCAST:Ljava/lang/String; = "need_broadcast"
 
+.field public static final COLUMN_PUSH_TOTAL_SIZE:Ljava/lang/String; = "push_total_size"
+
 .field public static final COLUMN_SORT_DOWNLOAD_STATUS:Ljava/lang/String; = "sort_status"
 
 .field public static final COLUMN_TASK_CREATE_TIME:Ljava/lang/String; = "task_create_time"
@@ -77,7 +79,7 @@
 
     sput-object v0, Landroid/app/QromDownloadManager;->CUSTOMIZED_DOWNLOAD_ACTIVITY:Landroid/content/ComponentName;
 
-    .line 125
+    .line 130
     sget-object v0, Landroid/app/DownloadManager;->UNDERLYING_COLUMNS:[Ljava/lang/String;
 
     const/4 v1, 0x5
@@ -126,7 +128,7 @@
 
     sput-object v0, Landroid/app/QromDownloadManager;->QROM_UNDERLYING_COLUMNS:[Ljava/lang/String;
 
-    .line 131
+    .line 136
     const/4 v0, 0x0
 
     sput-object v0, Landroid/app/QromDownloadManager;->sInstance:Landroid/app/QromDownloadManager;
@@ -140,18 +142,18 @@
     .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 134
+    .line 139
     invoke-direct {p0, p1, p2}, Landroid/app/DownloadManager;-><init>(Landroid/content/ContentResolver;Ljava/lang/String;)V
 
-    .line 130
+    .line 135
     sget-object v0, Landroid/provider/Downloads$Impl;->CONTENT_URI:Landroid/net/Uri;
 
     iput-object v0, p0, Landroid/app/QromDownloadManager;->mBaseUri:Landroid/net/Uri;
 
-    .line 135
+    .line 140
     iput-object p1, p0, Landroid/app/QromDownloadManager;->mResolver:Landroid/content/ContentResolver;
 
-    .line 136
+    .line 141
     return-void
 .end method
 
@@ -173,7 +175,7 @@
     .local p2, "className":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v3, 0x0
 
-    .line 149
+    .line 154
     array-length v1, p0
 
     array-length v2, p1
@@ -190,20 +192,20 @@
 
     check-cast v0, [Ljava/lang/Object;
 
-    .line 150
+    .line 155
     .local v0, "arrayOfObject":[Ljava/lang/Object;
     array-length v1, p0
 
     invoke-static {p0, v3, v0, v3, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 151
+    .line 156
     array-length v1, p0
 
     array-length v2, p1
 
     invoke-static {p1, v3, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 152
+    .line 157
     check-cast v0, [Ljava/lang/Object;
 
     .end local v0    # "arrayOfObject":[Ljava/lang/Object;
@@ -215,7 +217,7 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 139
+    .line 144
     const-class v1, Landroid/app/QromDownloadManager;
 
     monitor-enter v1
@@ -225,7 +227,7 @@
 
     if-nez v0, :cond_0
 
-    .line 140
+    .line 145
     new-instance v0, Landroid/app/QromDownloadManager;
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -240,7 +242,7 @@
 
     sput-object v0, Landroid/app/QromDownloadManager;->sInstance:Landroid/app/QromDownloadManager;
 
-    .line 143
+    .line 148
     :cond_0
     sget-object v0, Landroid/app/QromDownloadManager;->sInstance:Landroid/app/QromDownloadManager;
     :try_end_0
@@ -250,7 +252,7 @@
 
     return-object v0
 
-    .line 139
+    .line 144
     :catchall_0
     move-exception v0
 
@@ -264,12 +266,12 @@
     .param p0, "status"    # [I
 
     .prologue
-    .line 383
+    .line 388
     array-length v2, p0
 
     new-array v1, v2, [Ljava/lang/String;
 
-    .line 384
+    .line 389
     .local v1, "whereArgs":[Ljava/lang/String;
     const/4 v0, 0x0
 
@@ -279,7 +281,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 385
+    .line 390
     aget v2, p0, v0
 
     invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -288,12 +290,12 @@
 
     aput-object v2, v1, v0
 
-    .line 384
+    .line 389
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 387
+    .line 392
     :cond_0
     return-object v1
 .end method
@@ -304,18 +306,18 @@
     .param p1, "joiner"    # [Ljava/lang/String;
 
     .prologue
-    .line 369
+    .line 374
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 370
+    .line 375
     .local v1, "whereClause":Ljava/lang/StringBuilder;
     const-string v2, "("
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 371
+    .line 376
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -324,10 +326,10 @@
 
     if-ge v0, v2, :cond_1
 
-    .line 372
+    .line 377
     if-lez v0, :cond_0
 
-    .line 373
+    .line 378
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -352,13 +354,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 375
+    .line 380
     :cond_0
     const-string v2, "status"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 376
+    .line 381
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -387,18 +389,18 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 371
+    .line 376
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 378
+    .line 383
     :cond_1
     const-string v2, ")"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 379
+    .line 384
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -412,7 +414,7 @@
     .param p1, "maxBytes"    # J
 
     .prologue
-    .line 343
+    .line 348
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -439,12 +441,12 @@
 
     const/4 v7, 0x1
 
-    .line 182
+    .line 187
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    .line 183
+    .line 188
     .local v0, "values":Landroid/content/ContentValues;
     const-string v3, "status"
 
@@ -456,7 +458,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 184
+    .line 189
     const-string v3, "control"
 
     invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -465,7 +467,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 185
+    .line 190
     const-string v3, "downloading_speed"
 
     const-wide/16 v4, 0x0
@@ -476,12 +478,12 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    .line 186
+    .line 191
     array-length v3, p1
 
     if-ne v3, v7, :cond_0
 
-    .line 187
+    .line 192
     iget-object v3, p0, Landroid/app/QromDownloadManager;->mResolver:Landroid/content/ContentResolver;
 
     iget-object v4, p0, Landroid/app/QromDownloadManager;->mBaseUri:Landroid/net/Uri;
@@ -524,11 +526,11 @@
 
     move-result v3
 
-    .line 195
+    .line 200
     :goto_0
     return v3
 
-    .line 192
+    .line 197
     :cond_0
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -588,7 +590,7 @@
 
     move-result-object v1
 
-    .line 193
+    .line 198
     .local v1, "where":Ljava/lang/String;
     invoke-static {p1}, Landroid/app/QromDownloadManager;->getWhereArgsForIds([J)[Ljava/lang/String;
 
@@ -614,7 +616,7 @@
 
     check-cast v2, [Ljava/lang/String;
 
-    .line 195
+    .line 200
     .local v2, "whereArgs":[Ljava/lang/String;
     iget-object v3, p0, Landroid/app/QromDownloadManager;->mResolver:Landroid/content/ContentResolver;
 
@@ -626,14 +628,14 @@
 
     goto :goto_0
 
-    .line 187
+    .line 192
     :array_0
     .array-data 4
         0xbe
         0xc0
     .end array-data
 
-    .line 193
+    .line 198
     :array_1
     .array-data 4
         0xbe
@@ -646,7 +648,7 @@
     .param p1, "query"    # Landroid/app/DownloadManager$Query;
 
     .prologue
-    .line 167
+    .line 172
     iget-object v1, p0, Landroid/app/QromDownloadManager;->mResolver:Landroid/content/ContentResolver;
 
     sget-object v2, Landroid/app/QromDownloadManager;->QROM_UNDERLYING_COLUMNS:[Ljava/lang/String;
@@ -657,14 +659,14 @@
 
     move-result-object v0
 
-    .line 168
+    .line 173
     .local v0, "underlyingCursor":Landroid/database/Cursor;
     if-nez v0, :cond_0
 
-    .line 169
+    .line 174
     const/4 v1, 0x0
 
-    .line 171
+    .line 176
     :goto_0
     return-object v1
 
@@ -688,14 +690,14 @@
 
     const/4 v3, 0x1
 
-    .line 235
+    .line 240
     if-eqz p2, :cond_0
 
     array-length v1, p2
 
     if-nez v1, :cond_1
 
-    .line 237
+    .line 242
     :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -705,13 +707,13 @@
 
     throw v1
 
-    .line 239
+    .line 244
     :cond_1
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    .line 240
+    .line 245
     .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "deleted"
 
@@ -721,7 +723,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 241
+    .line 246
     const-string v1, "delelte_file"
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -730,12 +732,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    .line 244
+    .line 249
     array-length v1, p2
 
     if-ne v1, v3, :cond_2
 
-    .line 245
+    .line 250
     iget-object v1, p0, Landroid/app/QromDownloadManager;->mResolver:Landroid/content/ContentResolver;
 
     iget-object v2, p0, Landroid/app/QromDownloadManager;->mBaseUri:Landroid/net/Uri;
@@ -752,7 +754,7 @@
 
     move-result v1
 
-    .line 248
+    .line 253
     :goto_0
     return v1
 
@@ -791,12 +793,12 @@
 
     const/4 v8, 0x1
 
-    .line 206
+    .line 211
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    .line 208
+    .line 213
     .local v0, "values":Landroid/content/ContentValues;
     const-string v3, "status"
 
@@ -808,7 +810,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 209
+    .line 214
     const-string v3, "control"
 
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -817,7 +819,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 211
+    .line 216
     const-string v3, "bypass_recommended_size_limit"
 
     invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -826,7 +828,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    .line 213
+    .line 218
     const-string v3, "wait_init"
 
     invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -835,12 +837,12 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    .line 214
+    .line 219
     array-length v3, p1
 
     if-ne v3, v8, :cond_0
 
-    .line 215
+    .line 220
     iget-object v3, p0, Landroid/app/QromDownloadManager;->mResolver:Landroid/content/ContentResolver;
 
     iget-object v4, p0, Landroid/app/QromDownloadManager;->mBaseUri:Landroid/net/Uri;
@@ -899,11 +901,11 @@
 
     move-result v3
 
-    .line 225
+    .line 230
     :goto_0
     return v3
 
-    .line 221
+    .line 226
     :cond_0
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -979,7 +981,7 @@
 
     move-result-object v1
 
-    .line 222
+    .line 227
     .local v1, "where":Ljava/lang/String;
     invoke-static {p1}, Landroid/app/QromDownloadManager;->getWhereArgsForIds([J)[Ljava/lang/String;
 
@@ -1005,7 +1007,7 @@
 
     check-cast v2, [Ljava/lang/String;
 
-    .line 225
+    .line 230
     .local v2, "whereArgs":[Ljava/lang/String;
     iget-object v3, p0, Landroid/app/QromDownloadManager;->mResolver:Landroid/content/ContentResolver;
 
@@ -1017,7 +1019,7 @@
 
     goto :goto_0
 
-    .line 215
+    .line 220
     nop
 
     :array_0
@@ -1028,7 +1030,7 @@
         0xc4
     .end array-data
 
-    .line 222
+    .line 227
     :array_1
     .array-data 4
         0xc1
@@ -1043,22 +1045,22 @@
     .param p1, "accessAllDownloads"    # Z
 
     .prologue
-    .line 157
+    .line 162
     invoke-super {p0, p1}, Landroid/app/DownloadManager;->setAccessAllDownloads(Z)V
 
-    .line 158
+    .line 163
     if-eqz p1, :cond_0
 
-    .line 159
+    .line 164
     sget-object v0, Landroid/provider/Downloads$Impl;->ALL_DOWNLOADS_CONTENT_URI:Landroid/net/Uri;
 
     iput-object v0, p0, Landroid/app/QromDownloadManager;->mBaseUri:Landroid/net/Uri;
 
-    .line 163
+    .line 168
     :goto_0
     return-void
 
-    .line 161
+    .line 166
     :cond_0
     sget-object v0, Landroid/provider/Downloads$Impl;->CONTENT_URI:Landroid/net/Uri;
 
@@ -1075,14 +1077,14 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 321
+    .line 326
     if-eqz p2, :cond_0
 
     array-length v1, p2
 
     if-nez v1, :cond_1
 
-    .line 323
+    .line 328
     :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -1092,13 +1094,13 @@
 
     throw v1
 
-    .line 325
+    .line 330
     :cond_1
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    .line 326
+    .line 331
     .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "allowed_network_types"
 
@@ -1108,14 +1110,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 329
+    .line 334
     array-length v1, p2
 
     const/4 v2, 0x1
 
     if-ne v1, v2, :cond_2
 
-    .line 330
+    .line 335
     iget-object v1, p0, Landroid/app/QromDownloadManager;->mResolver:Landroid/content/ContentResolver;
 
     iget-object v2, p0, Landroid/app/QromDownloadManager;->mBaseUri:Landroid/net/Uri;
@@ -1132,7 +1134,7 @@
 
     move-result v1
 
-    .line 333
+    .line 338
     :goto_0
     return v1
 
@@ -1165,14 +1167,14 @@
 
     const/4 v3, 0x1
 
-    .line 353
+    .line 358
     if-eqz p1, :cond_0
 
     array-length v1, p1
 
     if-nez v1, :cond_1
 
-    .line 355
+    .line 360
     :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -1182,13 +1184,13 @@
 
     throw v1
 
-    .line 358
+    .line 363
     :cond_1
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    .line 359
+    .line 364
     .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "bypass_recommended_size_limit"
 
@@ -1198,12 +1200,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    .line 360
+    .line 365
     array-length v1, p1
 
     if-ne v1, v3, :cond_2
 
-    .line 361
+    .line 366
     iget-object v1, p0, Landroid/app/QromDownloadManager;->mResolver:Landroid/content/ContentResolver;
 
     iget-object v2, p0, Landroid/app/QromDownloadManager;->mBaseUri:Landroid/net/Uri;
@@ -1220,7 +1222,7 @@
 
     move-result v1
 
-    .line 364
+    .line 369
     :goto_0
     return v1
 
@@ -1254,7 +1256,7 @@
 
     const/4 v8, 0x0
 
-    .line 260
+    .line 265
     if-eqz p1, :cond_0
 
     array-length v5, p1
@@ -1268,7 +1270,7 @@
 
     if-nez v5, :cond_2
 
-    .line 263
+    .line 268
     :cond_1
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
@@ -1278,7 +1280,7 @@
 
     throw v5
 
-    .line 266
+    .line 271
     :cond_2
     new-instance v3, Ljava/util/ArrayList;
 
@@ -1286,21 +1288,21 @@
 
     invoke-direct {v3, v5}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 267
+    .line 272
     .local v3, "updates":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/ContentProviderOperation;>;"
     const/4 v1, 0x0
 
-    .line 268
+    .line 273
     .local v1, "register":Landroid/content/ContentProviderOperation$Builder;
     const/4 v2, 0x0
 
-    .line 269
+    .line 274
     .local v2, "unrester":Landroid/content/ContentProviderOperation$Builder;
     new-instance v4, Landroid/content/ContentValues;
 
     invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
 
-    .line 270
+    .line 275
     .local v4, "values":Landroid/content/ContentValues;
     if-eqz p1, :cond_3
 
@@ -1308,7 +1310,7 @@
 
     if-lez v5, :cond_3
 
-    .line 271
+    .line 276
     const-string v5, "need_broadcast"
 
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1317,12 +1319,12 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 272
+    .line 277
     array-length v5, p1
 
     if-ne v5, v9, :cond_7
 
-    .line 273
+    .line 278
     iget-object v5, p0, Landroid/app/QromDownloadManager;->mBaseUri:Landroid/net/Uri;
 
     aget-wide v6, p1, v8
@@ -1335,10 +1337,10 @@
 
     move-result-object v1
 
-    .line 274
+    .line 279
     invoke-virtual {v1, v4}, Landroid/content/ContentProviderOperation$Builder;->withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 283
+    .line 288
     :cond_3
     :goto_0
     if-eqz p2, :cond_4
@@ -1347,7 +1349,7 @@
 
     if-lez v5, :cond_4
 
-    .line 284
+    .line 289
     const-string v5, "need_broadcast"
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1356,12 +1358,12 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 285
+    .line 290
     array-length v5, p2
 
     if-ne v5, v9, :cond_8
 
-    .line 286
+    .line 291
     iget-object v5, p0, Landroid/app/QromDownloadManager;->mBaseUri:Landroid/net/Uri;
 
     aget-wide v6, p2, v8
@@ -1374,33 +1376,33 @@
 
     move-result-object v2
 
-    .line 287
+    .line 292
     invoke-virtual {v2, v4}, Landroid/content/ContentProviderOperation$Builder;->withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 296
+    .line 301
     :cond_4
     :goto_1
     if-eqz v1, :cond_5
 
-    .line 297
+    .line 302
     invoke-virtual {v1}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
     move-result-object v5
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 299
+    .line 304
     :cond_5
     if-eqz v2, :cond_6
 
-    .line 300
+    .line 305
     invoke-virtual {v2}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
     move-result-object v5
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 304
+    .line 309
     :cond_6
     :try_start_0
     iget-object v5, p0, Landroid/app/QromDownloadManager;->mResolver:Landroid/content/ContentResolver;
@@ -1412,11 +1414,11 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/content/OperationApplicationException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 312
+    .line 317
     :goto_2
     return-void
 
-    .line 277
+    .line 282
     :cond_7
     iget-object v5, p0, Landroid/app/QromDownloadManager;->mBaseUri:Landroid/net/Uri;
 
@@ -1424,10 +1426,10 @@
 
     move-result-object v1
 
-    .line 278
+    .line 283
     invoke-virtual {v1, v4}, Landroid/content/ContentProviderOperation$Builder;->withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 279
+    .line 284
     invoke-static {p1}, Landroid/app/QromDownloadManager;->getWhereClauseForIds([J)Ljava/lang/String;
 
     move-result-object v5
@@ -1440,7 +1442,7 @@
 
     goto :goto_0
 
-    .line 289
+    .line 294
     :cond_8
     iget-object v5, p0, Landroid/app/QromDownloadManager;->mBaseUri:Landroid/net/Uri;
 
@@ -1448,10 +1450,10 @@
 
     move-result-object v2
 
-    .line 290
+    .line 295
     invoke-virtual {v2, v4}, Landroid/content/ContentProviderOperation$Builder;->withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 291
+    .line 296
     invoke-static {p2}, Landroid/app/QromDownloadManager;->getWhereClauseForIds([J)Ljava/lang/String;
 
     move-result-object v5
@@ -1464,22 +1466,22 @@
 
     goto :goto_1
 
-    .line 305
+    .line 310
     :catch_0
     move-exception v0
 
-    .line 307
+    .line 312
     .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_2
 
-    .line 308
+    .line 313
     .end local v0    # "e":Landroid/os/RemoteException;
     :catch_1
     move-exception v0
 
-    .line 310
+    .line 315
     .local v0, "e":Landroid/content/OperationApplicationException;
     invoke-virtual {v0}, Landroid/content/OperationApplicationException;->printStackTrace()V
 

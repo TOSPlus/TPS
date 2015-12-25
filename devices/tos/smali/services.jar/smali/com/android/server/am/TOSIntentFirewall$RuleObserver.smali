@@ -28,10 +28,10 @@
     .param p2, "monitoredDir"    # Ljava/io/File;
 
     .prologue
-    .line 419
+    .line 479
     iput-object p1, p0, Lcom/android/server/am/TOSIntentFirewall$RuleObserver;->this$0:Lcom/android/server/am/TOSIntentFirewall;
 
-    .line 420
+    .line 480
     invoke-virtual {p2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v0
@@ -40,7 +40,7 @@
 
     invoke-direct {p0, v0, v1}, Landroid/os/FileObserver;-><init>(Ljava/lang/String;I)V
 
-    .line 421
+    .line 481
     return-void
 .end method
 
@@ -54,7 +54,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 425
+    .line 485
     const-string v0, ".xml"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
@@ -71,7 +71,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 429
+    .line 489
     :cond_0
     iget-object v0, p0, Lcom/android/server/am/TOSIntentFirewall$RuleObserver;->this$0:Lcom/android/server/am/TOSIntentFirewall;
 
@@ -82,7 +82,7 @@
 
     invoke-virtual {v0, v3}, Lcom/android/server/am/TOSIntentFirewall$FirewallHandler;->removeMessages(I)V
 
-    .line 430
+    .line 490
     iget-object v0, p0, Lcom/android/server/am/TOSIntentFirewall$RuleObserver;->this$0:Lcom/android/server/am/TOSIntentFirewall;
 
     # getter for: Lcom/android/server/am/TOSIntentFirewall;->mFirewallHandler:Lcom/android/server/am/TOSIntentFirewall$FirewallHandler;
@@ -94,7 +94,7 @@
 
     invoke-virtual {v0, v3, v1, v2}, Lcom/android/server/am/TOSIntentFirewall$FirewallHandler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 432
+    .line 492
     :cond_1
     return-void
 .end method

@@ -25,8 +25,6 @@
 
 .field private static final TAG_ITEM:Ljava/lang/String; = "item"
 
-.field private static final TAG_PACKAGE_BLACK_LIST:Ljava/lang/String; = "package_black_list"
-
 .field private static final TAG_PACKAGE_WHITE_LIST:Ljava/lang/String; = "package_white_list"
 
 .field private static final TAG_RULES:Ljava/lang/String; = "tos_ifw_rules"
@@ -34,6 +32,12 @@
 .field private static final TAG_SERVICE_ACTION_BLACK_LIST:Ljava/lang/String; = "service_action_black_list"
 
 .field private static final TAG_SERVICE_BLACK_LIST:Ljava/lang/String; = "service_black_list"
+
+.field private static final TAG_SYS_BROADCAST_BLACK_LIST:Ljava/lang/String; = "sys_broadcast_black_list"
+
+.field private static final TAG_SYS_PACKAGE_BLACK_LIST:Ljava/lang/String; = "sys_package_black_list"
+
+.field private static final TAG_SYS_PACKAGE_WHITE_LIST:Ljava/lang/String; = "sys_package_white_list"
 
 .field private static sInstance:Lcom/android/server/am/TOSIntentFirewall;
 
@@ -59,17 +63,6 @@
 .field private mGetProcessRecordLocked:Ljava/lang/reflect/Method;
 
 .field private final mObserver:Lcom/android/server/am/TOSIntentFirewall$RuleObserver;
-
-.field private mPackageBlackList:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 .field private mPackageWhiteList:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -106,6 +99,39 @@
 
 .field private mSkipCheckProcessRecord:Z
 
+.field private mSysBroadcastBlackList:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mSysPackageBlackList:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mSysPackageWhiteList:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -125,7 +151,7 @@
 
     sput-object v0, Lcom/android/server/am/TOSIntentFirewall;->RULES_DIR:Ljava/io/File;
 
-    .line 45
+    .line 47
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/server/am/TOSIntentFirewall;->sInstance:Lcom/android/server/am/TOSIntentFirewall;
@@ -140,41 +166,34 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 79
+    .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
+    .line 55
     iput-boolean v2, p0, Lcom/android/server/am/TOSIntentFirewall;->mDisabled:Z
 
-    .line 58
+    .line 60
     new-instance v1, Ljava/util/HashSet;
 
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mServiceBlackList:Ljava/util/Set;
 
-    .line 62
+    .line 64
     new-instance v1, Ljava/util/HashSet;
 
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mServiceActionBlackList:Ljava/util/Set;
 
-    .line 66
-    new-instance v1, Ljava/util/HashSet;
-
-    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
-
-    iput-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mPackageBlackList:Ljava/util/Set;
-
-    .line 70
+    .line 68
     new-instance v1, Ljava/util/HashSet;
 
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mPackageWhiteList:Ljava/util/Set;
 
-    .line 74
+    .line 72
     new-instance v1, Ljava/util/HashSet;
 
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
@@ -182,31 +201,52 @@
     iput-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mBroadcastWhiteList:Ljava/util/Set;
 
     .line 76
+    new-instance v1, Ljava/util/HashSet;
+
+    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mSysBroadcastBlackList:Ljava/util/Set;
+
+    .line 80
+    new-instance v1, Ljava/util/HashSet;
+
+    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mSysPackageWhiteList:Ljava/util/Set;
+
+    .line 84
+    new-instance v1, Ljava/util/HashSet;
+
+    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mSysPackageBlackList:Ljava/util/Set;
+
+    .line 86
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mGetProcessRecordLocked:Ljava/lang/reflect/Method;
 
-    .line 77
+    .line 87
     iput-boolean v2, p0, Lcom/android/server/am/TOSIntentFirewall;->mSkipCheckProcessRecord:Z
 
-    .line 80
+    .line 90
     const-string v1, "TOSIntentFirewall"
 
     const-string v2, "new TOSIntentFirewall"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 82
+    .line 92
     sget-object v0, Lcom/android/server/am/TOSIntentFirewall;->RULES_DIR:Ljava/io/File;
 
-    .line 83
+    .line 93
     .local v0, "rulesDir":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
-    .line 85
+    .line 95
     iput-object p1, p0, Lcom/android/server/am/TOSIntentFirewall;->mAMS:Lcom/android/server/am/ActivityManagerService;
 
-    .line 87
+    .line 97
     new-instance v1, Lcom/android/server/am/TOSIntentFirewall$FirewallHandler;
 
     iget-object v2, p0, Lcom/android/server/am/TOSIntentFirewall;->mAMS:Lcom/android/server/am/ActivityManagerService;
@@ -221,22 +261,22 @@
 
     iput-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mFirewallHandler:Lcom/android/server/am/TOSIntentFirewall$FirewallHandler;
 
-    .line 89
+    .line 99
     invoke-direct {p0, v0}, Lcom/android/server/am/TOSIntentFirewall;->readRulesDir(Ljava/io/File;)V
 
-    .line 91
+    .line 101
     new-instance v1, Lcom/android/server/am/TOSIntentFirewall$RuleObserver;
 
     invoke-direct {v1, p0, v0}, Lcom/android/server/am/TOSIntentFirewall$RuleObserver;-><init>(Lcom/android/server/am/TOSIntentFirewall;Ljava/io/File;)V
 
     iput-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mObserver:Lcom/android/server/am/TOSIntentFirewall$RuleObserver;
 
-    .line 92
+    .line 102
     iget-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mObserver:Lcom/android/server/am/TOSIntentFirewall$RuleObserver;
 
     invoke-virtual {v1}, Lcom/android/server/am/TOSIntentFirewall$RuleObserver;->startWatching()V
 
-    .line 93
+    .line 103
     return-void
 .end method
 
@@ -273,19 +313,11 @@
     return-object v0
 .end method
 
-.method private addDefaultRules(Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
+.method private addDefaultRules(Ljava/util/Set;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Set",
-            "<",
-            "Ljava/lang/String;",
-            ">;",
-            "Ljava/util/Set",
-            "<",
-            "Ljava/lang/String;",
-            ">;",
             "Ljava/util/Set",
             "<",
             "Ljava/lang/String;",
@@ -294,55 +326,53 @@
     .end annotation
 
     .prologue
-    .line 238
-    .local p1, "serviceBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    .local p2, "packageWhiteList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    .local p3, "broadcastWhiteList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .line 281
+    .local p1, "broadcastWhiteList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     const-string v0, "android.appwidget.action.APPWIDGET_BIND"
 
-    invoke-interface {p3, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 239
+    .line 282
     const-string v0, "android.appwidget.action.APPWIDGET_CONFIGURE"
 
-    invoke-interface {p3, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 240
+    .line 283
     const-string v0, "android.appwidget.action.APPWIDGET_DELETED"
 
-    invoke-interface {p3, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 241
+    .line 284
     const-string v0, "android.appwidget.action.APPWIDGET_DISABLED"
 
-    invoke-interface {p3, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 242
+    .line 285
     const-string v0, "android.appwidget.action.APPWIDGET_ENABLED"
 
-    invoke-interface {p3, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 243
+    .line 286
     const-string v0, "android.appwidget.action.APPWIDGET_UPDATE_OPTIONS"
 
-    invoke-interface {p3, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 244
+    .line 287
     const-string v0, "android.appwidget.action.APPWIDGET_PICK"
 
-    invoke-interface {p3, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 245
+    .line 288
     const-string v0, "android.appwidget.action.APPWIDGET_UPDATE"
 
-    invoke-interface {p3, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 246
+    .line 289
     const-string v0, "android.appwidget.action.KEYGUARD_APPWIDGET_PICK"
 
-    invoke-interface {p3, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 247
+    .line 290
     return-void
 .end method
 
@@ -358,29 +388,29 @@
 
     const/4 v2, 0x1
 
-    .line 197
+    .line 240
     iget-boolean v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mSkipCheckProcessRecord:Z
 
     if-eqz v4, :cond_1
 
-    .line 234
+    .line 277
     :cond_0
     :goto_0
     return v2
 
-    .line 201
+    .line 244
     :cond_1
     iget-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mGetProcessRecordLocked:Ljava/lang/reflect/Method;
 
     if-nez v4, :cond_2
 
-    .line 203
+    .line 246
     :try_start_0
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-lt v4, v9, :cond_4
 
-    .line 204
+    .line 247
     const-class v4, Lcom/android/server/am/ActivityManagerService;
 
     const-string v5, "getProcessRecordLocked"
@@ -413,7 +443,7 @@
 
     iput-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mGetProcessRecordLocked:Ljava/lang/reflect/Method;
 
-    .line 211
+    .line 254
     :goto_1
     iget-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mGetProcessRecordLocked:Ljava/lang/reflect/Method;
 
@@ -423,24 +453,24 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 220
+    .line 263
     :cond_2
     :goto_2
     const/4 v1, 0x0
 
-    .line 222
+    .line 265
     .local v1, "record":Ljava/lang/Object;
     iget-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mGetProcessRecordLocked:Ljava/lang/reflect/Method;
 
     if-eqz v4, :cond_3
 
-    .line 224
+    .line 267
     :try_start_1
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-lt v4, v9, :cond_5
 
-    .line 225
+    .line 268
     iget-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mGetProcessRecordLocked:Ljava/lang/reflect/Method;
 
     iget-object v5, p0, Lcom/android/server/am/TOSIntentFirewall;->mAMS:Lcom/android/server/am/ActivityManagerService;
@@ -477,7 +507,7 @@
 
     move-result-object v1
 
-    .line 234
+    .line 277
     .end local v1    # "record":Ljava/lang/Object;
     :cond_3
     :goto_3
@@ -491,7 +521,7 @@
 
     goto :goto_0
 
-    .line 207
+    .line 250
     :cond_4
     :try_start_2
     const-class v4, Lcom/android/server/am/ActivityManagerService;
@@ -524,11 +554,11 @@
 
     goto :goto_1
 
-    .line 212
+    .line 255
     :catch_0
     move-exception v0
 
-    .line 213
+    .line 256
     .local v0, "e":Ljava/lang/Exception;
     const-string v4, "TOSIntentFirewall"
 
@@ -536,17 +566,17 @@
 
     invoke-static {v4, v5, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 215
+    .line 258
     iput-boolean v2, p0, Lcom/android/server/am/TOSIntentFirewall;->mSkipCheckProcessRecord:Z
 
-    .line 216
+    .line 259
     const/4 v4, 0x0
 
     iput-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mGetProcessRecordLocked:Ljava/lang/reflect/Method;
 
     goto :goto_2
 
-    .line 227
+    .line 270
     .end local v0    # "e":Ljava/lang/Exception;
     .restart local v1    # "record":Ljava/lang/Object;
     :cond_5
@@ -579,11 +609,11 @@
 
     goto :goto_3
 
-    .line 229
+    .line 272
     :catch_1
     move-exception v0
 
-    .line 230
+    .line 273
     .restart local v0    # "e":Ljava/lang/Exception;
     const-string v4, "TOSIntentFirewall"
 
@@ -599,34 +629,34 @@
     .param p0, "ams"    # Lcom/android/server/am/ActivityManagerService;
 
     .prologue
-    .line 96
+    .line 106
     monitor-enter p0
 
-    .line 97
+    .line 107
     :try_start_0
     sget-object v0, Lcom/android/server/am/TOSIntentFirewall;->sInstance:Lcom/android/server/am/TOSIntentFirewall;
 
     if-nez v0, :cond_0
 
-    .line 98
+    .line 108
     new-instance v0, Lcom/android/server/am/TOSIntentFirewall;
 
     invoke-direct {v0, p0}, Lcom/android/server/am/TOSIntentFirewall;-><init>(Lcom/android/server/am/ActivityManagerService;)V
 
     sput-object v0, Lcom/android/server/am/TOSIntentFirewall;->sInstance:Lcom/android/server/am/TOSIntentFirewall;
 
-    .line 100
+    .line 110
     :cond_0
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 102
+    .line 112
     sget-object v0, Lcom/android/server/am/TOSIntentFirewall;->sInstance:Lcom/android/server/am/TOSIntentFirewall;
 
     return-object v0
 
-    .line 100
+    .line 110
     :catchall_0
     move-exception v0
 
@@ -638,71 +668,83 @@
     throw v0
 .end method
 
-.method private quickPass(ILandroid/content/pm/ApplicationInfo;)Z
-    .locals 4
-    .param p1, "callerUid"    # I
-    .param p2, "app"    # Landroid/content/pm/ApplicationInfo;
+.method private isSysApp(Landroid/content/pm/ApplicationInfo;)Z
+    .locals 3
+    .param p1, "app"    # Landroid/content/pm/ApplicationInfo;
 
     .prologue
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const/4 v0, 0x1
+    .line 230
+    iget-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mSysPackageBlackList:Ljava/util/Set;
 
-    .line 183
-    iget v2, p2, Landroid/content/pm/ApplicationInfo;->uid:I
+    iget-object v2, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    if-ne p1, v2, :cond_1
+    invoke-interface {v1, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    .line 193
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 236
     :cond_0
     :goto_0
     return v0
 
-    .line 185
+    .line 232
     :cond_1
-    iget-object v2, p0, Lcom/android/server/am/TOSIntentFirewall;->mPackageBlackList:Ljava/util/Set;
+    iget v1, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    iget-object v3, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    and-int/lit8 v1, v1, 0x1
 
-    invoke-interface {v2, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    if-nez v1, :cond_2
 
-    move-result v2
+    iget v1, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    if-eqz v2, :cond_2
+    and-int/lit16 v1, v1, 0x80
 
-    move v0, v1
+    if-eqz v1, :cond_0
 
-    .line 186
-    goto :goto_0
-
-    .line 187
+    .line 234
     :cond_2
-    iget v2, p2, Landroid/content/pm/ApplicationInfo;->flags:I
+    const/4 v0, 0x1
 
-    and-int/lit8 v2, v2, 0x1
+    goto :goto_0
+.end method
 
-    if-nez v2, :cond_0
+.method private quickPass(ILandroid/content/pm/ApplicationInfo;)Z
+    .locals 3
+    .param p1, "callerUid"    # I
+    .param p2, "app"    # Landroid/content/pm/ApplicationInfo;
 
-    iget v2, p2, Landroid/content/pm/ApplicationInfo;->flags:I
+    .prologue
+    const/4 v0, 0x1
 
-    and-int/lit16 v2, v2, 0x80
+    .line 221
+    iget v1, p2, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    if-nez v2, :cond_0
+    if-ne p1, v1, :cond_1
 
-    .line 190
-    iget-object v2, p0, Lcom/android/server/am/TOSIntentFirewall;->mPackageWhiteList:Ljava/util/Set;
+    .line 226
+    :cond_0
+    :goto_0
+    return v0
 
-    iget-object v3, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    .line 223
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/am/TOSIntentFirewall;->mPackageWhiteList:Ljava/util/Set;
 
-    invoke-interface {v2, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    iget-object v2, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    move-result v2
+    invoke-interface {v1, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    if-nez v2, :cond_0
+    move-result v1
 
-    move v0, v1
+    if-nez v1, :cond_0
 
-    .line 193
+    .line 226
+    const/4 v0, 0x0
+
     goto :goto_0
 .end method
 
@@ -728,13 +770,13 @@
     .end annotation
 
     .prologue
-    .line 388
+    .line 448
     .local p2, "list":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v2
 
-    .line 390
+    .line 450
     .local v2, "outerDepth":I
     :cond_0
     :goto_0
@@ -744,12 +786,12 @@
 
     if-eqz v3, :cond_1
 
-    .line 391
+    .line 451
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 393
+    .line 453
     .local v0, "currentTag":Ljava/lang/String;
     const-string v3, "item"
 
@@ -759,7 +801,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 394
+    .line 454
     const/4 v3, 0x0
 
     const-string v4, "name"
@@ -768,24 +810,24 @@
 
     move-result-object v1
 
-    .line 396
+    .line 456
     .local v1, "name":Ljava/lang/String;
     if-eqz v1, :cond_0
 
-    .line 397
+    .line 457
     invoke-interface {p2, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 401
+    .line 461
     .end local v0    # "currentTag":Ljava/lang/String;
     .end local v1    # "name":Ljava/lang/String;
     :cond_1
     return-void
 .end method
 
-.method private readRules(Ljava/io/File;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
-    .locals 9
+.method private readRules(Ljava/io/File;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
+    .locals 10
     .param p1, "rulesFile"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -810,97 +852,107 @@
             "Ljava/util/Set",
             "<",
             "Ljava/lang/String;",
+            ">;",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
             ">;)V"
         }
     .end annotation
 
     .prologue
-    .line 316
+    .line 374
     .local p2, "serviceBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     .local p3, "serviceActionBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    .local p4, "packageBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    .local p5, "packageWhiteList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    .local p6, "broadcastWhiteList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    const-string v5, "TOSIntentFirewall"
+    .local p4, "packageWhiteList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .local p5, "broadcastWhiteList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .local p6, "sysBroadcastBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .local p7, "sysPackageWhiteList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .local p8, "sysPackageBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    const-string v6, "TOSIntentFirewall"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "readRules from "
+    const-string v8, "readRules from "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 341
+    .line 399
     :try_start_0
-    new-instance v1, Ljava/io/FileInputStream;
+    new-instance v2, Ljava/io/FileInputStream;
 
-    invoke-direct {v1, p1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    invoke-direct {v2, p1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 348
-    .local v1, "fis":Ljava/io/FileInputStream;
+    .line 406
+    .local v2, "fis":Ljava/io/FileInputStream;
     :try_start_1
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
-    move-result-object v3
-
-    .line 350
-    .local v3, "parser":Lorg/xmlpull/v1/XmlPullParser;
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v1, v5}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
-
-    .line 352
-    const-string v5, "tos_ifw_rules"
-
-    invoke-static {v3, v5}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
-
-    .line 354
-    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
-
-    move-result v2
-
-    .line 356
-    .local v2, "outerDepth":I
-    :cond_0
-    :goto_0
-    invoke-static {v3, v2}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    .line 357
-    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
-
     move-result-object v4
 
-    .line 359
-    .local v4, "tagName":Ljava/lang/String;
-    const-string v5, "service_black_list"
+    .line 408
+    .local v4, "parser":Lorg/xmlpull/v1/XmlPullParser;
+    const/4 v6, 0x0
 
-    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v4, v2, v6}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    move-result v5
+    .line 410
+    const-string v6, "tos_ifw_rules"
 
-    if-eqz v5, :cond_1
+    invoke-static {v4, v6}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
 
-    .line 360
-    invoke-direct {p0, v3, p2}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
+    .line 412
+    invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v3
+
+    .line 414
+    .local v3, "outerDepth":I
+    :cond_0
+    :goto_0
+    invoke-static {v4, v3}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_7
+
+    .line 415
+    invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 417
+    .local v5, "tagName":Ljava/lang/String;
+    const-string v6, "service_black_list"
+
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    .line 418
+    invoke-direct {p0, v4, p2}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
     :try_end_1
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
@@ -908,78 +960,78 @@
 
     goto :goto_0
 
-    .line 371
-    .end local v2    # "outerDepth":I
-    .end local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
-    .end local v4    # "tagName":Ljava/lang/String;
+    .line 433
+    .end local v3    # "outerDepth":I
+    .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v5    # "tagName":Ljava/lang/String;
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    .line 372
-    .local v0, "ex":Lorg/xmlpull/v1/XmlPullParserException;
+    .line 434
+    .local v1, "ex":Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_2
-    const-string v5, "TOSIntentFirewall"
+    const-string v6, "TOSIntentFirewall"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Error reading TOS intent firewall rules from "
+    const-string v8, "Error reading TOS intent firewall rules from "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 379
+    .line 439
     :try_start_3
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_5
 
-    .line 384
-    .end local v0    # "ex":Lorg/xmlpull/v1/XmlPullParserException;
-    .end local v1    # "fis":Ljava/io/FileInputStream;
+    .line 444
+    .end local v1    # "ex":Lorg/xmlpull/v1/XmlPullParserException;
+    .end local v2    # "fis":Ljava/io/FileInputStream;
     :goto_1
     return-void
 
-    .line 342
+    .line 400
     :catch_1
-    move-exception v0
+    move-exception v1
 
-    .line 344
-    .local v0, "ex":Ljava/io/FileNotFoundException;
+    .line 402
+    .local v1, "ex":Ljava/io/FileNotFoundException;
     goto :goto_1
 
-    .line 361
-    .end local v0    # "ex":Ljava/io/FileNotFoundException;
-    .restart local v1    # "fis":Ljava/io/FileInputStream;
-    .restart local v2    # "outerDepth":I
-    .restart local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
-    .restart local v4    # "tagName":Ljava/lang/String;
+    .line 419
+    .end local v1    # "ex":Ljava/io/FileNotFoundException;
+    .restart local v2    # "fis":Ljava/io/FileInputStream;
+    .restart local v3    # "outerDepth":I
+    .restart local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v5    # "tagName":Ljava/lang/String;
     :cond_1
     :try_start_4
-    const-string v5, "service_action_black_list"
+    const-string v6, "service_action_black_list"
 
-    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_2
+    if-eqz v6, :cond_2
 
-    .line 362
-    invoke-direct {p0, v3, p3}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
+    .line 420
+    invoke-direct {p0, v4, p3}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
     :try_end_4
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
@@ -987,236 +1039,53 @@
 
     goto :goto_0
 
-    .line 374
-    .end local v2    # "outerDepth":I
-    .end local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
-    .end local v4    # "tagName":Ljava/lang/String;
+    .line 435
+    .end local v3    # "outerDepth":I
+    .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v5    # "tagName":Ljava/lang/String;
     :catch_2
-    move-exception v0
+    move-exception v1
 
-    .line 375
-    .local v0, "ex":Ljava/io/IOException;
+    .line 436
+    .local v1, "ex":Ljava/io/IOException;
     :try_start_5
-    const-string v5, "TOSIntentFirewall"
+    const-string v6, "TOSIntentFirewall"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Error reading TOS intent firewall rules from "
+    const-string v8, "Error reading TOS intent firewall rules from "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 379
+    .line 439
     :try_start_6
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
 
     goto :goto_1
 
-    .line 380
+    .line 440
     :catch_3
-    move-exception v0
+    move-exception v1
 
-    .line 381
-    const-string v5, "TOSIntentFirewall"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Error while closing "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_1
-
-    .line 363
-    .end local v0    # "ex":Ljava/io/IOException;
-    .restart local v2    # "outerDepth":I
-    .restart local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
-    .restart local v4    # "tagName":Ljava/lang/String;
-    :cond_2
-    :try_start_7
-    const-string v5, "package_black_list"
-
-    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    .line 364
-    invoke-direct {p0, v3, p4}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
-    :try_end_7
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_7 .. :try_end_7} :catch_0
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
-
-    goto/16 :goto_0
-
-    .line 378
-    .end local v2    # "outerDepth":I
-    .end local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
-    .end local v4    # "tagName":Ljava/lang/String;
-    :catchall_0
-    move-exception v5
-
-    .line 379
-    :try_start_8
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-    :try_end_8
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_6
-
-    .line 382
-    :goto_2
-    throw v5
-
-    .line 365
-    .restart local v2    # "outerDepth":I
-    .restart local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
-    .restart local v4    # "tagName":Ljava/lang/String;
-    :cond_3
-    :try_start_9
-    const-string v5, "package_white_list"
-
-    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4
-
-    .line 366
-    invoke-direct {p0, v3, p5}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
-
-    goto/16 :goto_0
-
-    .line 367
-    :cond_4
-    const-string v5, "broadcast_white_list"
-
-    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    .line 368
-    invoke-direct {p0, v3, p6}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
-    :try_end_9
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_9 .. :try_end_9} :catch_0
-    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_2
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
-
-    goto/16 :goto_0
-
-    .line 379
-    .end local v4    # "tagName":Ljava/lang/String;
-    :cond_5
-    :try_start_a
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-    :try_end_a
-    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_4
-
-    goto :goto_1
-
-    .line 380
-    :catch_4
-    move-exception v0
-
-    .line 381
-    .restart local v0    # "ex":Ljava/io/IOException;
-    const-string v5, "TOSIntentFirewall"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Error while closing "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto/16 :goto_1
-
-    .line 380
-    .end local v2    # "outerDepth":I
-    .end local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
-    .local v0, "ex":Lorg/xmlpull/v1/XmlPullParserException;
-    :catch_5
-    move-exception v0
-
-    .line 381
-    .local v0, "ex":Ljava/io/IOException;
-    const-string v5, "TOSIntentFirewall"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Error while closing "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto/16 :goto_1
-
-    .line 380
-    .end local v0    # "ex":Ljava/io/IOException;
-    :catch_6
-    move-exception v0
-
-    .line 381
-    .restart local v0    # "ex":Ljava/io/IOException;
+    .line 441
     const-string v6, "TOSIntentFirewall"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -1237,380 +1106,743 @@
 
     move-result-object v7
 
-    invoke-static {v6, v7, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_2
+    goto :goto_1
+
+    .line 421
+    .end local v1    # "ex":Ljava/io/IOException;
+    .restart local v3    # "outerDepth":I
+    .restart local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v5    # "tagName":Ljava/lang/String;
+    :cond_2
+    :try_start_7
+    const-string v6, "package_white_list"
+
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    .line 422
+    invoke-direct {p0, v4, p4}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
+    :try_end_7
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_7 .. :try_end_7} :catch_0
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    goto/16 :goto_0
+
+    .line 438
+    .end local v3    # "outerDepth":I
+    .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v5    # "tagName":Ljava/lang/String;
+    :catchall_0
+    move-exception v6
+
+    .line 439
+    :try_start_8
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_6
+
+    .line 442
+    :goto_2
+    throw v6
+
+    .line 423
+    .restart local v3    # "outerDepth":I
+    .restart local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .restart local v5    # "tagName":Ljava/lang/String;
+    :cond_3
+    :try_start_9
+    const-string v6, "broadcast_white_list"
+
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    .line 424
+    invoke-direct {p0, v4, p5}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
+
+    goto/16 :goto_0
+
+    .line 425
+    :cond_4
+    const-string v6, "sys_broadcast_black_list"
+
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    .line 426
+    move-object/from16 v0, p6
+
+    invoke-direct {p0, v4, v0}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
+
+    goto/16 :goto_0
+
+    .line 427
+    :cond_5
+    const-string v6, "sys_package_white_list"
+
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    .line 428
+    move-object/from16 v0, p7
+
+    invoke-direct {p0, v4, v0}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
+
+    goto/16 :goto_0
+
+    .line 429
+    :cond_6
+    const-string v6, "sys_package_black_list"
+
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    .line 430
+    move-object/from16 v0, p8
+
+    invoke-direct {p0, v4, v0}, Lcom/android/server/am/TOSIntentFirewall;->readItemList(Lorg/xmlpull/v1/XmlPullParser;Ljava/util/Set;)V
+    :try_end_9
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_9 .. :try_end_9} :catch_0
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_2
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+
+    goto/16 :goto_0
+
+    .line 439
+    .end local v5    # "tagName":Ljava/lang/String;
+    :cond_7
+    :try_start_a
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_4
+
+    goto/16 :goto_1
+
+    .line 440
+    :catch_4
+    move-exception v1
+
+    .line 441
+    .restart local v1    # "ex":Ljava/io/IOException;
+    const-string v6, "TOSIntentFirewall"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Error while closing "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto/16 :goto_1
+
+    .line 440
+    .end local v3    # "outerDepth":I
+    .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .local v1, "ex":Lorg/xmlpull/v1/XmlPullParserException;
+    :catch_5
+    move-exception v1
+
+    .line 441
+    .local v1, "ex":Ljava/io/IOException;
+    const-string v6, "TOSIntentFirewall"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Error while closing "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto/16 :goto_1
+
+    .line 440
+    .end local v1    # "ex":Ljava/io/IOException;
+    :catch_6
+    move-exception v1
+
+    .line 441
+    .restart local v1    # "ex":Ljava/io/IOException;
+    const-string v7, "TOSIntentFirewall"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "Error while closing "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto/16 :goto_2
 .end method
 
 .method private readRulesDir(Ljava/io/File;)V
-    .locals 14
+    .locals 17
     .param p1, "rulesDir"    # Ljava/io/File;
 
     .prologue
-    .line 250
-    const-string v0, "TOSIntentFirewall"
+    .line 293
+    const-string v1, "TOSIntentFirewall"
 
-    const-string v12, "readRulesDir start"
+    const-string v15, "readRulesDir start"
 
-    invoke-static {v0, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v15}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 252
-    const/4 v7, 0x0
+    .line 295
+    const/4 v10, 0x0
 
-    .line 254
-    .local v7, "disabled":Z
-    new-instance v2, Ljava/util/HashSet;
-
-    invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
-
-    .line 255
-    .local v2, "serviceBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .line 297
+    .local v10, "disabled":Z
     new-instance v3, Ljava/util/HashSet;
 
     invoke-direct {v3}, Ljava/util/HashSet;-><init>()V
 
-    .line 256
-    .local v3, "serviceActionBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .line 298
+    .local v3, "serviceBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     new-instance v4, Ljava/util/HashSet;
 
     invoke-direct {v4}, Ljava/util/HashSet;-><init>()V
 
-    .line 257
-    .local v4, "packageBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .line 299
+    .local v4, "serviceActionBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     new-instance v5, Ljava/util/HashSet;
 
     invoke-direct {v5}, Ljava/util/HashSet;-><init>()V
 
-    .line 258
+    .line 300
     .local v5, "packageWhiteList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     new-instance v6, Ljava/util/HashSet;
 
     invoke-direct {v6}, Ljava/util/HashSet;-><init>()V
 
-    .line 260
+    .line 301
     .local v6, "broadcastWhiteList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    new-instance v8, Ljava/io/File;
+    new-instance v7, Ljava/util/HashSet;
 
-    const-string v0, "tos_ifw_disabled"
+    invoke-direct {v7}, Ljava/util/HashSet;-><init>()V
 
-    invoke-direct {v8, p1, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    .line 302
+    .local v7, "sysBroadcastBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    new-instance v8, Ljava/util/HashSet;
 
-    .line 262
-    .local v8, "disabledFile":Ljava/io/File;
-    invoke-virtual {v8}, Ljava/io/File;->exists()Z
+    invoke-direct {v8}, Ljava/util/HashSet;-><init>()V
 
-    move-result v0
+    .line 303
+    .local v8, "sysPackageWhiteList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    new-instance v9, Ljava/util/HashSet;
 
-    if-eqz v0, :cond_0
+    invoke-direct {v9}, Ljava/util/HashSet;-><init>()V
 
-    .line 263
-    const-string v0, "TOSIntentFirewall"
+    .line 305
+    .local v9, "sysPackageBlackList":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    new-instance v11, Ljava/io/File;
 
-    const-string v12, "TOSIntentFirewall is disabled"
+    const-string v1, "tos_ifw_disabled"
 
-    invoke-static {v0, v12}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, p1
 
-    .line 264
-    const/4 v7, 0x1
+    invoke-direct {v11, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 267
+    .line 307
+    .local v11, "disabledFile":Ljava/io/File;
+    invoke-virtual {v11}, Ljava/io/File;->exists()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 308
+    const-string v1, "TOSIntentFirewall"
+
+    const-string v15, "TOSIntentFirewall is disabled"
+
+    invoke-static {v1, v15}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 309
+    const/4 v10, 0x1
+
+    .line 312
     :cond_0
-    if-nez v7, :cond_3
+    if-nez v10, :cond_3
 
-    .line 268
-    invoke-virtual {p1}, Ljava/io/File;->listFiles()[Ljava/io/File;
+    .line 313
+    invoke-virtual/range {p1 .. p1}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
-    move-result-object v9
+    move-result-object v12
 
-    .line 270
-    .local v9, "files":[Ljava/io/File;
-    const/4 v10, 0x0
+    .line 315
+    .local v12, "files":[Ljava/io/File;
+    const/4 v13, 0x0
 
-    .local v10, "i":I
+    .local v13, "i":I
     :goto_0
-    array-length v0, v9
+    array-length v1, v12
 
-    if-ge v10, v0, :cond_2
+    if-ge v13, v1, :cond_2
 
-    .line 271
-    aget-object v1, v9, v10
+    .line 316
+    aget-object v2, v12, v13
 
-    .line 273
-    .local v1, "file":Ljava/io/File;
-    invoke-virtual {v1}, Ljava/io/File;->getName()Ljava/lang/String;
+    .line 318
+    .local v2, "file":Ljava/io/File;
+    invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v12, ".xml"
+    const-string v15, ".xml"
 
-    invoke-virtual {v0, v12}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v1, v15}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    move-object v0, p0
+    move-object/from16 v1, p0
 
-    .line 274
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/am/TOSIntentFirewall;->readRules(Ljava/io/File;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
+    .line 319
+    invoke-direct/range {v1 .. v9}, Lcom/android/server/am/TOSIntentFirewall;->readRules(Ljava/io/File;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
 
-    .line 270
+    .line 315
     :cond_1
-    add-int/lit8 v10, v10, 0x1
+    add-int/lit8 v13, v13, 0x1
 
     goto :goto_0
 
-    .line 278
-    .end local v1    # "file":Ljava/io/File;
+    .line 324
+    .end local v2    # "file":Ljava/io/File;
     :cond_2
-    const-string v0, "TOSIntentFirewall"
+    const-string v1, "TOSIntentFirewall"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "serviceBlackList count "
+    const-string v16, "serviceBlackList count "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
-
-    invoke-interface {v2}, Ljava/util/Set;->size()I
-
-    move-result v13
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v0, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 279
-    const-string v0, "TOSIntentFirewall"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "serviceActionBlackList count "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
+    move-result-object v15
 
     invoke-interface {v3}, Ljava/util/Set;->size()I
 
-    move-result v13
+    move-result v16
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v15
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v15
 
-    invoke-static {v0, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v15}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 280
-    const-string v0, "TOSIntentFirewall"
+    .line 325
+    const-string v1, "TOSIntentFirewall"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "packageBlackList count "
+    const-string v16, "serviceActionBlackList count "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v15
 
     invoke-interface {v4}, Ljava/util/Set;->size()I
 
-    move-result v13
+    move-result v16
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v15
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v15
 
-    invoke-static {v0, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v15}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 281
-    const-string v0, "TOSIntentFirewall"
+    .line 326
+    const-string v1, "TOSIntentFirewall"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "packageWhiteList count "
+    const-string v16, "packageWhiteList count "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v15
 
     invoke-interface {v5}, Ljava/util/Set;->size()I
 
-    move-result v13
+    move-result v16
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v15
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v15
 
-    invoke-static {v0, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v15}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 282
-    const-string v0, "TOSIntentFirewall"
+    .line 327
+    const-string v1, "TOSIntentFirewall"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "broadcastWhiteList count "
+    const-string v16, "broadcastWhiteList count "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v15
 
     invoke-interface {v6}, Ljava/util/Set;->size()I
 
-    move-result v13
+    move-result v16
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v15
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v15
 
-    invoke-static {v0, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v15}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 284
-    invoke-interface {v2}, Ljava/util/Set;->size()I
+    .line 328
+    const-string v1, "TOSIntentFirewall"
 
-    move-result v0
+    new-instance v15, Ljava/lang/StringBuilder;
 
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "sysBroadcastBlackList count "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-interface {v7}, Ljava/util/Set;->size()I
+
+    move-result v16
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v1, v15}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 329
+    const-string v1, "TOSIntentFirewall"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "sysPackageWhiteList count "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-interface {v8}, Ljava/util/Set;->size()I
+
+    move-result v16
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v1, v15}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 330
+    const-string v1, "TOSIntentFirewall"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "sysPackageBlackList count "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-interface {v9}, Ljava/util/Set;->size()I
+
+    move-result v16
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v1, v15}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 332
     invoke-interface {v3}, Ljava/util/Set;->size()I
 
-    move-result v12
-
-    add-int/2addr v0, v12
+    move-result v1
 
     invoke-interface {v4}, Ljava/util/Set;->size()I
 
-    move-result v12
+    move-result v15
 
-    add-int/2addr v0, v12
+    add-int/2addr v1, v15
 
     invoke-interface {v5}, Ljava/util/Set;->size()I
 
-    move-result v12
+    move-result v15
 
-    add-int/2addr v0, v12
+    add-int/2addr v1, v15
 
     invoke-interface {v6}, Ljava/util/Set;->size()I
 
-    move-result v12
+    move-result v15
 
-    add-int v11, v0, v12
+    add-int/2addr v1, v15
 
-    .line 287
-    .local v11, "totalCount":I
-    if-nez v11, :cond_3
+    invoke-interface {v7}, Ljava/util/Set;->size()I
 
-    .line 288
-    invoke-direct {p0, v2, v5, v6}, Lcom/android/server/am/TOSIntentFirewall;->addDefaultRules(Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
+    move-result v15
 
-    .line 292
-    .end local v9    # "files":[Ljava/io/File;
-    .end local v10    # "i":I
-    .end local v11    # "totalCount":I
+    add-int/2addr v1, v15
+
+    invoke-interface {v8}, Ljava/util/Set;->size()I
+
+    move-result v15
+
+    add-int/2addr v1, v15
+
+    invoke-interface {v9}, Ljava/util/Set;->size()I
+
+    move-result v15
+
+    add-int v14, v1, v15
+
+    .line 337
+    .local v14, "totalCount":I
+    if-nez v14, :cond_3
+
+    .line 338
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v6}, Lcom/android/server/am/TOSIntentFirewall;->addDefaultRules(Ljava/util/Set;)V
+
+    .line 342
+    .end local v12    # "files":[Ljava/io/File;
+    .end local v13    # "i":I
+    .end local v14    # "totalCount":I
     :cond_3
-    iget-object v12, p0, Lcom/android/server/am/TOSIntentFirewall;->mAMS:Lcom/android/server/am/ActivityManagerService;
+    move-object/from16 v0, p0
 
-    monitor-enter v12
+    iget-object v15, v0, Lcom/android/server/am/TOSIntentFirewall;->mAMS:Lcom/android/server/am/ActivityManagerService;
 
-    .line 293
+    monitor-enter v15
+
+    .line 343
     :try_start_0
-    iput-boolean v7, p0, Lcom/android/server/am/TOSIntentFirewall;->mDisabled:Z
+    move-object/from16 v0, p0
 
-    .line 295
-    iget-object v0, p0, Lcom/android/server/am/TOSIntentFirewall;->mServiceBlackList:Ljava/util/Set;
+    iput-boolean v10, v0, Lcom/android/server/am/TOSIntentFirewall;->mDisabled:Z
 
-    invoke-interface {v0}, Ljava/util/Set;->clear()V
+    .line 345
+    move-object/from16 v0, p0
 
-    .line 296
-    iput-object v2, p0, Lcom/android/server/am/TOSIntentFirewall;->mServiceBlackList:Ljava/util/Set;
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mServiceBlackList:Ljava/util/Set;
 
-    .line 298
-    iget-object v0, p0, Lcom/android/server/am/TOSIntentFirewall;->mServiceActionBlackList:Ljava/util/Set;
+    invoke-interface {v1}, Ljava/util/Set;->clear()V
 
-    invoke-interface {v0}, Ljava/util/Set;->clear()V
+    .line 346
+    move-object/from16 v0, p0
 
-    .line 299
-    iput-object v3, p0, Lcom/android/server/am/TOSIntentFirewall;->mServiceActionBlackList:Ljava/util/Set;
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mServiceBlackList:Ljava/util/Set;
 
-    .line 301
-    iget-object v0, p0, Lcom/android/server/am/TOSIntentFirewall;->mPackageBlackList:Ljava/util/Set;
+    invoke-interface {v1, v3}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
-    invoke-interface {v0}, Ljava/util/Set;->clear()V
+    .line 348
+    move-object/from16 v0, p0
 
-    .line 302
-    iput-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mPackageBlackList:Ljava/util/Set;
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mServiceActionBlackList:Ljava/util/Set;
 
-    .line 304
-    iget-object v0, p0, Lcom/android/server/am/TOSIntentFirewall;->mPackageWhiteList:Ljava/util/Set;
+    invoke-interface {v1}, Ljava/util/Set;->clear()V
 
-    invoke-interface {v0}, Ljava/util/Set;->clear()V
+    .line 349
+    move-object/from16 v0, p0
 
-    .line 305
-    iput-object v5, p0, Lcom/android/server/am/TOSIntentFirewall;->mPackageWhiteList:Ljava/util/Set;
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mServiceActionBlackList:Ljava/util/Set;
 
-    .line 307
-    iget-object v0, p0, Lcom/android/server/am/TOSIntentFirewall;->mBroadcastWhiteList:Ljava/util/Set;
+    invoke-interface {v1, v4}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
-    invoke-interface {v0}, Ljava/util/Set;->clear()V
+    .line 351
+    move-object/from16 v0, p0
 
-    .line 308
-    iput-object v6, p0, Lcom/android/server/am/TOSIntentFirewall;->mBroadcastWhiteList:Ljava/util/Set;
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mPackageWhiteList:Ljava/util/Set;
 
-    .line 309
-    monitor-exit v12
+    invoke-interface {v1}, Ljava/util/Set;->clear()V
+
+    .line 352
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mPackageWhiteList:Ljava/util/Set;
+
+    invoke-interface {v1, v5}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+
+    .line 354
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mBroadcastWhiteList:Ljava/util/Set;
+
+    invoke-interface {v1}, Ljava/util/Set;->clear()V
+
+    .line 355
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mBroadcastWhiteList:Ljava/util/Set;
+
+    invoke-interface {v1, v6}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+
+    .line 357
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mSysBroadcastBlackList:Ljava/util/Set;
+
+    invoke-interface {v1}, Ljava/util/Set;->clear()V
+
+    .line 358
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mSysBroadcastBlackList:Ljava/util/Set;
+
+    invoke-interface {v1, v7}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+
+    .line 360
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mSysPackageWhiteList:Ljava/util/Set;
+
+    invoke-interface {v1}, Ljava/util/Set;->clear()V
+
+    .line 361
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mSysPackageWhiteList:Ljava/util/Set;
+
+    invoke-interface {v1, v8}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+
+    .line 363
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mSysPackageBlackList:Ljava/util/Set;
+
+    invoke-interface {v1}, Ljava/util/Set;->clear()V
+
+    .line 364
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/TOSIntentFirewall;->mSysPackageBlackList:Ljava/util/Set;
+
+    invoke-interface {v1, v9}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+
+    .line 365
+    monitor-exit v15
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 311
-    const-string v0, "TOSIntentFirewall"
+    .line 367
+    const-string v1, "TOSIntentFirewall"
 
-    const-string v12, "readRulesDir end"
+    const-string v15, "readRulesDir end"
 
-    invoke-static {v0, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v15}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 312
+    .line 368
     return-void
 
-    .line 309
+    .line 365
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     :try_start_1
-    monitor-exit v12
+    monitor-exit v15
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 
@@ -1623,17 +1855,17 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 150
+    .line 170
     iget-boolean v3, p0, Lcom/android/server/am/TOSIntentFirewall;->mDisabled:Z
 
     if-eqz v3, :cond_1
 
-    .line 178
+    .line 217
     :cond_0
     :goto_0
     return v1
 
-    .line 154
+    .line 174
     :cond_1
     if-eqz p1, :cond_0
 
@@ -1653,13 +1885,21 @@
 
     if-eqz v3, :cond_0
 
-    .line 159
+    .line 179
     iget-object v3, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v2, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    .line 161
+    .line 180
     .local v2, "appInfo":Landroid/content/pm/ApplicationInfo;
+    iget-object v3, p1, Lcom/android/server/am/BroadcastRecord;->intent:Landroid/content/Intent;
+
+    invoke-virtual {v3}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 182
+    .local v0, "action":Ljava/lang/String;
     iget v3, p1, Lcom/android/server/am/BroadcastRecord;->callingUid:I
 
     invoke-direct {p0, v3, v2}, Lcom/android/server/am/TOSIntentFirewall;->quickPass(ILandroid/content/pm/ApplicationInfo;)Z
@@ -1668,27 +1908,16 @@
 
     if-nez v3, :cond_0
 
-    .line 165
-    const/4 v1, 0x1
-
-    .line 167
-    .local v1, "allow":Z
-    iget-object v3, p1, Lcom/android/server/am/BroadcastRecord;->intent:Landroid/content/Intent;
-
-    invoke-virtual {v3}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 170
-    .local v0, "action":Ljava/lang/String;
+    .line 186
     iget-object v3, p0, Lcom/android/server/am/TOSIntentFirewall;->mBroadcastWhiteList:Ljava/util/Set;
 
     invoke-interface {v3, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-eqz v3, :cond_2
 
+    .line 187
     iget-object v3, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v3, v3, Landroid/content/pm/ActivityInfo;->processName:Ljava/lang/String;
@@ -1701,7 +1930,227 @@
 
     if-nez v3, :cond_0
 
-    .line 172
+    .line 188
+    const-string v3, "TOSIntentFirewall"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Start proc "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->processName:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, " for "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, " by action "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, " from UID["
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, p1, Lcom/android/server/am/BroadcastRecord;->callingUid:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "] to UID["
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, v2, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "]"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    .line 195
+    :cond_2
+    invoke-direct {p0, v2}, Lcom/android/server/am/TOSIntentFirewall;->isSysApp(Landroid/content/pm/ApplicationInfo;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    iget-object v3, p0, Lcom/android/server/am/TOSIntentFirewall;->mSysPackageWhiteList:Ljava/util/Set;
+
+    iget-object v4, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-interface {v3, v4}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    iget-object v3, p0, Lcom/android/server/am/TOSIntentFirewall;->mSysBroadcastBlackList:Ljava/util/Set;
+
+    invoke-interface {v3, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_4
+
+    .line 198
+    :cond_3
+    iget-object v3, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->processName:Ljava/lang/String;
+
+    iget v4, v2, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-direct {p0, v3, v4}, Lcom/android/server/am/TOSIntentFirewall;->checkProcessRecord(Ljava/lang/String;I)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 199
+    const-string v3, "TOSIntentFirewall"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Start proc "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->processName:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, " for "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, " by action "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, " from UID["
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, p1, Lcom/android/server/am/BroadcastRecord;->callingUid:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "] to UID["
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, v2, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "]"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    .line 206
+    :cond_4
+    const/4 v1, 0x1
+
+    .line 209
+    .local v1, "allow":Z
+    iget-object v3, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->processName:Ljava/lang/String;
+
+    iget v4, v2, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-direct {p0, v3, v4}, Lcom/android/server/am/TOSIntentFirewall;->checkProcessRecord(Ljava/lang/String;I)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 210
     const-string v3, "TOSIntentFirewall"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1744,16 +2193,46 @@
 
     move-result-object v4
 
+    const-string v5, " from UID["
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, p1, Lcom/android/server/am/BroadcastRecord;->callingUid:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "] to UID["
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, v2, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "]"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-static {v3, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 175
+    .line 214
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method public checkService(Lcom/android/server/am/ServiceRecord;Landroid/content/Intent;II)Z
@@ -1766,17 +2245,17 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 106
+    .line 116
     iget-boolean v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mDisabled:Z
 
     if-eqz v4, :cond_1
 
-    .line 146
+    .line 166
     :cond_0
     :goto_0
     return v0
 
-    .line 110
+    .line 120
     :cond_1
     if-eqz p1, :cond_0
 
@@ -1794,7 +2273,7 @@
 
     if-eqz p2, :cond_0
 
-    .line 114
+    .line 124
     iget-object v4, p1, Lcom/android/server/am/ServiceRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
 
     invoke-direct {p0, p3, v4}, Lcom/android/server/am/TOSIntentFirewall;->quickPass(ILandroid/content/pm/ApplicationInfo;)Z
@@ -1803,48 +2282,16 @@
 
     if-nez v4, :cond_0
 
-    .line 118
-    const/4 v0, 0x1
+    .line 128
+    iget-object v4, p1, Lcom/android/server/am/ServiceRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
 
-    .line 120
-    .local v0, "allow":Z
-    iget-object v4, p1, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
-
-    invoke-virtual {v4}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 121
-    .local v3, "serviceString":Ljava/lang/String;
-    iget-object v4, p1, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
-
-    invoke-virtual {v4}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 122
-    .local v2, "serviceShortString":Ljava/lang/String;
-    iget-object v4, p1, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
-
-    invoke-virtual {v4}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 125
-    .local v1, "serviceName":Ljava/lang/String;
-    iget-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mServiceActionBlackList:Ljava/util/Set;
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-interface {v4, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-direct {p0, v4}, Lcom/android/server/am/TOSIntentFirewall;->isSysApp(Landroid/content/pm/ApplicationInfo;)Z
 
     move-result v4
 
     if-eqz v4, :cond_2
 
-    .line 126
+    .line 129
     iget-object v4, p1, Lcom/android/server/am/ServiceRecord;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     iget-object v4, v4, Landroid/content/pm/ServiceInfo;->processName:Ljava/lang/String;
@@ -1859,7 +2306,149 @@
 
     if-nez v4, :cond_0
 
-    .line 127
+    .line 130
+    const-string v4, "TOSIntentFirewall"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Start proc "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p1, Lcom/android/server/am/ServiceRecord;->serviceInfo:Landroid/content/pm/ServiceInfo;
+
+    iget-object v6, v6, Landroid/content/pm/ServiceInfo;->processName:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, " for "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p1, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, " by action "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, " from UID["
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "] to UID["
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p1, Lcom/android/server/am/ServiceRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v6, v6, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "]"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    .line 137
+    :cond_2
+    const/4 v0, 0x1
+
+    .line 139
+    .local v0, "allow":Z
+    iget-object v4, p1, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+
+    invoke-virtual {v4}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 140
+    .local v3, "serviceString":Ljava/lang/String;
+    iget-object v4, p1, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+
+    invoke-virtual {v4}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 141
+    .local v2, "serviceShortString":Ljava/lang/String;
+    iget-object v4, p1, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+
+    invoke-virtual {v4}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 144
+    .local v1, "serviceName":Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mServiceActionBlackList:Ljava/util/Set;
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v4, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    .line 145
+    iget-object v4, p1, Lcom/android/server/am/ServiceRecord;->serviceInfo:Landroid/content/pm/ServiceInfo;
+
+    iget-object v4, v4, Landroid/content/pm/ServiceInfo;->processName:Ljava/lang/String;
+
+    iget-object v5, p1, Lcom/android/server/am/ServiceRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v5, v5, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-direct {p0, v4, v5}, Lcom/android/server/am/TOSIntentFirewall;->checkProcessRecord(Ljava/lang/String;I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    .line 146
     const-string v4, "TOSIntentFirewall"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1912,20 +2501,20 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 130
+    .line 149
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 132
-    :cond_2
+    .line 151
+    :cond_3
     iget-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mServiceBlackList:Ljava/util/Set;
 
     invoke-interface {v4, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4
 
     iget-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mServiceBlackList:Ljava/util/Set;
 
@@ -1933,7 +2522,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4
 
     iget-object v4, p0, Lcom/android/server/am/TOSIntentFirewall;->mServiceBlackList:Ljava/util/Set;
 
@@ -1941,10 +2530,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
-    .line 135
-    :cond_3
+    .line 154
+    :cond_4
     const-string v4, "TOSIntentFirewall"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -2013,13 +2602,13 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 137
+    .line 157
     const/4 v0, 0x0
 
     goto/16 :goto_0
 
-    .line 139
-    :cond_4
+    .line 159
+    :cond_5
     iget-object v4, p1, Lcom/android/server/am/ServiceRecord;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     iget-object v4, v4, Landroid/content/pm/ServiceInfo;->processName:Ljava/lang/String;
@@ -2034,7 +2623,7 @@
 
     if-nez v4, :cond_0
 
-    .line 140
+    .line 160
     const-string v4, "TOSIntentFirewall"
 
     new-instance v5, Ljava/lang/StringBuilder;
