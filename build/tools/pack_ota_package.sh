@@ -348,7 +348,8 @@ prepare_system_files()
 	if [ $DESINTY="1280x720" ]; then
         local DEST_FILE=`find "$DEST_DIR" -name framework-qrom-res.apk`
         if [ -z "$DEST_FILE" ]; then
-			echo "[ERROR] cannot find '$DEST_FILE' "
+			echo "[ERROR] cannot find framework-qrom-res.apk to override"
+			echo "check your package/target_files/SYSTEM/framework directory"
 			exit 1
 		fi
 		cp $PORT_DEVICE/tos/extra_apk_for_adaptation/1280x720_framework-qrom-res.apk $DEST_FILE
