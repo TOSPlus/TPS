@@ -102,31 +102,34 @@
 
     .line 315
     .local v0, "viewParent":Landroid/view/ViewParent;
-    instance-of v1, v0, Landroid/view/WindowManager;
-
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 316
-    check-cast v0, Landroid/view/WindowManager;
-
-    .end local v0    # "viewParent":Landroid/view/ViewParent;
     iget-object v1, p0, Lcom/tencent/qrom/widget/SideBar$AddWindow;->this$0:Lcom/tencent/qrom/widget/SideBar;
 
-    # getter for: Lcom/tencent/qrom/widget/SideBar;->mDialogText:Landroid/widget/TextView;
-    invoke-static {v1}, Lcom/tencent/qrom/widget/SideBar;->access$400(Lcom/tencent/qrom/widget/SideBar;)Landroid/widget/TextView;
+    # getter for: Lcom/tencent/qrom/widget/SideBar;->mWindowManager:Landroid/view/WindowManager;
+    invoke-static {v1}, Lcom/tencent/qrom/widget/SideBar;->access$300(Lcom/tencent/qrom/widget/SideBar;)Landroid/view/WindowManager;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/tencent/qrom/widget/SideBar$AddWindow;->this$0:Lcom/tencent/qrom/widget/SideBar;
 
-    # getter for: Lcom/tencent/qrom/widget/SideBar;->mLayoutParams:Landroid/view/WindowManager$LayoutParams;
-    invoke-static {v2}, Lcom/tencent/qrom/widget/SideBar;->access$500(Lcom/tencent/qrom/widget/SideBar;)Landroid/view/WindowManager$LayoutParams;
+    # getter for: Lcom/tencent/qrom/widget/SideBar;->mDialogText:Landroid/widget/TextView;
+    invoke-static {v2}, Lcom/tencent/qrom/widget/SideBar;->access$400(Lcom/tencent/qrom/widget/SideBar;)Landroid/widget/TextView;
 
     move-result-object v2
 
-    invoke-interface {v0, v1, v2}, Landroid/view/WindowManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    iget-object v3, p0, Lcom/tencent/qrom/widget/SideBar$AddWindow;->this$0:Lcom/tencent/qrom/widget/SideBar;
+
+    # getter for: Lcom/tencent/qrom/widget/SideBar;->mLayoutParams:Landroid/view/WindowManager$LayoutParams;
+    invoke-static {v3}, Lcom/tencent/qrom/widget/SideBar;->access$500(Lcom/tencent/qrom/widget/SideBar;)Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v3
+
+    invoke-interface {v1, v2, v3}, Landroid/view/WindowManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 321
+    .end local v0    # "viewParent":Landroid/view/ViewParent;
     :cond_0
     :goto_0
     return-void

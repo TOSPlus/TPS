@@ -2752,7 +2752,7 @@ Name: res/drawable-xxhdpi-v4/dialog_bg.9.png
 SHA1-Digest: HHXBYyTNCYljWjMtdhBBRDnXv4Y=
 
 Name: resources.arsc
-SHA1-Digest: YnyJaYFs5XFfXJd4kqOxSNWBgUE=
+SHA1-Digest: SPHmi8D6HMOQ0QFKs45eHch/aBM=
 
 Name: res/drawable/btn_check_to_off_material_anim.xml
 SHA1-Digest: gdTo9fPaRVdY45c8vfInNp4gN2Y=

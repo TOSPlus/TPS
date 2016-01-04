@@ -82,7 +82,7 @@
         <item name="searchViewBackground">@drawable/search_view_light_background</item>
         <item name="searchViewEditorBackground">@drawable/search_view_editor_light_background</item>
         <item name="searchViewCancel">@color/qrom_text_blue</item>
-        <item name="searchViewTextColor">@color/qrom_light_body</item>
+        <item name="searchViewTextColor">@color/search_view_text_color_light</item>
         <item name="searchViewTextColorHint">@color/search_view_text_color_hint_light</item>
         <item name="searchViewCursorDrawable">@drawable/search_view_cursor_drawable_light</item>
         <item name="preferenceFrameLayoutStyle">@style/Widget.qrom.PreferenceFrameLayout</item>

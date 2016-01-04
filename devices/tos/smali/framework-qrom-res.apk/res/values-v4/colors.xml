@@ -88,4 +88,5 @@
     <color name="search_view_text_color_dark">#ccffffff</color>
     <color name="qrom_toast_text_shadowcolor">#bb000000</color>
     <color name="qrom_toast_textcolor">#ccffffff</color>
+    <color name="qrom_edit_config_textcolor">#cc000000</color>
 </resources>

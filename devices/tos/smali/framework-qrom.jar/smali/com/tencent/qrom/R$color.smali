@@ -85,6 +85,8 @@
 
 .field public static final qrom_dialog_button_text_light:I = 0x7a0b005b
 
+.field public static final qrom_edit_config_textcolor:I = 0x7a0b006a
+
 .field public static final qrom_floatview_background:I = 0x7a0b0046
 
 .field public static final qrom_light_black:I = 0x7a0b0007
