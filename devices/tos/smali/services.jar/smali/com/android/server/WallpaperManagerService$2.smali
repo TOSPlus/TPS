@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 492
+    .line 498
     iput-object p1, p0, Lcom/android/server/WallpaperManagerService$2;->this$0:Lcom/android/server/WallpaperManagerService;
 
     invoke-direct {p0}, Landroid/app/IUserSwitchObserver$Stub;-><init>()V
@@ -43,7 +43,7 @@
     .end annotation
 
     .prologue
-    .line 500
+    .line 506
     return-void
 .end method
 
@@ -53,11 +53,11 @@
     .param p2, "reply"    # Landroid/os/IRemoteCallback;
 
     .prologue
-    .line 495
+    .line 501
     iget-object v0, p0, Lcom/android/server/WallpaperManagerService$2;->this$0:Lcom/android/server/WallpaperManagerService;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/WallpaperManagerService;->switchUser(ILandroid/os/IRemoteCallback;)V
 
-    .line 496
+    .line 502
     return-void
 .end method
