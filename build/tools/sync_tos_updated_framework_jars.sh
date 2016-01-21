@@ -43,10 +43,7 @@ main() {
 	backup_previous_pack_smali
     detos_patched_vendor_smali
 	sync_tos_updated_framework_jars
-	
-	# 将framework-qrom.jar中所有的smali文件拷贝到android.policy.jar中
-    cp -rf "$PORT_DEVICE/tos/smali/framework-qrom.jar/smali" "$VENDOR_SMALI_PACK_PATH/android.policy.jar/"
-
+	handle_tos_added_files
 	echo "sync patch done."
 }
 
@@ -513,6 +510,21 @@ handle_construtor() {
     IFS=$OLD_IFS
 	
 	mv "$TARGET_FILE" "$VENDOR_SMALI_FILE" 
+}
+
+handle_tos_added_files()
+{
+	# 将framework-qrom.jar中所有的smali文件拷贝到android.policy.jar中
+    cp -rf "$PORT_DEVICE/tos/smali/framework-qrom.jar/smali" "$VENDOR_SMALI_PACK_PATH/android.policy.jar/"
+
+    local TOS_SMALI_PATH=$PORT_DEVICE/tos/smali
+    for FILE in `find "$TOS_SMALI_PATH" -name "Tos*.smali"`
+    do
+        local RELATIVE_PATH=${FILE:${#TOS_SMALI_PATH}+1}
+        # /framework2/smali/com/android/internal/os/TosPlugTestUsed.smali
+		mkdir -p `dirname "$VENDOR_SMALI_PACK_PATH/$RELATIVE_PATH"`
+		cp -f "$FILE" "$VENDOR_SMALI_PACK_PATH/$RELATIVE_PATH"
+    done					
 }
 
 main
