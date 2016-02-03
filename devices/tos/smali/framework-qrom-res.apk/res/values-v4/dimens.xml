@@ -40,7 +40,7 @@
     <dimen name="qrom_Mini_TextSize">10.0sp</dimen>
     <dimen name="action_bar_icon_vertical_padding">8.0dip</dimen>
     <item type="dimen" name="dialog_min_width_major">65.0%</item>
-    <item type="dimen" name="dialog_min_width_minor">95.00001%</item>
+    <item type="dimen" name="dialog_min_width_minor">65.0%</item>
     <item type="dimen" name="dialog_min_width_minor_context">100.0%</item>
     <item type="dimen" name="bottom_dialog_min_width_major">100.0%</item>
     <item type="dimen" name="bottom_dialog_min_width_minor">100.0%</item>

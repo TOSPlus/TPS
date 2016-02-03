@@ -451,8 +451,6 @@
         <item name="android:buttonBarStyle">@style/AlertDialog.qrom.ButtonBar</item>
         <item name="android:editTextBackground">@drawable/edit_text_holo_light</item>
         <item name="android:alertDialogIcon">@drawable/ic_dialog_alert_holo_light</item>
-        <item name="android:windowMinWidthMajor">@dimen/dialog_min_width_major</item>
-        <item name="android:windowMinWidthMinor">@dimen/dialog_min_width_minor</item>
         <item name="android:windowCloseOnTouchOutside">@bool/config_closeDialogWhenTouchOutside</item>
         <item name="android:textAppearanceListItem">?android:textAppearanceMedium</item>
         <item name="android:textAppearanceListItemSmall">?android:textAppearanceMedium</item>
@@ -511,8 +509,6 @@
     <style name="Theme.qrom.Dialog.Alert" parent="@style/Theme.qrom.Dialog">
         <item name="android:windowBackground">@color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowMinWidthMajor">@dimen/dialog_min_width_major</item>
-        <item name="android:windowMinWidthMinor">@dimen/dialog_min_width_minor</item>
     </style>
     <style name="Theme.qrom.Dialog.NoActionBar" parent="@style/Theme.qrom.Dialog">
         <item name="android:windowNoTitle">true</item>

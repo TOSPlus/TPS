@@ -1,6 +1,6 @@
 Signature-Version: 1.0
 Created-By: 1.0 (Android SignApk)
-SHA1-Digest-Manifest: JYVk/PlGViTDZsee+s5eXHQCaV0=
+SHA1-Digest-Manifest: g+49v5/GOGebG5HcDBo3ZN63IAw=
 
 Name: res/drawable-xxhdpi-v4/qrom_preference_bottom_normal.9.png
 SHA1-Digest-Manifest: dS2MXO9/QfnFbLGfRKR/kovo9ok=
@@ -317,7 +317,7 @@ Name: res/drawable-xxhdpi-v4/spinner_ab_default_holo_light.9.png
 SHA1-Digest-Manifest: iDiOfhDOPUq1jr0fqhYkhxdPDbs=
 
 Name: res/layout-v4/alert_dialog_holo.xml
-SHA1-Digest-Manifest: A55Rs5gJvdnTHg1vFgRIBvqcRdQ=
+SHA1-Digest-Manifest: 0Q+kY9nHEEGxx+0B6iSLepjQQ3c=
 
 Name: res/drawable-xxhdpi-v4/menu_fullwidth_bg_bottom.9.png
 SHA1-Digest-Manifest: OHiz4jbjZu1J/PP63KF1dngyaiQ=
@@ -2665,7 +2665,7 @@ Name: res/drawable/switch_track_on_sel.xml
 SHA1-Digest-Manifest: a+LHDzda3R5KB7cMeLlikM/usnI=
 
 Name: res/layout-v4/qrom_alert_dialog_holo.xml
-SHA1-Digest-Manifest: ZA0PlwRDBRQfICA5tVbroyYsQ8s=
+SHA1-Digest-Manifest: 1Ilsa2X4D1eyj+5TSAqiebyQe/Y=
 
 Name: res/drawable-xxhdpi-v4/launcher_theme_ic_app_video.png
 SHA1-Digest-Manifest: XB3I0l0m66xhhvBTgCbaxzKiIJU=
@@ -2753,7 +2753,7 @@ Name: res/drawable-xxhdpi-v4/dialog_bg.9.png
 SHA1-Digest-Manifest: qKt2atsbeEOGRCGMcwC7HCKDTeE=
 
 Name: resources.arsc
-SHA1-Digest-Manifest: +48oU3YzsNiyXIuI6joEyQvcT30=
+SHA1-Digest-Manifest: 5IWOui3LBN1sv3bJj67z7vq3oG0=
 
 Name: res/drawable/btn_check_to_off_material_anim.xml
 SHA1-Digest-Manifest: A6lruISgtFHB8Z0wz3N+VXakzK8=
