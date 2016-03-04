@@ -316,7 +316,7 @@ Name: res/drawable-xxhdpi-v4/spinner_ab_default_holo_light.9.png
 SHA1-Digest: UAevNka/RMfhu8VRlbB5O3VoJFs=
 
 Name: res/layout-v4/alert_dialog_holo.xml
-SHA1-Digest: +Z9vamPuvILp9cZIW7o3De8V6Yw=
+SHA1-Digest: YH91ixeqtjzJacYD6GuoaNNzdTU=
 
 Name: res/drawable-xxhdpi-v4/menu_fullwidth_bg_bottom.9.png
 SHA1-Digest: fRTo65pmFfANqd10GDyO2gj9Cqs=
@@ -2664,7 +2664,7 @@ Name: res/drawable-xhdpi-v4/launcher_theme_ic_app_mysetting.png
 SHA1-Digest: oDFY9GJccb0wCuvjy6pUkYfiegg=
 
 Name: res/layout-v4/qrom_alert_dialog_holo.xml
-SHA1-Digest: 0Muc1Nt3F0PAWmbC7U/kJC/Hqf8=
+SHA1-Digest: DoKfmb5wyTmOKeDXUMA9SeQn5ZU=
 
 Name: res/drawable-xxhdpi-v4/launcher_theme_ic_app_video.png
 SHA1-Digest: UvD4fMocbyT2/ss5ijf8DQZuL2E=
